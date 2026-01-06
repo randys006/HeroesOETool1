@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_unfrozen_t5_t6_t7_1",
+            "useOldSquads": false,
+            "rollChance": 302,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "succubus_upg_alt",
+                        "v": 24687
+                    },
+                    {
+                        "s": "arbitrator_upg_alt",
+                        "v": 24687
+                    },
+                    {
+                        "s": "unspeakable_upg_alt",
+                        "v": 24687
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 24687,
+                "units": [
+                    "succubus_upg_alt",
+                    "arbitrator_upg_alt",
+                    "unspeakable_upg_alt"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 180027,
+                "units": [
+                    {
+                        "s": "succubus_upg_alt",
+                        "v": 180027
+                    },
+                    {
+                        "s": "arbitrator_upg_alt",
+                        "v": 180027
+                    },
+                    {
+                        "s": "unspeakable_upg_alt",
+                        "v": 180027
+                    }
+                ]
+            },
+            "tier": 7,
+            "fraction": "unfrozen"
+        }
+    ]
+}

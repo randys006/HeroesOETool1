@@ -1,0 +1,7 @@
+﻿{
+	"squadKillingModifier":			1.0,
+	"mainSquadKillingModifier":		2.0,
+	"heroKillingModifier":			5.0,
+	"objectCaptureModifier":		0.1,
+	"subClassActivatingModifier":	10000.0
+}

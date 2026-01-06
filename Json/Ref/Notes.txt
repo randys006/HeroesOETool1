@@ -1,0 +1,29 @@
+Necro Subclasses:  C:\Users\randy\source\HeroesOE\Core\DB\heroes_sub_classes\sub_classes_undead.json
+Might 1:
+skill_protection
+skill_sorcery
+skill_magic_primal
+skill_luck
+skill_scouting
+
+Might 2:
+skill_assault
+skill_battlemage
+skill_magic_day
+skill_economy
+skill_tactics
+
+C:\Users\randy\source\HeroesOE\Core\DB\heroes_skills\skills_by_level_tables\necros_magic_skills_table.json
+Magic 1: (wights)
+skill_formation			50
+skill_summoner			150
+skill_magic_space		60
+skill_enlightenment		150
+skill_logistic			100
+
+Magic 2:
+skill_assault			50
+skill_battlemage		150
+skill_magic_day			20
+skill_economy			100
+skill_tactics			75

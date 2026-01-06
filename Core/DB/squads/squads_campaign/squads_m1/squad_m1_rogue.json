@@ -1,0 +1,47 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "squad_m1_rogue",
+			
+			"squad" : 
+			[
+
+			],
+
+			"useOldSquads": false,
+
+			"rollChance": 0,
+			"canBeMainGuard": true,
+
+			"baseSquad": 
+			{
+				"units":
+				[
+					{ "s" : "goblin_rogue", "v": 1 }
+				]
+			},
+
+			"dynamicSquad": 
+			{
+				"requiredValue": 0,
+				"units":
+				[
+					"goblin_rogue"
+				]
+			},
+
+			"randomSquad": 
+			{
+				"maxValue": 99000,
+				"units":
+				[
+					{ "s" : "goblin_rogue", "v": 99000 }
+				]
+			},
+
+			"tier": 2,
+			"fraction": "neutral"
+		}
+	]
+}

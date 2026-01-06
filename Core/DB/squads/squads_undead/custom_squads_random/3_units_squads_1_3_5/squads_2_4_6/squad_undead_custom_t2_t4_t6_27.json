@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_undead_t2_t4_t6_1",
+            "useOldSquads": false,
+            "rollChance": 19,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "flicker_upg_alt",
+                        "v": 12186
+                    },
+                    {
+                        "s": "graverobber_upg_alt",
+                        "v": 12186
+                    },
+                    {
+                        "s": "avatar_of_war_upg_alt",
+                        "v": 12186
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 12186,
+                "units": [
+                    "flicker_upg_alt",
+                    "graverobber_upg_alt",
+                    "avatar_of_war_upg_alt"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 85016,
+                "units": [
+                    {
+                        "s": "flicker_upg_alt",
+                        "v": 85016
+                    },
+                    {
+                        "s": "graverobber_upg_alt",
+                        "v": 85016
+                    },
+                    {
+                        "s": "avatar_of_war_upg_alt",
+                        "v": 85016
+                    }
+                ]
+            },
+            "tier": 6,
+            "fraction": "undead"
+        }
+    ]
+}

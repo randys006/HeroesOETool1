@@ -1,0 +1,53 @@
+{
+	"array":
+	[
+		{
+			"id": "squad_demon_custom_8_1",
+			
+			"squad" : 
+			[
+
+			],
+
+			"useOldSquads": false,
+
+			"rollChance": 120,
+			"canBeMainGuard": true,
+
+			"baseSquad": 
+			{
+				"units":
+				[
+					{ "s" : "jaw", "v": 24006 },
+					{ "s" : "godslayer", "v": 24006 },
+					{ "s" : "olgoi", "v": 24006 },
+					{ "s" : "hive_queen", "v": 24006 }					
+				]
+			},
+
+			"dynamicSquad": 
+			{
+				"requiredValue": 24006,
+				"units":
+				[
+					"jaw", "godslayer", "olgoi", "hive_queen"
+				]
+			},
+
+			"randomSquad": 
+			{
+				"maxValue": 180006,
+				"units":
+				[
+					{ "s" : "jaw", "v": 180006 },
+					{ "s" : "godslayer", "v": 180006 },
+					{ "s" : "olgoi", "v": 180006 },
+					{ "s" : "hive_queen", "v": 180006 }		
+				]
+			},
+
+			"tier": 6,
+			"fraction": "demon"
+		}
+	]
+}

@@ -1,0 +1,267 @@
+﻿{
+	"array":
+	[
+		
+		{
+			"id": "inquisitor_upg_alt",
+			"squadValue": 1873,
+			"expBonus": 187,
+			"tier": 6,
+			"fraction": "human",
+			"nativeBiome": "Grass",
+
+			"ai": "melee_type",
+			
+			"tags": [ "unit", "human" ],
+
+			"baseSid": "inquisitor_upg",
+
+			"unitCost":
+			{
+				"costResArray":
+				[
+					{ "name": "gold", "cost": 1400 }
+				]
+			},
+
+			"stats":
+			{	
+				"hp": 150,
+				"offence": 28,
+				"defence": 26,
+				"damageMin": 22,
+				"damageMax": 32,
+
+				"initiative": 8,
+				"speed": 4,
+				
+				"luck": 0,
+				"moral": 0,
+
+				"energyPerCast": 2,
+				"energyPerRound": 0,
+				"energyPerTakeDamage": 1,
+				
+				"actionPoints": 1,
+				"numCounters": 1,
+
+				"moralMin": -5,
+				"moralMax": 5,
+				"luckMin": -3,
+				"luckMax": 3,
+
+				"inDmgMods":
+				{
+					"list":
+					[
+						
+					]
+				},
+
+				"outDmgMods":
+				{
+					"list":
+					[
+									
+					]
+				}
+			},
+			
+			"passives" : 
+			[
+				{
+					"data": {
+						"stats" :
+						{
+							"attackPen" : 0.3
+						}
+					}
+				},
+				{
+					"data": 
+					{
+						"immunities": 
+						[ 
+							{ "type": "cast", "tags": [ "living_immunities" ] }
+						]
+					}
+				}
+			],
+			
+			"defaultAttacks": 
+			[
+				{
+					"attackType_" : "melee",
+					
+					"selfMechanics" : [ ],
+
+					"damageDealer" : 
+					{
+						"tags": [ "melee_attack", "normal_damage", "basic_attack" ],
+						"triggerCounter" : true,
+						"attackPatternSid" : "attack_single_x100",
+
+						"castTargetParams":   
+						{ 
+							"targetTags": [ "unit", "attackable_object" ],
+							"castTarget_": "enemy",
+							"targetCondition_": "alive",
+							"selection": "object"
+						},
+
+						"affectTargetParams":   
+						{ 
+							"targetTags": [ "unit", "attackable_object" ],
+							"castTarget_": "enemy",
+							"targetCondition_": "alive",
+							"selection": "object"
+						},
+
+						"damageTarget_": "enemy",
+						"damageType_": "normal",
+
+						"statDmgMult": 1.0,
+
+						"targetMechanics" : [ ]
+					}
+				} 
+			],
+			
+			"counterAttacks":
+			[
+				{
+					"attackType_" : "melee",
+					
+					"selfMechanics" : [ ],
+
+					"damageDealer" : 
+					{
+						"tags": [ "melee_attack", "normal_damage", "basic_attack", "counter_attack" ],
+						"triggerCounter": false,
+						"attackPatternSid" : "attack_single_x100",
+
+						"castTargetParams":   
+						{ 
+							"targetTags": [ "unit", "attackable_object" ],
+							"castTarget_": "all",
+							"targetCondition_": "alive",
+							"selection": "object"
+						},
+
+						"affectTargetParams":   
+						{ 
+							"targetTags": [ "unit", "attackable_object" ],
+							"castTarget_": "all",
+							"targetCondition_": "alive",
+							"selection": "object"
+						},
+
+						"damageTarget_": "enemy",
+						"damageType_": "normal",
+
+						"statDmgMult": 1.0,
+						
+						"targetMechanics" : [ ]
+					}
+				}
+			],
+				
+			"abilities": 
+			[
+				{
+					"attackType_" : "cast",
+					"rank": 3,
+					
+					"selfMechanics" : [ 
+						{
+							"mech": "dispel", "values":  [ "movementNegative" ]
+						}
+					],
+
+					"cd" : 2,
+					"actionCost": 0,
+					"energyLevel": 2,
+
+					"damageDealer" : 
+					{
+						"instacast": true,
+						"multitargetType": "simultaneous",
+						
+						"tags": [ "ability", "buff_ability", "dispel_ability", "charge_ability" ],
+						"triggerCounter": false,
+						"attackPatternSid" : "attack_single_buff",
+
+						"castTargetParams":   
+						{ 
+							"targetTags": [ "unit" ],
+							"castTarget_": "self",
+							"targetCondition_": "alive"
+						},
+
+						"affectTargetParams":   
+						{ 
+							"targetTags": [ "unit" ],
+							"castTarget_": "self",
+							"targetCondition_": "alive"
+						},
+
+						"damageTarget_": "none",
+
+						"buffTarget_": "ally",
+						"buff":
+						{
+							"sid": "inquisitor_selfbuff_2",
+							"duration": 2
+						},
+
+						"targetMechanics" : [ ]
+					}
+				},
+				{
+					"attackType_" : "cast",
+					"rank": 3,
+
+					"cd" : 3,
+					"energyLevel": 3,
+
+					"damageDealer" : 
+					{
+						"tags": [ "magic_damage", "ability" ],
+						"triggerCounter": false,
+						"attackPatternSid" : "attack_rumble_x1_x100",
+
+						"castTargetParams":   
+						{ 
+							"targetTags": [ "unit" ],
+							"castTarget_": "enemy",
+							"selection": "object", 
+							"targetCondition_": "alive" 
+						},
+
+						"affectTargetParams":   
+						{ 
+							"targetTags": [ "unit" ],
+							"castTarget_": "all",
+							"selection": "object", 
+							"targetCondition_": "alive" 
+						},
+
+						"damageTarget_": "all",
+						"damageType_": "magic_pure",
+
+						"statDmgMult": 0.0,
+						"minStackDmg": 15,
+						"maxStackDmg": 15,
+
+						"targetMechanics" : 
+						[ 
+							{
+								"mech": "dispel", "values":  [ "positive" ]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

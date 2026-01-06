@@ -1,0 +1,44 @@
+{
+    "array": [
+        {
+            "id": "squad_human_t5_t7_1",
+            "useOldSquads": false,
+            "rollChance": 162,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "sunlight_cavalry",
+                        "v": 25027
+                    },
+                    {
+                        "s": "angel",
+                        "v": 25027
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 25027,
+                "units": [
+                    "sunlight_cavalry",
+                    "angel"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 180027,
+                "units": [
+                    {
+                        "s": "sunlight_cavalry",
+                        "v": 180027
+                    },
+                    {
+                        "s": "angel",
+                        "v": 180027
+                    }
+                ]
+            },
+            "tier": 7,
+            "fraction": "human"
+        }
+    ]
+}

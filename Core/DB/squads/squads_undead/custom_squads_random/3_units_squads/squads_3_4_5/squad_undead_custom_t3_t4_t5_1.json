@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_undead_t3_t4_t5_1",
+            "useOldSquads": false,
+            "rollChance": 101,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "pet",
+                        "v": 10355
+                    },
+                    {
+                        "s": "graverobber",
+                        "v": 10355
+                    },
+                    {
+                        "s": "lich",
+                        "v": 10355
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 10355,
+                "units": [
+                    "pet",
+                    "graverobber",
+                    "lich"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 70015,
+                "units": [
+                    {
+                        "s": "pet",
+                        "v": 70015
+                    },
+                    {
+                        "s": "graverobber",
+                        "v": 70015
+                    },
+                    {
+                        "s": "lich",
+                        "v": 70015
+                    }
+                ]
+            },
+            "tier": 5,
+            "fraction": "undead"
+        }
+    ]
+}

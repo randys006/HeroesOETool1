@@ -1,0 +1,129 @@
+﻿{
+	"array":
+	{
+		"data":
+		[
+			{
+				"key": "onStartTurn",
+
+				"val":
+				{
+					"sounds":
+					[
+						"sounds/world_map/jingles/start_turn"
+					]
+				}
+			},
+			{
+				"key": "onStartDay",
+
+				"val":
+				{
+					"sounds":
+					[
+						"sounds/world_map/jingles/start_day/day"
+					]
+				}
+			},
+			{
+				"key": "onStartWeek",
+
+				"val":
+				{
+					"sounds":
+					[
+						"sounds/world_map/jingles/start_day/week"
+					]
+				}
+			},
+			{
+				"key": "onStartMonth",
+
+				"val":
+				{
+					"sounds":
+					[
+						"sounds/world_map/jingles/start_day/month"
+					]
+				}
+			},
+			{
+				"key": "onHeroLevelUp",
+
+				"val":
+				{
+					"sounds":
+					[
+						"sounds/world_map/jingles/hero_level_up"
+					]
+				}
+			},
+			{
+				"key": "onMapNodeClick",
+
+				"val":
+				{
+					"sounds":
+					[
+						"sounds/world_map/common/map_node_click"
+					]
+				}
+			},
+			{
+				"key": "onMapNodeInvalidClick",
+
+				"val":
+				{
+					"sounds":
+					[
+						"sounds/world_map/common/map_node_invalid_click"
+					]
+				}
+			},
+			{
+				"key": "onSquadKilled",
+
+				"val":
+				{
+					"sounds":
+					[
+						"sounds/world_map/common/squad_released/killed"
+					]
+				}
+			},
+			{
+				"key": "onSquadEscaped",
+
+				"val":
+				{
+					"sounds":
+					[
+						"sounds/world_map/common/squad_released/escaped"
+					]
+				}
+			},
+			{
+				"key": "onSquadJoined",
+
+				"val":
+				{
+					"sounds":
+					[
+						"sounds/world_map/common/squad_released/joined"
+					]
+				}
+			},
+			{
+				"key": "onGarrisonWarning",
+
+				"val":
+				{
+					"sounds":
+					[
+						"sounds/world_map/jingles/interact_object/garrison_warning"
+					]
+				}
+			}
+		]
+	}	
+}

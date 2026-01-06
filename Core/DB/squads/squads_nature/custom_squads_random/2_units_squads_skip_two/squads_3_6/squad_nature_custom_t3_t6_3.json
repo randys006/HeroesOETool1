@@ -1,0 +1,44 @@
+{
+    "array": [
+        {
+            "id": "squad_nature_t3_t6_3",
+            "useOldSquads": false,
+            "rollChance": 67,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "ent_upg_alt",
+                        "v": 14516
+                    },
+                    {
+                        "s": "qilin",
+                        "v": 14516
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 14516,
+                "units": [
+                    "ent_upg_alt",
+                    "qilin"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 105016,
+                "units": [
+                    {
+                        "s": "ent_upg_alt",
+                        "v": 105016
+                    },
+                    {
+                        "s": "qilin",
+                        "v": 105016
+                    }
+                ]
+            },
+            "tier": 6,
+            "fraction": "nature"
+        }
+    ]
+}

@@ -1,0 +1,97 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "magic_normal",
+
+			"lowUnitPowerThreshold": 0.05,	"suicideSelfPowerThreshold": 0.05,
+
+			"agressiveness": 125,	"agressivenessFuture": 75,	"agressivenessCareful": 100,
+			
+			"dangerMelee": -50,		"dangerMeleeFuture": -25,
+			"dangerReach": -50,		"dangerReachFuture": -25,
+			"dangerRange": -75,
+
+			"grouping": -50,					"targeting": 1500,	
+			"blockRangersValue": 250,			"lowPowerEnemyTargeting": 0,
+
+			"centerHexPositioning": 40,			"centerVerticalPositioning": 20,		"centerHorizontalPositioning": 20,
+			"enemyCorpseHexValue": 25,			"allyCorpseHexValue": -25,				"trapHexValue": -50,
+
+			"damageValue": 5,					"damageEffectiveValue": 50,				"usePowerInDamageEvaluation": true,
+			"killStackValue": 50, 				"usePowerInKillStackEvaluation": false,
+			"killValue": 2500,					"usePowerInKillEvaluation": true,
+			"counterDamageValue": -1,			"usePowerInCounterEvaluation": true,
+
+			"targetWithActionsValue": 0,		"targetWithoutActionsValue": -250,
+			"targetWaitValue": 250,				"targetSkipValue": -100,
+			"targetNoCounterValue": 500,		"targetLowPowerValue": -500,
+			"targetCanReachAllyValue": 500,		"targetSelectedThisRoundValue": 250,
+			"targetIsSummonMultipler": 0.25,	"allyDamagePenaltyMultiplier": 0.9,
+
+			"finalDamageMultiplier": 1.0,		"finalBuffValueMultiplier": 1.0,		"finalHealValueMultiplier": 1.0,		"finalDispelValueMultiplier": 1.0,
+			
+			"topMagicCasts": 1,
+			"buffStackingPenaltyMultiplier": -0.95,
+			"usePowerInBuffEvaluation": true,
+			"buffValuePerTargetMultiplier": 0.1,
+
+			"mechValues":
+			[
+				{
+					"name":		  "heal",
+					"mechs":	[ "heal_from_dispel", "heal" ],
+					"values":	[ "1000", "15" ]
+				},
+				{
+					"name":		  "dispel",
+					"mechs":	[ "dispel" ],
+					"values":	[]
+				},
+				{
+					"name":		  "revive",
+					"mechs":	[ "revive" ],
+					"values":	[ "1000", "5", "2" ]
+				},
+				{
+					"name":		  "substitute_by_hp",
+					"mechs":	[ "substitute_by_hp" ],
+					"values":	[ "1500", "5" ]
+				},
+				{
+					"name":		  "destroy_summon",
+					"mechs":	[ "destroy_summon","destroy_temp_stacks" ],
+					"values":	[]
+				},
+				{
+					"name":		  "kill_stacks",
+					"mechs":	[ "kill_stacks" ],
+					"values":	[]
+				},
+				{
+					"name":		  "assasinate",
+					"mechs":	[ "assasinate" ],
+					"values":	[]
+				},
+				{
+					"name":		  "add_energy",
+					"mechs":	[ "add_energy" ],
+					"values":	[ "500", "3000" ]
+				},
+				{
+					"name":		  "global_buff",
+					"mechs":	[ "global_buff" ],
+					"values":	[]
+				}
+			],
+			"transitions":
+			[
+				{
+					"condition":  "low_mana",
+					"conditionParams": [],
+					"nextState":  "magic_cheap"
+				}
+			]
+		}
+	]  
+}

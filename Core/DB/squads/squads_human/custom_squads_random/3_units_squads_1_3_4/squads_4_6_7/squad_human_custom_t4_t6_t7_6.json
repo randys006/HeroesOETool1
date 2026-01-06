@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_human_t4_t6_t7_1",
+            "useOldSquads": false,
+            "rollChance": 44,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "lightweaver",
+                        "v": 22687
+                    },
+                    {
+                        "s": "inquisitor_upg",
+                        "v": 22687
+                    },
+                    {
+                        "s": "angel_upg_alt",
+                        "v": 22687
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 22687,
+                "units": [
+                    "lightweaver",
+                    "inquisitor_upg",
+                    "angel_upg_alt"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 160027,
+                "units": [
+                    {
+                        "s": "lightweaver",
+                        "v": 160027
+                    },
+                    {
+                        "s": "inquisitor_upg",
+                        "v": 160027
+                    },
+                    {
+                        "s": "angel_upg_alt",
+                        "v": 160027
+                    }
+                ]
+            },
+            "tier": 7,
+            "fraction": "human"
+        }
+    ]
+}

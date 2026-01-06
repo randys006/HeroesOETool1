@@ -1,0 +1,18 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "magic_amplifier_3",
+			
+			"goodsValue": 50000,
+			
+			"bonuses":
+			[
+				{
+					"type": "sideStat",
+					"parameters": [ "magicSchoolSet", "space", "1" ]
+				}
+			]
+		}
+	]
+}

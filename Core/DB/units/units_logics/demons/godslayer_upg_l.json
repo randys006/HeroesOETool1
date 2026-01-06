@@ -1,0 +1,274 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "godslayer_upg",
+			"squadValue": 1203,
+			"expBonus": 120,
+			"tier": 5,
+			"fraction": "demon",
+			"nativeBiome": "Lava",
+
+			"ai": "melee_type",
+			
+			"tags": [ "unit", "demon" ],
+
+			"baseSid": "godslayer",
+			"upgradeSid": "godslayer_upg_alt",
+			
+			"unitCost":
+			{
+				"costResArray":
+				[
+					{ "name": "gold", "cost": 1000 }
+				]
+			},
+
+			"stats":
+			{	
+				"hp": 45,
+				"offence": 19,
+				"defence": 15,
+				"damageMin": 20,
+				"damageMax": 30,
+
+				"initiative": 13,
+				"speed": 6,
+				
+				"luck": 0,
+				"moral": 3,
+
+				"energyPerCast": 2,
+				"energyPerRound": 0,
+				"energyPerTakeDamage": 1,
+				
+				"actionPoints": 1,
+				"numCounters": 1,
+
+				"moralMin": -5,
+				"moralMax": 5,
+				"luckMin": -5,
+				"luckMax": 5,
+
+				"outDamageIfLevelAbove": 1.0,
+				"outLevelAboveThreshold ": 5,
+				"overkillProtection": 1,
+
+				"inDmgMods":
+				{
+					"list":
+					[
+
+					]
+				},
+
+				"outDmgMods":
+				{
+					"list":
+					[
+									
+					]
+				}
+			},
+			
+			"passives": 
+			[
+				{
+					"data": 
+					{
+						"immunities": 
+						[ 
+							{ "type": "cast", "tags": [ "demon_immunities" ] }
+						]
+					}
+				}
+			],
+			
+			"conditionalPassives": 
+			[
+				{
+					"condition": [ "unique_units_count", "ally", "demon" ],
+					"stats": 
+					{
+						"defence": 1
+					}
+				},
+				{
+					"condition": [ "unique_units_count", "ally", "demon" ],
+					"stats": 
+					{
+						"anticrit": 0.05
+					}
+				}
+			],
+			
+			"defaultAttacks": 
+			[
+				{
+					"attackType_" : "melee",
+					
+					"selfMechanics" : [ ],
+
+					"damageDealer" : 
+					{
+						"tags": [ "melee_attack", "normal_damage", "basic_attack" ],
+						"triggerCounter" : true,
+						"attackPatternSid" : "attack_single_x100",
+
+						"castTargetParams":   
+						{ 
+							"targetTags": [ "unit", "attackable_object" ],
+							"castTarget_": "enemy",
+							"targetCondition_": "alive",
+							"selection": "object"
+						},
+
+						"affectTargetParams":   
+						{ 
+							"targetTags": [ "unit", "attackable_object" ],
+							"castTarget_": "enemy",
+							"targetCondition_": "alive",
+							"selection": "object"
+						},
+
+						"damageTarget_": "enemy",
+						"damageType_": "normal",
+
+						"statDmgMult": 1.0,
+
+						"targetMechanics" : [ ]
+					}
+				} 
+			],
+			
+			"counterAttacks":
+			[
+				{
+					"attackType_" : "melee",
+					
+					"selfMechanics" : [ ],
+
+					"damageDealer" : 
+					{
+						"tags": [ "melee_attack", "normal_damage", "basic_attack", "counter_attack" ],
+						"triggerCounter": false,
+						"attackPatternSid" : "attack_single_x100",
+
+						"castTargetParams":   
+						{ 
+							"targetTags": [ "unit", "attackable_object" ],
+							"castTarget_": "all",
+							"targetCondition_": "alive",
+							"selection": "object"
+						},
+
+						"affectTargetParams":   
+						{ 
+							"targetTags": [ "unit", "attackable_object" ],
+							"castTarget_": "all",
+							"targetCondition_": "alive",
+							"selection": "object"
+						},
+
+						"damageTarget_": "enemy",
+						"damageType_": "normal",
+
+						"statDmgMult": 1.0,
+						
+						"targetMechanics" : [ ]
+					}
+				}
+			],
+				
+			"abilities" : 
+			[ 
+				{
+					"attackType_" : "melee",
+					"rank": 3,
+
+					"selfMechanics" : [ ],
+
+
+					"cd" : 1,
+					"energyLevel": 1,
+
+					"damageDealer" : 
+					{
+						"tags": [ "melee_attack", "normal_damage", "basic_attack", "ability", "armed_ability" ],
+						"triggerCounter": false,
+						"attackPatternSid" : "attack_single_x100",
+
+						"castTargetParams":   
+						{ 
+							"targetTags": [ "unit", "attackable_object" ],
+							"castTarget_": "enemy",
+							"targetCondition_": "alive",
+							"selection": "object"
+						},
+
+						"affectTargetParams":   
+						{ 
+							"targetTags": [ "unit", "attackable_object" ],
+							"castTarget_": "enemy",
+							"targetCondition_": "alive",
+							"selection": "object"
+						},
+
+						"damageTarget_": "enemy",
+						"damageType_": "normal",
+
+						"statDmgMult": 1.0,
+						
+						"targetMechanics" : [ ]
+					}
+				},
+				{
+					"attackType_" : "cast",
+					"rank": 3,
+
+					"selfMechanics" : [ ],
+
+					"actionCost": 0,
+
+					"cd" : 3,
+					"energyLevel": 3,
+
+					"damageDealer" : 
+					{
+						"instacast": true,
+						"multitargetType": "simultaneous",
+						
+						"tags": [ "ability" ],
+						"triggerCounter": false,
+						"attackPatternSid" : "attack_single_buff",
+
+						"castTargetParams":   
+						{ 
+							"targetTags": [ "unit" ],
+							"castTarget_": "self",
+							"targetCondition_": "alive"
+						},
+
+						"affectTargetParams":   
+						{ 
+							"targetTags": [ "unit" ],
+							"castTarget_": "self",
+							"targetCondition_": "alive"
+						},
+
+						"damageTarget_": "none",
+
+						"buffTarget_": "self",
+						"buff":
+						{
+							"sid": "godslayer_buff_1",
+							"duration": 1
+						},
+						
+						"targetMechanics" : [ ]
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,1244 @@
+{
+	"array":
+	[
+		{
+			"id": "action_bonus_magic_day",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_night" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "spellPowerSchoolSet", "day", "1" ]
+						}
+					]
+				},
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_space" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "spellPowerSchoolSet", "day", "1" ]
+						}
+					]
+				},
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_primal" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "spellPowerSchoolSet", "day", "1" ]
+						}
+					]
+				}
+			]
+			
+		},
+		{
+			"id": "action_bonus_magic_night",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_day" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "spellPowerSchoolSet", "night", "1" ]
+						}
+					]
+				},
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_space" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "spellPowerSchoolSet", "night", "1" ]
+						}
+					]
+				},
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_primal" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "spellPowerSchoolSet", "night", "1" ]
+						}
+					]
+				}
+			]
+			
+		},
+		{
+			"id": "action_bonus_magic_space",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_day" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "spellPowerSchoolSet", "space", "1" ]
+						}
+					]
+				},
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_night" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "spellPowerSchoolSet", "space", "1" ]
+						}
+					]
+				},
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_primal" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "spellPowerSchoolSet", "space", "1" ]
+						}
+					]
+				}
+			]
+			
+		},
+		{
+			"id": "action_bonus_magic_primal",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_day" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "spellPowerSchoolSet", "primal", "1" ]
+						}
+					]
+				},
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_night" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "spellPowerSchoolSet", "primal", "1" ]
+						}
+					]
+				},
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_space" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "spellPowerSchoolSet", "primal", "1" ]
+						}
+					]
+				}
+			]			
+		},
+
+
+
+		{
+			"id": "action_bonus_sub_skill_assault_1",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_night" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "unitStat",
+							"parameters": [ "damageMin", "1" ]
+						},
+						{
+							"type": "unitStat",
+							"parameters": [ "damageMax", "1" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_protection_4",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_diplomacy" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "startBattleUnitsCountBonus",
+							"actionArea": "allied",
+							"parameters": [ "temp", "0.1" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_leadership_1",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_formation" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "unitStat",
+							"parameters": [ "additionalActionChanceModifier", "0.01" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_leadership_4",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_day" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{ 
+							"type": "heroStatMap",
+							"actionArea": "notAllied",
+							"parameters": [ "offence", "3" ]
+						},
+						{ 
+							"type": "heroStatMap",
+							"actionArea": "notAllied",
+							"parameters": [ "defence", "3" ]
+						},
+						{ 
+							"type": "heroStatMap",
+							"actionArea": "notAllied",
+							"parameters": [ "spellPower", "3" ]
+						},
+						{ 
+							"type": "heroStatBattle",
+							"actionArea": "notAllied",
+							"parameters": [ "offence", "3" ]
+						},
+						{ 
+							"type": "heroStatBattle",
+							"actionArea": "notAllied",
+							"parameters": [ "defence", "3" ]
+						},
+						{ 
+							"type": "heroStatBattle",
+							"actionArea": "notAllied",
+							"parameters": [ "spellPower", "3" ]
+						},
+						{ 
+							"type": "heroStatMap",
+							"actionArea": "notAllied",
+							"parameters": [ "viewRadius", "1" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_luck_1",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_primal" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "unitStat",
+							"parameters": [ "critChanceModifier", "0.01" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_luck_2",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_economy" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "heroResPercentSet", "all", "0.25" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_economy_1",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_logistic" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "sideRes",
+							"parameters": [ "gold", "500" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_economy_4",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_enlightenment" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "sideRes",
+							"parameters": [ "dust", "5" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_logistic_3",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_space" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "movementRestoreBonus", "50" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_logistic_4",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_scouting" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "magicCostSidSet", "neutral_1_magic_back_to_garrison", "-4", "0" ]
+						},
+						{
+							"type": "heroStat",
+							"parameters": [ "magicCostSidSet", "neutral_1_magic_back_to_city", "-4", "0" ]
+						},
+						{
+							"type": "heroStat",
+							"parameters": [ "magicCostSidSet", "neutral_1_magic_mana_transfer", "-4", "0" ]
+						},
+						{
+							"type": "heroStat",
+							"parameters": [ "magicCostSidSet", "neutral_1_magic_mana_restore", "-4", "0" ]
+						},
+						{
+							"type": "heroStat",
+							"parameters": [ "magicCostSidSet", "neutral_1_magic_units_replace", "-4", "0" ]
+						},
+						{
+							"type": "heroStat",
+							"parameters": [ "magicCostSidSet", "neutral_magic_second_sight", "-4", "0" ]
+						},
+						{
+							"type": "heroStat",
+							"parameters": [ "magicCostSidSet", "neutral_magic_shadow_form", "-4", "0" ]
+						},
+						{
+							"type": "heroStat",
+							"parameters": [ "magicCostSidSet", "neutral_magic_light_gate", "-4", "0" ]
+						},
+						{
+							"type": "heroStat",
+							"parameters": [ "magicCostSidSet", "neutral_magic_town_portal", "-4", "0" ]
+						},
+						{
+							"type": "heroStat",
+							"parameters": [ "magicCostSidSet", "neutral_magic_dimension_door", "-4", "0" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_enlightenment_2",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_leadership" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{ 
+							"type": "heroStat",
+							"parameters": [ "sideExpPerBonus", "1.0" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_enlightenment_5",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_tactics" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{ 
+							"type": "heroStat",
+							"parameters": [ "offence", "1" ]
+						},
+						{ 
+							"type": "heroStat",
+							"parameters": [ "defence", "1" ]
+						},
+						{ 
+							"type": "heroStat",
+							"parameters": [ "spellPower", "1" ]
+						},
+						{ 
+							"type": "heroStat",
+							"parameters": [ "intelligence", "1" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_sorcery_1",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_mastery" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{ 
+							"type": "heroStat",
+							"parameters": [ "outComingBuffDuration", "1" ]
+						},
+						{ 
+							"type": "heroStat",
+							"parameters": [ "outComingDebuffDuration", "1" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_sorcery_3",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_assault" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{ 
+							"type": "heroStat",
+							"parameters": [ "magicAttackPerBonus", "0.1" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_magic_day_5",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_logistic" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{ 
+							"type": "heroStat",
+							"parameters": [ "movementBonus", "10" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_magic_night_5",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_resistance" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{ 
+							"type": "unitStat",
+							"receiverAllegiance": "enemy",
+							"parameters": [ "offencePerc", "-0.15" ]
+						},
+						{ 
+							"type": "unitStat",
+							"receiverAllegiance": "enemy",
+							"parameters": [ "defencePerc", "-0.15" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_magic_space_2",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_summoner" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{ 
+							"type": "unitStat",
+							"parameters": [ "finalHealingBonusPercent", "0.3" ]
+						},
+						{ 
+							"type": "heroStat",
+							"parameters": [ "finalHealingBonusPercent", "0.3" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_magic_primal_5",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_battlemage" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "crit", "0.50" ]
+						},
+						{
+							"type": "unitStat",
+							"parameters": [ "crit", "0.50" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_battlemage_4",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_sorcery" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{ 
+							"type": "unitStat",
+							"parameters": [ "heroSpellPowerModifier", "0.2" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_battlemage_5",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_resistance" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{ 
+							"type": "unitStat",
+							"parameters": [ "heroIntelligenceModifier", "0.2" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_resistance_1_day",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_day" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStatBattle",
+							"receiverAllegiance": "enemy",
+							"parameters": [ "magicCostSchoolSet", "day", "0", "0.2" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_resistance_1_night",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_night" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStatBattle",
+							"receiverAllegiance": "enemy",
+							"parameters": [ "magicCostSchoolSet", "night", "0", "0.2" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_resistance_1_space",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_space" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStatBattle",
+							"receiverAllegiance": "enemy",
+							"parameters": [ "magicCostSchoolSet", "space", "0", "0.2" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_resistance_1_primal",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_magic_primal" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStatBattle",
+							"receiverAllegiance": "enemy",
+							"parameters": [ "magicCostSchoolSet", "primal", "0", "0.2" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_diplomacy_1",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_formation" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "diplomacySumValuePerBonus", "0.25" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_diplomacy_4",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_economy" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "diplomacyCostPerBonus", "-0.15" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_mastery_1",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_sorcery" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "manaBonusPercent", "0.25" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_scouting_1",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_luck" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "heroStat",
+							"parameters": [ "viewRadius", "1" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_scouting_2",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_mastery" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{ 
+							"type": "heroStat",
+							"actionArea": "allied",
+							"parameters": [ "movementBonus", "15" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_tactics_1",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_assault" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "battleSubskillBonus",
+							"parameters": [ "unit_buff", "sub_skill_tactics_1_bonus_add" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_tactics_4",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_protection" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "battleSubskillBonus",
+							"parameters": [ "unit_buff", "sub_skill_tactics_4_bonus_add" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_summoner_1",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_leadership" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "unitStat",
+							"receivers": [ "avatar" ],
+							"parameters": [ "heroSpellPowerModifier", "0.25" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_summoner_2",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_protection" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "unitStat",
+							"receivers": [ "avatar" ],
+							"parameters": [ "heroIntelligenceModifier", "0.25" ]
+						}
+					]
+				}
+			]			
+		},
+
+		{
+			"id": "action_bonus_sub_skill_summoner_3",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_enlightenment" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "unitStat",
+							"receivers": [ "avatar" ],
+							"parameters": [ "initiative", "2" ]
+						},
+						{
+							"type": "unitStat",
+							"receivers": [ "avatar" ],
+							"parameters": [ "speed", "2" ]
+						}
+					]
+				}
+			]			
+		},
+
+
+
+
+
+		{
+			"id": "action_bonus_sub_skill_faction_humans_1_double",
+
+			"actions":
+			[
+				{
+					"conditions":
+					[
+						{
+							"type": "HeroLearnedSkill",
+							"parameters": [ "skill_enlightenment" ]
+						}
+					],
+					
+					"bonuses":
+					[
+						{
+							"type": "unitStat",
+							"biomeType": "native",
+							"fraction": "human",
+							"parameters": [ "outAllDmgMod", "0.1" ]
+						},
+						{
+							"type": "unitStat",
+							"biomeType": "native",
+							"fraction": "human",
+							"parameters": [ "inAllDmgMod", "-0.1" ]
+						}
+					]
+				}
+			]			
+		}
+	]
+}

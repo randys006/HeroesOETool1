@@ -1,0 +1,1987 @@
+{
+	"arenas":
+	[
+		{
+			"biome": "Grass", 		"battleType": "OnMap",		"battleObject": "",
+			"arenaLogicSid": "_test",	"arenaViewSids": [ "grass_arena" ]
+		},
+
+		{
+			"biome": "Deathland",	"battleType": "OnMap",		"battleObject": "",
+			"arenaLogicSid": "_test",	"arenaViewSids": [ "necro_arena" ]
+		},
+
+		{
+			"biome": "Lava",		"battleType": "OnMap",		"battleObject": "",
+			"arenaLogicSid": "_test", "arenaViewSids": [ "lava_arena" ]
+		},
+
+		{	
+			"biome": "Snow",		"battleType": "OnMap",		"battleObject": "",
+			"arenaLogicSid": "_test", "arenaViewSids": [ "snow_arena" ]
+		},
+
+		{
+			"biome": "Dirt",		"battleType": "OnMap",		"battleObject": "",
+			"arenaLogicSid": "_test", "arenaViewSids": [ "dirt_arena" ]
+		},
+
+		{
+			"biome": "Autumn",		"battleType": "OnMap",		"battleObject": "",
+			"arenaLogicSid": "_test", "arenaViewSids": [ "autumn_arena" ]
+		},
+
+		{
+			"biome": "Sand",		"battleType": "OnMap",		"battleObject": "",
+			"arenaLogicSid": "_test",	"arenaViewSids": [ "sand_arena" ]
+		},
+
+
+
+		{
+			"biome": "Grass",		"battleType": "ForCity",	"wallLevel": "0",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_0_level",		"arenaViewSids": [ "grass_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Deathland",	"battleType": "ForCity",	"wallLevel": "0",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_0_level",		"arenaViewSids": [ "necro_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Lava",		"battleType": "ForCity",	"wallLevel": "0",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_0_level",		"arenaViewSids": [ "lava_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Snow",		"battleType": "ForCity",	"wallLevel": "0",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_0_level",		"arenaViewSids": [ "snow_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Dirt",		"battleType": "ForCity",	"wallLevel": "0",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_0_level",		"arenaViewSids": [ "dirt_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Autumn",		"battleType": "ForCity",	"wallLevel": "0",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_0_level",		"arenaViewSids": [ "autumn_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Sand",		"battleType": "ForCity",	"wallLevel": "0",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_0_level",		"arenaViewSids": [ "sand_siege_arena_0_level" ]
+		},
+
+
+
+		{
+			"biome": "Grass",		"battleType": "ForCity",	"wallLevel": "1",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_1_2_level",		"arenaViewSids": [ "grass_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Deathland",	"battleType": "ForCity",	"wallLevel": "1",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_1_2_level",		"arenaViewSids": [ "necro_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Lava",		"battleType": "ForCity",	"wallLevel": "1",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_1_2_level",		"arenaViewSids": [ "lava_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Snow",		"battleType": "ForCity",	"wallLevel": "1",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_1_2_level",		"arenaViewSids": [ "snow_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Dirt",		"battleType": "ForCity",	"wallLevel": "1",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_1_2_level",		"arenaViewSids": [ "dirt_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Autumn",		"battleType": "ForCity",	"wallLevel": "1",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_1_2_level",		"arenaViewSids": [ "autumn_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Sand",		"battleType": "ForCity",	"wallLevel": "1",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_1_2_level",		"arenaViewSids": [ "sand_siege_arena_0_level" ]
+		},
+
+
+
+		{
+			"biome": "Grass",		"battleType": "ForCity",	"wallLevel": "2",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_1_2_level",		"arenaViewSids": [ "grass_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Deathland",	"battleType": "ForCity",	"wallLevel": "2",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_1_2_level",		"arenaViewSids": [ "necro_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Lava",		"battleType": "ForCity",	"wallLevel": "2",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_1_2_level",		"arenaViewSids": [ "lava_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Snow",		"battleType": "ForCity",	"wallLevel": "2",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_1_2_level",		"arenaViewSids": [ "snow_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Dirt",		"battleType": "ForCity",	"wallLevel": "2",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_1_2_level",		"arenaViewSids": [ "dirt_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Autumn",		"battleType": "ForCity",	"wallLevel": "2",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_1_2_level",		"arenaViewSids": [ "autumn_siege_arena_0_level" ]
+		},
+
+		{
+			"biome": "Sand",		"battleType": "ForCity",	"wallLevel": "2",	"battleObject": "",
+			"arenaLogicSid": "_test_siege_1_2_level",		"arenaViewSids": [ "sand_siege_arena_0_level" ]
+		},
+
+
+
+		{
+			"biome": "Grass",		"battleType": "ForCity",	"wallLevel": "3",	"battleObject": "",
+			"arenaLogicSid": "_test_siege",		"arenaViewSids": [ "grass_siege_arena" ]
+		},
+
+		{
+			"biome": "Deathland",	"battleType": "ForCity",	"wallLevel": "3",	"battleObject": "",
+			"arenaLogicSid": "_test_siege",		"arenaViewSids": [ "necro_siege_arena" ]
+		},
+
+		{
+			"biome": "Lava",		"battleType": "ForCity",	"wallLevel": "3",	"battleObject": "",
+			"arenaLogicSid": "_test_siege",		"arenaViewSids": [ "lava_siege_arena" ]
+		},
+
+		{
+			"biome": "Snow",		"battleType": "ForCity",	"wallLevel": "3",	"battleObject": "",
+			"arenaLogicSid": "_test_siege",		"arenaViewSids": [ "snow_siege_arena" ]
+		},
+
+		{
+			"biome": "Dirt",		"battleType": "ForCity",	"wallLevel": "3",	"battleObject": "",
+			"arenaLogicSid": "_test_siege",		"arenaViewSids": [ "dirt_siege_arena" ]
+		},
+
+		{
+			"biome": "Autumn",		"battleType": "ForCity",	"wallLevel": "3",	"battleObject": "",
+			"arenaLogicSid": "_test_siege",		"arenaViewSids": [ "autumn_siege_arena" ]
+		},
+
+		{
+			"biome": "Sand",		"battleType": "ForCity",	"wallLevel": "3",	"battleObject": "",
+			"arenaLogicSid": "_test_siege",		"arenaViewSids": [ "sand_siege_arena" ]
+		},
+
+
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "abandoned_mansion",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "abandoned_mansion",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "abandoned_mansion",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "abandoned_mansion",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "abandoned_mansion",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "abandoned_mansion",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "abandoned_mansion",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "black_tower",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "black_tower",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "black_tower",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "black_tower",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "black_tower",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "black_tower",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "black_tower",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "circle_of_life",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "circle_of_life",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "circle_of_life",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "circle_of_life",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "circle_of_life",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "circle_of_life",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "circle_of_life",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "dragon_utopia",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "dragon_utopia",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "dragon_utopia",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "dragon_utopia",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "dragon_utopia",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "dragon_utopia",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "dragon_utopia",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "research_laboratory",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "research_laboratory",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "research_laboratory",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "research_laboratory",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "research_laboratory",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "research_laboratory",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "research_laboratory",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "iridescent_abbey",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "iridescent_abbey",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "iridescent_abbey",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "iridescent_abbey",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "iridescent_abbey",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "iridescent_abbey",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "iridescent_abbey",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "legions_memorial",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "legions_memorial",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "legions_memorial",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "legions_memorial",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "legions_memorial",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "legions_memorial",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "legions_memorial",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "overgrown_grave",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "overgrown_grave",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "overgrown_grave",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "overgrown_grave",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "overgrown_grave",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "overgrown_grave",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "overgrown_grave",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "prismatic_lair",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "prismatic_lair",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "prismatic_lair",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "prismatic_lair",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "prismatic_lair",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "prismatic_lair",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "prismatic_lair",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "raiders_camp",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "raiders_camp",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "raiders_camp",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "raiders_camp",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "raiders_camp",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "raiders_camp",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "raiders_camp",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "testing_grounds",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "testing_grounds",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "testing_grounds",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "testing_grounds",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "testing_grounds",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "testing_grounds",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "testing_grounds",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "troglodyte_throne",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "troglodyte_throne",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "troglodyte_throne",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "troglodyte_throne",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "troglodyte_throne",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "troglodyte_throne",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "troglodyte_throne",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "twilight_bloom",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "twilight_bloom",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "twilight_bloom",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "twilight_bloom",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "twilight_bloom",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "twilight_bloom",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "twilight_bloom",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "uncanny_rite",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "uncanny_rite",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "uncanny_rite",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "uncanny_rite",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "uncanny_rite",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "uncanny_rite",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "uncanny_rite",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "alvars_eye",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "alvars_eye",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "alvars_eye",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "alvars_eye",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "alvars_eye",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "alvars_eye",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "alvars_eye",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+				
+
+				{
+					"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "unstable_ruins",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+				},
+
+				{
+					"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "unstable_ruins",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+				},
+
+				{
+					"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "unstable_ruins",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+				},
+
+				{	
+					"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "unstable_ruins",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+				},
+
+				{
+					"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "unstable_ruins",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+				},
+
+				{
+					"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "unstable_ruins",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+				},
+
+				{
+					"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "unstable_ruins",
+					"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+				},
+
+
+
+
+				
+
+						{
+							"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "boreal_call",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+						},
+
+						{
+							"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "boreal_call",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+						},
+
+						{
+							"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "boreal_call",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+						},
+
+						{	
+							"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "boreal_call",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+						},
+
+						{
+							"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "boreal_call",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+						},
+
+						{
+							"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "boreal_call",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+						},
+
+						{
+							"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "boreal_call",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+						},
+
+						
+
+						{
+							"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "jousting_range",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+						},
+
+						{
+							"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "jousting_range",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+						},
+
+						{
+							"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "jousting_range",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+						},
+
+						{	
+							"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "jousting_range",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+						},
+
+						{
+							"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "jousting_range",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+						},
+
+						{
+							"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "jousting_range",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+						},
+
+						{
+							"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "jousting_range",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+						},
+
+						
+
+						{
+							"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "petrified_memorial",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+						},
+
+						{
+							"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "petrified_memorial",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+						},
+
+						{
+							"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "petrified_memorial",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+						},
+
+						{	
+							"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "petrified_memorial",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+						},
+
+						{
+							"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "petrified_memorial",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+						},
+
+						{
+							"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "petrified_memorial",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+						},
+
+						{
+							"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "petrified_memorial",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+						},
+
+						
+
+						{
+							"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "point_of_balance",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+						},
+
+						{
+							"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "point_of_balance",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+						},
+
+						{
+							"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "point_of_balance",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+						},
+
+						{	
+							"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "point_of_balance",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+						},
+
+						{
+							"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "point_of_balance",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+						},
+
+						{
+							"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "point_of_balance",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+						},
+
+						{
+							"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "point_of_balance",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+						},
+
+						
+
+						{
+							"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "ritual_pyre",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+						},
+
+						{
+							"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "ritual_pyre",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+						},
+
+						{
+							"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "ritual_pyre",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+						},
+
+						{	
+							"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "ritual_pyre",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+						},
+
+						{
+							"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "ritual_pyre",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+						},
+
+						{
+							"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "ritual_pyre",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+						},
+
+						{
+							"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "ritual_pyre",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+						},
+
+						
+
+						{
+							"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "the_gorge",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+						},
+
+						{
+							"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "the_gorge",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+						},
+
+						{
+							"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "the_gorge",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+						},
+
+						{	
+							"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "the_gorge",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+						},
+
+						{
+							"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "the_gorge",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+						},
+
+						{
+							"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "the_gorge",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+						},
+
+						{
+							"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "the_gorge",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+						},
+
+						
+
+						{
+							"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "unforgotten_grave",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+						},
+
+						{
+							"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "unforgotten_grave",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+						},
+
+						{
+							"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "unforgotten_grave",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+						},
+
+						{	
+							"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "unforgotten_grave",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+						},
+
+						{
+							"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "unforgotten_grave",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+						},
+
+						{
+							"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "unforgotten_grave",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+						},
+
+						{
+							"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "unforgotten_grave",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+						},
+
+						
+
+						{
+							"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "vanguard",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+						},
+
+						{
+							"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "vanguard",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+						},
+
+						{
+							"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "vanguard",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+						},
+
+						{	
+							"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "vanguard",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+						},
+
+						{
+							"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "vanguard",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+						},
+
+						{
+							"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "vanguard",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+						},
+
+						{
+							"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "vanguard",
+							"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+						},
+
+
+
+		
+
+
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_abandoned_mansion",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_abandoned_mansion",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_abandoned_mansion",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_abandoned_mansion",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_abandoned_mansion",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_abandoned_mansion",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_abandoned_mansion",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_black_tower",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_black_tower",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_black_tower",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_black_tower",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_black_tower",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_black_tower",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_black_tower",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_circle_of_life",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_circle_of_life",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_circle_of_life",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_circle_of_life",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_circle_of_life",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_circle_of_life",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_circle_of_life",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_dragon_utopia",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_dragon_utopia",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_dragon_utopia",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_dragon_utopia",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_dragon_utopia",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_dragon_utopia",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_dragon_utopia",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_research_laboratory",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_research_laboratory",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_research_laboratory",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_research_laboratory",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_research_laboratory",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_research_laboratory",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_research_laboratory",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_iridescent_abbey",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_iridescent_abbey",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_iridescent_abbey",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_iridescent_abbey",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_iridescent_abbey",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_iridescent_abbey",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_iridescent_abbey",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_legions_memorial",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_legions_memorial",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_legions_memorial",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_legions_memorial",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_legions_memorial",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_legions_memorial",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_legions_memorial",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_overgrown_grave",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_overgrown_grave",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_overgrown_grave",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_overgrown_grave",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_overgrown_grave",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_overgrown_grave",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_overgrown_grave",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_prismatic_lair",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_prismatic_lair",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_prismatic_lair",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_prismatic_lair",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_prismatic_lair",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_prismatic_lair",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_prismatic_lair",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_raiders_camp",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_raiders_camp",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_raiders_camp",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_raiders_camp",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_raiders_camp",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_raiders_camp",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_raiders_camp",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_testing_grounds",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_testing_grounds",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_testing_grounds",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_testing_grounds",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_testing_grounds",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_testing_grounds",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_testing_grounds",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_troglodyte_throne",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_troglodyte_throne",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_troglodyte_throne",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_troglodyte_throne",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_troglodyte_throne",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_troglodyte_throne",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_troglodyte_throne",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_twilight_bloom",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_twilight_bloom",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_twilight_bloom",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_twilight_bloom",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_twilight_bloom",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_twilight_bloom",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_twilight_bloom",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_uncanny_rite",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_uncanny_rite",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_uncanny_rite",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_uncanny_rite",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_uncanny_rite",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_uncanny_rite",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_uncanny_rite",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_alvars_eye",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_alvars_eye",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_alvars_eye",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_alvars_eye",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_alvars_eye",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_alvars_eye",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_alvars_eye",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+			
+
+			{
+				"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_unstable_ruins",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+			},
+
+			{
+				"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_unstable_ruins",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+			},
+
+			{
+				"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_unstable_ruins",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+			},
+
+			{	
+				"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_unstable_ruins",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+			},
+
+			{
+				"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_unstable_ruins",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+			},
+
+			{
+				"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_unstable_ruins",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+			},
+
+			{
+				"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_unstable_ruins",
+				"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+			},
+
+
+
+
+			
+
+					{
+						"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_boreal_call",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+					},
+
+					{
+						"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_boreal_call",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+					},
+
+					{
+						"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_boreal_call",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+					},
+
+					{	
+						"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_boreal_call",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+					},
+
+					{
+						"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_boreal_call",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+					},
+
+					{
+						"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_boreal_call",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+					},
+
+					{
+						"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_boreal_call",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+					},
+
+					
+
+					{
+						"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_jousting_range",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+					},
+
+					{
+						"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_jousting_range",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+					},
+
+					{
+						"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_jousting_range",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+					},
+
+					{	
+						"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_jousting_range",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+					},
+
+					{
+						"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_jousting_range",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+					},
+
+					{
+						"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_jousting_range",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+					},
+
+					{
+						"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_jousting_range",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+					},
+
+					
+
+					{
+						"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_petrified_memorial",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+					},
+
+					{
+						"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_petrified_memorial",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+					},
+
+					{
+						"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_petrified_memorial",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+					},
+
+					{	
+						"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_petrified_memorial",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+					},
+
+					{
+						"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_petrified_memorial",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+					},
+
+					{
+						"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_petrified_memorial",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+					},
+
+					{
+						"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_petrified_memorial",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+					},
+
+					
+
+					{
+						"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_point_of_balance",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+					},
+
+					{
+						"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_point_of_balance",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+					},
+
+					{
+						"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_point_of_balance",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+					},
+
+					{	
+						"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_point_of_balance",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+					},
+
+					{
+						"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_point_of_balance",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+					},
+
+					{
+						"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_point_of_balance",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+					},
+
+					{
+						"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_point_of_balance",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+					},
+
+					
+
+					{
+						"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_ritual_pyre",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+					},
+
+					{
+						"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_ritual_pyre",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+					},
+
+					{
+						"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_ritual_pyre",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+					},
+
+					{	
+						"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_ritual_pyre",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+					},
+
+					{
+						"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_ritual_pyre",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+					},
+
+					{
+						"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_ritual_pyre",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+					},
+
+					{
+						"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_ritual_pyre",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+					},
+
+					
+
+					{
+						"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_the_gorge",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+					},
+
+					{
+						"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_the_gorge",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+					},
+
+					{
+						"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_the_gorge",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+					},
+
+					{	
+						"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_the_gorge",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+					},
+
+					{
+						"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_the_gorge",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+					},
+
+					{
+						"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_the_gorge",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+					},
+
+					{
+						"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_the_gorge",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+					},
+
+					
+
+					{
+						"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_unforgotten_grave",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+					},
+
+					{
+						"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_unforgotten_grave",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+					},
+
+					{
+						"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_unforgotten_grave",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+					},
+
+					{	
+						"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_unforgotten_grave",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+					},
+
+					{
+						"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_unforgotten_grave",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+					},
+
+					{
+						"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_unforgotten_grave",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+					},
+
+					{
+						"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_unforgotten_grave",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+					},
+
+					
+
+					{
+						"biome": "Grass", 		"battleType": "ForInteractObject",		"battleObject": "custom_vanguard",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "grass_arena" ]
+					},
+
+					{
+						"biome": "Deathland",	"battleType": "ForInteractObject",		"battleObject": "custom_vanguard",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "necro_arena" ]
+					},
+
+					{
+						"biome": "Lava",		"battleType": "ForInteractObject",		"battleObject": "custom_vanguard",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "lava_arena" ]
+					},
+
+					{	
+						"biome": "Snow",		"battleType": "ForInteractObject",		"battleObject": "custom_vanguard",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "snow_arena" ]
+					},
+
+					{
+						"biome": "Dirt",		"battleType": "ForInteractObject",		"battleObject": "custom_vanguard",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "dirt_arena" ]
+					},
+
+					{
+						"biome": "Autumn",		"battleType": "ForInteractObject",		"battleObject": "custom_vanguard",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "autumn_arena" ]
+					},
+
+					{
+						"biome": "Sand",		"battleType": "ForInteractObject",		"battleObject": "custom_vanguard",
+						"arenaLogicSid": "_test_interactObject",	"arenaViewSids": [ "sand_arena" ]
+					},
+
+
+
+
+
+
+		{
+			"biome": "Grass",
+			"battleType": "OnMap",
+			"battleObject": "",
+
+			"arenaLogicSid": "_test",
+			"arenaViewSids": [ "dev_render_arena" ]
+		}
+	]
+}

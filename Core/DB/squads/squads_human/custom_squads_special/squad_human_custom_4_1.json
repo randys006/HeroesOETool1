@@ -1,0 +1,49 @@
+{
+	"array":
+	[
+		{
+			"id": "squad_human_custom_4_1",
+			
+			"squad" : 
+			[
+
+			],
+
+			"useOldSquads": false,
+
+			"rollChance": 120,
+			"canBeMainGuard": true,
+
+			"baseSquad": 
+			{
+				"units":
+				[
+					{ "s" : "crossbowman_upg", "v": 5003 },
+					{ "s" : "griffin", "v": 5003 }
+				]
+			},
+
+			"dynamicSquad": 
+			{
+				"requiredValue": 5003,
+				"units":
+				[
+					"crossbowman_upg", "griffin"
+				]
+			},
+
+			"randomSquad": 
+			{
+				"maxValue": 30003,
+				"units":
+				[
+					{ "s" : "crossbowman_upg", "v": 30003 },
+					{ "s" : "griffin", "v": 30003 }
+				]
+			},
+
+			"tier": 3,
+			"fraction": "human"
+		}
+	]
+}

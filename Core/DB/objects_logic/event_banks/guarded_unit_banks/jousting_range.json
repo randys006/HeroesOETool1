@@ -1,0 +1,166 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "jousting_range",
+			
+			"applyDifficultyModifier": true,
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[		
+				{
+					"rollChance": 30,
+					"value": 5000,
+					"customGuardValue": 1600,
+
+					"guardUnits":
+					[
+						{ "sid": "griffin", "amount": 6 },
+						{ "sid": "griffin", "amount": 6 },
+						{ "sid": "griffin", "amount": 6 },
+						{ "sid": "griffin", "amount": 6 },
+						{ "sid": "griffin", "amount": 6 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+
+								"parameters": [ "sunlight_cavalry", "4" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 30,
+					"value": 10000,
+					"customGuardValue": 3200,
+
+					"guardUnits":
+					[
+						{ "sid": "griffin", "amount": 12 },
+						{ "sid": "griffin_upg", "amount": 12 },
+						{ "sid": "griffin", "amount": 12 },
+						{ "sid": "griffin_upg_alt", "amount": 12 },
+						{ "sid": "griffin", "amount": 12 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "sunlight_cavalry", "8" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 15000,
+					"customGuardValue": 4800,
+
+					"guardUnits":
+					[
+						{ "sid": "griffin", "amount": 17 },
+						{ "sid": "griffin_upg", "amount": 17 },
+						{ "sid": "griffin", "amount": 17 },
+						{ "sid": "griffin_upg_alt", "amount": 17 },
+						{ "sid": "griffin", "amount": 17 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "sunlight_cavalry", "12" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 15,
+					"value": 20000,
+					"customGuardValue": 6400,
+
+					"guardUnits":
+					[
+						{ "sid": "griffin_upg", "amount": 21 },
+						{ "sid": "griffin_upg_alt", "amount": 21 },
+						{ "sid": "griffin", "amount": 21 },
+						{ "sid": "griffin_upg_alt", "amount": 21 },
+						{ "sid": "griffin_upg", "amount": 21 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "sunlight_cavalry", "16" ]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

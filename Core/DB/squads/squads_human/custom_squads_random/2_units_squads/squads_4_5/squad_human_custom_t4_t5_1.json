@@ -1,0 +1,44 @@
+{
+	"array": [
+		{
+			"id": "squad_human_random_t4_t5_1",
+			"useOldSquads": false,
+			"rollChance": 101,
+			"canBeMainGuard": true,
+			"baseSquad": {
+				"units": [
+					{
+						"s": "lightweaver",
+						"v": 13015
+					},
+					{
+						"s": "sunlight_cavalry",
+						"v": 13015
+					}
+				]
+			},
+			"dynamicSquad": {
+				"requiredValue": 13015,
+				"units": [
+					"lightweaver",
+					"sunlight_cavalry"
+				]
+			},
+			"randomSquad": {
+				"maxValue": 90015,
+				"units": [
+					{
+						"s": "lightweaver",
+						"v": 90015
+					},
+					{
+						"s": "sunlight_cavalry",
+						"v": 90015
+					}
+				]
+			},
+			"tier": 5,
+			"fraction": "human"
+		}
+	]
+}

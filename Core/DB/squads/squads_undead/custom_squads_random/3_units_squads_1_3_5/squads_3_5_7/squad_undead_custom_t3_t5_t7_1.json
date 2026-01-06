@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_undead_t3_t5_t7_1",
+            "useOldSquads": false,
+            "rollChance": 37,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "pet",
+                        "v": 18357
+                    },
+                    {
+                        "s": "lich",
+                        "v": 18357
+                    },
+                    {
+                        "s": "vampire",
+                        "v": 18357
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 18357,
+                "units": [
+                    "pet",
+                    "lich",
+                    "vampire"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 130027,
+                "units": [
+                    {
+                        "s": "pet",
+                        "v": 130027
+                    },
+                    {
+                        "s": "lich",
+                        "v": 130027
+                    },
+                    {
+                        "s": "vampire",
+                        "v": 130027
+                    }
+                ]
+            },
+            "tier": 7,
+            "fraction": "undead"
+        }
+    ]
+}

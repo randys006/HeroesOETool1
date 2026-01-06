@@ -1,0 +1,74 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "trick_demon_upg",
+			"mesh": "Demons/1Prefabs/trick_demon_upg",
+			"mapMesh": "Demons/1Prefabs/trick_demon_upg_map",
+
+			"scale": 0.225,
+			"modelHeight": 0.56,
+			"moveSpeed": 4.5,
+
+			"attackTimeBefore": [ 0.405, 0.55, 0.6, 0.6, 0.6, 0.6 ],
+			"attackTimeAfter": [ 0.9, 0.9, 0.9, 0.9, 0.9, 0.9 ],
+			"rareIdleTime": 3.0,
+
+			"takeDamageTime": 1.34,
+			"deathTimeOffset": 1.91,
+
+			"defaultAttacks":
+			[
+				{
+					"animationIndex": 1
+				}
+			],
+
+			"counterAttacks":
+			[
+				{
+					"animationIndex": 0
+				}
+			],
+
+			"alternativeAttacks":
+			[
+				{	
+					"name": "common_attack_1_name",
+					"abilityType": "Ability_type_attack_mod",
+					"description": "common_attack_1_description",
+					"additionalDescription": "",
+					"animationIndex": 0,
+					"useExpandTooltip": "false"
+				}
+			],
+
+			"baseClass":
+                {
+                    "name": "base_class_demon",
+                    "description": "base_class_demon_description"
+                },
+
+			"abilities":
+			[
+
+			],
+           
+			"passives":
+			[
+				{
+					"name": "base_passive_remote_attack_name",
+					"description": "base_passive_remote_attack_description"
+				},
+				{
+					"name": "demon_passive_1_name",
+					"description": "demon_passive_1_description"
+				},
+				{
+					"name": "trick_demon_passive_1_name",
+					"description": "trick_demon_passive_1_description"
+				}
+			]
+		}
+	]
+}

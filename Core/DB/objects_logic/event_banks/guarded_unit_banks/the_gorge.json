@@ -1,0 +1,166 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "the_gorge",
+			
+			"applyDifficultyModifier": true,
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[		
+				{
+					"rollChance": 30,
+					"value": 5000,
+					"customGuardValue": 1400,
+
+					"guardUnits":
+					[
+						{ "sid": "locust", "amount": 15 },
+						{ "sid": "locust", "amount": 15 },
+						{ "sid": "locust", "amount": 15 },
+						{ "sid": "locust", "amount": 15 },
+						{ "sid": "locust", "amount": 15 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+
+								"parameters": [ "olgoi", "3" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 30,
+					"value": 10000,
+					"customGuardValue": 2800,
+
+					"guardUnits":
+					[
+						{ "sid": "locust", "amount": 30 },
+						{ "sid": "locust_upg", "amount": 30 },
+						{ "sid": "locust", "amount": 30 },
+						{ "sid": "locust_upg_alt", "amount": 30 },
+						{ "sid": "locust", "amount": 30 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "olgoi", "6" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 15000,
+					"customGuardValue": 4250,
+
+					"guardUnits":
+					[
+						{ "sid": "locust", "amount": 43 },
+						{ "sid": "locust_upg_alt", "amount": 43 },
+						{ "sid": "locust", "amount": 43 },
+						{ "sid": "locust_upg", "amount": 43 },
+						{ "sid": "locust", "amount": 43 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "olgoi", "9" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 15,
+					"value": 20000,
+					"customGuardValue": 5600,
+
+					"guardUnits":
+					[
+						{ "sid": "locust_upg", "amount": 54 },
+						{ "sid": "locust_upg_alt", "amount": 54 },
+						{ "sid": "locust", "amount": 54 },
+						{ "sid": "locust_upg_alt", "amount": 54 },
+						{ "sid": "locust_upg", "amount": 54 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "olgoi", "12" ]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

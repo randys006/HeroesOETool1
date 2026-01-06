@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_dungeon_t2_t4_t6_1",
+            "useOldSquads": false,
+            "rollChance": 19,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "assassin",
+                        "v": 12186
+                    },
+                    {
+                        "s": "minos_upg",
+                        "v": 12186
+                    },
+                    {
+                        "s": "hydra",
+                        "v": 12186
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 12186,
+                "units": [
+                    "assassin",
+                    "minos_upg",
+                    "hydra"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 85016,
+                "units": [
+                    {
+                        "s": "assassin",
+                        "v": 85016
+                    },
+                    {
+                        "s": "minos_upg",
+                        "v": 85016
+                    },
+                    {
+                        "s": "hydra",
+                        "v": 85016
+                    }
+                ]
+            },
+            "tier": 6,
+            "fraction": "dungeon"
+        }
+    ]
+}

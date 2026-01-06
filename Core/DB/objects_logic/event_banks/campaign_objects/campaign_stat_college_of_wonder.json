@@ -1,0 +1,54 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "campaign_college_of_wonder",
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "EachHeroOneTime",
+
+			"variants":
+			[
+				{
+					"rollChance": 100,
+					"value": 20000,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Directly",
+						"rewardSetApplyType": "OnlySelected",
+						"rewardSetCancelType": "CancelAndDelete",
+						"label": "college_of_wonder_label",
+						
+						"rewardCost":
+						[
+							{
+								"name": "gold",
+								"cost": 5000
+							}
+						],
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroBuffReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "statReward_notification",
+
+								"parameters": [ "allStat_1_buff", "Infinite", "-1" ]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

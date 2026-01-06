@@ -1,0 +1,15 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "multi_hero_M10_hero_normal",
+			"stepOrder": 4,
+			"tasks":
+			[
+				{
+					"task": "multi_hero_M10_hero_tasks"
+				}
+			]
+		}
+	]
+}

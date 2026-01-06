@@ -1,0 +1,117 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "resource_gold",
+			"goodsValue": 575,
+			"aiValue": 1150,
+			"rollChance": 10,
+
+			"chances": [ 75, 100, 100, 100, 75 ],
+
+			"resArr":
+			[
+				{
+					"resName": "gold",
+					"values": [ 400, 500, 600, 700, 800 ]
+				}
+			]
+		},
+		{
+			"id": "resource_dust",
+			"goodsValue": 1450,
+			"aiValue": 1450,
+			"rollChance": 10,
+
+			"chances": [ 5, 6, 6, 6, 5 ],
+
+			"resArr":
+			[
+				{
+					"resName": "dust",
+					"values": [ 8, 9, 10, 11, 12 ]
+				}
+			]
+		},
+		{
+			"id": "resource_wood",
+			"goodsValue": 1400,
+			"aiValue": 2000,
+			"rollChance": 10,
+
+			"chances": [ 5, 6, 6, 5 ],
+
+			"resArr":
+			[
+				{
+					"resName": "wood",
+					"values": [ 5, 6, 7, 8 ]
+				}
+			]
+		},
+		{
+			"id": "resource_ore",
+			"goodsValue": 1400,
+			"aiValue": 2000,
+			"rollChance": 10,
+
+			"chances": [ 5, 6, 6, 5 ],
+
+			"resArr":
+			[
+				{
+					"resName": "ore",
+					"values": [ 5, 6, 7, 8 ]
+				}
+			]
+		},
+		{
+			"id": "resource_crystals",
+			"goodsValue": 1900,
+			"aiValue": 2500,
+			"rollChance": 10,
+
+			"chances": [ 4, 5, 4 ],
+
+			"resArr":
+			[
+				{
+					"resName": "crystals",
+					"values": [ 3, 4, 5 ]
+				}
+			]
+		},
+		{
+			"id": "resource_mercury",
+			"goodsValue": 1900,
+			"aiValue": 2500,
+			"rollChance": 10,
+
+			"chances": [ 4, 5, 4 ],
+
+			"resArr":
+			[
+				{
+					"resName": "mercury",
+					"values": [ 3, 4, 5 ]
+				}
+			]
+		},
+		{
+			"id": "resource_gemstones",
+			"goodsValue": 1900,
+			"aiValue": 2500,
+			"rollChance": 10,
+
+			"chances": [ 4, 5, 4 ],
+
+			"resArr":
+			[
+				{
+					"resName": "gemstones",
+					"values": [ 3, 4, 5 ]
+				}
+			]
+		}
+	]	
+}

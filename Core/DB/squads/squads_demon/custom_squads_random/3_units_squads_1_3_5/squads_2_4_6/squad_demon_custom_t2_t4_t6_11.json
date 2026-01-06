@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_demon_t2_t4_t6_1",
+            "useOldSquads": false,
+            "rollChance": 19,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "locust_upg",
+                        "v": 12186
+                    },
+                    {
+                        "s": "jaw",
+                        "v": 12186
+                    },
+                    {
+                        "s": "olgoi_upg",
+                        "v": 12186
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 12186,
+                "units": [
+                    "locust_upg",
+                    "jaw",
+                    "olgoi_upg"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 85016,
+                "units": [
+                    {
+                        "s": "locust_upg",
+                        "v": 85016
+                    },
+                    {
+                        "s": "jaw",
+                        "v": 85016
+                    },
+                    {
+                        "s": "olgoi_upg",
+                        "v": 85016
+                    }
+                ]
+            },
+            "tier": 6,
+            "fraction": "demon"
+        }
+    ]
+}

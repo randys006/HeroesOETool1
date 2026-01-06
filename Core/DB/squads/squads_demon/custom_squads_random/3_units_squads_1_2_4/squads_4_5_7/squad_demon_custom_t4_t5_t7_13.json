@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_demon_t4_t5_t7_1",
+            "useOldSquads": false,
+            "rollChance": 44,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "jaw_upg",
+                        "v": 20027
+                    },
+                    {
+                        "s": "godslayer_upg",
+                        "v": 20027
+                    },
+                    {
+                        "s": "hive_queen",
+                        "v": 20027
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 20027,
+                "units": [
+                    "jaw_upg",
+                    "godslayer_upg",
+                    "hive_queen"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 140027,
+                "units": [
+                    {
+                        "s": "jaw_upg",
+                        "v": 140027
+                    },
+                    {
+                        "s": "godslayer_upg",
+                        "v": 140027
+                    },
+                    {
+                        "s": "hive_queen",
+                        "v": 140027
+                    }
+                ]
+            },
+            "tier": 7,
+            "fraction": "demon"
+        }
+    ]
+}

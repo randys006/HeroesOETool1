@@ -1,0 +1,50 @@
+{
+	"array":
+	[
+		{
+			"id": "squad_demon_custom_4_5",
+			
+			"squad" : 
+			[
+
+			],
+
+			"useOldSquads": false,
+
+			"rollChance": 120,
+			"canBeMainGuard": true,
+
+			"baseSquad": 
+			{
+				"units":
+				[
+					{ "s" : "wasp_upg_alt", "v": 16005 },
+					{ "s" : "olgoi", "v": 16005 }
+					
+				]
+			},
+
+			"dynamicSquad": 
+			{
+				"requiredValue": 16005,
+				"units":
+				[
+					"wasp_upg_alt", "olgoi"
+				]
+			},
+
+			"randomSquad": 
+			{
+				"maxValue": 120005,
+				"units":
+				[
+					{ "s" : "wasp_upg_alt", "v": 120005 },
+					{ "s" : "olgoi", "v": 120005 }
+				]
+			},
+
+			"tier": 6,
+			"fraction": "demon"
+		}
+	]
+}

@@ -1,0 +1,433 @@
+﻿{
+	"array":
+	[
+		{
+			"id" :"holy_sigil_of_uurdt_artifact", "slot_": "unic_slot", "rarity": "epic",
+
+			"icon": "holy_sigil_of_uurdt_artifact",
+
+			"name": "holy_sigil_of_uurdt_artifact_name",
+			"description": "holy_sigil_of_uurdt_artifact_description",
+			"upgradeDescription": "artifact_tech_cannot_be_upgraded",
+			"narrativeDescription": "holy_sigil_of_uurdt_artifact_narrativeDescription",
+
+			"goodsValue": 21000,
+
+			"costBase": 75,
+			"costPerLevel": 75,
+			"rewardForDestroy": 30,
+			"maxLevel": 1,
+
+			"bonuses":
+			[
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_protection" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_magic_primal" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_trainer" ]
+				}
+			]
+		},
+
+		{
+			"id" :"holy_sigil_of_the_second_man_artifact", "slot_": "unic_slot", "rarity": "epic",
+
+			"icon": "holy_sigil_of_the_second_man_artifact",
+
+			"name": "holy_sigil_of_the_second_man_artifact_name",
+			"description": "holy_sigil_of_the_second_man_artifact_description",
+			"upgradeDescription": "artifact_tech_cannot_be_upgraded",
+			"narrativeDescription": "holy_sigil_of_the_second_man_artifact_narrativeDescription",
+
+			"goodsValue": 21000,
+
+			"costBase": 75,
+			"costPerLevel": 75,
+			"rewardForDestroy": 30,
+			"maxLevel": 1,
+
+			"bonuses":
+			[
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_assault" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_summoner" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_siege" ]
+				}
+			]
+		},
+
+		{
+			"id" :"holy_sigil_of_the_seven_magi_artifact", "slot_": "unic_slot", "rarity": "epic",
+
+			"icon": "holy_sigil_of_the_seven_magi_artifact",
+
+			"name": "holy_sigil_of_the_seven_magi_artifact_name",
+			"description": "holy_sigil_of_the_seven_magi_artifact_description",
+			"upgradeDescription": "artifact_tech_cannot_be_upgraded",
+			"narrativeDescription": "holy_sigil_of_the_seven_magi_artifact_narrativeDescription",
+
+			"goodsValue": 21000,
+
+			"costBase": 75,
+			"costPerLevel": 75,
+			"rewardForDestroy": 30,
+			"maxLevel": 1,
+
+			"bonuses":
+			[
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_sorcery" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_magic_night" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_resistance" ]
+				}
+			]
+		},
+
+		{
+			"id" :"holy_sigil_of_quix_artifact", "slot_": "unic_slot", "rarity": "epic",
+
+			"icon": "holy_sigil_of_quix_artifact",
+
+			"name": "holy_sigil_of_quix_artifact_name",
+			"description": "holy_sigil_of_quix_artifact_description",
+			"upgradeDescription": "artifact_tech_cannot_be_upgraded",
+			"narrativeDescription": "holy_sigil_of_quix_artifact_narrativeDescription",
+
+			"goodsValue": 21000,
+
+			"costBase": 75,
+			"costPerLevel": 75,
+			"rewardForDestroy": 30,
+			"maxLevel": 1,
+
+			"bonuses":
+			[
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_magic_space" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_scouting" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_formation" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_wisdom" ]
+				}
+			]
+		},
+
+		{
+			"id" :"holy_sigil_of_insara_artifact", "slot_": "unic_slot", "rarity": "epic",
+
+			"icon": "holy_sigil_of_insara_artifact",
+
+			"name": "holy_sigil_of_insara_artifact_name",
+			"description": "holy_sigil_of_insara_artifact_description",
+			"upgradeDescription": "artifact_tech_cannot_be_upgraded",
+			"narrativeDescription": "holy_sigil_of_insara_artifact_narrativeDescription",
+
+			"goodsValue": 21000,
+
+			"costBase": 75,
+			"costPerLevel": 75,
+			"rewardForDestroy": 30,
+			"maxLevel": 1,
+
+			"bonuses":
+			[
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_leadership" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_enlightenment" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_diplomacy" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_tactics" ]
+				}
+			]
+		},
+
+		{
+			"id" :"holy_sigil_of_mearea_artifact", "slot_": "unic_slot", "rarity": "epic",
+
+			"icon": "holy_sigil_of_mearea_artifact",
+
+			"name": "holy_sigil_of_mearea_artifact_name",
+			"description": "holy_sigil_of_mearea_artifact_description",
+			"upgradeDescription": "artifact_tech_cannot_be_upgraded",
+			"narrativeDescription": "holy_sigil_of_mearea_artifact_narrativeDescription",
+
+			"goodsValue": 21000,
+
+			"costBase": 75,
+			"costPerLevel": 75,
+			"rewardForDestroy": 30,
+			"maxLevel": 1,
+
+			"bonuses":
+			[
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_luck" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_economy" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_magic_day" ]
+				}
+			]
+		},
+
+		{
+			"id" :"holy_sigil_of_eridore_artifact", "slot_": "unic_slot", "rarity": "epic",
+
+			"icon": "holy_sigil_of_eridore_artifact",
+
+			"name": "holy_sigil_of_eridore_artifact_name",
+			"description": "holy_sigil_of_eridore_artifact_description",
+			"upgradeDescription": "artifact_tech_cannot_be_upgraded",
+			"narrativeDescription": "holy_sigil_of_eridore_artifact_narrativeDescription",
+
+			"goodsValue": 21000,
+
+			"costBase": 75,
+			"costPerLevel": 75,
+			"rewardForDestroy": 30,
+			"maxLevel": 1,
+
+			"bonuses":
+			[
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_logistic" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_battlemage" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_mastery" ]
+				}
+			]
+		},
+
+		{
+			"id" :"holy_sigil_of_roph_artifact", "slot_": "unic_slot", "rarity": "epic",
+
+			"icon": "holy_sigil_of_roph_artifact",
+
+			"name": "holy_sigil_of_roph_artifact_name",
+			"description": "holy_sigil_of_roph_artifact_description",
+			"upgradeDescription": "artifact_tech_cannot_be_upgraded",
+			"narrativeDescription": "holy_sigil_of_roph_artifact_narrativeDescription",
+
+			"goodsValue": 21000,
+
+			"costBase": 75,
+			"costPerLevel": 75,
+			"rewardForDestroy": 30,
+			"maxLevel": 1,
+
+			"bonuses":
+			[
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_faction_humans" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_faction_undead" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_faction_nature" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_faction_unfrozen" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_faction_demons" ]
+				},
+				{
+					"type": "heroTemporallyActiveSubSkills",
+					"parameters": [ "skill_faction_dungeon" ]
+				}
+			]
+		},
+
+
+		
+		{
+			"id" :"campaign_empty_crystal_item", "slot_": "unic_slot", "rarity": "legendary",
+			"canDestroy": false,
+
+			"icon": "campaign_empty_crystal_item",
+
+			"name": "campaign_empty_crystal_item_name",
+			"description": "campaign_empty_crystal_item_description",
+			"upgradeDescription": "artifact_tech_cannot_be_upgraded",
+			"narrativeDescription": "campaign_empty_crystal_item_narrativeDescription",
+
+			"goodsValue": 21000,
+
+			"costBase": 75,
+			"costPerLevel": 75,
+			"rewardForDestroy": 30,
+			"maxLevel": 1,
+
+			"bonuses":
+			[
+
+			]
+		},
+		{
+			"id" :"campaign_ichor_item", "slot_": "unic_slot", "rarity": "legendary",
+			"canDestroy": false,
+
+			"icon": "campaign_ichor_item",
+
+			"name": "campaign_ichor_item_name",
+			"description": "campaign_ichor_item_description",
+			"upgradeDescription": "artifact_tech_cannot_be_upgraded",
+			"narrativeDescription": "campaign_ichor_item_narrativeDescription",
+
+			"goodsValue": 21000,
+
+			"costBase": 75,
+			"costPerLevel": 75,
+			"rewardForDestroy": 30,
+			"maxLevel": 1,
+
+			"bonuses":
+			[
+
+			]
+		},
+		{
+			"id" :"campaign_M3_freed_priestesses_item", "slot_": "unic_slot", "rarity": "legendary",
+			"canDestroy": false,
+
+			"icon": "campaign_M3_freed_priestesses_item",
+
+			"name": "campaign_M3_freed_priestesses_item_name",
+			"description": "campaign_M3_freed_priestesses_item_description",
+			"upgradeDescription": "artifact_tech_cannot_be_upgraded",
+			"narrativeDescription": "campaign_M3_freed_priestesses_item_narrativeDescription",
+
+			"goodsValue": 21000,
+
+			"costBase": 75,
+			"costPerLevel": 75,
+			"maxLevel": 1,
+
+			"bonuses":
+			[
+
+			]
+		},
+		{
+			"id" :"campaign_M3_captured_priestesses_item", "slot_": "unic_slot", "rarity": "legendary",
+			"canDestroy": false,
+
+			"icon": "campaign_M3_captured_priestesses_item",
+
+			"name": "campaign_M3_captured_priestesses_item_name",
+			"description": "campaign_M3_captured_priestesses_item_description",
+			"upgradeDescription": "artifact_tech_cannot_be_upgraded",
+			"narrativeDescription": "campaign_M3_captured_priestesses_item_narrativeDescription",
+
+			"goodsValue": 21000,
+
+			"costBase": 75,
+			"costPerLevel": 75,
+			"maxLevel": 1,
+
+			"bonuses":
+			[
+
+			]
+		},
+		{
+			"id" :"campaign_M5_friend_item", "slot_": "unic_slot", "rarity": "legendary",
+			"canDestroy": false,
+
+			"icon": "campaign_M5_friend_item",
+
+			"name": "campaign_M5_friend_item_name",
+			"description": "campaign_M5_friend_item_description",
+			"upgradeDescription": "artifact_tech_cannot_be_upgraded",
+			"narrativeDescription": "campaign_M5_friend_item_narrativeDescription",
+
+			"goodsValue": 21000,
+
+			"costBase": 75,
+			"costPerLevel": 75,
+			"maxLevel": 1,
+
+			"bonuses":
+			[
+
+			]
+		},
+		{
+			"id" :"campaign_M9_phoenix_egg_item", "slot_": "unic_slot", "rarity": "legendary",
+			"canDestroy": false,
+
+			"icon": "campaign_M9_phoenix_egg_item",
+
+			"name": "campaign_M9_phoenix_egg_name",
+			"description": "campaign_M9_phoenix_egg_description",
+			"upgradeDescription": "artifact_tech_cannot_be_upgraded",
+			"narrativeDescription": "campaign_M9_phoenix_egg_narrativeDescription",
+
+			"goodsValue": 21000,
+
+			"costBase": 75,
+			"costPerLevel": 75,
+			"maxLevel": 1,
+
+			"bonuses":
+			[
+
+			]
+		}
+	]
+}

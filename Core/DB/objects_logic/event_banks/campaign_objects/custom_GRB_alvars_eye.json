@@ -1,0 +1,99 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "custom_alvars_eye",
+			
+			"applyDifficultyModifier": true,
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[		
+				{
+					"rollChance": 100,
+					"value": 1000,
+					"customGuardValue": 1000,
+
+					"guardUnits":
+					[						
+						{ "sid": "obsidian_dragon", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SidePropResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [  ]
+							},
+							{
+								"rewardType": "SidePropResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [  ]
+							},
+							{
+								"rewardType": "SidePropResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [  ]
+							},
+							{
+								"rewardType": "SidePropResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [  ]
+							},
+							{
+								"rewardType": "SidePropResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [  ]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

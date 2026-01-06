@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_unfrozen_t2_t4_t6_1",
+            "useOldSquads": false,
+            "rollChance": 19,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "unfrozen_cultist",
+                        "v": 12186
+                    },
+                    {
+                        "s": "eldritch_flyer",
+                        "v": 12186
+                    },
+                    {
+                        "s": "arbitrator_upg",
+                        "v": 12186
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 12186,
+                "units": [
+                    "unfrozen_cultist",
+                    "eldritch_flyer",
+                    "arbitrator_upg"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 85016,
+                "units": [
+                    {
+                        "s": "unfrozen_cultist",
+                        "v": 85016
+                    },
+                    {
+                        "s": "eldritch_flyer",
+                        "v": 85016
+                    },
+                    {
+                        "s": "arbitrator_upg",
+                        "v": 85016
+                    }
+                ]
+            },
+            "tier": 6,
+            "fraction": "unfrozen"
+        }
+    ]
+}

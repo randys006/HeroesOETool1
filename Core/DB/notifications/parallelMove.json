@@ -1,0 +1,14 @@
+{
+	"array":
+	[
+        {
+            "id": "parallelMove",
+            "parameters":[
+                "info_sim_turn_end_alt",
+                "info_sim_turn_end"
+            ]
+
+        }
+		
+	]
+}

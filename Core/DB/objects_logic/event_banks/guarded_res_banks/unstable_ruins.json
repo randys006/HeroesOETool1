@@ -1,0 +1,154 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "unstable_ruins",
+			
+			"applyDifficultyModifier": true,
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[		
+				{
+					"rollChance": 30,
+					"value": 13200,
+					"customGuardValue": 10400,
+
+					"guardUnits":
+					[
+						{ "sid": "sentinel", "amount": 3 },
+						{ "sid": "sentinel", "amount": 3 }							
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "10000", "wood", "8", "ore", "8", "gemstones", "8", "mercury", "8", "crystals", "8", "dust", "80" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 30,
+					"value": 21800,
+					"customGuardValue": 13100,
+
+					"guardUnits":
+					[
+						{ "sid": "sentinel", "amount": 4 },
+						{ "sid": "sentinel", "amount": 4 }			
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "15000", "wood", "12", "ore", "12", "gemstones", "12", "mercury", "12", "crystals", "12", "dust", "120" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 30900,
+					"customGuardValue": 15800,
+
+					"guardUnits":
+					[						
+						{ "sid": "sentinel", "amount": 5 },
+						{ "sid": "sentinel", "amount": 5 }				
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "20000", "wood", "16", "ore", "16", "gemstones", "16", "mercury", "16", "crystals", "16", "dust", "160" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 15,
+					"value": 40000,
+					"customGuardValue": 18500,
+
+					"guardUnits":
+					[						
+						{ "sid": "sentinel", "amount": 6 },
+						{ "sid": "sentinel", "amount": 6 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "25000", "wood", "20", "ore", "20", "gemstones", "20", "mercury", "20", "crystals", "20", "dust", "200" ]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

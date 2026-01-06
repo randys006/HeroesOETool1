@@ -1,0 +1,106 @@
+﻿{
+	"largeZoomAmbientSound": "sounds/world_map/ambient/large_zoom",
+	
+	"array":
+	{
+		"data":
+		[
+			{
+				"key": "Water",
+
+				"val":
+				{
+					"commonSound": "sounds/world_map/ambient/water",
+					
+					"additionalSound": "sounds/world_map/ambient/water_add",
+					"minDelay": 10,
+					"maxDelay": 20
+				}
+			},
+			{
+				"key": "Grass",
+
+				"val":
+				{
+					"commonSound": "sounds/world_map/ambient/grass",
+					
+					"additionalSound": "",
+					"minDelay": 1,
+					"maxDelay": 10
+				}
+			},
+			{
+				"key": "Deathland",
+
+				"val":
+				{
+					"commonSound": "sounds/world_map/ambient/deathland",
+					
+					"additionalSound": "sounds/world_map/ambient/deathland_add",
+					"minDelay": 10,
+					"maxDelay": 30
+				}
+			},
+			{
+				"key": "Dirt",
+
+				"val":
+				{
+					"commonSound": "sounds/world_map/ambient/dirt",
+					
+					"additionalSound": "sounds/world_map/ambient/dirt_add",
+					"minDelay": 10,
+					"maxDelay": 30
+				}
+			},
+			{
+				"key": "Autumn",
+
+				"val":
+				{
+					"commonSound": "sounds/world_map/ambient/autumn",
+					
+					"additionalSound": "",
+					"minDelay": 1,
+					"maxDelay": 10
+				}
+			},
+			{
+				"key": "Lava",
+
+				"val":
+				{
+					"commonSound": "sounds/world_map/ambient/lava",
+					
+					"additionalSound": "",
+					"minDelay": 1,
+					"maxDelay": 10
+				}
+			},
+			{
+				"key": "Snow",
+
+				"val":
+				{
+					"commonSound": "sounds/world_map/ambient/snow",
+					
+					"additionalSound": "",
+					"minDelay": 1,
+					"maxDelay": 10
+				}
+			},
+			{
+				"key": "Sand",
+
+				"val":
+				{
+					"commonSound": "sounds/world_map/ambient/sand",
+					
+					"additionalSound": "",
+					"minDelay": 1,
+					"maxDelay": 10
+				}
+			}
+		]
+	}	
+}

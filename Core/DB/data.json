@@ -1,0 +1,86 @@
+﻿{
+	"units": [
+		
+	],
+	"fractions": [
+		"human",
+		"undead",
+		"unfrozen",
+		"dungeon",
+		"neutral",
+		"mix"
+	],
+	"availableFractions": [
+		"human",
+		"undead",
+		"unfrozen",
+		"dungeon"
+	],
+	"tiers": [
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		-1
+	],
+
+	"bannedItems":
+	[
+		"magic_key_ring_artifact",
+		"demonic_heart_artifact"
+	],
+
+	"bannedMagics":
+	[
+
+	],
+	
+	"bannedSkills":
+	[
+		
+	],
+
+	"bannedHeroes":
+	[
+		"pvp_promo_hero_1",
+		"pvp_promo_hero_2"
+	],
+
+	"campaignHeroes":
+	[
+		"pvp_promo_hero_1",
+		"pvp_promo_hero_2",
+		
+		"tutorial_hero_1_basic",
+		"tutorial_hero_1",
+		"tutorial_hero_2",
+		"tutorial_hero_3",
+		"tutorial_hero_4",
+		"tutorial_M_hero_1",
+		"tutorial_M_hero_2",
+
+		"tutorial_hero_c1_1",
+		"tutorial_hero_c1_2",
+		"tutorial_hero_c1_3",
+		"tutorial_hero_c1_4",
+		"tutorial_hero_c1_5",
+		"tutorial_hero_c1_6",
+		"tutorial_hero_c1_7",
+		"tutorial_hero_c1_8",
+		"tutorial_hero_c1_9",
+		"tutorial_hero_c1_10",
+		"tutorial_hero_c1_11",
+		"tutorial_hero_c1_12",
+		"tutorial_hero_c1_13",
+		"tutorial_hero_c1_14"
+	],
+
+	"bannedUnits":
+	[
+		
+	]
+}

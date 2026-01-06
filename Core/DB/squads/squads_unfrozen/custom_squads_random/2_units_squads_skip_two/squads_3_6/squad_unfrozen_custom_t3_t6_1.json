@@ -1,0 +1,44 @@
+{
+    "array": [
+        {
+            "id": "squad_unfrozen_t3_t6_1",
+            "useOldSquads": false,
+            "rollChance": 67,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "frostworm_rider",
+                        "v": 14516
+                    },
+                    {
+                        "s": "arbitrator",
+                        "v": 14516
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 14516,
+                "units": [
+                    "frostworm_rider",
+                    "arbitrator"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 105016,
+                "units": [
+                    {
+                        "s": "frostworm_rider",
+                        "v": 105016
+                    },
+                    {
+                        "s": "arbitrator",
+                        "v": 105016
+                    }
+                ]
+            },
+            "tier": 6,
+            "fraction": "unfrozen"
+        }
+    ]
+}

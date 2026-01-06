@@ -1,0 +1,162 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "petrified_memorial",
+			
+			"applyDifficultyModifier": true,
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[		
+				{
+					"rollChance": 30,
+					"value": 5000,
+					"customGuardValue": 1500,
+
+					"guardUnits":
+					[
+						{ "sid": "minos", "amount": 4 },
+						{ "sid": "minos", "amount": 4 },
+						{ "sid": "minos", "amount": 4 },
+						{ "sid": "minos", "amount": 4 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "medusa", "7" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 30,
+					"value": 10000,
+					"customGuardValue": 3000,
+
+					"guardUnits":
+					[
+						{ "sid": "minos", "amount": 8 },
+						{ "sid": "minos_upg", "amount": 8 },
+						{ "sid": "minos", "amount": 8 },
+						{ "sid": "minos_upg_alt", "amount": 8 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "medusa", "14" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 15000,
+					"customGuardValue": 4600,
+
+					"guardUnits":
+					[
+						{ "sid": "minos", "amount": 11 },
+						{ "sid": "minos_upg", "amount": 11 },
+						{ "sid": "minos", "amount": 11 },
+						{ "sid": "minos_upg_alt", "amount": 11 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "medusa", "21" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 15,
+					"value": 20000,
+					"customGuardValue": 6100,
+
+					"guardUnits":
+					[
+						{ "sid": "minos_upg_alt", "amount": 14 },
+						{ "sid": "minos_upg", "amount": 14 },
+						{ "sid": "minos_upg", "amount": 14 },
+						{ "sid": "minos_upg_alt", "amount": 14 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "medusa", "28" ]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

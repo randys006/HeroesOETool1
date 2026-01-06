@@ -1,0 +1,66 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "locust_upg",
+			"mesh": "Demons/1Prefabs/locust_upg",
+			"mapMesh": "Demons/1Prefabs/locust_upg_map",
+
+			"scale": 0.5,
+			"modelHeight": 0.62,
+			"moveSpeed": 5.0,
+
+			"attackTimeBefore": [ 0.43, 1.3, 0.6, 0.6, 0.6, 0.6 ],
+			"attackTimeAfter": [ 0.9, 0.9, 0.9, 0.9, 0.9, 0.9 ],
+			"rareIdleTime": 3.0,
+
+			"takeDamageTime": 1.34,
+			"deathTimeOffset": 2.57,
+
+			"defaultAttacks":
+			[
+				{
+					"animationIndex": 0
+				}
+			],
+
+			"counterAttacks":
+			[
+				{
+					"animationIndex": 0
+				}
+			],
+
+			"abilities":
+			[
+
+			],
+
+			"baseClass":
+                {
+                    "name": "base_class_demon",
+                    "description": "base_class_demon_description"
+                },
+			
+			"passives":
+			[
+				{
+					"name": "base_passive_melee_attack_name",
+					"description": "base_passive_melee_attack_description"
+				},
+				{
+					"name": "base_passive_double_strike_name",
+					"description": "base_passive_double_strike_description"
+				},
+				{
+					"name": "base_passive_alert_name",
+					"description": "base_passive_alert_description"
+				},
+				{
+					"name": "demon_passive_1_name",
+					"description": "demon_passive_1_description"
+				}
+			]
+		}
+	]
+}

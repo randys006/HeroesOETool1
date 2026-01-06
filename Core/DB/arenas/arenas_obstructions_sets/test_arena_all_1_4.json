@@ -1,0 +1,55 @@
+{
+    "array": [
+        {
+            "id": "test_arena_all_1_4",
+            "list": [
+                {
+                    "hexId": 90,
+                    "rotation": 0,
+                    "flip": 1,
+                    "obstructionId": "obstructions_1x1"
+                },
+                {
+                    "hexId": 67,
+                    "rotation": 0,
+                    "flip": 1,
+                    "obstructionId": "obstructions_2x1"
+                },
+                {
+                    "hexId": 45,
+                    "rotation": 0,
+                    "flip": 1,
+                    "obstructionId": "obstructions_3x1"
+                },
+                {
+                    "hexId": 38,
+                    "rotation": 0,
+                    "flip": 1,
+                    "obstructionId": "obstructions_2x2_v1"
+                },
+                {
+                    "hexId": 13,
+                    "rotation": 0,
+                    "flip": 1,
+                    "obstructionId": "obstructions_2x2_v3"
+                },
+                {
+                    "hexId": 18,
+                    "rotation": 0,
+                    "flip": 1,
+                    "obstructionId": "obstructions_2x3_v3"
+                },
+                {
+                    "hexId": 63,
+                    "rotation": 0,
+                    "flip": 1,
+                    "obstructionId": "obstructions_2x2_v2"
+                }
+            ],
+            "arenaId": "_test",
+            "scene": "grassArena",
+            "subdivisionIds": [],
+            "weight": 0
+        }
+    ]
+}

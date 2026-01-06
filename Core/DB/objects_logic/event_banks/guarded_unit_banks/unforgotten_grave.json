@@ -1,0 +1,170 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "unforgotten_grave",
+			
+			"applyDifficultyModifier": true,
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[		
+				{
+					"rollChance": 30,
+					"value": 5000,
+					"customGuardValue": 1500,
+
+					"guardUnits":
+					[
+						{ "sid": "pet", "amount": 11 },
+						{ "sid": "pet", "amount": 11 },
+						{ "sid": "pet", "amount": 11 },
+						{ "sid": "pet", "amount": 11 },
+						{ "sid": "pet", "amount": 11 },
+						{ "sid": "pet", "amount": 11 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "avatar_of_war", "4" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 30,
+					"value": 10000,
+					"customGuardValue": 2900,
+
+					"guardUnits":
+					[
+						{ "sid": "pet", "amount": 22 },
+						{ "sid": "pet_upg", "amount": 22 },
+						{ "sid": "pet", "amount": 22 },
+						{ "sid": "pet", "amount": 22 },
+						{ "sid": "pet_upg_alt", "amount": 22 },
+						{ "sid": "pet", "amount": 22 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "avatar_of_war", "8" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 15000,
+					"customGuardValue": 4500,
+
+					"guardUnits":
+					[
+						{ "sid": "pet", "amount": 32 },
+						{ "sid": "pet_upg_alt", "amount": 32 },
+						{ "sid": "pet", "amount": 32 },
+						{ "sid": "pet", "amount": 32 },
+						{ "sid": "pet_upg", "amount": 32 },
+						{ "sid": "pet", "amount": 32 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "avatar_of_war", "12" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 15,
+					"value": 20000,
+					"customGuardValue": 5950,
+
+					"guardUnits":
+					[
+						{ "sid": "pet_upg", "amount": 40 },
+						{ "sid": "pet", "amount": 40 },
+						{ "sid": "pet_upg_alt", "amount": 40 },
+						{ "sid": "pet_upg_alt", "amount": 40 },
+						{ "sid": "pet", "amount": 40 },
+						{ "sid": "pet_upg", "amount": 40 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "avatar_of_war", "16" ]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

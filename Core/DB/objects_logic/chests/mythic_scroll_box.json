@@ -1,0 +1,156 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "mythic_scroll_box",
+			"variants": 
+			[
+				{
+					"rollChance": 100,
+					"value": 20000,
+					
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards": 
+						[ 
+							{ 
+								"rewardType": "HeroItemReward", 
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "itemReward_notification",
+								
+								"parameters": [ "mythic_magic_scroll_artifact_neutral_magic_second_sight" ] 
+							} 
+						]
+					}
+				},
+				{
+					"rollChance": 100,
+					"value": 30000,
+					
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards": 
+						[ 
+							{ 
+								"rewardType": "HeroItemReward", 
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "itemReward_notification",
+								
+								"parameters": [ "mythic_magic_scroll_artifact_neutral_magic_shadow_form" ] 
+							} 
+						]
+					}
+				},
+				{
+					"rollChance": 100,
+					"value": 40000,
+					
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards": 
+						[ 
+							{ 
+								"rewardType": "HeroItemReward", 
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "itemReward_notification",
+								
+								"parameters": [ "mythic_magic_scroll_artifact_neutral_magic_light_gate" ] 
+							} 
+						]
+					}
+				},
+				{
+					"rollChance": 100,
+					"value": 50000,
+					
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards": 
+						[ 
+							{ 
+								"rewardType": "HeroItemReward", 
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "itemReward_notification",
+								
+								"parameters": [ "mythic_magic_scroll_artifact_neutral_magic_town_portal" ] 
+							} 
+						]
+					}
+				},
+				{
+					"rollChance": 100,
+					"value": 60000,
+					
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards": 
+						[ 
+							{ 
+								"rewardType": "HeroItemReward", 
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "itemReward_notification",
+								
+								"parameters": [ "mythic_magic_scroll_artifact_neutral_magic_dimension_door" ] 
+							} 
+						]
+					}
+				}
+			]
+		}
+	]
+}

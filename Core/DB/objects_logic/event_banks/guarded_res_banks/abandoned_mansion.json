@@ -1,0 +1,197 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "abandoned_mansion",
+			
+			"applyDifficultyModifier": true,
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[		
+				{
+					"rollChance": 30,
+					"value": 1500,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "skeleton", "amount": 40 },
+						{ "sid": "flicker", "amount": 20 },
+						{ "sid": "skeleton", "amount": 40 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "1500" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 30,
+					"value": 2000,
+					"customGuardValue": 1200,
+
+					"guardUnits":
+					[					
+						{ "sid": "skeleton_upg_alt", "amount": 40 },
+						{ "sid": "skeleton", "amount": 40 },
+						{ "sid": "flicker", "amount": 20 },
+						{ "sid": "skeleton", "amount": 40 },
+						{ "sid": "skeleton_upg_alt", "amount": 40 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "3000" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 5500,
+					"customGuardValue": 2200,
+
+					"guardUnits":
+					[						
+						{ "sid": "skeleton_upg_alt", "amount": 60 },
+						{ "sid": "skeleton", "amount": 60 },
+						{ "sid": "flicker", "amount": 20 },
+						{ "sid": "flicker", "amount": 20 },
+						{ "sid": "skeleton", "amount": 60 },
+						{ "sid": "skeleton_upg_alt", "amount": 60 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "2500" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 15,
+					"value": 8000,
+					"customGuardValue": 3200,
+
+					"guardUnits":
+					[						
+						{ "sid": "skeleton_upg_alt", "amount": 60 },
+						{ "sid": "skeleton_upg", "amount": 60 },
+						{ "sid": "flicker", "amount": 20 },
+						{ "sid": "graverobber", "amount": 20 },
+						{ "sid": "flicker", "amount": 20 },
+						{ "sid": "skeleton_upg", "amount": 60 },
+						{ "sid": "skeleton_upg_alt", "amount": 60 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "5000" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_dungeon_t4_t5_t6_1",
+            "useOldSquads": false,
+            "rollChance": 22,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "minos_upg",
+                        "v": 16686
+                    },
+                    {
+                        "s": "medusa",
+                        "v": 16686
+                    },
+                    {
+                        "s": "hydra_upg",
+                        "v": 16686
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 16686,
+                "units": [
+                    "minos_upg",
+                    "medusa",
+                    "hydra_upg"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 120026,
+                "units": [
+                    {
+                        "s": "minos_upg",
+                        "v": 120026
+                    },
+                    {
+                        "s": "medusa",
+                        "v": 120026
+                    },
+                    {
+                        "s": "hydra_upg",
+                        "v": 120026
+                    }
+                ]
+            },
+            "tier": 6,
+            "fraction": "dungeon"
+        }
+    ]
+}

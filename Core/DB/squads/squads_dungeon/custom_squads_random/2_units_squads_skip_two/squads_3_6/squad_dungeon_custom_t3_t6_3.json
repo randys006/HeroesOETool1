@@ -1,0 +1,44 @@
+{
+    "array": [
+        {
+            "id": "squad_dungeon_t3_t6_3",
+            "useOldSquads": false,
+            "rollChance": 67,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "blade_dancer_upg_alt",
+                        "v": 14516
+                    },
+                    {
+                        "s": "hydra",
+                        "v": 14516
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 14516,
+                "units": [
+                    "blade_dancer_upg_alt",
+                    "hydra"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 105016,
+                "units": [
+                    {
+                        "s": "blade_dancer_upg_alt",
+                        "v": 105016
+                    },
+                    {
+                        "s": "hydra",
+                        "v": 105016
+                    }
+                ]
+            },
+            "tier": 6,
+            "fraction": "dungeon"
+        }
+    ]
+}

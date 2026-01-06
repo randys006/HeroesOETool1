@@ -1,0 +1,17 @@
+﻿{	
+	"array":
+	[
+		{
+			"id": "unit_trade_lab_kitten_horn",
+			"aiIgnore": true,
+			"goodsValue": 5000,
+
+			"nameResources": [ "crystals" ],
+			"countResources": [ "1" ],
+			"unitCount": 1 ,
+			"sidUnit":"kitten_horn",
+			"locNameBuild":"barracks_neutral_10_name",
+			"locNameUnit":"kitten_horn_name"
+		}
+	]
+}

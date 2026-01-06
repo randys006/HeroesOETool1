@@ -1,0 +1,43 @@
+{
+    "array": [
+        {
+            "id": "TestPrefabs",
+            "list": [
+                {
+                    "hexId": 68,
+                    "rotation": 0,
+                    "flip": 1,
+                    "obstructionId": "obstructions_2x3_v1"
+                },
+                {
+                    "hexId": 70,
+                    "rotation": 0,
+                    "flip": 1,
+                    "obstructionId": "obstructions_2x3_v2"
+                },
+                {
+                    "hexId": 74,
+                    "rotation": 0,
+                    "flip": 1,
+                    "obstructionId": "obstructions_2x3_v4"
+                },
+                {
+                    "hexId": 35,
+                    "rotation": 0,
+                    "flip": 1,
+                    "obstructionId": "obstructions_2x2_v3"
+                },
+                {
+                    "hexId": 28,
+                    "rotation": 0,
+                    "flip": 1,
+                    "obstructionId": "obstructions_2x3_v3"
+                }
+            ],
+            "arenaId": "_test",
+            "scene": "grassArena",
+            "subdivisionIds": [],
+            "weight": 0
+        }
+    ]
+}

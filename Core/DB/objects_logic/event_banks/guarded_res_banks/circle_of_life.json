@@ -1,0 +1,166 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "circle_of_life",
+			
+			"applyDifficultyModifier": true,
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[		
+				{
+					"rollChance": 30,
+					"value": 3000,
+					"customGuardValue": 1200,
+
+					"guardUnits":
+					[
+						{ "sid": "twinkle", "amount": 12 },
+						{ "sid": "locust", "amount": 16 },
+						{ "sid": "locust", "amount": 16 },	
+						{ "sid": "locust", "amount": 16 },	
+						{ "sid": "twinkle", "amount": 12 }											
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "1500", "crystals", "4" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 30,
+					"value": 4250,
+					"customGuardValue": 1700,
+
+					"guardUnits":
+					[
+						{ "sid": "twinkle", "amount": 16 },
+						{ "sid": "locust", "amount": 20 },
+						{ "sid": "locust", "amount": 20 },	
+						{ "sid": "locust", "amount": 20 },	
+						{ "sid": "twinkle", "amount": 16 }										
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "2000", "crystals", "6" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 5500,
+					"customGuardValue": 2200,
+
+					"guardUnits":
+					[						
+						{ "sid": "twinkle_upg_alt", "amount": 20 },
+						{ "sid": "locust_upg", "amount": 24 },
+						{ "sid": "locust", "amount": 24 },
+						{ "sid": "locust_upg_alt", "amount": 24 },
+						{ "sid": "twinkle_upg", "amount": 20 }				
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "2500", "crystals", "8" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 15,
+					"value": 6750,
+					"customGuardValue": 2700,
+
+					"guardUnits":
+					[						
+						{ "sid": "twinkle_upg_alt", "amount": 24 },
+						{ "sid": "locust_upg", "amount": 24 },
+						{ "sid": "locust", "amount": 24 },
+						{ "sid": "locust_upg_alt", "amount": 24 },
+						{ "sid": "twinkle_upg", "amount": 24 }		
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "3000", "crystals", "10" ]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

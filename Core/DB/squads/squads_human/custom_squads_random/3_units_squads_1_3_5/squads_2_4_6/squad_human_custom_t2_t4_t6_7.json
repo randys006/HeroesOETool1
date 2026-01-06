@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_human_t2_t4_t6_1",
+            "useOldSquads": false,
+            "rollChance": 19,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "crossbowman",
+                        "v": 12186
+                    },
+                    {
+                        "s": "lightweaver_upg_alt",
+                        "v": 12186
+                    },
+                    {
+                        "s": "inquisitor",
+                        "v": 12186
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 12186,
+                "units": [
+                    "crossbowman",
+                    "lightweaver_upg_alt",
+                    "inquisitor"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 85016,
+                "units": [
+                    {
+                        "s": "crossbowman",
+                        "v": 85016
+                    },
+                    {
+                        "s": "lightweaver_upg_alt",
+                        "v": 85016
+                    },
+                    {
+                        "s": "inquisitor",
+                        "v": 85016
+                    }
+                ]
+            },
+            "tier": 6,
+            "fraction": "human"
+        }
+    ]
+}

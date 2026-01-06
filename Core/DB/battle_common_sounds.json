@@ -1,0 +1,10 @@
+﻿{
+	"start":			"sounds/battle/jingles/start",
+	"victory":			"sounds/battle/jingles/victory",
+	"victory_defence":	"sounds/battle/jingles/victory_defence",
+	"defeat":			"sounds/battle/jingles/defeat",
+	"defeat_defence":	"sounds/battle/jingles/defeat_defence",
+	"defeat_ultimate":	"sounds/battle/jingles/defeat_ultimate",
+	"escape":			"sounds/battle/jingles/escape",
+	"capitulation":		"sounds/battle/jingles/capitulation"
+}

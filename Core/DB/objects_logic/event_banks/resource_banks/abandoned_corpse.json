@@ -1,0 +1,254 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "abandoned_corpse",
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[
+				{
+					"rollChance": 100,
+					"value": 250,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "250" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 100,
+					"value": 300,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "300" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 100,
+					"value": 350,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "350" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 100,
+					"value": 400,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "400" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 100,
+					"value": 450,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "450" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 100,
+					"value": 500,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "500" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 50,
+					"value": 3000,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 10,
+					"value": 6000,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"rare"
+								]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

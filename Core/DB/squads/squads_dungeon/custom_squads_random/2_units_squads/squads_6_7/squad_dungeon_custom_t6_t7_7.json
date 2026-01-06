@@ -1,0 +1,44 @@
+{
+    "array": [
+        {
+            "id": "squad_dungeon_t6_t7_7",
+            "useOldSquads": false,
+            "rollChance": 302,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "hydra",
+                        "v": 29027
+                    },
+                    {
+                        "s": "black_dragon_upg_alt",
+                        "v": 29027
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 29027,
+                "units": [
+                    "hydra",
+                    "black_dragon_upg_alt"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 210027,
+                "units": [
+                    {
+                        "s": "hydra",
+                        "v": 210027
+                    },
+                    {
+                        "s": "black_dragon_upg_alt",
+                        "v": 210027
+                    }
+                ]
+            },
+            "tier": 7,
+            "fraction": "dungeon"
+        }
+    ]
+}

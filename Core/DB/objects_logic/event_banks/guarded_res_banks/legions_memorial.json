@@ -1,0 +1,170 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "legions_memorial",
+			
+			"applyDifficultyModifier": true,
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[		
+				{
+					"rollChance": 30,
+					"value": 2500,
+					"customGuardValue": 1000,
+
+					"guardUnits":
+					[
+						{ "sid": "crossbowman_upg", "amount": 12 },
+						{ "sid": "esquire_upg", "amount": 12 },						
+						{ "sid": "crossbowman_upg_alt", "amount": 12 },
+						{ "sid": "esquire_upg", "amount": 12 },
+						{ "sid": "crossbowman_upg", "amount": 12 }						
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "1000", "wood", "6", "ore", "6"]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 30,
+					"value": 4000,
+					"customGuardValue": 1600,
+
+					"guardUnits":
+					[				
+						{ "sid": "crossbowman_upg", "amount": 16 },
+						{ "sid": "esquire_upg", "amount": 18 },
+						{ "sid": "crossbowman_upg_alt", "amount": 16 },
+						{ "sid": "esquire_upg", "amount": 18 },
+						{ "sid": "crossbowman_upg", "amount": 16 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "2000", "wood", "8", "ore", "8"]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 5500,
+					"customGuardValue": 2200,
+
+					"guardUnits":
+					[						
+						{ "sid": "esquire_upg_alt", "amount": 18 },					
+						{ "sid": "crossbowman_upg", "amount": 16 },
+						{ "sid": "esquire_upg", "amount": 18 },
+						{ "sid": "crossbowman_upg_alt", "amount": 16 },
+						{ "sid": "esquire_upg", "amount": 18 },
+						{ "sid": "crossbowman_upg", "amount": 16 },
+						{ "sid": "esquire_upg_alt", "amount": 18 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "3000", "wood", "10", "ore", "10"]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 15,
+					"value": 7000,
+					"customGuardValue": 2800,
+
+					"guardUnits":
+					[
+						{ "sid": "esquire_upg_alt", "amount": 24 },					
+						{ "sid": "crossbowman_upg", "amount": 16 },
+						{ "sid": "esquire_upg", "amount": 24 },
+						{ "sid": "crossbowman_upg_alt", "amount": 16 },
+						{ "sid": "esquire_upg", "amount": 24 },
+						{ "sid": "crossbowman_upg", "amount": 16 },
+						{ "sid": "esquire_upg_alt", "amount": 24 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "4000", "wood", "12", "ore", "12"]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

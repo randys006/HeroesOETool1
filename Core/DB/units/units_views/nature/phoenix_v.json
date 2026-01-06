@@ -1,0 +1,66 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "phoenix",
+			"mesh": "Nature/1Prefabs/phoenix",
+			"mapMesh": "Nature/1Prefabs/phoenix_map",
+
+			"scale": 0.45,
+			"modelHeight": 0.68,
+			"moveSpeed": 6,
+
+			"attackTimeBefore": [ 0.5, 0.6, 0.6, 1.6, 0.6, 0.6 ],
+			"attackTimeAfter": [ 1, 1, 1, 1, 1, 1 ],
+			"rareIdleTime": 1.5,
+
+			"takeoffPrepareTime": 0.75,
+			"ascentTime": 0.3,
+			"descentTime": 0.4,
+			"defaultHeight": 1.75,
+
+			"takeDamageTime": 1.34,
+			"deathTimeOffset": 5,
+
+
+			"abilities":
+			[
+				{
+					"name": "phoenix_ability_1_name",
+					"abilityType": "Ability_type_special",
+					"description": "phoenix_ability_1_description",
+					"infoDescription": "ability_no_turn",
+					"animationIndex": 1,
+					"useExpandTooltip": "false"
+
+				}
+			],
+
+			"baseClass":
+                {
+                    "name": "base_class_embodiment",
+                    "description": "base_class_embodiment_description"
+                },
+
+			"passives":
+			[
+				{
+					"name": "base_passive_flyer_name",
+					"description": "base_passive_flyer_description"
+				},
+				{
+					"name": "base_passive_melee_attack_name",
+					"description": "base_passive_melee_attack_description"
+				},
+				{
+					"name": "base_passive_strike_swipe_1_name",
+					"description": "base_passive_strike_swipe_1_description"
+				},
+				{
+					"name": "phoenix_passive_1_name",
+					"description": "phoenix_passive_1_description"
+				}
+			]
+		}
+	]
+}

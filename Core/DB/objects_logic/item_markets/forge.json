@@ -1,0 +1,15 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "forge",
+			"aiIgnore": true,
+
+			"goodsValue": 15000,
+
+			"extraChargePurchase": 1.5,
+			"extraChargeSell": 0.5,
+			"itemsCountPerRarity": [ 2, 2, 1, 1 ]
+		}
+	]
+}

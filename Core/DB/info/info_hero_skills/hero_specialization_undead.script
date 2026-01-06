@@ -1,0 +1,40 @@
+﻿//
+
+string current_specialization_necro_hero_10_spec_bonus
+{
+	Text( return, "1" )
+}
+
+string current_specialization_necro_hero_10_spec_increment
+{
+	Text( return, "1" )
+}
+
+string current_specialization_necro_hero_10_spec_level_step
+{
+	Text( return, "10" )
+}
+
+//
+
+string current_specialization_necro_hero_14_spec_bonus
+{
+	Text( return, "1" )
+}
+
+string current_specialization_necro_hero_14_spec_increment
+{
+	Text( return, "1" )
+}
+
+string current_specialization_necro_hero_14_spec_level_step
+{
+	Text( return, "10" )
+}
+
+//
+
+string current_specialization_necro_hero_15_bonus
+{
+	Text( return, "100" )
+}

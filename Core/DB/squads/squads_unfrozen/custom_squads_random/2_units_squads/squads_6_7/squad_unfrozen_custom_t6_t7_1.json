@@ -1,0 +1,44 @@
+{
+    "array": [
+        {
+            "id": "squad_unfrozen_t6_t7_1",
+            "useOldSquads": false,
+            "rollChance": 302,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "arbitrator",
+                        "v": 29027
+                    },
+                    {
+                        "s": "unspeakable",
+                        "v": 29027
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 29027,
+                "units": [
+                    "arbitrator",
+                    "unspeakable"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 210027,
+                "units": [
+                    {
+                        "s": "arbitrator",
+                        "v": 210027
+                    },
+                    {
+                        "s": "unspeakable",
+                        "v": 210027
+                    }
+                ]
+            },
+            "tier": 7,
+            "fraction": "unfrozen"
+        }
+    ]
+}

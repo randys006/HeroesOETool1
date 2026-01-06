@@ -1,0 +1,66 @@
+{
+	"buttonClickedSounds":
+	{
+		"data":
+		[
+			{
+				"key": "default", "val": "sounds/ui/button_clicked/default"
+			}
+		]
+	},
+
+	"buttonEnteredSounds":
+	{
+		"data":
+		[
+			{
+				"key": "default", "val": "sounds/ui/button_entered/default"
+			}
+		]
+	},
+
+	"windowOpenedSounds":
+	{
+		"data":
+		[
+			{
+				"key": "magic_book_opened", "val": "sounds/ui/magic_book/opened"
+			},
+			{
+				"key": "magic_guild_opened", "val": "sounds/ui/magic_guild/opened"
+			},
+			{
+				"key": "hero_description_opened", "val": "sounds/ui/hero_description/opened"
+			}
+		]
+	},
+	
+	"windowClosedSounds":
+	{
+		"data":
+		[
+			{
+				"key": "magic_book_closed", "val": "sounds/ui/magic_book/closed"
+			},
+			{
+				"key": "magic_guild_closed", "val": "sounds/ui/magic_guild/closed"
+			},
+			{
+				"key": "hero_description_closed", "val": "sounds/ui/hero_description/closed"
+			}
+		]
+	}, 
+
+
+	"windowSwitchedSounds":
+	{
+		"data":
+		[
+			{
+				"key": "magic_book_page_turned", "val": "sounds/ui/magic_book/page_turned"
+			}
+		]
+	},
+
+	"timerTickSound": "sounds/ui/timer_tick"
+}

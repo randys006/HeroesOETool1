@@ -1,0 +1,172 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "troglodyte_throne",
+			
+			"applyDifficultyModifier": true,
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[		
+				{
+					"rollChance": 30,
+					"value": 6000,
+					"customGuardValue": 1200,
+
+					"guardUnits":
+					[
+						{ "sid": "medusa", "amount": 6 },
+						{ "sid": "medusa", "amount": 6 },
+						{ "sid": "trogl", "amount": 1 },
+						{ "sid": "medusa", "amount": 6 },
+						{ "sid": "medusa", "amount": 6 }							
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "6000" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 30,
+					"value": 9000,
+					"customGuardValue": 1800,
+
+					"guardUnits":
+					[
+						{ "sid": "medusa", "amount": 6 },
+						{ "sid": "minos", "amount": 6 },
+						{ "sid": "medusa", "amount": 6 },
+						{ "sid": "trogl", "amount": 1 },
+						{ "sid": "medusa", "amount": 6 },
+						{ "sid": "minos", "amount": 6 },
+						{ "sid": "medusa", "amount": 6 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "9000" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 12000,
+					"customGuardValue": 2400,
+
+					"guardUnits":
+					[						
+						{ "sid": "medusa", "amount": 12 },
+						{ "sid": "hydra", "amount": 2 },
+						{ "sid": "minos", "amount": 6 },
+						{ "sid": "trogl", "amount": 1 },
+						{ "sid": "minos", "amount": 6 },
+						{ "sid": "hydra", "amount": 2 },
+						{ "sid": "medusa", "amount": 12 }	
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "12000" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 15,
+					"value": 15000,
+					"customGuardValue": 3000,
+
+					"guardUnits":
+					[						
+						{ "sid": "medusa_upg", "amount": 12 },
+						{ "sid": "hydra_upg", "amount": 1 },
+						{ "sid": "minos_upg", "amount": 6 },
+						{ "sid": "trogl", "amount": 1 },
+						{ "sid": "minos_upg_alt", "amount": 6 },
+						{ "sid": "hydra_upg_alt", "amount": 1 },
+						{ "sid": "medusa_upg_alt", "amount": 12 }	
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "15000" ]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

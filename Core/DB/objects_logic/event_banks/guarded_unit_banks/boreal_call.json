@@ -1,0 +1,166 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "boreal_call",
+			
+			"applyDifficultyModifier": true,
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[		
+				{
+					"rollChance": 30,
+					"value": 5000,
+					"customGuardValue": 1300,
+
+					"guardUnits":
+					[
+						{ "sid": "frostworm_rider", "amount": 10 },
+						{ "sid": "frostworm_rider", "amount": 10 },
+						{ "sid": "frostworm_rider", "amount": 10 },
+						{ "sid": "frostworm_rider", "amount": 10 },
+						{ "sid": "frostworm_rider", "amount": 10 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+
+								"parameters": [ "unspeakable", "1" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 30,
+					"value": 10000,
+					"customGuardValue": 2500,
+
+					"guardUnits":
+					[
+						{ "sid": "frostworm_rider_upg", "amount": 20 },
+						{ "sid": "frostworm_rider", "amount": 20 },
+						{ "sid": "frostworm_rider", "amount": 20 },
+						{ "sid": "frostworm_rider", "amount": 20 },
+						{ "sid": "frostworm_rider_upg_alt", "amount": 20 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "unspeakable", "2" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 15000,
+					"customGuardValue": 3850,
+
+					"guardUnits":
+					[
+						{ "sid": "frostworm_rider_upg", "amount": 29 },
+						{ "sid": "frostworm_rider", "amount": 29 },
+						{ "sid": "frostworm_rider_upg", "amount": 29 },
+						{ "sid": "frostworm_rider", "amount": 29 },
+						{ "sid": "frostworm_rider_upg_alt", "amount": 29 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "unspeakable", "3" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 15,
+					"value": 20000,
+					"customGuardValue": 5100,
+
+					"guardUnits":
+					[
+						{ "sid": "frostworm_rider_upg_alt", "amount": 36 },
+						{ "sid": "frostworm_rider_upg", "amount": 36 },
+						{ "sid": "frostworm_rider", "amount": 36 },
+						{ "sid": "frostworm_rider_upg", "amount": 36 },
+						{ "sid": "frostworm_rider_upg_alt", "amount": 36 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "unspeakable", "4" ]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

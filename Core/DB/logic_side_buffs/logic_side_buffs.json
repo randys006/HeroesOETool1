@@ -1,0 +1,615 @@
+{
+	"array":
+	[
+		{
+			"id": "heros_crypt_debuff_none",
+			
+			"icon": "heros_crypt_debuff_none_icon",
+			"name": "heros_crypt_debuff_none_name",
+			"description": "heros_crypt_debuff_none_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_common1",
+			
+			"icon": "heros_crypt_debuff_common1_icon",
+			"name": "heros_crypt_debuff_common1_name",
+			"description": "heros_crypt_debuff_common1_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "offence", "-2" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "defence", "-2" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_common2",
+			
+			"icon": "heros_crypt_debuff_common2_icon",
+			"name": "heros_crypt_debuff_common2_name",
+			"description": "heros_crypt_debuff_common2_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "spellPower", "-2" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "intelligence", "-2" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_common3",
+			
+			"icon": "heros_crypt_debuff_common3_icon",
+			"name": "heros_crypt_debuff_common3_name",
+			"description": "heros_crypt_debuff_common3_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "movementPerBonus", "-0.1" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_common4",
+			
+			"icon": "heros_crypt_debuff_common4_icon",
+			"name": "heros_crypt_debuff_common4_name",
+			"description": "heros_crypt_debuff_common4_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "moral", "-2" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "luck", "-2" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_rare1",
+			
+			"icon": "heros_crypt_debuff_rare1_icon",
+			"name": "heros_crypt_debuff_rare1_name",
+			"description": "heros_crypt_debuff_rare1_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "offence", "-4" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "defence", "-4" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_rare2",
+			
+			"icon": "heros_crypt_debuff_rare2_icon",
+			"name": "heros_crypt_debuff_rare2_name",
+			"description": "heros_crypt_debuff_rare2_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "spellPower", "-4" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "intelligence", "-4" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_rare3",
+			
+			"icon": "heros_crypt_debuff_rare3_icon",
+			"name": "heros_crypt_debuff_rare3_name",
+			"description": "heros_crypt_debuff_rare3_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "viewRadius", "-1" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_rare4",
+			
+			"icon": "heros_crypt_debuff_rare4_icon",
+			"name": "heros_crypt_debuff_rare4_name",
+			"description": "heros_crypt_debuff_rare4_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "movementPerBonus", "-0.2" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_rare5",
+			
+			"icon": "heros_crypt_debuff_rare5_icon",
+			"name": "heros_crypt_debuff_rare5_name",
+			"description": "heros_crypt_debuff_rare5_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "moral", "-3" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "luck", "-3" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_epic1",
+			
+			"icon": "heros_crypt_debuff_epic1_icon",
+			"name": "heros_crypt_debuff_epic1_name",
+			"description": "heros_crypt_debuff_epic1_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "offence", "-6" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "defence", "-6" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_epic2",
+			
+			"icon": "heros_crypt_debuff_epic2_icon",
+			"name": "heros_crypt_debuff_epic2_name",
+			"description": "heros_crypt_debuff_epic2_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "spellPower", "-6" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "intelligence", "-6" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_epic3",
+			
+			"icon": "heros_crypt_debuff_epic3_icon",
+			"name": "heros_crypt_debuff_epic3_name",
+			"description": "heros_crypt_debuff_epic3_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "viewRadius", "-2" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_epic4",
+			
+			"icon": "heros_crypt_debuff_epic4_icon",
+			"name": "heros_crypt_debuff_epic4_name",
+			"description": "heros_crypt_debuff_epic4_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "movementPerBonus", "-0.3" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_epic5",
+			
+			"icon": "heros_crypt_debuff_epic5_icon",
+			"name": "heros_crypt_debuff_epic5_name",
+			"description": "heros_crypt_debuff_epic5_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "moral", "-4" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "luck", "-4" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_epic6",
+			
+			"icon": "heros_crypt_debuff_epic6_icon",
+			"name": "heros_crypt_debuff_epic6_name",
+			"description": "heros_crypt_debuff_epic6_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "manaRestoreBonusPercent", "-0.05" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_legendary1",
+			
+			"icon": "heros_crypt_debuff_legendary1_icon",
+			"name": "heros_crypt_debuff_legendary1_name",
+			"description": "heros_crypt_debuff_legendary1_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "offence", "-8" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "defence", "-8" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_legendary2",
+			
+			"icon": "heros_crypt_debuff_legendary2_icon",
+			"name": "heros_crypt_debuff_legendary2_name",
+			"description": "heros_crypt_debuff_legendary2_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "spellPower", "-8" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "intelligence", "-8" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_legendary3",
+			
+			"icon": "heros_crypt_debuff_legendary3_icon",
+			"name": "heros_crypt_debuff_legendary3_name",
+			"description": "heros_crypt_debuff_legendary3_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "offence", "-4" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "defence", "-4" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "spellPower", "-4" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "intelligence", "-4" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_legendary4",
+			
+			"icon": "heros_crypt_debuff_legendary4_icon",
+			"name": "heros_crypt_debuff_legendary4_name",
+			"description": "heros_crypt_debuff_legendary4_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "viewRadius", "-3" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_legendary5",
+			
+			"icon": "heros_crypt_debuff_legendary5_icon",
+			"name": "heros_crypt_debuff_legendary5_name",
+			"description": "heros_crypt_debuff_legendary5_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "movementPerBonus", "-0.4" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_legendary6",
+			
+			"icon": "heros_crypt_debuff_legendary6_icon",
+			"name": "heros_crypt_debuff_legendary6_name",
+			"description": "heros_crypt_debuff_legendary6_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "moral", "-5" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "luck", "-5" ]
+				}
+			]
+		},
+		{
+			"id": "heros_crypt_debuff_legendary7",
+			
+			"icon": "heros_crypt_debuff_legendary7_icon",
+			"name": "heros_crypt_debuff_legendary7_name",
+			"description": "heros_crypt_debuff_legendary7_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "manaRestoreBonusPercent", "-0.1" ]
+				}
+			]
+		},
+		
+		{
+			"id": "kara_darkness",
+			
+			"icon": "heros_crypt_debuff_legendary7_icon",
+			"name": "heros_crypt_debuff_legendary7_name",
+			"description": "heros_crypt_debuff_legendary7_description",
+
+			"additionType": "Combine",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "viewRadius", "-2" ]
+				}
+			]
+		},
+		{
+			"id": "kara_mana",
+			
+			"icon": "heros_crypt_debuff_legendary7_icon",
+			"name": "heros_crypt_debuff_legendary7_name",
+			"description": "heros_crypt_debuff_legendary7_description",
+
+			"additionType": "Combine",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "manaRestoreBonusPercent", "-0.20" ]
+				}
+			]
+		},
+		{
+			"id": "kara_speed",
+			
+			"icon": "heros_crypt_debuff_legendary7_icon",
+			"name": "heros_crypt_debuff_legendary7_name",
+			"description": "heros_crypt_debuff_legendary7_description",
+
+			"additionType": "Combine",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "MovementPerBonus", "-0.2" ]
+				}
+			]
+		},
+		{
+			"id": "kara_weakness",
+			
+			"icon": "heros_crypt_debuff_legendary7_icon",
+			"name": "heros_crypt_debuff_legendary7_name",
+			"description": "heros_crypt_debuff_legendary7_description",
+
+			"additionType": "Combine",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "offence", "-2" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "defence", "-2" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "spellPower", "-2" ]
+				},
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "intelligence", "-2" ]
+				}
+			]
+		},
+		{
+			"id": "kara_silence",
+			
+			"icon": "heros_crypt_debuff_legendary7_icon",
+			"name": "heros_crypt_debuff_legendary7_name",
+			"description": "heros_crypt_debuff_legendary7_description",
+
+			"additionType": "Combine",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "heroKaraDebuffStat",
+					"parameters": [ "enableSilence", "true" ]
+				}
+			]
+		},
+		{
+			"id": "kara_death",
+			
+			"icon": "heros_crypt_debuff_legendary7_icon",
+			"name": "heros_crypt_debuff_legendary7_name",
+			"description": "heros_crypt_debuff_legendary7_description",
+
+			"additionType": "Combine",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "killUnitBonus",
+					"parameters": [ "1" ]
+				}
+			]
+		},	
+		{
+			"id": "tree_of_abundance_buff",
+			
+			"icon": "heros_crypt_debuff_legendary7_icon",
+			"name": "heros_crypt_debuff_legendary7_name",
+			"description": "heros_crypt_debuff_legendary7_description",
+
+			"additionType": "LeftNew",
+			"isPositive": false,
+
+			"bonuses":
+			[
+				{
+					"type": "sideRestoreGrowth",
+					"parameters": [ "1" ]
+				}
+			]
+		}								
+	]
+}

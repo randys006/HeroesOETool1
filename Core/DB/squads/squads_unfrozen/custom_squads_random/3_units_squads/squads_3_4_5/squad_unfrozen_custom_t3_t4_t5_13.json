@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_unfrozen_t3_t4_t5_1",
+            "useOldSquads": false,
+            "rollChance": 101,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "frostworm_rider_upg",
+                        "v": 10355
+                    },
+                    {
+                        "s": "eldritch_flyer_upg",
+                        "v": 10355
+                    },
+                    {
+                        "s": "succubus",
+                        "v": 10355
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 10355,
+                "units": [
+                    "frostworm_rider_upg",
+                    "eldritch_flyer_upg",
+                    "succubus"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 70015,
+                "units": [
+                    {
+                        "s": "frostworm_rider_upg",
+                        "v": 70015
+                    },
+                    {
+                        "s": "eldritch_flyer_upg",
+                        "v": 70015
+                    },
+                    {
+                        "s": "succubus",
+                        "v": 70015
+                    }
+                ]
+            },
+            "tier": 5,
+            "fraction": "unfrozen"
+        }
+    ]
+}

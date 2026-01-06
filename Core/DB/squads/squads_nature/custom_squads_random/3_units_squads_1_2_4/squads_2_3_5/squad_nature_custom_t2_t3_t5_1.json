@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_nature_t2_t3_t5_1",
+            "useOldSquads": false,
+            "rollChance": 15,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "twinkle",
+                        "v": 7855
+                    },
+                    {
+                        "s": "ent",
+                        "v": 7855
+                    },
+                    {
+                        "s": "druid",
+                        "v": 7855
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 7855,
+                "units": [
+                    "twinkle",
+                    "ent",
+                    "druid"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 55015,
+                "units": [
+                    {
+                        "s": "twinkle",
+                        "v": 55015
+                    },
+                    {
+                        "s": "ent",
+                        "v": 55015
+                    },
+                    {
+                        "s": "druid",
+                        "v": 55015
+                    }
+                ]
+            },
+            "tier": 5,
+            "fraction": "nature"
+        }
+    ]
+}

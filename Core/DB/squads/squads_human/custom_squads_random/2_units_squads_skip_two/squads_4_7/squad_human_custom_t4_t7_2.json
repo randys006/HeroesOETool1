@@ -1,0 +1,44 @@
+{
+    "array": [
+        {
+            "id": "squad_human_t4_t7_2",
+            "useOldSquads": false,
+            "rollChance": 133,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "lightweaver_upg",
+                        "v": 22027
+                    },
+                    {
+                        "s": "angel",
+                        "v": 22027
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 22027,
+                "units": [
+                    "lightweaver_upg",
+                    "angel"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 150027,
+                "units": [
+                    {
+                        "s": "lightweaver_upg",
+                        "v": 150027
+                    },
+                    {
+                        "s": "angel",
+                        "v": 150027
+                    }
+                ]
+            },
+            "tier": 7,
+            "fraction": "human"
+        }
+    ]
+}

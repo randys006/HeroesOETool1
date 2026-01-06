@@ -1,0 +1,72 @@
+                           Ister:      human_hero_1:might                       Basic Ascension                      Basic Logistics
+             Leon Sticky-Fingers:      human_hero_2:might                       Basic Ascension                       Basic Scouting
+                    John Johnson:      human_hero_3:might                       Basic Ascension                        Basic Defence
+                         Kestrel:      human_hero_4:might                       Basic Ascension                        Basic Offence
+                Aeos the Exalted:      human_hero_5:might                       Basic Ascension                     Basic Leadership
+                    Heretic Avis:      human_hero_6:might                       Basic Ascension                    Basic Recruitment
+                         Keandra:      human_hero_7:might                       Basic Ascension                    Basic Battlecraft
+                      Lord Edgar:      human_hero_8:might                    Advanced Ascension
+                Old Lord Mandall:      human_hero_9:might                       Basic Ascension                     Basic Resistance
+                     Merry Elias:     human_hero_10:magic                       Basic Ascension                      Basic Diplomacy
+                             Pip:     human_hero_11:magic                       Basic Ascension                        Basic Insight
+                          Zenith:     human_hero_12:magic                       Basic Ascension                   Basic Intelligence
+          Lia the Untethered One:     human_hero_13:magic                       Basic Ascension                 Basic Daylight Magic
+                          Julius:     human_hero_14:magic                       Basic Ascension                     Basic Resistance
+                          Vesper:     human_hero_15:magic                       Basic Ascension                 Basic Daylight Magic
+              Anastasia the Meek:     human_hero_16:magic                       Basic Ascension                    Basic Thaumaturgy
+                           Nadir:     human_hero_17:magic                       Basic Ascension               Basic Nightshade Magic
+                        Clarissa:     human_hero_18:magic                       Basic Ascension                        Basic Economy
+                         Bulwark:      necro_hero_1:might                      Basic Necromancy                        Basic Defence
+                   King-of-Kings:      necro_hero_2:might                      Basic Necromancy                      Basic Diplomacy
+                           Onkos:      necro_hero_3:might                      Basic Necromancy                        Basic Offence
+                         KelGhul:      necro_hero_4:might                      Basic Necromancy                        Basic Tactics
+                        Natalida:      necro_hero_5:might                      Basic Necromancy                       Basic Scouting
+                Artorius Veritas:      necro_hero_6:might                      Basic Necromancy                     Basic Resistance
+                            Marl:      necro_hero_7:might                      Basic Necromancy                      Basic Logistics
+                          Tarius:      necro_hero_8:might                   Advanced Necromancy
+                             Zam:      necro_hero_9:might                      Basic Necromancy                    Basic Battlecraft
+                             Mag:     necro_hero_10:magic                      Basic Necromancy                   Basic Arcane Magic
+                           Adahn:     necro_hero_11:magic                      Basic Necromancy                        Basic Insight
+                          Ethric:     necro_hero_12:magic                      Basic Necromancy                   Basic Intelligence
+             Guildmaster Klastor:     necro_hero_13:magic                      Basic Necromancy                           Basic Luck
+               Shadespinner Oona:     necro_hero_14:magic                      Basic Necromancy               Basic Nightshade Magic
+                           Laura:     necro_hero_15:magic                      Basic Necromancy                        Basic Sorcery
+                      Lord Rufus:     necro_hero_16:magic                      Basic Necromancy                    Basic Thaumaturgy
+                       Funerella:     necro_hero_17:magic                   Advanced Necromancy
+              Milossa the Golden:     necro_hero_18:magic                      Basic Necromancy                   Basic Battle Magic
+                           Nihil:   unfrozen_hero_1:might               Basic Abyssal Communion                      Basic Logistics
+                       Blackhorn:   unfrozen_hero_2:might               Basic Abyssal Communion                        Basic Sorcery
+             Matastala the White:   unfrozen_hero_3:might               Basic Abyssal Communion                        Basic Tactics
+                           Jnhei:   unfrozen_hero_4:might               Basic Abyssal Communion                   Basic Intelligence
+                      Mara Matha:   unfrozen_hero_5:might            Advanced Abyssal Communion
+                     Iron Master:   unfrozen_hero_6:might               Basic Abyssal Communion                      Basic Diplomacy
+                          Walkha:   unfrozen_hero_7:might               Basic Abyssal Communion                   Basic Primal Magic
+                 Changeling Urgo:   unfrozen_hero_8:might               Basic Abyssal Communion                  Basic Summon Avatar
+                      Martyr Tho:   unfrozen_hero_9:might               Basic Abyssal Communion                 Basic Daylight Magic
+           Grellekh the Betrayer:  unfrozen_hero_10:magic               Basic Abyssal Communion                        Basic Offence
+                Icequeen HelGhat:  unfrozen_hero_11:magic               Basic Abyssal Communion                        Basic Defence
+                          Kwinri:  unfrozen_hero_12:magic               Basic Abyssal Communion                     Basic Leadership
+              The Eye Collective:  unfrozen_hero_13:magic               Basic Abyssal Communion                  Basic Summon Avatar
+                          Tlketh:  unfrozen_hero_14:magic               Basic Abyssal Communion                      Basic Logistics
+                          Ulkuth:  unfrozen_hero_15:magic               Basic Abyssal Communion                       Basic Scouting
+                         RaDavok:  unfrozen_hero_16:magic               Basic Abyssal Communion                   Basic Arcane Magic
+                    Sister Keiri:  unfrozen_hero_17:magic               Basic Abyssal Communion               Basic Nightshade Magic
+                           Dhvri:  unfrozen_hero_18:magic            Advanced Abyssal Communion
+                          Enatee:    dungeon_hero_1:might          Basic Triumvirate’s Strength                        Basic Defence
+           Tellaris the Betrayed:    dungeon_hero_2:might          Basic Triumvirate’s Strength                    Basic Battlecraft
+                         Stinger:    dungeon_hero_3:might       Advanced Triumvirate’s Strength
+                          Kieran:    dungeon_hero_4:might          Basic Triumvirate’s Strength                        Basic Tactics
+                         Mouaren:    dungeon_hero_5:might          Basic Triumvirate’s Strength                       Basic Scouting
+             Devir, son of Devir:    dungeon_hero_6:might          Basic Triumvirate’s Strength                     Basic Leadership
+       Creta, daughter of Navarr:    dungeon_hero_7:might          Basic Triumvirate’s Strength                        Basic Economy
+                            Rhea:    dungeon_hero_8:might          Basic Triumvirate’s Strength                           Basic Luck
+                 Gleard the Grey:    dungeon_hero_9:might          Basic Triumvirate’s Strength                   Basic Arcane Magic
+           Kelarr, son of Navarr:   dungeon_hero_10:magic          Basic Triumvirate’s Strength                        Basic Insight
+                Zakron the Great:   dungeon_hero_11:magic          Basic Triumvirate’s Strength                        Basic Sorcery
+                    Sister Deira:   dungeon_hero_12:magic          Basic Triumvirate’s Strength                    Basic Thaumaturgy
+                          Motley:   dungeon_hero_13:magic          Basic Triumvirate’s Strength                           Basic Luck
+                          Ylwari:   dungeon_hero_14:magic          Basic Triumvirate’s Strength                      Basic Diplomacy
+                         Glastor:   dungeon_hero_15:magic          Basic Triumvirate’s Strength                        Basic Economy
+                         Typhona:   dungeon_hero_16:magic       Advanced Triumvirate’s Strength
+                   Sunny Rauktol:   dungeon_hero_17:magic          Basic Triumvirate’s Strength                 Basic Daylight Magic
+                           Lodos:   dungeon_hero_18:magic          Basic Triumvirate’s Strength               Basic Nightshade Magic

@@ -1,0 +1,44 @@
+{
+    "array": [
+        {
+            "id": "squad_dungeon_t3_t5_1",
+            "useOldSquads": false,
+            "rollChance": 54,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "blade_dancer",
+                        "v": 10515
+                    },
+                    {
+                        "s": "medusa",
+                        "v": 10515
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 10515,
+                "units": [
+                    "blade_dancer",
+                    "medusa"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 75015,
+                "units": [
+                    {
+                        "s": "blade_dancer",
+                        "v": 75015
+                    },
+                    {
+                        "s": "medusa",
+                        "v": 75015
+                    }
+                ]
+            },
+            "tier": 5,
+            "fraction": "dungeon"
+        }
+    ]
+}

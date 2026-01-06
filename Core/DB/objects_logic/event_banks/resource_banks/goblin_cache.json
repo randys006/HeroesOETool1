@@ -1,0 +1,412 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "goblin_cache",
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[
+				{
+					"rollChance": 400,
+					"value": 4000,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "1000" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 100,
+					"value": 7000,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "1000" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"rare"
+								]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 13000,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "1000" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"epic"
+								]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 400,
+					"value": 5000,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "2000" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 100,
+					"value": 8000,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "2000" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"rare"
+								]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 14000,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "2000" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"epic"
+								]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 400,
+					"value": 6000,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "3000" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 100,
+					"value": 9000,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "3000" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"rare"
+								]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 15000,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "3000" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"epic"
+								]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

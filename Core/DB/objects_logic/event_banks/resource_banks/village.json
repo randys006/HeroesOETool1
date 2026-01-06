@@ -1,0 +1,142 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "village",
+
+			"variantRerollType": "OnStartWeek",
+			"visitorsResetType": "OnStartWeek",
+			"visitType": "OneTime",
+
+			"variants":
+			[
+				{
+					"rollChance": 100,
+					"value": 2250,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Directly",
+						"rewardSetApplyType": "OnlySelected",
+						"rewardSetCancelType": "CancelAndDelete",
+						"label": "village_label",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "resReward_description",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "wood", "4" ]
+							},
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "resReward_description",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "ore", "4" ]
+							}
+						]
+					}					
+				},
+				{
+					"rollChance": 100,
+					"value": 2625,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Directly",
+						"rewardSetApplyType": "OnlySelected",
+						"rewardSetCancelType": "CancelAndDelete",
+						"label": "village_label",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "resReward_description",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "wood", "5" ]
+							},
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "resReward_description",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "ore", "5" ]
+							}
+						]
+					}					
+				},
+				{
+					"rollChance": 100,
+					"value": 3000,
+
+					"guardUnits": [],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Directly",
+						"rewardSetApplyType": "OnlySelected",
+						"rewardSetCancelType": "CancelAndDelete",
+						"label": "village_label",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "resReward_description",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "wood", "6" ]
+							},
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "Invisible",
+								"applyRewardFloating": true,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "resReward_description",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "ore", "6" ]
+							}
+						]
+					}					
+				}		
+			]
+		}
+	]
+}

@@ -1,0 +1,51 @@
+{
+	"array":
+	[
+		{
+			"id": "squad_unfrozen_three_units_t7_1",
+			
+			"squad" : 
+			[
+
+			],
+
+			"useOldSquads": false,
+
+			"rollChance": 600,
+			"canBeMainGuard": true,
+
+			"baseSquad": 
+			{
+				"units":
+				[
+					{ "s" : "unspeakable", "v": 25007 },
+					{ "s" : "unspeakable_upg", "v": 25007 },
+					{ "s" : "unspeakable_upg_alt", "v": 25007 }
+				]
+			},
+
+			"dynamicSquad": 
+			{
+				"requiredValue": 25007,
+				"units":
+				[
+					"unspeakable", "unspeakable_upg", "unspeakable_upg_alt"
+				]
+			},
+
+			"randomSquad": 
+			{
+				"maxValue": 2400070,
+				"units":
+				[
+					{ "s" : "unspeakable", "v": 2400070 },
+					{ "s" : "unspeakable_upg", "v": 2400070 },
+					{ "s" : "unspeakable_upg_alt", "v": 2400070 }
+				]
+			},
+
+			"tier": 7,
+			"fraction": "unfrozen"
+		}
+	]
+}

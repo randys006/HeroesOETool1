@@ -1,0 +1,1690 @@
+{
+	"baseRewardChance": 0.1,
+	"additonRewardChance": 0.1,
+
+	"array":
+	[
+		{
+			"roolChance": 250,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "gold", "10000" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "gold", "20000" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 250,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "dust", "125" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "dust", "250" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 250,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "wood", "80" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "wood", "160" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 250,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "ore", "80" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "ore", "160" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 250,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "crystals", "40" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "crystals", "80" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 250,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "mercury", "40" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "mercury", "80" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 250,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "gemstones", "40" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "gemstones", "80" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 250,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroExpReward",
+						"rewardShowType": "Invisible",
+						"applyRewardFloating": true,						
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "expReward_description",
+						"rewardNotificationDesc": "expReward_notification",
+
+						"parameters": [ "5000" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 200,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroExpReward",
+						"rewardShowType": "Invisible",
+						"applyRewardFloating": true,						
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "expReward_description",
+						"rewardNotificationDesc": "expReward_notification",
+
+						"parameters": [ "10000" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroExpReward",
+						"rewardShowType": "Invisible",
+						"applyRewardFloating": true,						
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "expReward_description",
+						"rewardNotificationDesc": "expReward_notification",
+
+						"parameters": [ "15000" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 100,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroExpReward",
+						"rewardShowType": "Invisible",
+						"applyRewardFloating": true,						
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "expReward_description",
+						"rewardNotificationDesc": "expReward_notification",
+
+						"parameters": [ "20000" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "sentinel", "3" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "sentinel", "6" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "obsidian_dragon", "3" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "obsidian_dragon", "6" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "mech_guard", "8" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "mech_guard", "16" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "coatl", "8" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "coatl", "16" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "fairy_dragon", "15" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "fairy_dragon", "30" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "giant_frog", "15" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "giant_frog", "30" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "kitten_horn", "25" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "kitten_horn", "50" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "primal_remnant", "25" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "primal_remnant", "50" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "star_child", "25" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "star_child", "50" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 100,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "angel", "5" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "angel_upg", "5" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "angel_upg_alt", "5" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 100,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "vampire", "10" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "vampire_upg", "10" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "vampire_upg_alt", "10" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 100,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "phoenix", "5" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "phoenix_upg", "5" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "phoenix_upg_alt", "5" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 100,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "unspeakable", "5" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "unspeakable_upg", "5" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "unspeakable_upg_alt", "5" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 100,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "hive_queen", "5" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "hive_queen_upg", "5" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "hive_queen_upg_alt", "5" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 100,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "black_dragon", "5" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "black_dragon_upg", "5" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroUnitsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "unitReward_notification",
+						
+						"parameters": [ "black_dragon_upg_alt", "5" ]
+					}
+				]
+			}
+		},
+
+
+
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroMagicMassAdditionReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "fickle_shrine_reward_night_icon",
+						"rewardName": "fickle_shrine_reward_night_name",
+						"rewardDesc": "fickle_shrine_reward_night_desc",
+						"rewardNotificationDesc": "spellReward_notification",
+
+						"parameters": [ "day", "any", "any" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroMagicMassAdditionReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "fickle_shrine_reward_night_icon",
+						"rewardName": "fickle_shrine_reward_night_name",
+						"rewardDesc": "fickle_shrine_reward_night_desc",
+						"rewardNotificationDesc": "spellReward_notification",
+
+						"parameters": [ "night", "any", "any" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroMagicMassAdditionReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "fickle_shrine_reward_night_icon",
+						"rewardName": "fickle_shrine_reward_night_name",
+						"rewardDesc": "fickle_shrine_reward_night_desc",
+						"rewardNotificationDesc": "spellReward_notification",
+
+						"parameters": [ "space", "any", "any" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroMagicMassAdditionReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "fickle_shrine_reward_night_icon",
+						"rewardName": "fickle_shrine_reward_night_name",
+						"rewardDesc": "fickle_shrine_reward_night_desc",
+						"rewardNotificationDesc": "spellReward_notification",
+
+						"parameters": [ "primal", "any", "any" ]
+					}
+				]
+			}
+		},
+
+
+
+		{
+			"roolChance": 250,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroStatsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": true,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "statReward_notification",
+
+						"parameters": [ "offence", "1", "defence", "1", "spellPower", "1", "intelligence", "1" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 150,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroStatsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": true,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "statReward_notification",
+
+						"parameters": [ "offence", "2", "defence", "2", "spellPower", "2", "intelligence", "2" ]
+					}
+				]
+			}
+		},
+		{
+			"roolChance": 50,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroStatsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": true,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "statReward_notification",
+
+						"parameters": [ "offence", "3", "defence", "3", "spellPower", "3", "intelligence", "3" ]
+					}
+				]
+			}
+		},
+
+		
+
+
+
+
+
+
+		{
+			"roolChance": 5,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "gold", "100000" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 5,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroExpReward",
+						"rewardShowType": "Invisible",
+						"applyRewardFloating": true,						
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "expReward_description",
+						"rewardNotificationDesc": "expReward_notification",
+
+						"parameters": [ "100000" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 5,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "SideResReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "resReward_notification",
+						
+						"parameters": [ "graal", "1" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 5,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroStatsReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": true,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "statReward_notification",
+
+						"parameters": [ "offence", "6", "defence", "6", "spellPower", "6", "intelligence", "6" ]
+					}
+				]
+			}
+		},
+
+		{
+			"roolChance": 5,
+			"rewardSet":
+			{
+				"rewardSetShowType": "Invisible",
+				"rewardSetApplyType": "ForAll",
+				"rewardSetCancelType": "CancelAndDelete",
+
+				"rewards":
+				[
+					{
+						"rewardType": "HeroMagicMassAdditionReward",
+						"rewardShowType": "InWindow",
+						"applyRewardFloating": false,
+						
+						"rewardIcon": "default",
+						"rewardName": "default",
+						"rewardDesc": "default",
+						"rewardNotificationDesc": "spellReward_notification",
+
+						"parameters": [ "any", "any", "any" ]
+					}
+				]
+			}
+		}
+	]
+}

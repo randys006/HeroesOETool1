@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_dungeon_t4_t5_t7_1",
+            "useOldSquads": false,
+            "rollChance": 44,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "minos_upg",
+                        "v": 20027
+                    },
+                    {
+                        "s": "medusa",
+                        "v": 20027
+                    },
+                    {
+                        "s": "black_dragon",
+                        "v": 20027
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 20027,
+                "units": [
+                    "minos_upg",
+                    "medusa",
+                    "black_dragon"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 140027,
+                "units": [
+                    {
+                        "s": "minos_upg",
+                        "v": 140027
+                    },
+                    {
+                        "s": "medusa",
+                        "v": 140027
+                    },
+                    {
+                        "s": "black_dragon",
+                        "v": 140027
+                    }
+                ]
+            },
+            "tier": 7,
+            "fraction": "dungeon"
+        }
+    ]
+}

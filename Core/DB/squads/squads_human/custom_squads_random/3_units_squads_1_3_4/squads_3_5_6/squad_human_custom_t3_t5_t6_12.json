@@ -1,0 +1,53 @@
+{
+    "array": [
+        {
+            "id": "squad_human_t3_t5_t6_1",
+            "useOldSquads": false,
+            "rollChance": 22,
+            "canBeMainGuard": true,
+            "baseSquad": {
+                "units": [
+                    {
+                        "s": "griffin_upg",
+                        "v": 15016
+                    },
+                    {
+                        "s": "sunlight_cavalry",
+                        "v": 15016
+                    },
+                    {
+                        "s": "inquisitor_upg_alt",
+                        "v": 15016
+                    }
+                ]
+            },
+            "dynamicSquad": {
+                "requiredValue": 15016,
+                "units": [
+                    "griffin_upg",
+                    "sunlight_cavalry",
+                    "inquisitor_upg_alt"
+                ]
+            },
+            "randomSquad": {
+                "maxValue": 110016,
+                "units": [
+                    {
+                        "s": "griffin_upg",
+                        "v": 110016
+                    },
+                    {
+                        "s": "sunlight_cavalry",
+                        "v": 110016
+                    },
+                    {
+                        "s": "inquisitor_upg_alt",
+                        "v": 110016
+                    }
+                ]
+            },
+            "tier": 6,
+            "fraction": "human"
+        }
+    ]
+}

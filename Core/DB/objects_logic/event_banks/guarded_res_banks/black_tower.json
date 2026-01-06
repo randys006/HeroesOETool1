@@ -1,0 +1,659 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "black_tower",
+			
+			"applyDifficultyModifier": true,
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[		
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "6000" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "3000" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gemstones", "4", "mercury", "4", "crystals", "4" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "wood", "12", "ore", "12" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"rare"
+								]
+							}
+						]
+					}
+				},
+
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon_upg", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "6000" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon_upg", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "3000" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon_upg", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gemstones", "4", "mercury", "4", "crystals", "4" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon_upg", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "wood", "12", "ore", "12" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon_upg", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"rare"
+								]
+							}
+						]
+					}
+				},
+
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon_upg_alt", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "6000" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon_upg_alt", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gold", "3000" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon_upg_alt", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "gemstones", "4", "mercury", "4", "crystals", "4" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon_upg_alt", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "SideResReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "resReward_notification",
+								
+								"parameters": [ "wood", "12", "ore", "12" ]
+							},
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"common"
+								]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 25,
+					"value": 6000,
+					"customGuardValue": 600,
+
+					"guardUnits":
+					[						
+						{ "sid": "black_dragon_upg_alt", "amount": 1 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroRandomItemsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "custom",
+								"rewardName": "custom",
+								"rewardDesc": "custom",
+								"rewardNotificationDesc": "itemReward_notification",
+
+								"parameters":
+								[
+									"rare"
+								]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

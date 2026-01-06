@@ -1,0 +1,162 @@
+﻿{
+	"array":
+	[
+		{
+			"id": "ritual_pyre",
+			
+			"applyDifficultyModifier": true,
+
+			"variantRerollType": "None",
+			"visitorsResetType": "None",
+			"visitType": "OneTime",
+
+			"variants":
+			[		
+				{
+					"rollChance": 30,
+					"value": 5000,
+					"customGuardValue": 1450,
+
+					"guardUnits":
+					[
+						{ "sid": "druid", "amount": 5 },
+						{ "sid": "druid", "amount": 5 },
+						{ "sid": "druid", "amount": 5 },
+						{ "sid": "druid", "amount": 5 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+
+								"parameters": [ "phoenix", "1" ]
+							}
+						]
+					}
+				},	
+				{
+					"rollChance": 30,
+					"value": 10000,
+					"customGuardValue": 2900,
+
+					"guardUnits":
+					[
+						{ "sid": "druid_upg", "amount": 10 },
+						{ "sid": "druid", "amount": 10 },
+						{ "sid": "druid", "amount": 10 },
+						{ "sid": "druid_upg_alt", "amount": 10 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "phoenix", "2" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 25,
+					"value": 15000,
+					"customGuardValue": 4300,
+
+					"guardUnits":
+					[
+						{ "sid": "druid", "amount": 14 },
+						{ "sid": "druid_upg", "amount": 14 },
+						{ "sid": "druid_upg_alt", "amount": 14 },
+						{ "sid": "druid", "amount": 14 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "phoenix", "3" ]
+							}
+						]
+					}
+				},
+				{
+					"rollChance": 15,
+					"value": 20000,
+					"customGuardValue": 5850,
+
+					"guardUnits":
+					[
+						{ "sid": "druid_upg", "amount": 18 },
+						{ "sid": "druid_upg_alt", "amount": 18 },
+						{ "sid": "druid_upg_alt", "amount": 18 },
+						{ "sid": "druid_upg", "amount": 18 }
+					],
+
+					"rewardSet":
+					{
+						"rewardSetShowType": "Invisible",
+						"rewardSetApplyType": "ForAll",
+						"rewardSetCancelType": "CancelAndDelete",
+						
+						"rewards":
+						[
+							{
+								"rewardType": "HeroUnitsReward",
+								"rewardShowType": "InWindow",
+								"applyRewardFloating": false,
+								
+								"rewardIcon": "default",
+								"rewardName": "default",
+								"rewardDesc": "default",
+								"rewardNotificationDesc": "unitReward_notification",
+								
+								"parameters": [ "phoenix", "4" ]
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}
