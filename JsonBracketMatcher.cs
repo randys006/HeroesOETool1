@@ -12,6 +12,8 @@ namespace HeroesOE
 {
 	public class JsonBracketMatcher
 	{
+		public const int max_tag_length = 48;
+		public const int max_numeric_length = 24;
 		public class Match
 		{
 			public Match(int o, int c) { O = o; C = c; Level = 0;  Tag = ""; FullTag = ""; }
@@ -213,7 +215,7 @@ namespace HeroesOE
 			public double Value { get; set; }
 			public static NumericOffset Invalid { get { return new NumericOffset(-1, -1, 0.0); } }
 		}
-		public NumericOffset FindNumericOffset(string json, string meta_tag)
+		public NumericOffset FindNumericOffset(byte[] json, string meta_tag)
 		{
 			var full_tag = meta_tag.Substring(0, meta_tag.LastIndexOf('.'));
 			var tag = $"\"{meta_tag.Substring(meta_tag.LastIndexOf('.') + 1)}\":";
@@ -231,18 +233,18 @@ namespace HeroesOE
 
 			if (offset == 0) return NumericOffset.Invalid;
 
-			offset = json.IndexOf(tag, offset);
+			offset = Array.IndexOf(json, tag, offset, max_tag_length);
 			if (offset == -1) return NumericOffset.Invalid;
 
-			if (tag.Contains("worldMovePoints")) 
-				Debug.WriteLine($"******  worldMovePoints: '{json.Substring(offset - 8, 8)}'  '{json.Substring(offset, tag.Length)}'  '{json.Substring(offset + tag.Length, 10)}'");
+			//if (tag.Contains("worldMovePoints")) 
+			//	Debug.WriteLine($"******  worldMovePoints: '{json.Substring(offset - 8, 8)}'  '{json.Substring(offset, tag.Length)}'  '{json.Substring(offset + tag.Length, 10)}'");
 			offset += tag.Length;
 
 			no.Offset = offset;
-			var comma = json.IndexOf(',', offset); if (comma == -1) comma = int.MaxValue;
-			var close = json.IndexOf('}', offset); if (close == -1) close = int.MaxValue;
+			var comma = Array.IndexOf(json, ',', offset, max_tag_length); if (comma == -1) comma = int.MaxValue;
+			var close = Array.IndexOf(json, '}', offset, max_tag_length); if (close == -1) close = int.MaxValue;
 			no.Length = int.Min(comma, close) - offset;
-			no.Value = Double.Parse(json.Substring(offset, no.Length));
+			no.Value = Double.Parse(Globals.encoding.GetString(json, offset, no.Length));
 
 			return no;
 		}
