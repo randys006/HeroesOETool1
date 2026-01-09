@@ -10,6 +10,8 @@ namespace HeroesOE.Json
 	{
 		private const string heroes_path = @"C:\Users\randy\source\HeroesOE\Core\DB\heroes\";
 
+		public static string[] class_types = ["might", "magic"];
+
 		// Factions:
 		// human -> humans
 		// necro -> necros

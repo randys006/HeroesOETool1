@@ -8,15 +8,25 @@ namespace HeroesOE
 {
 	public class Factions
 	{
-		public static string[] names =
+		public static string[] factions1 =
 		{
 			"human",
 			"necro",
 			"unfrozen",
 			"nature",
 			"demon",
-			"dungeon"
+			"dungeon",
 		};
-
+		// names2 usage:
+		// heroSkills.json: {"sid":"might_undead_name","text":"Death Knight"},
+		public static string[] factions2 =
+		{
+			"human",
+			"undead",
+			"unfrozen",
+			"demon",
+			"dungeon",
+			"nature",
+		};
 	}
 }

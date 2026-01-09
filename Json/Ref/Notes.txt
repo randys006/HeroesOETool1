@@ -16,9 +16,9 @@ skill_tactics
 C:\Users\randy\source\HeroesOE\Core\DB\heroes_skills\skills_by_level_tables\necros_magic_skills_table.json
 Magic 1: (wights)
 skill_formation			50
-skill_summoner			150
-skill_magic_space		60
-skill_enlightenment		150
+skill_summoner			150 avatar
+skill_magic_space		60  arcane
+skill_enlightenment		150 insight
 skill_logistic			100
 
 Magic 2:
