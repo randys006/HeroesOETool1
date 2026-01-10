@@ -144,6 +144,9 @@ namespace HeroesOE
 						var moral = matcher.FindNumericOffset(quick, a_stats_meta + "moral");
 						AddHeroDisplayLine($"moral {all_stats.all_morals}", moral);
 
+						var movementBonus = matcher.FindNumericOffset(quick, a_stats_meta + "movementBonus");
+						AddHeroDisplayLine($"movementBonus {hero.additionalStats.movementBonus}", movementBonus);
+
 						var spell_points_line = $"mana {hero.mana}";
 						string spell_points_meta = hero_meta + "mana";
 						var spell_points = matcher.FindNumericOffset(quick, spell_points_meta);

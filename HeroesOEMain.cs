@@ -246,6 +246,7 @@ namespace HeroesOE
 									//FindBinaryShtuff(quickbytes, matcher);
 
 			ListBox[] lbs = [lbSide0, lbSide1, lbSide2, lbSide3];
+			var last_player = current_player;
 			foreach (var l in lbs) { l.Items.Clear(); }
 
 			int i = 0;
@@ -255,6 +256,7 @@ namespace HeroesOE
 				foreach (var hero in side) { lb.Items.Add(hero); }
 			}
 
+			current_player = last_player;
 			if (lbs[current_player].Items.Count > current_index)
 				lbs[current_player].SelectedIndex = current_index;
 			else
