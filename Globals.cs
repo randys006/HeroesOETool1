@@ -24,6 +24,7 @@ namespace HeroesOE
 		public static HeroSkillsJson.HeroSkills hero_skills = new HeroSkillsJson.HeroSkills();
 
 		public static int current_player = -1;
+		public static int current_index = -1;
 		public static List<List<string>> player_display = new();
 		public static List<List<NumericOffset>> player_metadata = new();
 		public static NumericOffset? current_no = null;
