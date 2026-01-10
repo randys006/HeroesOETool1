@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SixLabors.Fonts.Tables.AdvancedTypographic;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,13 +7,16 @@ using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static HeroesOE.Globals;
+using static HeroesOE.Json.UnitsLogicJson;
 using static HeroesOE.Utilities;
 
 namespace HeroesOE
 {
 	public class JsonBracketMatcher
 	{
-		public const int max_tag_length = 48;
+		public const int max_tag_bytes = 48;        // this is a guess; works w/demo
+		public const int max_tag_length = 40;		// this is a guess; works w/demo
 		public const int max_numeric_length = 24;
 		public class Match
 		{
@@ -23,7 +27,7 @@ namespace HeroesOE
 			public int Level { get; set; }
 			public string Tag { get; set; }
 			public string FullTag { get; set; }
-			public int Length { get { return C - O; } }
+			public int Length { get { return C - O + 1; } }
 			public string OpenStr
 			{
 				get
@@ -47,7 +51,7 @@ namespace HeroesOE
 		public List<Match> matches;
 		public List<Match> top_level;
 		public bool Valid { get; set; }
-		public JsonBracketMatcher(string text)
+		public JsonBracketMatcher(byte[] text)
 		{
 			Valid = FindMatchingBrackets(text, out matches);
 			if (Valid)
@@ -57,6 +61,7 @@ namespace HeroesOE
 			
 			Rank();
 		}
+
 		public void Rank()
 		{
 			if (!Valid) return;
@@ -115,19 +120,25 @@ namespace HeroesOE
 			}
 		}
 
-		public static string GetBracketTag(string input, int i)
+		public static string GetBracketTag(byte[] bytes, int i)
 		{
+			var len = max_tag_bytes;
+			if (len > i) len = i;
+			var input = encoding.GetString(bytes, i-len, len+1);    // TODO: GetBracketTag could have issues since it
+																	// might jump backwards inside a multibyte character
+			len = input.Length;	// adjust len to chars
+			int bkt = len - 1;
+
 			// 'i' is the index of the bracket in input
 			// we expect a quoted string tag before most brackets with tight format, e.g.: "<tag>":{
 			const int min_tag_length = 3;	// this is a guess; works w/demo
-			const int max_tag_length = 40;  // this is a guess; works w/demo
 
-			if (input.Length < i) return "";
-			if (i < min_tag_length + 3) return "";
-			if (!bracketPairs.ContainsKey(input[i])) return "";
-			if (input[i-2] != '"' || input[i-1] != ':') return "";
+			if (len < bkt) return "";
+			if (bkt < min_tag_length + 3) return "";
+			if (!bracketPairs.ContainsKey(input[bkt])) return "";
+			if (input[bkt - 2] != '"' || input[bkt - 1] != ':') return "";
 
-			int end = i - 3;
+			int end = bkt - 3;
 			var start = input.LastIndexOf('"', end);
 
 			if (start == -1 || end - start > max_tag_length) return "";
@@ -142,15 +153,17 @@ namespace HeroesOE
 			{ '{', '}' }
 		};
 
-		public static bool FindMatchingBrackets(string input, out List<Match> matches)
+		public static bool FindMatchingBrackets(byte[] input, out List<Match> matches)
 		{
 			matches = new List<Match>();
 			var stack = new Stack<(char Type, int Index, string Tag)>();
-			Stack<(int Parent, int Count)> ordinals = new();	// for storing array ordinals
+			Stack<(int Parent, int Count)> ordinals = new();    // for storing array ordinals
 
-			for (int i = 0; i < input.Length; i++)
+			var bytesConsumed = 1;	// encoding could have variable-length characters
+			for (int i = 0; i < input.Length; i += bytesConsumed)
 			{
-				char currentChar = input[i];
+				bytesConsumed = encoding.GetCharCount(input, i, 1);
+				char currentChar = encoding.GetChars(input, i, 1)[0];
 
 				if (bracketPairs.ContainsKey(currentChar))
 				{
@@ -215,6 +228,60 @@ namespace HeroesOE
 			public double Value { get; set; }
 			public static NumericOffset Invalid { get { return new NumericOffset(-1, -1, 0.0); } }
 		}
+		public static int FindStringInBytes(byte[] sourceBytes, string searchString, int startIndex, bool skip = false)
+		{
+			// 1. Convert the search string to its byte pattern using the correct encoding
+			byte[] searchBytes = encoding.GetBytes(searchString);
+
+			var offset = sourceBytes.IndexOf(searchBytes, startIndex);
+			if (offset == -1) return -1;
+
+			if (skip) offset += searchBytes.Length;
+
+			return offset;
+		}
+
+		internal NumericOffset FindValueOffset(byte[] json, string meta_tag)
+		{
+			var full_tag = meta_tag.Substring(0, meta_tag.LastIndexOf('.'));
+			var tag = $"\"{meta_tag.Substring(meta_tag.LastIndexOf('.') + 1)}\":";
+
+			var no = NumericOffset.Invalid;
+			int offset = -1;
+
+			while (true)
+			{
+				if (offset > 0) break;
+				foreach (var match in matches)
+				{
+					if (match.FullTag == full_tag)
+					{
+						offset = match.O + 1;
+						break;
+					}
+					if (match.FullTag.Contains("sides."))
+					{
+						int i = 42;
+					}
+				}
+
+			}
+
+			if (offset <= 0) return NumericOffset.Invalid;
+
+			offset = FindStringInBytes(json, tag, offset, true);
+			if (offset == -1) return NumericOffset.Invalid;
+
+			no.Offset = offset;
+			var check = encoding.GetChars(json, offset, 400);
+			var comma = FindStringInBytes(json, ",", offset); if (comma == -1) comma = int.MaxValue;
+			var close = FindStringInBytes(json, "}", offset); if (close == -1) close = int.MaxValue;
+			no.Length = int.Min(comma, close) - offset;
+			no.Value = Double.Parse(Globals.encoding.GetString(json, offset, no.Length));
+
+			return no;
+		}
+
 		public NumericOffset FindNumericOffset(byte[] json, string meta_tag)
 		{
 			var full_tag = meta_tag.Substring(0, meta_tag.LastIndexOf('.'));
@@ -228,21 +295,19 @@ namespace HeroesOE
 				if (match.FullTag == full_tag)
 				{
 					offset = match.O + 1;
+					break;
 				}
 			}
 
 			if (offset == 0) return NumericOffset.Invalid;
 
-			offset = Array.IndexOf(json, tag, offset, max_tag_length);
+			offset = FindStringInBytes(json, tag, offset, true);
 			if (offset == -1) return NumericOffset.Invalid;
 
-			//if (tag.Contains("worldMovePoints")) 
-			//	Debug.WriteLine($"******  worldMovePoints: '{json.Substring(offset - 8, 8)}'  '{json.Substring(offset, tag.Length)}'  '{json.Substring(offset + tag.Length, 10)}'");
-			offset += tag.Length;
-
 			no.Offset = offset;
-			var comma = Array.IndexOf(json, ',', offset, max_tag_length); if (comma == -1) comma = int.MaxValue;
-			var close = Array.IndexOf(json, '}', offset, max_tag_length); if (close == -1) close = int.MaxValue;
+			var check = encoding.GetChars(json, offset, 400);
+			var comma = FindStringInBytes(json, ",", offset); if (comma == -1) comma = int.MaxValue;
+			var close = FindStringInBytes(json, "}", offset); if (close == -1) close = int.MaxValue;
 			no.Length = int.Min(comma, close) - offset;
 			no.Value = Double.Parse(Globals.encoding.GetString(json, offset, no.Length));
 
@@ -254,6 +319,16 @@ namespace HeroesOE
 			string json = Globals.encoding.GetString(quick, top_level[v].O, top_level[v].Length);
 			if (!Json.JsonFilePaths.QuickJsonValidate(json)) return "";
 			return json;
+		}
+
+		internal int FindTopLevelOpen(int offset)
+		{
+			foreach(var json in top_level)
+			{
+				if (json.C > offset) return json.O;
+			}
+
+			return -1;
 		}
 	}
 }

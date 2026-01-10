@@ -48,13 +48,16 @@ namespace HeroesOE
 
 		public static byte[] LoadCurrentQuicksave()
 		{
-			var game_path = GetCurrentGameName() + @"\quicksave.saveskirmish";
-			var quick = LoadQuicksaveGame(game_path);
+			var game_path = CurrentQuickSave;
+			var quick = ReadSaveGame(game_path);
 			Globals.display_savegame_path = game_path;
+			Globals.quicksave_path = game_path;
+			Globals.quicksave_time = File.GetLastWriteTimeUtc(game_path);
+
 			return quick;
 		}
 
-		public static byte[] LoadQuicksaveGame(string save_game)
+		public static byte[] ReadSaveGame(string save_game)
 		{
 			var save = Zip.ReadGZipFileToBytes(save_game);
 			return save;
@@ -62,5 +65,6 @@ namespace HeroesOE
 
 		public static string? save_game;
 		public static string? last_autosave_day;
+		public static string CurrentQuickSave { get { return GetCurrentGameName() + @"\quicksave.saveskirmish"; } }
 	}
 }

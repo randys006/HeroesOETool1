@@ -41,6 +41,11 @@
 			txtAdjustValue = new TextBox();
 			cmdAdjust = new Button();
 			cboAutoRefresh = new CheckBox();
+			cmdOpenSaveDir = new Button();
+			lbBinaryShtuff = new ListBox();
+			cmdRefresh = new Button();
+			cmdShowDiff = new Button();
+			cmdOpenSide1InNotepad = new Button();
 			SuspendLayout();
 			// 
 			// timerScreenshot
@@ -70,9 +75,9 @@
 			lbSide0.Font = new Font("Lucida Sans Typewriter", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			lbSide0.FormattingEnabled = true;
 			lbSide0.ItemHeight = 18;
-			lbSide0.Location = new Point(14, 108);
+			lbSide0.Location = new Point(534, 110);
 			lbSide0.Name = "lbSide0";
-			lbSide0.Size = new Size(670, 688);
+			lbSide0.Size = new Size(500, 688);
 			lbSide0.TabIndex = 1;
 			lbSide0.SelectedIndexChanged += lbSide0_SelectedIndexChanged;
 			// 
@@ -81,43 +86,46 @@
 			lbSide1.Font = new Font("Lucida Sans Typewriter", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			lbSide1.FormattingEnabled = true;
 			lbSide1.ItemHeight = 18;
-			lbSide1.Location = new Point(690, 110);
+			lbSide1.Location = new Point(1040, 110);
 			lbSide1.Name = "lbSide1";
-			lbSide1.Size = new Size(706, 688);
+			lbSide1.Size = new Size(500, 688);
 			lbSide1.TabIndex = 1;
+			lbSide1.SelectedIndexChanged += lbSide1_SelectedIndexChanged;
 			// 
 			// lbSide2
 			// 
 			lbSide2.Font = new Font("Lucida Sans", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			lbSide2.FormattingEnabled = true;
 			lbSide2.ItemHeight = 21;
-			lbSide2.Location = new Point(1480, 12);
+			lbSide2.Location = new Point(1546, 110);
 			lbSide2.Name = "lbSide2";
-			lbSide2.Size = new Size(243, 760);
+			lbSide2.Size = new Size(500, 676);
 			lbSide2.TabIndex = 1;
+			lbSide2.SelectedIndexChanged += lbSide2_SelectedIndexChanged;
 			// 
 			// lbSide3
 			// 
 			lbSide3.Font = new Font("Lucida Sans", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			lbSide3.FormattingEnabled = true;
 			lbSide3.ItemHeight = 21;
-			lbSide3.Location = new Point(1729, 12);
+			lbSide3.Location = new Point(2258, 16);
 			lbSide3.Name = "lbSide3";
-			lbSide3.Size = new Size(243, 760);
+			lbSide3.Size = new Size(206, 760);
 			lbSide3.TabIndex = 1;
 			// 
 			// lblAdjust
 			// 
-			lblAdjust.Location = new Point(158, 54);
+			lblAdjust.BorderStyle = BorderStyle.FixedSingle;
+			lblAdjust.Location = new Point(418, 32);
 			lblAdjust.Name = "lblAdjust";
-			lblAdjust.Size = new Size(187, 22);
+			lblAdjust.Size = new Size(297, 29);
 			lblAdjust.TabIndex = 2;
 			lblAdjust.Text = "lblAdjust";
 			lblAdjust.TextAlign = ContentAlignment.TopRight;
 			// 
 			// txtAdjustValue
 			// 
-			txtAdjustValue.Location = new Point(358, 51);
+			txtAdjustValue.Location = new Point(534, 67);
 			txtAdjustValue.Name = "txtAdjustValue";
 			txtAdjustValue.Size = new Size(63, 31);
 			txtAdjustValue.TabIndex = 3;
@@ -126,7 +134,7 @@
 			// cmdAdjust
 			// 
 			cmdAdjust.Enabled = false;
-			cmdAdjust.Location = new Point(427, 48);
+			cmdAdjust.Location = new Point(603, 64);
 			cmdAdjust.Name = "cmdAdjust";
 			cmdAdjust.Size = new Size(112, 34);
 			cmdAdjust.TabIndex = 4;
@@ -137,7 +145,7 @@
 			// cboAutoRefresh
 			// 
 			cboAutoRefresh.AutoSize = true;
-			cboAutoRefresh.Location = new Point(158, 53);
+			cboAutoRefresh.Location = new Point(418, 110);
 			cboAutoRefresh.Name = "cboAutoRefresh";
 			cboAutoRefresh.Size = new Size(77, 29);
 			cboAutoRefresh.TabIndex = 5;
@@ -145,11 +153,65 @@
 			cboAutoRefresh.UseVisualStyleBackColor = true;
 			cboAutoRefresh.CheckedChanged += cboAutoRefresh_CheckedChanged;
 			// 
+			// cmdOpenSaveDir
+			// 
+			cmdOpenSaveDir.Location = new Point(20, 121);
+			cmdOpenSaveDir.Name = "cmdOpenSaveDir";
+			cmdOpenSaveDir.Size = new Size(112, 34);
+			cmdOpenSaveDir.TabIndex = 6;
+			cmdOpenSaveDir.Text = "SaveDir";
+			cmdOpenSaveDir.UseVisualStyleBackColor = true;
+			cmdOpenSaveDir.Click += cmdOpenSaveDir_Click;
+			// 
+			// lbBinaryShtuff
+			// 
+			lbBinaryShtuff.FormattingEnabled = true;
+			lbBinaryShtuff.ItemHeight = 25;
+			lbBinaryShtuff.Location = new Point(6, 174);
+			lbBinaryShtuff.Name = "lbBinaryShtuff";
+			lbBinaryShtuff.Size = new Size(522, 629);
+			lbBinaryShtuff.TabIndex = 7;
+			// 
+			// cmdRefresh
+			// 
+			cmdRefresh.Location = new Point(418, 64);
+			cmdRefresh.Name = "cmdRefresh";
+			cmdRefresh.Size = new Size(112, 34);
+			cmdRefresh.TabIndex = 8;
+			cmdRefresh.Text = "Refresh";
+			cmdRefresh.UseVisualStyleBackColor = true;
+			cmdRefresh.Click += cmdRefresh_Click;
+			// 
+			// cmdShowDiff
+			// 
+			cmdShowDiff.Location = new Point(146, 19);
+			cmdShowDiff.Name = "cmdShowDiff";
+			cmdShowDiff.Size = new Size(112, 34);
+			cmdShowDiff.TabIndex = 9;
+			cmdShowDiff.Text = "Diff...";
+			cmdShowDiff.UseVisualStyleBackColor = true;
+			cmdShowDiff.Click += cmdShowDiff_Click;
+			// 
+			// cmdOpenSide1InNotepad
+			// 
+			cmdOpenSide1InNotepad.Location = new Point(998, 69);
+			cmdOpenSide1InNotepad.Name = "cmdOpenSide1InNotepad";
+			cmdOpenSide1InNotepad.Size = new Size(36, 34);
+			cmdOpenSide1InNotepad.TabIndex = 10;
+			cmdOpenSide1InNotepad.Text = "...";
+			cmdOpenSide1InNotepad.UseVisualStyleBackColor = true;
+			cmdOpenSide1InNotepad.Click += cmdOpenSide1InNotepad_Click;
+			// 
 			// HeroesOEMain
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(2476, 810);
+			Controls.Add(cmdOpenSide1InNotepad);
+			Controls.Add(cmdShowDiff);
+			Controls.Add(cmdRefresh);
+			Controls.Add(lbBinaryShtuff);
+			Controls.Add(cmdOpenSaveDir);
 			Controls.Add(cboAutoRefresh);
 			Controls.Add(cmdAdjust);
 			Controls.Add(txtAdjustValue);
@@ -179,5 +241,10 @@
 		private TextBox txtAdjustValue;
 		private Button cmdAdjust;
 		private CheckBox cboAutoRefresh;
+		private Button cmdOpenSaveDir;
+		private ListBox lbBinaryShtuff;
+		private Button cmdRefresh;
+		private Button cmdShowDiff;
+		private Button cmdOpenSide1InNotepad;
 	}
 }
