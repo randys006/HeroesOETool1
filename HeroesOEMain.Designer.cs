@@ -46,6 +46,7 @@
 			cmdRefresh = new Button();
 			cmdShowDiff = new Button();
 			cmdOpenSide1InNotepad = new Button();
+			cmdOpenTempDir = new Button();
 			SuspendLayout();
 			// 
 			// timerScreenshot
@@ -159,7 +160,7 @@
 			cmdOpenSaveDir.Name = "cmdOpenSaveDir";
 			cmdOpenSaveDir.Size = new Size(112, 34);
 			cmdOpenSaveDir.TabIndex = 6;
-			cmdOpenSaveDir.Text = "SaveDir";
+			cmdOpenSaveDir.Text = "Save Dir...";
 			cmdOpenSaveDir.UseVisualStyleBackColor = true;
 			cmdOpenSaveDir.Click += cmdOpenSaveDir_Click;
 			// 
@@ -174,7 +175,7 @@
 			// 
 			// cmdRefresh
 			// 
-			cmdRefresh.Location = new Point(418, 64);
+			cmdRefresh.Location = new Point(146, 59);
 			cmdRefresh.Name = "cmdRefresh";
 			cmdRefresh.Size = new Size(112, 34);
 			cmdRefresh.TabIndex = 8;
@@ -202,11 +203,22 @@
 			cmdOpenSide1InNotepad.UseVisualStyleBackColor = true;
 			cmdOpenSide1InNotepad.Click += cmdOpenSide1InNotepad_Click;
 			// 
+			// cmdOpenTempDir
+			// 
+			cmdOpenTempDir.Location = new Point(138, 121);
+			cmdOpenTempDir.Name = "cmdOpenTempDir";
+			cmdOpenTempDir.Size = new Size(112, 34);
+			cmdOpenTempDir.TabIndex = 12;
+			cmdOpenTempDir.Text = "Temp Dir...";
+			cmdOpenTempDir.UseVisualStyleBackColor = true;
+			cmdOpenTempDir.Click += cmdOpenTempDir_Click;
+			// 
 			// HeroesOEMain
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(2476, 810);
+			Controls.Add(cmdOpenTempDir);
 			Controls.Add(cmdOpenSide1InNotepad);
 			Controls.Add(cmdShowDiff);
 			Controls.Add(cmdRefresh);
@@ -222,7 +234,7 @@
 			Controls.Add(lbSide0);
 			Controls.Add(cmdClearScreenshots);
 			Name = "HeroesOEMain";
-			Text = "HeroesOE Editor";
+			Text = "Heroes Olden Era Editor";
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -246,5 +258,7 @@
 		private Button cmdRefresh;
 		private Button cmdShowDiff;
 		private Button cmdOpenSide1InNotepad;
+		private Button button1;
+		private Button cmdOpenTempDir;
 	}
 }

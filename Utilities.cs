@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -125,6 +126,55 @@ namespace HeroesOE
 			public JsonBracketMatcher.Match Pop() { return stack.Pop(); }
 			public int Level { get { return stack.Count - 2; } }
 			Stack<JsonBracketMatcher.Match> stack = new();
+		}
+		public static string FindNotepadPlusPlusPath()
+		{
+			// Notepad++ installer typically creates a key here with an empty name value containing the path.
+			string[] registryKeys = new string[]
+			{
+			@"SOFTWARE\Notepad++", // For 64-bit on 64-bit systems, or 32-bit on 32-bit systems
+            @"SOFTWARE\Wow6432Node\Notepad++" // For 32-bit on 64-bit systems
+			};
+
+			foreach (var keyPath in registryKeys)
+			{
+				using (RegistryKey key = Registry.LocalMachine.OpenSubKey(keyPath))
+				{
+					if (key != null)
+					{
+						// The install path is often stored in the default (empty name) value of the key.
+						object installDir = key.GetValue("");
+						if (installDir != null && !string.IsNullOrEmpty(installDir.ToString()))
+						{
+							string nppExePath = Path.Combine(installDir.ToString(), "notepad++.exe");
+							if (File.Exists(nppExePath))
+							{
+								return nppExePath;
+							}
+						}
+					}
+				}
+			}
+
+			// Fallback: Check standard program file locations if registry fails
+			string programFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+			string programFilesX86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+
+			string[] commonPaths = new string[]
+			{
+			Path.Combine(programFiles, "Notepad++", "notepad++.exe"),
+			Path.Combine(programFilesX86, "Notepad++", "notepad++.exe")
+			};
+
+			foreach (var path in commonPaths)
+			{
+				if (File.Exists(path))
+				{
+					return path;
+				}
+			}
+
+			return null; // Notepad++ installation path not found
 		}
 		public static bool DeepCompare(object obj1, object obj2, List<string> out1, List<string> out2)
 		{

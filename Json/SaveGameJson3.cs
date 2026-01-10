@@ -9,7 +9,7 @@ namespace HeroesOE.Json
 {
 	internal class SaveGameJson3
 	{
-		// this is the 4th json blob in the quicksave
+		// This is the 4th json blob in the quicksave which contains the sides and lists of heroes.
 		public class SaveGame3
 		{
 			public SaveGame3(string json)
@@ -17,9 +17,31 @@ namespace HeroesOE.Json
 				sg = JsonSerializer.Deserialize<Rootobject>(json);
 			}
 
+			public void Write(string out_path, string save_path, DateTime dateTime)
+			{
+				Wrapper wrapper = new Wrapper();
+				wrapper.Description = "This is the 3rd json blob from the following savegame file.";
+				wrapper.Path = save_path;
+				wrapper.WrittenDateTimeUtc = dateTime.ToUniversalTime().ToString();
+				wrapper.rootobject = sg;
+
+				var options = new JsonSerializerOptions { WriteIndented = true }; 
+				var json = JsonSerializer.Serialize<Wrapper>(wrapper, options);
+				File.WriteAllText(out_path, json);
+			}
+
 			public Rootobject sg;
 		}
 
+
+		public class Wrapper
+		{
+			public string Description { get; set; }
+			public string Path { get; set; }
+			public string WrittenDateTimeUtc { get; set; }
+			public Rootobject rootobject { get; set; }
+		}
+		
 		public class Rootobject
 		{
 			public Objects objects { get; set; }

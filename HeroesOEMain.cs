@@ -21,6 +21,7 @@ namespace HeroesOE
 
 			timerQuicksave.Interval = 100;
 			cboAutoRefresh.Checked = true;
+			if (!Directory.Exists(temp_path)) Directory.CreateDirectory(temp_path);
 
 			foreach (var hero_info_pair in hero_infos.hero_infos)
 			{
@@ -237,7 +238,7 @@ namespace HeroesOE
 		private void Refresh()
 		{
 			Testing.TestSaveGame(); // TODO: refactor from Testing. Writes updated hero_displays
-			//FindBinaryShtuff(quickbytes, matcher);
+									//FindBinaryShtuff(quickbytes, matcher);
 
 			ListBox[] lbs = [lbSide0, lbSide1, lbSide2, lbSide3];
 			foreach (var l in lbs) { l.Items.Clear(); }
@@ -266,7 +267,19 @@ namespace HeroesOE
 
 		private void cmdOpenSide1InNotepad_Click(object sender, EventArgs e)
 		{
+			var sg3 = new SaveGameJson3.SaveGame3(matcher.GetTopLevelJson(quickbytes, 3));
+			var out_path = temp_path + @"quicksave_sides.json";
+			sg3.Write(out_path, quicksave_path, quicksave_time);
+			var nppp = FindNotepadPlusPlusPath();
+			if (String.IsNullOrEmpty(nppp)) nppp = "notepad.exe";
+			Process.Start(nppp, out_path);
+
 			// TODO: save sg3 json; open it
+		}
+
+		private void cmdOpenTempDir_Click(object sender, EventArgs e)
+		{
+			Process.Start("explorer.exe", temp_path);
 		}
 	}
 }
