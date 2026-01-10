@@ -21,3 +21,4 @@
  - SixLabors.ImageSharp (just the free version)
  - Tesseract
 
+
