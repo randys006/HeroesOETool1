@@ -112,16 +112,40 @@ namespace HeroesOE
 						string hero_display = "";
 
 						var hero = hero_list[idx];
-						var stats = hero.statsByLevel;
+						var info = hero_infos.hero_infos[hero.configSid];
+
+						HeroJson.MultiStats all_stats = new();
+						all_stats.Accumulate(info.token.stats);
+						all_stats.Accumulate(hero.statsByLevel);
+						all_stats.Accumulate(hero.additionalStats);
 
 						string hero_meta = $"top_level_3.heroes.list[].{idx}.";
-						// TODO: stats don't match. Need to add hero's base stats?
+						string a_stats_meta = hero_meta + "additionalStats.";
 
-						var name_level_line = $"  {hero.configSid,-26}: lvl {hero.currentLevel,2}";
+						var name_level_line = $"  {info.name,-26}: lvl {hero.currentLevel,2}";
 						AddHeroDisplayLine(name_level_line);
 
-						var stats_line = $"atk {stats.offence,2} def {stats.defence,2} pwr {stats.spellPower,2} int {stats.intelligence,2} lck {stats.luck} mrl {stats.moral}";
-						AddHeroDisplayLine(stats_line);
+						// only modify additional stats, but print all three plus the total
+						var offence = matcher.FindNumericOffset(quick, a_stats_meta + "offence");
+						AddHeroDisplayLine($"offence {all_stats.all_offences}", offence);
+
+						var defence = matcher.FindNumericOffset(quick, a_stats_meta + "defence");
+						AddHeroDisplayLine($"defence {all_stats.all_defences}", defence);
+
+						var spellPower = matcher.FindNumericOffset(quick, a_stats_meta + "spellPower");
+						AddHeroDisplayLine($"spellPower {all_stats.all_spellPowers}", spellPower);
+
+						var intelligence = matcher.FindNumericOffset(quick, a_stats_meta + "intelligence");
+						AddHeroDisplayLine($"intelligence {all_stats.all_intelligences}", intelligence);
+
+						var luck = matcher.FindNumericOffset(quick, a_stats_meta + "luck");
+						AddHeroDisplayLine($"luck {all_stats.all_lucks}", luck);
+
+						var moral = matcher.FindNumericOffset(quick, a_stats_meta + "moral");
+						AddHeroDisplayLine($"moral {all_stats.all_morals}", moral);
+
+						var movementBonus = matcher.FindNumericOffset(quick, a_stats_meta + "movementBonus");
+						AddHeroDisplayLine($"movementBonus {hero.additionalStats.movementBonus}", movementBonus);
 
 						var spell_points_line = $"mana {hero.mana}";
 						string spell_points_meta = hero_meta + "mana";

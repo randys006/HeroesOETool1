@@ -14,6 +14,7 @@ namespace HeroesOE.Json
 
 		public class HeroInfos
 		{
+			// maps an sid such as 'necro_hero_4' to their name 'Kel'Ghul'+data, stats etc.
 			public Dictionary<string, HeroInfo> hero_infos = new Dictionary<string, HeroInfo>();
 
 			public HeroInfos()
@@ -69,8 +70,9 @@ namespace HeroesOE.Json
 			public string description;
 			public string spec_name;
 			public string spec_description;
-
 			public string ascii_name;
+
+			public HeroJson.Token? token;
 		}
 
 		public class Rootobject

@@ -15,3 +15,10 @@
 ## Additional usage and notes
  - If you run it in the debugger you'll see interesting lists such as all hero names and starting skills and other stuff.
  - Diff doesn't really work yet. It's intended to help you find things that changed in the json between two save files.
+
+## Requirements
+ - Visual Studio 2022 (17.14.xx) w/Extensions:
+ - SixLabors.ImageSharp (just the free version)
+ - Tesseract
+
+

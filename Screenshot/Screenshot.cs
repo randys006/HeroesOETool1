@@ -1,6 +1,4 @@
-﻿using IronOcr;
-using IronSoftware;
-using SixLabors.ImageSharp;
+﻿using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using System;

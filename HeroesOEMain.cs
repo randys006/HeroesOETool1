@@ -33,15 +33,15 @@ namespace HeroesOE
 
 				var token_file = File.ReadAllText(path);
 				var hero_root = JsonSerializer.Deserialize<HeroJson.Rootobject>(token_file);
-				var hero_token = hero_root.tokens[0];
+				hero_info.token = hero_root.tokens[0];
 
 				string skills = "";
-				foreach (var skill in hero_token.startSkills)
+				foreach (var skill in hero_info.token.startSkills)
 				{
 					skills += $";{hero_skills.GetSkillName(skill.sid, skill.skillLevel),36}";
 				}
 
-				Debug.WriteLine($"{hero_info.ascii_name,32};{hero_info.sid,18};{hero_token.classType}{skills}");
+				Debug.WriteLine($"{hero_info.ascii_name,32};{hero_info.sid,18};{hero_info.token.classType}{skills}");
 			}
 
 			foreach (var city in city_defs)
@@ -188,15 +188,20 @@ namespace HeroesOE
 
 		private void UpdateSelectedPlayerValue(int player, int index)
 		{
-			if (index < 0)
+			if (player < 0 || player >= player_display.Count || index < 0 || index >= player_display[player].Count)
 			{
 				lblAdjust.Text = "";
 				txtAdjustValue.Text = "";
 				current_no = null;
+				current_player = -1;
+				current_index = -1;
+				return;
 			}
 
 			var hd = player_display[player][index];
 			current_no = player_metadata[player][index];
+			current_player = player;
+			current_index = index;
 
 			lblAdjust.Text = hd;
 			txtAdjustValue.Text = current_no.Value.ToString();
@@ -241,6 +246,7 @@ namespace HeroesOE
 									//FindBinaryShtuff(quickbytes, matcher);
 
 			ListBox[] lbs = [lbSide0, lbSide1, lbSide2, lbSide3];
+			var last_player = current_player;
 			foreach (var l in lbs) { l.Items.Clear(); }
 
 			int i = 0;
@@ -249,6 +255,16 @@ namespace HeroesOE
 				var lb = lbs[i++];
 				foreach (var hero in side) { lb.Items.Add(hero); }
 			}
+
+			current_player = last_player;
+			if (lbs[current_player].Items.Count > current_index)
+				lbs[current_player].SelectedIndex = current_index;
+			else
+			{
+				current_player = -1;
+				current_index = -1;
+			}
+				//UpdateSelectedPlayerValue(current_player, current_index);
 		}
 
 		private void cmdRefresh_Click(object sender, EventArgs e)

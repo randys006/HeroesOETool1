@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HeroesOE.Json
 {
-	internal class SaveGameJson3
+	public class SaveGameJson3
 	{
 		// This is the 4th json blob in the quicksave which contains the sides and lists of heroes.
 		public class SaveGame3
