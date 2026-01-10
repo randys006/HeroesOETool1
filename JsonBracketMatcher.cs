@@ -1,5 +1,4 @@
-﻿using SixLabors.Fonts.Tables.AdvancedTypographic;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;

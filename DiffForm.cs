@@ -1,6 +1,5 @@
 ﻿using HeroesOE;
 using HeroesOE.Json;
-using Microsoft.Extensions.FileSystemGlobbing;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
