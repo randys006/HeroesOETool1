@@ -119,6 +119,7 @@ namespace HeroesOE
 		public UnfrozenCity unfrozen_city;
 
 		public UnitsLogic[] units;
+		public SaveGameJson1.Object map_object;	// read from sg1
 	}
 
 	public class Building

@@ -8,7 +8,7 @@ namespace HeroesOE.Json
 {
 	public class JsonFilePaths
 	{
-		public static bool QuickJsonValidate(string json) { return json[0] == '{' && json[json.Length - 1] == '}'; }
+		public static bool QuickJsonValidate(string json) { return !string.IsNullOrEmpty(json) && json[0] == '{' && json[json.Length - 1] == '}'; }
 
 		private const string coredb_path = @"C:\Users\randy\source\HeroesOE\Core\DB\";
 		private const string install_path = @"C:\Program Files (x86)\Steam\steamapps\common\Heroes of Might & Magic Olden Era Demo\HeroesOE_Data\StreamingAssets\Lang\english\";
@@ -32,7 +32,5 @@ namespace HeroesOE.Json
 		public const string human_units_path = units_logics_path + @"human\";
 		public const string undead_units_path = units_logics_path + @"undead\";
 		public const string unfrozen_units_path = units_logics_path + @"unfrozen\";
-
 	}
-
 }

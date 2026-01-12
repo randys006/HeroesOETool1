@@ -1,14 +1,15 @@
 using HeroesOE.Json;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Text.Json;
 using static HeroesOE.Globals;
-using static HeroesOE.Utilities;
 using static HeroesOE.Json.HeroInfoJson;
+using static HeroesOE.JsonBracketMatcher;
 using static HeroesOE.Screenshot.Screenshot;
+using static HeroesOE.Utilities;
 using static System.Net.Mime.MediaTypeNames;
-using System.Diagnostics.Eventing.Reader;
 
 namespace HeroesOE
 {
@@ -71,7 +72,6 @@ namespace HeroesOE
 		{
 			// look before top level jsons
 			var lb = lbBinaryShtuff.Items;
-			lb.Clear();
 			Offsetter offset = new Offsetter();
 
 			Debug.WriteLine("--------- Parsing binary shtuff from quicksave ---------");
@@ -128,39 +128,80 @@ namespace HeroesOE
 
 		private void cmdAdjust_Click(object sender, EventArgs e)
 		{
-			//var prev = quicksave.Substring(current_no.Offset - 20, current_no.Length + 40);
-			//var removed = quicksave.Remove(current_no.Offset, current_no.Length);
-			//quicksave = removed.Insert(current_no.Offset, txtAdjustValue.Text);
-			//Zip.WriteGZipFile(display_savegame, quicksave);
-
 			var new_value = encoding.GetBytes(txtAdjustValue.Text.Trim());
 			if (new_value.Length <= 0) return;
-			int delta = new_value.Length - current_no.Length;
+			AdjustJsonValue(current_no, new_value);
 
-			var dbg_prev = encoding.GetString(quickbytes, current_no.Offset - 20, current_no.Length + 40);
+			if (current_no.Tag.Length > 0)
+			{
+				var tokens = current_no.Tag.Split(";");
+				if (tokens.Length > 1)
+				{
+					var val = current_no.Value;
+					if (tokens[0] == "hire.level")
+					{
+						var cno = matcher.FindTrueFalseOffset(quickbytes, tokens[1]);
+						AdjustJsonValue(cno, "1"u8.ToArray());
+						var ano = matcher.FindNumericOffset(quickbytes, tokens[2]);
+						AdjustJsonValue(ano, val == 1 ? "1"u8.ToArray() : "3"u8.ToArray());
+					}
+					else if (tokens[0].Contains("assortment.unitSets[]"))
+					{
+						var cno = matcher.FindTrueFalseOffset(quickbytes, tokens[1]);
+						AdjustJsonValue(cno, val >= 1 ? "1"u8.ToArray() : "0"u8.ToArray());
+						var lno = matcher.FindNumericOffset(quickbytes, tokens[2]);
+						AdjustJsonValue(lno, val == 3 ? "2"u8.ToArray() : "1"u8.ToArray());
+					}
+					else if (tokens[0].Contains("hire.isConstructed"))
+					{
+						if (val == 0)
+						{
+							var lno = matcher.FindNumericOffset(quickbytes, tokens[1]);
+							AdjustJsonValue(lno, "1"u8.ToArray());
+							var ano = matcher.FindNumericOffset(quickbytes, tokens[2]);
+							AdjustJsonValue(ano, "0"u8.ToArray());
+						}
+					}
+				}
+			}
+
+			Refresh();
+		}
+
+		private void AdjustJsonValue(NumericOffset no, byte[] new_value)
+		{
+			no.Value = int.Parse(new_value);
+			if (no is JsonBracketMatcher.TrueFalseOffset)
+			{
+				new_value = encoding.GetBytes(((TrueFalseOffset)no).StringValue);
+			}
+
+			int delta = new_value.Length - no.Length;
+
+			var dbg_prev = encoding.GetString(quickbytes, no.Offset - 20, no.Length + 40);
 
 			if (delta == 0)
-				Array.Copy(new_value, 0, quickbytes, current_no.Offset, current_no.Length);
+				Array.Copy(new_value, 0, quickbytes, no.Offset, no.Length);
 			else
 			{
 				byte[] buf = new byte[quickbytes.Length + delta];
-				int copy1 = current_no.Offset;
+				int copy1 = no.Offset;
 				int copy2 = new_value.Length;
-				int copy3 = quickbytes.Length - current_no.Offset - current_no.Length;
+				int copy3 = quickbytes.Length - no.Offset - no.Length;
 				int total_bytes_to_copy = copy1 + copy2 + copy3;
 				Debug.Assert(buf.Length == total_bytes_to_copy);
 
 				// Adjust the stored length. The stored value seems to have a constant value added to the
 				// length (0x0168E000), but don't have much data. We'll try just shifting the stored value.
 				// TODO: json '1' only has a 3-byte length param. We don't use it yet so just hardcode a 4.
-				int len_offset = matcher.FindTopLevelOpen(current_no.Offset) - 4;
+				int len_offset = matcher.FindTopLevelOpen(no.Offset) - 4;
 				int json_len = BitConverter.ToInt32(quickbytes, len_offset);
 				json_len += delta;
 				WriteIntToBytes(quickbytes, json_len, len_offset);
 
 				Buffer.BlockCopy(quickbytes, 0, buf, 0, copy1);
 				Buffer.BlockCopy(new_value, 0, buf, copy1, copy2);
-				Buffer.BlockCopy(quickbytes, copy1 + current_no.Length, buf, current_no.Offset + new_value.Length, copy3);
+				Buffer.BlockCopy(quickbytes, copy1 + no.Length, buf, no.Offset + new_value.Length, copy3);
 
 				// verify
 				//for (int i = 0; i < new_value.Length; ++i)
@@ -175,15 +216,13 @@ namespace HeroesOE
 				quickbytes = buf;
 			}
 
-			var dbg_now = encoding.GetString(quickbytes, current_no.Offset - 20, current_no.Length + 40);
+			var dbg_now = encoding.GetString(quickbytes, no.Offset - 20, no.Length + 40);
 			Zip.WriteBytesToGzip(quickbytes, quicksave_path);
 
-			string dbg_prev_pbl = $"Adjust: idx={current_no.Offset,8} len={current_no.Length,4}";
+			string dbg_prev_pbl = $"Adjust: idx={no.Offset,8} len={no.Length,4}";
 			string dbg_now_pbl = new string(' ', dbg_prev_pbl.Length);
-			Debug.WriteLine("{prev_pbl}{dbg_prev}'->'");
-			Debug.WriteLine("{now_pbl}{dbg_now}");
-
-			Refresh();
+			Debug.WriteLine($"{dbg_prev_pbl}{dbg_prev}'->'");
+			Debug.WriteLine($"{dbg_now_pbl}{dbg_now}");
 		}
 
 		private void UpdateSelectedPlayerValue(int player, int index)
@@ -242,11 +281,12 @@ namespace HeroesOE
 
 		private void Refresh()
 		{
-			Testing.TestSaveGame(); // TODO: refactor from Testing. Writes updated hero_displays
-									//FindBinaryShtuff(quickbytes, matcher);
-
-			ListBox[] lbs = [lbSide0, lbSide1, lbSide2, lbSide3];
 			var last_player = current_player;
+			if (!Testing.TestSaveGame()) return; // TODO: refactor from Testing. Writes updated hero_displays
+			lbBinaryShtuff.Items.Clear();
+			//FindBinaryShtuff(quickbytes, matcher);
+
+			ListBox[] lbs = [lbSide0, lbSide1, lbSide2, lbSide3, lbBinaryShtuff];
 			foreach (var l in lbs) { l.Items.Clear(); }
 
 			int i = 0;
@@ -256,7 +296,14 @@ namespace HeroesOE
 				foreach (var hero in side) { lb.Items.Add(hero); }
 			}
 
+			foreach (var info in map_city_info)
+			{
+				lbBinaryShtuff.Items.Add(info);
+			}
+
 			current_player = last_player;
+			if (current_player < 0) return;
+
 			if (lbs[current_player].Items.Count > current_index)
 				lbs[current_player].SelectedIndex = current_index;
 			else
@@ -264,7 +311,8 @@ namespace HeroesOE
 				current_player = -1;
 				current_index = -1;
 			}
-				//UpdateSelectedPlayerValue(current_player, current_index);
+			if (current_player < 0) return;
+			UpdateSelectedPlayerValue(current_player, current_index);
 		}
 
 		private void cmdRefresh_Click(object sender, EventArgs e)
@@ -283,19 +331,48 @@ namespace HeroesOE
 
 		private void cmdOpenSide1InNotepad_Click(object sender, EventArgs e)
 		{
-			var sg3 = new SaveGameJson3.SaveGame3(matcher.GetTopLevelJson(quickbytes, 3));
-			var out_path = temp_path + @"quicksave_sides.json";
-			sg3.Write(out_path, quicksave_path, quicksave_time);
-			var nppp = FindNotepadPlusPlusPath();
-			if (String.IsNullOrEmpty(nppp)) nppp = "notepad.exe";
-			Process.Start(nppp, out_path);
-
-			// TODO: save sg3 json; open it
+			{
+				var sg0 = new SaveGameJson0.SaveGame(matcher.GetTopLevelJson(quickbytes, 0));
+				var out_path = temp_path + @"quicksave_sg0.json";
+				sg0.Write(out_path, quicksave_path, quicksave_time);
+				var nppp = FindNotepadPlusPlusPath();
+				if (String.IsNullOrEmpty(nppp)) nppp = "notepad.exe";
+				Process.Start(nppp, out_path);
+			}
+			{
+				var sg1 = new SaveGameJson1.SaveGame(matcher.GetTopLevelJson(quickbytes, 1));
+				var out_path = temp_path + @"quicksave_sg1.json";
+				sg1.Write(out_path, quicksave_path, quicksave_time);
+				var nppp = FindNotepadPlusPlusPath();
+				if (String.IsNullOrEmpty(nppp)) nppp = "notepad.exe";
+				Process.Start(nppp, out_path);
+			}
+			{
+				var sg2 = new SaveGameJson0.SaveGame(matcher.GetTopLevelJson(quickbytes, 2));
+				var out_path = temp_path + @"quicksave_sg2.json";
+				sg2.Write(out_path, quicksave_path, quicksave_time);
+				var nppp = FindNotepadPlusPlusPath();
+				if (String.IsNullOrEmpty(nppp)) nppp = "notepad.exe";
+				Process.Start(nppp, out_path);
+			}
+			{
+				var sg3 = new SaveGameJson3.SaveGame(matcher.GetTopLevelJson(quickbytes, 3));
+				var out_path = temp_path + @"quicksave_sides.json";
+				sg3.Write(out_path, quicksave_path, quicksave_time);
+				var nppp = FindNotepadPlusPlusPath();
+				if (String.IsNullOrEmpty(nppp)) nppp = "notepad.exe";
+				Process.Start(nppp, out_path);
+			}
 		}
 
 		private void cmdOpenTempDir_Click(object sender, EventArgs e)
 		{
 			Process.Start("explorer.exe", temp_path);
+		}
+
+		private void HeroesOEMain_Load(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

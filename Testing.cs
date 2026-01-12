@@ -1,12 +1,16 @@
 ﻿using HeroesOE.Json;
+using HOETool.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using static HeroesOE.Globals;
+using static HeroesOE.Json.SaveGameJson3;
+using static HeroesOE.SaveGamePlayersJson;
 
 namespace HeroesOE
 {
@@ -14,166 +18,229 @@ namespace HeroesOE
 	{
 		public static void InfoTest(string suite, string topic, string info)
 		{
-			Debug.WriteLine($"[INFO]: {suite, 32}:{topic, 40}:{info}");
+			Debug.WriteLine($"[INFO]: {suite,32}:{topic,40}:{info}");
 		}
-		public static void TestSaveGame()
+		public static bool TestSaveGame()
 		{
-			var save_game = SaveGame.GetCurrentSaveGameName();
-			InfoTest("TestSaveGame", @"GetCurrentSaveGameName", save_game);
-			InfoTest("TestSaveGame", @"GetCurrentGameName", SaveGame.GetCurrentGameName(save_game));
-
-			var quick = SaveGame.LoadCurrentQuicksave();
-			InfoTest("TestSaveGame", @"Quicksave Bytes", $"{quick.Length}");
-			if (quick == null) { return; }
-
-			matcher = new JsonBracketMatcher(quick);
-
-			//matcher.Print(4);	// TEMPCODE
-			List<List<int>> side_heroes = new();
-
-			if (matcher.Valid)
+			try
 			{
-				quickbytes = quick;
-				var sg3 = new SaveGameJson3.SaveGame3(matcher.GetTopLevelJson(quick, 3));
+				var save_game = SaveGame.GetCurrentSaveGameName();
+				InfoTest("TestSaveGame", @"GetCurrentSaveGameName", save_game);
+				InfoTest("TestSaveGame", @"GetCurrentGameName", SaveGame.GetCurrentGameName(save_game));
 
-				ResetHeroDisplays();
+				var quick = SaveGame.LoadCurrentQuicksave();
+				InfoTest("TestSaveGame", @"Quicksave Bytes", $"{quick.Length}");
+				if (quick == null || quick.Length == 0) { return false; }
 
-				foreach (var player in sg3.sg.sides.players)
+				matcher = new JsonBracketMatcher(quick);
+
+				//matcher.Print(100);   // TEMPCODE
+				List<List<int>> side_heroes = new();
+
+				if (matcher.Valid)
 				{
-					NextPlayerDisplay();
-					var res = player.res;
+					quickbytes = quick;
+					var sg1 = new SaveGameJson1.SaveGame(matcher.GetTopLevelJson(quick, 1));
+					var sg3 = new SaveGameJson3.SaveGame(matcher.GetTopLevelJson(quick, 3));
 
-					Debug.WriteLine($"sg3: Player {player.index}: {player.name}:");
-					Debug.WriteLine($"     RES: {res.gold.value,7} {res.wood.value,4} {res.ore.value,4} {res.gemstones.value,4} {res.crystals.value,4} {res.mercury.value,4} {res.dust.value,4}");
+					ResetHeroDisplays();
 
-					string player_meta = $"top_level_3.sides.array[].{player.index}.";
-					string res_meta = player_meta + "res.";
-
-					// misc player stats
-					var currentLawsPoints_line = $"currentLawsPoints {player.currentLawsPoints}";
-					string currentLawsPoints_meta = player_meta + "currentLawsPoints";
-					var currentLawsPoints = matcher.FindNumericOffset(quick, currentLawsPoints_meta);
-					AddHeroDisplayLine(currentLawsPoints_line, currentLawsPoints);
-
-					// resource stats
-					var gold_line = $"gold {res.gold.value}";
-					string gold_meta = res_meta + "gold.value";
-					var gold = matcher.FindNumericOffset(quick, gold_meta);
-					AddHeroDisplayLine(gold_line, gold);
-
-					var wood_line = $"wood {res.wood.value}";
-					string wood_meta = res_meta + "wood.value";
-					var wood = matcher.FindNumericOffset(quick, wood_meta);
-					AddHeroDisplayLine(wood_line, wood);
-
-					var ore_line = $"ore {res.ore.value}";
-					string ore_meta = res_meta + "ore.value";
-					var ore = matcher.FindNumericOffset(quick, ore_meta);
-					AddHeroDisplayLine(ore_line, ore);
-
-					var gemstones_line = $"gemstones {res.gemstones.value}";
-					string gemstones_meta = res_meta + "gemstones.value";
-					var gemstones = matcher.FindNumericOffset(quick, gemstones_meta);
-					AddHeroDisplayLine(gemstones_line, gemstones);
-
-					var crystals_line = $"crystals {res.crystals.value}";
-					string crystals_meta = res_meta + "crystals.value";
-					var crystals = matcher.FindNumericOffset(quick, crystals_meta);
-					AddHeroDisplayLine(crystals_line, crystals);
-
-					var mercury_line = $"mercury {res.mercury.value}";
-					string mercury_meta = res_meta + "mercury.value";
-					var mercury = matcher.FindNumericOffset(quick, mercury_meta);
-					AddHeroDisplayLine(mercury_line, mercury);
-
-					var dust_line = $"dust {res.dust.value}";
-					string dust_meta = res_meta + "dust.value";
-					var dust = matcher.FindNumericOffset(quick, dust_meta);
-					AddHeroDisplayLine(dust_line, dust);
-
-					// read hero indexes for this side
-					side_heroes.Add(new());
-					foreach(var hero in player.sideHeroes.heroes)
+					foreach (var player in sg3.sg.sides.players)
 					{
-						side_heroes.Last().Add(hero);
-					}
-				}
+						NextPlayerDisplay();
+						var res = player.res;
 
-				var hero_list = sg3.sg.heroes.list;
-				RewindHeroDisplays();
+						Debug.WriteLine($"sg3: Player {player.index}: {player.name}:");
+						Debug.WriteLine($"     RES: {res.gold.value,7} {res.wood.value,4} {res.ore.value,4} {res.gemstones.value,4} {res.crystals.value,4} {res.mercury.value,4} {res.dust.value,4}");
 
-				foreach (var hero_idxs in side_heroes)
-				{
-					NextPlayerDisplay();
+						string player_meta = $"top_level_3.sides.array[].{player.index}.";
+						string res_meta = player_meta + "res.";
 
-					Debug.WriteLine($"Heroes owned by player :");
-					foreach(var idx in hero_idxs)
-					{
-						string hero_display = "";
+						// misc player stats
+						var currentLawsPoints = matcher.FindNumericOffset(quick, player_meta + "currentLawsPoints");
+						AddHeroDisplayLine($"currentLawsPoints {player.currentLawsPoints}", currentLawsPoints);
 
-						var hero = hero_list[idx];
-						var info = hero_infos.hero_infos[hero.configSid];
+						// resource stats
+						var gold = matcher.FindNumericOffset(quick, res_meta + "gold.value");
+						AddHeroDisplayLine($"gold {res.gold.value}", gold);
 
-						HeroJson.MultiStats all_stats = new();
-						all_stats.Accumulate(info.token.stats);
-						all_stats.Accumulate(hero.statsByLevel);
-						all_stats.Accumulate(hero.additionalStats);
+						var wood = matcher.FindNumericOffset(quick, res_meta + "wood.value");
+						AddHeroDisplayLine($"wood {res.wood.value}", wood);
 
-						string hero_meta = $"top_level_3.heroes.list[].{idx}.";
-						string a_stats_meta = hero_meta + "additionalStats.";
+						var ore = matcher.FindNumericOffset(quick, res_meta + "ore.value");
+						AddHeroDisplayLine($"ore {res.ore.value}", ore);
+						
+						var gemstones = matcher.FindNumericOffset(quick, res_meta + "gemstones.value");
+						AddHeroDisplayLine($"gemstones {res.gemstones.value}", gemstones);
 
-						var name_level_line = $"  {info.name,-26}: lvl {hero.currentLevel,2}";
-						AddHeroDisplayLine(name_level_line);
+						var crystals = matcher.FindNumericOffset(quick, res_meta + "crystals.value");
+						AddHeroDisplayLine($"crystals {res.crystals.value}", crystals);
 
-						// only modify additional stats, but print all three plus the total
-						var offence = matcher.FindNumericOffset(quick, a_stats_meta + "offence");
-						AddHeroDisplayLine($"offence {all_stats.all_offences}", offence);
+						var mercury = matcher.FindNumericOffset(quick, res_meta + "mercury.value");
+						AddHeroDisplayLine($"mercury {res.mercury.value}", mercury);
 
-						var defence = matcher.FindNumericOffset(quick, a_stats_meta + "defence");
-						AddHeroDisplayLine($"defence {all_stats.all_defences}", defence);
+						var dust = matcher.FindNumericOffset(quick, res_meta + "dust.value");
+						AddHeroDisplayLine($"dust {res.dust.value}", dust);
 
-						var spellPower = matcher.FindNumericOffset(quick, a_stats_meta + "spellPower");
-						AddHeroDisplayLine($"spellPower {all_stats.all_spellPowers}", spellPower);
-
-						var intelligence = matcher.FindNumericOffset(quick, a_stats_meta + "intelligence");
-						AddHeroDisplayLine($"intelligence {all_stats.all_intelligences}", intelligence);
-
-						var luck = matcher.FindNumericOffset(quick, a_stats_meta + "luck");
-						AddHeroDisplayLine($"luck {all_stats.all_lucks}", luck);
-
-						var moral = matcher.FindNumericOffset(quick, a_stats_meta + "moral");
-						AddHeroDisplayLine($"moral {all_stats.all_morals}", moral);
-
-						var movementBonus = matcher.FindNumericOffset(quick, a_stats_meta + "movementBonus");
-						AddHeroDisplayLine($"movementBonus {hero.additionalStats.movementBonus}", movementBonus);
-
-						var spell_points_line = $"mana {hero.mana}";
-						string spell_points_meta = hero_meta + "mana";
-						var spell_points = matcher.FindNumericOffset(quick, spell_points_meta);
-						AddHeroDisplayLine(spell_points_line, spell_points);
-
-						var movement_line = $"movement {hero.worldMovePoints}";
-						string movement_line_meta = hero_meta + "worldMovePoints";
-						var movement = matcher.FindNumericOffset(quick, movement_line_meta);
-						AddHeroDisplayLine(movement_line, movement);
-
-						var units = hero.party.units.ToList();
-						units.Sort((x, y) => x.slotPos.CompareTo(y.slotPos));
-
-						string party_meta = hero_meta + "party.units[].";
-						int i = 0;
-						foreach (var unit in units)
+						// read hero indexes for this side
+						side_heroes.Add(new());
+						foreach (var hero in player.sideHeroes.heroes)
 						{
-							var unit_line = $"    {unit.sid,20} {unit.stacks}";
-							hero_display += Environment.NewLine + unit_line;
-							string unit_line_meta = $"{party_meta}{i}.stacks";
-							var stat = matcher.FindNumericOffset(quick, unit_line_meta);
-							AddHeroDisplayLine(unit_line, stat);
-							++i;
+							side_heroes.Last().Add(hero);
 						}
+					}
+
+					var hero_list = sg3.sg.heroes.list;
+					RewindHeroDisplays();
+
+					foreach (var hero_idxs in side_heroes)
+					{
+						NextPlayerDisplay();
+						AddHeroDisplayLine();
+
+						Debug.WriteLine($"Heroes owned by player :");
+						foreach (var idx in hero_idxs)
+						{
+							var hero = hero_list[idx];
+							var info = hero_infos.hero_infos[hero.configSid];
+							string hero_meta = $"top_level_3.heroes.list[].{idx}.";
+							string a_stats_meta = hero_meta + "additionalStats.";
+							string party_meta = hero_meta + "party.units[].";
+							IndentHeroDisplay();
+
+							HeroJson.MultiStats all_stats = new();
+							all_stats.Accumulate(info.token.stats);
+							all_stats.Accumulate(hero.statsByLevel);
+							all_stats.Accumulate(hero.additionalStats);
+
+							var name_level_line = $"{info.name,-26}: lvl {hero.currentLevel,2}";
+							AddHeroDisplayLine(name_level_line);
+
+							// only modify additional stats, but print all three plus the total
+							var offence = matcher.FindNumericOffset(quick, a_stats_meta + "offence");
+							AddHeroDisplayLine($"offence {all_stats.all_offences}", offence);
+
+							var defence = matcher.FindNumericOffset(quick, a_stats_meta + "defence");
+							AddHeroDisplayLine($"defence {all_stats.all_defences}", defence);
+
+							var spellPower = matcher.FindNumericOffset(quick, a_stats_meta + "spellPower");
+							AddHeroDisplayLine($"spellPower {all_stats.all_spellPowers}", spellPower);
+
+							var intelligence = matcher.FindNumericOffset(quick, a_stats_meta + "intelligence");
+							AddHeroDisplayLine($"intelligence {all_stats.all_intelligences}", intelligence);
+
+							var luck = matcher.FindNumericOffset(quick, a_stats_meta + "luck");
+							AddHeroDisplayLine($"luck {all_stats.all_lucks}", luck);
+
+							var moral = matcher.FindNumericOffset(quick, a_stats_meta + "moral");
+							AddHeroDisplayLine($"moral {all_stats.all_morals}", moral);
+
+							var movementBonus = matcher.FindNumericOffset(quick, a_stats_meta + "movementBonus");
+							AddHeroDisplayLine($"movementBonus {hero.additionalStats.movementBonus}", movementBonus);
+
+							var spell_points = matcher.FindNumericOffset(quick, hero_meta + "mana");
+							AddHeroDisplayLine($"mana {hero.mana}", spell_points);
+
+							var movement = matcher.FindNumericOffset(quick, hero_meta + "worldMovePoints");
+							AddHeroDisplayLine($"movement {hero.worldMovePoints}", movement);
+
+							var units = hero.party.units.ToList();
+							units.Sort((x, y) => x.slotPos.CompareTo(y.slotPos));
+
+							IndentHeroDisplay(2);
+							int i = 0;
+							foreach (var unit in units)
+							{
+								var stat = matcher.FindNumericOffset(quick, $"{party_meta}{i}.stacks");
+								AddHeroDisplayLine($"{unit.sid,-20} {unit.stacks}", stat);
+								++i;
+							}
+						}
+					}
+
+					var map_objs = sg1.sg.objects;
+					map_city_objs = new();
+					map_city_info = new();
+
+					foreach (var obj in map_objs)
+					{
+						if (obj.sid.Contains("_city"))
+						{
+							map_city_info.Add($"{obj.sid}:");
+							var id_node = obj.ids.Zip(obj.nodes, (item1, item2) => (item1, item2)).ToArray();
+							foreach (var id in id_node)
+							{
+								map_city_info.Add($"    {id.item1,3} {id.item2,5}");
+							}
+
+							map_city_objs.Add(obj);
+						}
+					}
+
+					var game_objs = sg3.sg.objects;
+					game_city_obj = new();
+
+					RewindHeroDisplays();
+					for (int i = 0; i < game_objs.cityObjs.Length; ++i)
+					{
+						var city_obj = game_objs.cityObjs[i];
+						game_city_obj.Add(city_obj);
+						var buildings_obj = city_obj.buildings;
+
+						current_player = city_obj.ownerSide;
+						if (current_player == -1) current_player = unowned_player;
+
+						AddHeroDisplayLine();
+						AddHeroDisplayLine($"{city_obj.cityName, -24} : {city_obj.idMapObject}"); // TODO: lookup actual city name
+						IndentHeroDisplay();
+
+						var bases = sg3.GetBuildingBases(i);
+						string cityobjs_meta = $"top_level_3.objects.cityObjs[].{i}.";
+						string bldgs_meta = $"{cityobjs_meta}buildings.";
+						AddHeroDisplayLine($"todaysConstructionsCount : {city_obj.buildings.todaysConstructionsCount}", matcher.FindNumericOffset(quick, bldgs_meta + "todaysConstructionsCount"));
+
+						foreach (var bldg in bases)
+						{
+							AddHeroDisplayLine(bldg.sid);
+							IndentHeroDisplay(4);
+
+							var bldg_meta = bldgs_meta + bldg.tag;
+
+							if (bldg.sid.Contains("Tier_6") && city_obj.cityName.Contains("_17"))
+							{
+								int z = 42;
+							}
+							AddHeroDisplayLine($"isConstructed: {bldg.isConstructed.ToString()}", matcher.FindTrueFalseOffset(quick, bldg_meta + "isConstructed"));
+							AddHeroDisplayLine($"level        : {bldg.level}", matcher.FindNumericOffset(quick, bldg_meta + "level"));
+							if (bldg is SaveGameJson3.Hire)
+							{
+								SaveGameJson3.Hire? hire = null;
+								foreach (var h in buildings_obj.hires)
+								{
+									if (h.sid == bldg.sid)
+									{
+										hire = h;
+										break;
+									}
+								}
+
+								AddHeroDisplayLine($"unit level   : {hire.assortment.unitSets[0].level}", matcher.FindNumericOffset(quick, bldg_meta + JsonStrings.hire_assortmentLevel));
+							}
+
+							IndentHeroDisplay(2);
+						}
+
+						IndentHeroDisplay(0);
 					}
 				}
 			}
+			catch
+			{
+				int i = 42;
+				return false;
+			}   // ignore errors
+
+			return true;
 		}
 	}
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace HeroesOE.Json
@@ -10,9 +12,9 @@ namespace HeroesOE.Json
 	public class SaveGameJson3
 	{
 		// This is the 4th json blob in the quicksave which contains the sides and lists of heroes.
-		public class SaveGame3
+		public class SaveGame
 		{
-			public SaveGame3(string json)
+			public SaveGame(string json)
 			{
 				sg = JsonSerializer.Deserialize<Rootobject>(json);
 			}
@@ -25,14 +27,44 @@ namespace HeroesOE.Json
 				wrapper.WrittenDateTimeUtc = dateTime.ToUniversalTime().ToString();
 				wrapper.rootobject = sg;
 
-				var options = new JsonSerializerOptions { WriteIndented = true }; 
+				var options = new JsonSerializerOptions { WriteIndented = true, IndentCharacter = '\t', IndentSize = 1 };
 				var json = JsonSerializer.Serialize<Wrapper>(wrapper, options);
 				File.WriteAllText(out_path, json);
+			}
+			public List<BuildingBase> GetBuildingBases(int city_index)
+			{
+				var list = new List<BuildingBase>();
+				var bldgs = sg.objects.cityObjs[city_index].buildings;
+				list.AddRange(bldgs.mains);
+				list.AddRange(bldgs.taverns);
+				list.AddRange(bldgs.markets);
+				list.AddRange(bldgs.hires);
+				list.AddRange(bldgs.magicGuilds);
+				list.AddRange(bldgs.banks);
+				list.AddRange(bldgs.manaFountains);
+				list.AddRange(bldgs.intelligences);
+				list.AddRange(bldgs.bonusBanks);
+				list.AddRange(bldgs.unitsConverters);
+				list.AddRange(bldgs.trainingRanges);
+				list.AddRange(bldgs.rebirthShrines);
+				list.AddRange(bldgs.heroBonusBanks);
+				list.AddRange(bldgs.cityBonusBanks);
+				list.AddRange(bldgs.myceliumRoots);
+				list.AddRange(bldgs.portalSummonings);
+				list.AddRange(bldgs.artifactChangers);
+				list.AddRange(bldgs.artifactMarkets);
+				list.AddRange(bldgs.walls);
+
+				return list;
 			}
 
 			public Rootobject sg;
 		}
 
+		public bool AdjustJsonValue(string new_value)
+		{
+			return false;
+		}
 
 		public class Wrapper
 		{
@@ -110,6 +142,7 @@ namespace HeroesOE.Json
 			public Citiesnamespool citiesNamesPool { get; set; }
 		}
 
+		// these are the internal names ('human_city_1' etc)
 		public class Citiesnamespool
 		{
 			public Citiesnamesperfractiondict citiesNamesPerFractionDict { get; set; }
@@ -452,6 +485,29 @@ namespace HeroesOE.Json
 
 		public class Buildings
 		{
+			[JsonConstructor]
+			public Buildings()
+			{
+				Main.id = 0;
+				Tavern.id = 0;
+				Market.id = 0;
+				Hire.id = 0;
+				Magicguild.id = 0;
+				Bank.id = 0;
+				Manafountain.id = 0;
+				Intelligence.id = 0;
+				Bonusbank.id = 0;
+				Unitsconverter.id = 0;
+				TrainingRange.id = 0;
+				RebirthShrine.id = 0;
+				Herobonusbank.id = 0;
+				CityBonusBank.id = 0;
+				MyceliumRoot.id = 0;
+				PortalSummoning.id = 0;
+				Artifactchanger.id = 0;
+				Artifactmarket.id = 0;
+				Wall.id = 0;
+			}
 			public Main[] mains { get; set; }
 			public Tavern[] taverns { get; set; }
 			public Market[] markets { get; set; }
@@ -459,60 +515,53 @@ namespace HeroesOE.Json
 			public Magicguild[] magicGuilds { get; set; }
 			public Bank[] banks { get; set; }
 			public Manafountain[] manaFountains { get; set; }
-			public object[] intelligences { get; set; }
+			public Intelligence[] intelligences { get; set; }
 			public Bonusbank[] bonusBanks { get; set; }
 			public Unitsconverter[] unitsConverters { get; set; }
-			public object[] trainingRanges { get; set; }
-			public object[] rebirthShrines { get; set; }
+			public TrainingRange[] trainingRanges { get; set; }
+			public RebirthShrine[] rebirthShrines { get; set; }
 			public Herobonusbank[] heroBonusBanks { get; set; }
-			public object[] cityBonusBanks { get; set; }
-			public object[] myceliumRoots { get; set; }
-			public object[] portalSummonings { get; set; }
+			public CityBonusBank[] cityBonusBanks { get; set; }
+			public MyceliumRoot[] myceliumRoots { get; set; }
+			public PortalSummoning[] portalSummonings { get; set; }
 			public Artifactchanger[] artifactChangers { get; set; }
 			public Artifactmarket[] artifactMarkets { get; set; }
 			public Wall[] walls { get; set; }
 			public int todaysConstructionsCount { get; set; }
 		}
-
-		public class Main
+		public class BuildingBase
 		{
+			public string tag;	// for meta
 			public string sid { get; set; }
 			public int level { get; set; }
 			public bool isConstructed { get; set; }
 			public string citySid { get; set; }
 			public bool[] bansPerLevel { get; set; }
 			public int levelOnStart { get; set; }
+		}
+		public class Main : BuildingBase
+		{
+			[JsonConstructor] Main() : base() { tag = $"mains[].{id++}."; }
+			public static int id = 0;
 			public bool wasApplied { get; set; }
 		}
 
-		public class Tavern
+		public class Tavern : BuildingBase
 		{
-			public string sid { get; set; }
-			public int level { get; set; }
-			public bool isConstructed { get; set; }
-			public string citySid { get; set; }
-			public bool[] bansPerLevel { get; set; }
-			public int levelOnStart { get; set; }
+			[JsonConstructor] Tavern() { tag = $"taverns[].{id++}."; }
+			public static int id = 0;
 		}
 
-		public class Market
+		public class Market : BuildingBase
 		{
-			public string sid { get; set; }
-			public int level { get; set; }
-			public bool isConstructed { get; set; }
-			public string citySid { get; set; }
-			public bool[] bansPerLevel { get; set; }
-			public int levelOnStart { get; set; }
+			[JsonConstructor] Market() { tag = $"markets[].{id++}."; }
+			public static int id = 0;
 		}
 
-		public class Hire
+		public class Hire : BuildingBase
 		{
-			public string sid { get; set; }
-			public int level { get; set; }
-			public bool isConstructed { get; set; }
-			public string citySid { get; set; }
-			public bool[] bansPerLevel { get; set; }
-			public int levelOnStart { get; set; }
+			[JsonConstructor] Hire() { tag = $"hires[].{id++}."; }
+			public static int id = 0;
 			public Assortment assortment { get; set; }
 			public bool isUsePropGrowth { get; set; }
 		}
@@ -531,14 +580,10 @@ namespace HeroesOE.Json
 			public int currentAmount { get; set; }
 		}
 
-		public class Magicguild
+		public class Magicguild : BuildingBase
 		{
-			public string sid { get; set; }
-			public int level { get; set; }
-			public bool isConstructed { get; set; }
-			public string citySid { get; set; }
-			public bool[] bansPerLevel { get; set; }
-			public int levelOnStart { get; set; }
+			[JsonConstructor] Magicguild() { tag = $"magicGuilds[].{id++}."; }
+			public static int id = 0;
 			public Magicguildsinfo[] magicGuildsInfo { get; set; }
 		}
 
@@ -564,76 +609,84 @@ namespace HeroesOE.Json
 			public int?[] ownersIndex { get; set; }
 		}
 
-		public class Bank
+		public class Bank : BuildingBase
 		{
-			public string sid { get; set; }
-			public int level { get; set; }
-			public bool isConstructed { get; set; }
-			public string citySid { get; set; }
-			public bool[] bansPerLevel { get; set; }
-			public int levelOnStart { get; set; }
+			[JsonConstructor] Bank() { tag = $"banks[].{id++}."; }
+			public static int id = 0;
 			public bool wasApplied { get; set; }
 		}
 
-		public class Manafountain
+		public class Manafountain : BuildingBase
 		{
-			public string sid { get; set; }
-			public int level { get; set; }
-			public bool isConstructed { get; set; }
-			public string citySid { get; set; }
-			public bool[] bansPerLevel { get; set; }
-			public int levelOnStart { get; set; }
+			[JsonConstructor] Manafountain() { tag = $"manaFountains[].{id++}."; }
+			public static int id = 0;
 		}
 
-		public class Bonusbank
+		public class Intelligence : BuildingBase
 		{
-			public string sid { get; set; }
-			public int level { get; set; }
-			public bool isConstructed { get; set; }
-			public string citySid { get; set; }
-			public bool[] bansPerLevel { get; set; }
-			public int levelOnStart { get; set; }
+			[JsonConstructor] Intelligence() { tag = $"intelligences[].{id++}."; }
+			public static int id = 0;
 		}
 
-		public class Unitsconverter
+		public class Bonusbank : BuildingBase
 		{
-			public string sid { get; set; }
-			public int level { get; set; }
-			public bool isConstructed { get; set; }
-			public string citySid { get; set; }
-			public bool[] bansPerLevel { get; set; }
-			public int levelOnStart { get; set; }
+			[JsonConstructor] Bonusbank() { tag = $"bonusBanks[].{id++}."; }
+			public static int id = 0;
 		}
 
-		public class Herobonusbank
+		public class Unitsconverter : BuildingBase
 		{
-			public string sid { get; set; }
-			public int level { get; set; }
-			public bool isConstructed { get; set; }
-			public string citySid { get; set; }
-			public bool[] bansPerLevel { get; set; }
-			public int levelOnStart { get; set; }
+			[JsonConstructor] Unitsconverter() { tag = $"unitsConverters[].{id++}."; }
+			public static int id = 0;
+		}
+
+		public class TrainingRange : BuildingBase
+		{
+			[JsonConstructor] TrainingRange() { tag = $"trainingRanges[].{id++}."; }
+			public static int id = 0;
+		}
+
+		public class RebirthShrine : BuildingBase
+		{
+			[JsonConstructor] RebirthShrine() { tag = $"rebirthShrines[].{id++}."; }
+			public static int id = 0;
+		}
+
+		public class Herobonusbank : BuildingBase
+		{
+			[JsonConstructor] Herobonusbank() { tag = $"heroBonusBanks[].{id++}."; }
+			public static int id = 0;
 			public object[] listIndexVisitorHeroes { get; set; }
 		}
 
-		public class Artifactchanger
+		public class CityBonusBank : BuildingBase
 		{
-			public string sid { get; set; }
-			public int level { get; set; }
-			public bool isConstructed { get; set; }
-			public string citySid { get; set; }
-			public bool[] bansPerLevel { get; set; }
-			public int levelOnStart { get; set; }
+			[JsonConstructor] CityBonusBank() { tag = $"cityBonusBanks[].{id++}."; }
+			public static int id = 0;
 		}
 
-		public class Artifactmarket
+		public class MyceliumRoot : BuildingBase
 		{
-			public string sid { get; set; }
-			public int level { get; set; }
-			public bool isConstructed { get; set; }
-			public string citySid { get; set; }
-			public bool[] bansPerLevel { get; set; }
-			public int levelOnStart { get; set; }
+			[JsonConstructor] MyceliumRoot() { tag = $"myceliumRoots[].{id++}."; }
+			public static int id = 0;
+		}
+
+		public class PortalSummoning : BuildingBase
+		{
+			[JsonConstructor] PortalSummoning() { tag = $"portalSummonings[].{id++}."; }
+			public static int id = 0;
+		}
+
+		public class Artifactchanger : BuildingBase
+		{
+			[JsonConstructor] Artifactchanger() { tag = $"artifactChangers[].{id++}."; }
+			public static int id = 0;
+		}
+
+		public class Artifactmarket : BuildingBase
+		{
+			[JsonConstructor] Artifactmarket() { tag = $"artifactMarkets[].{id++}."; }
+			public static int id = 0;
 			public Itemmarketpool itemMarketPool { get; set; }
 		}
 
@@ -650,18 +703,15 @@ namespace HeroesOE.Json
 			public int level { get; set; }
 		}
 
-		public class Wall
+		public class Wall : BuildingBase
 		{
-			public string sid { get; set; }
-			public int level { get; set; }
-			public bool isConstructed { get; set; }
-			public string citySid { get; set; }
-			public bool[] bansPerLevel { get; set; }
-			public int levelOnStart { get; set; }
+			[JsonConstructor] Wall() { tag = $"walls[].{id++}."; }
+			public static int id = 0;
 			public string[] selectedEffectsList { get; set; }
 			public int[] selectedEffectsPerLevel { get; set; }
 			public bool wasApplied { get; set; }
 		}
+		//////////////////////////////////////////// End of buildings /////////////////////////////////////////////////////
 
 		public class Property4
 		{

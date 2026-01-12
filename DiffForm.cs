@@ -75,8 +75,8 @@ namespace HOETool
 			//var left2 = new SaveGameJson2.SaveGame2(left.GetTopLevelJson(left_game, 2));
 			//var rite2 = new SaveGameJson2.SaveGame2(rite.GetTopLevelJson(rite_game, 2));
 
-			var left3 = new SaveGameJson3.SaveGame3(left.GetTopLevelJson(left_game, 3)).sg.heroes.list;
-			var rite3 = new SaveGameJson3.SaveGame3(rite.GetTopLevelJson(rite_game, 3)).sg.heroes.list;
+			var left3 = new SaveGameJson3.SaveGame(left.GetTopLevelJson(left_game, 3)).sg.heroes.list;
+			var rite3 = new SaveGameJson3.SaveGame(rite.GetTopLevelJson(rite_game, 3)).sg.heroes.list;
 
 			lbLeft.Items.Clear();
 			lbRite.Items.Clear();

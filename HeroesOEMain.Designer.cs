@@ -75,10 +75,9 @@
 			// 
 			lbSide0.Font = new Font("Lucida Sans Typewriter", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			lbSide0.FormattingEnabled = true;
-			lbSide0.ItemHeight = 18;
 			lbSide0.Location = new Point(534, 110);
 			lbSide0.Name = "lbSide0";
-			lbSide0.Size = new Size(500, 688);
+			lbSide0.Size = new Size(392, 868);
 			lbSide0.TabIndex = 1;
 			lbSide0.SelectedIndexChanged += lbSide0_SelectedIndexChanged;
 			// 
@@ -86,10 +85,9 @@
 			// 
 			lbSide1.Font = new Font("Lucida Sans Typewriter", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			lbSide1.FormattingEnabled = true;
-			lbSide1.ItemHeight = 18;
-			lbSide1.Location = new Point(1040, 110);
+			lbSide1.Location = new Point(932, 110);
 			lbSide1.Name = "lbSide1";
-			lbSide1.Size = new Size(500, 688);
+			lbSide1.Size = new Size(392, 868);
 			lbSide1.TabIndex = 1;
 			lbSide1.SelectedIndexChanged += lbSide1_SelectedIndexChanged;
 			// 
@@ -97,10 +95,9 @@
 			// 
 			lbSide2.Font = new Font("Lucida Sans", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			lbSide2.FormattingEnabled = true;
-			lbSide2.ItemHeight = 21;
-			lbSide2.Location = new Point(1546, 110);
+			lbSide2.Location = new Point(1330, 110);
 			lbSide2.Name = "lbSide2";
-			lbSide2.Size = new Size(500, 676);
+			lbSide2.Size = new Size(392, 865);
 			lbSide2.TabIndex = 1;
 			lbSide2.SelectedIndexChanged += lbSide2_SelectedIndexChanged;
 			// 
@@ -108,10 +105,9 @@
 			// 
 			lbSide3.Font = new Font("Lucida Sans", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			lbSide3.FormattingEnabled = true;
-			lbSide3.ItemHeight = 21;
-			lbSide3.Location = new Point(2258, 16);
+			lbSide3.Location = new Point(1728, 110);
 			lbSide3.Name = "lbSide3";
-			lbSide3.Size = new Size(206, 760);
+			lbSide3.Size = new Size(392, 865);
 			lbSide3.TabIndex = 1;
 			// 
 			// lblAdjust
@@ -167,7 +163,6 @@
 			// lbBinaryShtuff
 			// 
 			lbBinaryShtuff.FormattingEnabled = true;
-			lbBinaryShtuff.ItemHeight = 25;
 			lbBinaryShtuff.Location = new Point(6, 174);
 			lbBinaryShtuff.Name = "lbBinaryShtuff";
 			lbBinaryShtuff.Size = new Size(522, 629);
@@ -195,7 +190,7 @@
 			// 
 			// cmdOpenSide1InNotepad
 			// 
-			cmdOpenSide1InNotepad.Location = new Point(998, 69);
+			cmdOpenSide1InNotepad.Location = new Point(418, 67);
 			cmdOpenSide1InNotepad.Name = "cmdOpenSide1InNotepad";
 			cmdOpenSide1InNotepad.Size = new Size(36, 34);
 			cmdOpenSide1InNotepad.TabIndex = 10;
@@ -217,7 +212,7 @@
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(2476, 810);
+			ClientSize = new Size(2137, 988);
 			Controls.Add(cmdOpenTempDir);
 			Controls.Add(cmdOpenSide1InNotepad);
 			Controls.Add(cmdShowDiff);
@@ -235,6 +230,7 @@
 			Controls.Add(cmdClearScreenshots);
 			Name = "HeroesOEMain";
 			Text = "Heroes Olden Era Editor";
+			Load += HeroesOEMain_Load;
 			ResumeLayout(false);
 			PerformLayout();
 		}

@@ -1,9 +1,11 @@
-﻿using System;
+﻿using HOETool.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing.Text;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using static HeroesOE.Globals;
@@ -52,6 +54,7 @@ namespace HeroesOE
 		public bool Valid { get; set; }
 		public JsonBracketMatcher(byte[] text)
 		{
+			// TODO: Valid is not correct
 			Valid = FindMatchingBrackets(text, out matches);
 			if (Valid)
 			{
@@ -96,26 +99,29 @@ namespace HeroesOE
 		{
 			if (!Valid) return;
 
-			MatchStack stack = new();
-
-			foreach (var match in matches)
+			using (StreamWriter tag_file = new StreamWriter(@"C:\Users\randy\source\HeroesOE\Ref\all_savegame_tags.txt"))
 			{
-				// can close any number of levels on the stack
-				while (match.O > stack.Peek().C)
+				MatchStack stack = new();
+
+				foreach (var match in matches)
 				{
-					int closed_level = stack.Level;
-					var closed = stack.Pop();
-					if (closed_level < levels) Debug.WriteLine(closed.CloseStr);
-				}
+					// can close any number of levels on the stack
+					while (match.O > stack.Peek().C)
+					{
+						int closed_level = stack.Level;
+						var closed = stack.Pop();
+						if (closed_level < levels) tag_file.WriteLine(closed.CloseStr);
+					}
 
-				var level = stack.Push(match);
-				if (level < levels) Debug.WriteLine(match.OpenStr);
-			}
-			// close remaining open brackets
-			while(stack.Level >= 0)
-			{
-				var closed = stack.Pop();
-				if (stack.Level <= levels) Debug.WriteLine(closed.CloseStr);
+					var level = stack.Push(match);
+					if (level < levels) tag_file.WriteLine(match.OpenStr);
+				}
+				// close remaining open brackets
+				while (stack.Level >= 0)
+				{
+					var closed = stack.Pop();
+					if (stack.Level <= levels) tag_file.WriteLine(closed.CloseStr);
+				}
 			}
 		}
 
@@ -225,7 +231,16 @@ namespace HeroesOE
 			public int Offset { get; set; }
 			public int Length { get; set; }
 			public double Value { get; set; }
-			public static NumericOffset Invalid { get { return new NumericOffset(-1, -1, 0.0); } }
+			public string Tag { get; set; }
+			public static NumericOffset Invalid { get { return new NumericOffset(-1, -1, 0); } }
+
+		}
+		public class TrueFalseOffset : NumericOffset
+		{
+			public TrueFalseOffset(int offset, int length, double value) : base(offset, length, value) { }
+			public bool BoolValue { get { return (Value == 0) ? false : true; } set { if (value) Value = 1; else Value = 0; } }
+			public string StringValue { get { return Value == 0 ? "false" : "true"; } }
+			public static TrueFalseOffset Invalid { get { return new TrueFalseOffset(-1, -1, 0.0); } }
 		}
 		public static int FindStringInBytes(byte[] sourceBytes, string searchString, int startIndex, bool skip = false)
 		{
@@ -240,7 +255,7 @@ namespace HeroesOE
 			return offset;
 		}
 
-		internal NumericOffset FindValueOffset(byte[] json, string meta_tag)
+		public NumericOffset FindValueOffset(byte[] json, string meta_tag)
 		{
 			var full_tag = meta_tag.Substring(0, meta_tag.LastIndexOf('.'));
 			var tag = $"\"{meta_tag.Substring(meta_tag.LastIndexOf('.') + 1)}\":";
@@ -277,8 +292,96 @@ namespace HeroesOE
 			var close = FindStringInBytes(json, "}", offset); if (close == -1) close = int.MaxValue;
 			no.Length = int.Min(comma, close) - offset;
 			no.Value = Double.Parse(Globals.encoding.GetString(json, offset, no.Length));
+			UpdateOffsetTag(meta_tag, no);
 
 			return no;
+		}
+
+		// an offset's tag contains info about other matches that also need to be updated
+		private void UpdateOffsetTag(string meta_tag, NumericOffset no)
+		{
+			List<string> updates = new ();
+			var tag = "";
+
+			if (meta_tag.Contains("hires[]."))
+			{
+				int len = meta_tag.IndexOf("hires[].") + 8;	// advance past the next '.'
+				len = meta_tag.IndexOf('.', len) + 1;       // include the index and the '.' after it
+
+				string hires_tag = meta_tag.Substring(0, len);
+				string isConstructed_tag = $"{hires_tag}{JsonStrings.building_isConstructed}";
+				string level_tag = $"{hires_tag}{JsonStrings.building_level}";
+				string assortmentLevel_tag = $"{hires_tag}{JsonStrings.hire_assortmentLevel}";
+
+				if (meta_tag.Contains(JsonStrings.building_isConstructed))
+				{
+					tag = $"hire.{JsonStrings.building_isConstructed}";
+					updates.AddRange([level_tag, assortmentLevel_tag]);
+				}
+				else if (meta_tag.Contains(JsonStrings.hire_assortmentLevel))
+				{
+					tag = $"hire.{JsonStrings.hire_assortmentLevel}";
+					updates.AddRange([isConstructed_tag, level_tag]);
+				}
+				else if (meta_tag.Contains(JsonStrings.building_level))
+				{
+					tag = $"hire.{JsonStrings.building_level}";
+					updates.AddRange([isConstructed_tag, assortmentLevel_tag]);
+				}
+			}
+
+			foreach (string update in updates)
+			{
+				tag = $"{tag};{update}";
+			}
+
+			no.Tag = tag;
+		}
+
+		public TrueFalseOffset FindTrueFalseOffset(byte[] json, string meta_tag)
+		{
+			var full_tag = meta_tag.Substring(0, meta_tag.LastIndexOf('.'));
+			var tag = $"\"{meta_tag.Substring(meta_tag.LastIndexOf('.') + 1)}\":";
+
+			var tfo = TrueFalseOffset.Invalid;
+			int offset = -1;
+			if (full_tag.Contains("hires[].5"))
+			{
+				int i = 42;
+			}
+
+			foreach (var match in matches)
+			{
+				if (match.FullTag.EndsWith("hires[].5") && full_tag.EndsWith("hires[].5"))
+				{
+					int i = 42;
+				}
+				if (match.FullTag == full_tag)
+				{
+					offset = match.O + 1;
+					break;
+				}
+			}
+
+			//if (offset == -1) throw new Exception($"meta_tag {meta_tag} not found in matches");
+			if (offset < 0) return TrueFalseOffset.Invalid;
+
+			offset = FindStringInBytes(json, tag, offset, true);
+			if (offset == -1) return TrueFalseOffset.Invalid;
+
+			tfo.Offset = offset;
+			var check = encoding.GetChars(json, offset, 4000);
+			var comma = FindStringInBytes(json, ",", offset); if (comma == -1) comma = int.MaxValue;
+			var close = FindStringInBytes(json, "}", offset); if (close == -1) close = int.MaxValue;
+			tfo.Length = int.Min(comma, close) - offset;
+			tfo.BoolValue = bool.Parse(Globals.encoding.GetString(json, offset, tfo.Length));
+			if (full_tag.EndsWith("hires[].5"))
+			{
+				int i = 42;
+			}
+			UpdateOffsetTag(meta_tag, tfo);
+
+			return tfo;
 		}
 
 		public NumericOffset FindNumericOffset(byte[] json, string meta_tag)
@@ -298,7 +401,7 @@ namespace HeroesOE
 				}
 			}
 
-			if (offset == 0) return NumericOffset.Invalid;
+			if (offset < 0) return NumericOffset.Invalid;
 
 			offset = FindStringInBytes(json, tag, offset, true);
 			if (offset == -1) return NumericOffset.Invalid;
@@ -309,13 +412,24 @@ namespace HeroesOE
 			var close = FindStringInBytes(json, "}", offset); if (close == -1) close = int.MaxValue;
 			no.Length = int.Min(comma, close) - offset;
 			no.Value = Double.Parse(Globals.encoding.GetString(json, offset, no.Length));
+			UpdateOffsetTag(meta_tag, no);
 
 			return no;
 		}
 
 		internal string GetTopLevelJson(byte[] quick, int v)
 		{
-			string json = Globals.encoding.GetString(quick, top_level[v].O, top_level[v].Length);
+			string json = "";
+			for (int retry = 0; retry < 5; ++retry)
+			{
+				try
+				{
+					json = Globals.encoding.GetString(quick, top_level[v].O, top_level[v].Length);
+					break;
+				}
+				catch { } // ignore; the game is probably writing the file
+			}
+
 			if (!Json.JsonFilePaths.QuickJsonValidate(json)) return "";
 			return json;
 		}
