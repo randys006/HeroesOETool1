@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -23,6 +24,7 @@ namespace HeroesOE.Json
 
 				HeroInfo hero_info = new HeroInfo(tokens[0]);
 
+				// this relies on order: 'spec_description' must be last
 				foreach (var token in tokens)
 				{
 					var tag = token.GetTag();
@@ -71,6 +73,8 @@ namespace HeroesOE.Json
 			public string spec_name;
 			public string spec_description;
 			public string ascii_name;
+			public int ingame_index;    // the hero's index in the currently-loaded savegame
+			public JsonBracketMatcher.NumericOffset no;
 
 			public HeroJson.Token? token;
 		}

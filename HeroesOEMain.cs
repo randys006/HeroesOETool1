@@ -1,6 +1,7 @@
 using HeroesOE.Json;
 using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
+using System.Linq;
 using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Text.Json;
@@ -123,7 +124,10 @@ namespace HeroesOE
 			timerQuicksave.Enabled = cboAutoRefresh.Checked;
 
 			var quick_save_time = File.GetLastWriteTimeUtc(SaveGame.CurrentQuickSave);
-			if (quick_save_time > Globals.quicksave_time) Refresh();
+			if (quick_save_time > Globals.quicksave_time)
+			{
+				if (!Refresh()) timerQuicksave.Enabled = true;  // retry indefinitely if Refresh failed
+			}
 		}
 
 		private void cmdAdjust_Click(object sender, EventArgs e)
@@ -168,61 +172,70 @@ namespace HeroesOE
 			Refresh();
 		}
 
-		private void AdjustJsonValue(NumericOffset no, byte[] new_value)
+		private void AdjustJsonValue(NumericOffset? no, byte[]? new_value, bool write = true)
 		{
-			no.Value = int.Parse(new_value);
-			if (no is JsonBracketMatcher.TrueFalseOffset)
+			string dbg_prev = "";
+
+			if (no != null)
 			{
-				new_value = encoding.GetBytes(((TrueFalseOffset)no).StringValue);
+				no.Value = int.Parse(new_value);
+				if (no is JsonBracketMatcher.TrueFalseOffset)
+				{
+					new_value = encoding.GetBytes(((TrueFalseOffset)no).StringValue);
+				}
+
+				int delta = new_value.Length - no.Length;
+
+				dbg_prev = encoding.GetString(quickbytes, no.Offset - 20, no.Length + 40);
+
+				if (delta == 0)
+					Array.Copy(new_value, 0, quickbytes, no.Offset, no.Length);
+				else
+				{
+					byte[] buf = new byte[quickbytes.Length + delta];
+					int copy1 = no.Offset;
+					int copy2 = new_value.Length;
+					int copy3 = quickbytes.Length - no.Offset - no.Length;
+					int total_bytes_to_copy = copy1 + copy2 + copy3;
+					Debug.Assert(buf.Length == total_bytes_to_copy);
+
+					// Adjust the stored length. The stored value seems to have a constant value added to the
+					// length (0x0168E000), but don't have much data. We'll try just shifting the stored value.
+					// TODO: json '1' only has a 3-byte length param. We don't use it yet so just hardcode a 4.
+					int len_offset = matcher.FindTopLevelOpen(no.Offset) - 4;
+					int json_len = BitConverter.ToInt32(quickbytes, len_offset);
+					json_len += delta;
+					WriteIntToBytes(quickbytes, json_len, len_offset);
+
+					Buffer.BlockCopy(quickbytes, 0, buf, 0, copy1);
+					Buffer.BlockCopy(new_value, 0, buf, copy1, copy2);
+					Buffer.BlockCopy(quickbytes, copy1 + no.Length, buf, no.Offset + new_value.Length, copy3);
+
+					// verify
+					//for (int i = 0; i < new_value.Length; ++i)
+					//{
+					//	Debug.Assert(buf[current_no.Offset + i] == new_value[i]);
+					//}
+					//for (int i = new_value.Length; i < new_value.Length + 4; ++i)
+					//{
+					//	Debug.Assert(buf[current_no.Offset + i] == quickbytes[current_no.Offset + i - delta]);
+					//}
+
+					quickbytes = buf;
+				}
 			}
-
-			int delta = new_value.Length - no.Length;
-
-			var dbg_prev = encoding.GetString(quickbytes, no.Offset - 20, no.Length + 40);
-
-			if (delta == 0)
-				Array.Copy(new_value, 0, quickbytes, no.Offset, no.Length);
-			else
+			if (write)
 			{
-				byte[] buf = new byte[quickbytes.Length + delta];
-				int copy1 = no.Offset;
-				int copy2 = new_value.Length;
-				int copy3 = quickbytes.Length - no.Offset - no.Length;
-				int total_bytes_to_copy = copy1 + copy2 + copy3;
-				Debug.Assert(buf.Length == total_bytes_to_copy);
-
-				// Adjust the stored length. The stored value seems to have a constant value added to the
-				// length (0x0168E000), but don't have much data. We'll try just shifting the stored value.
-				// TODO: json '1' only has a 3-byte length param. We don't use it yet so just hardcode a 4.
-				int len_offset = matcher.FindTopLevelOpen(no.Offset) - 4;
-				int json_len = BitConverter.ToInt32(quickbytes, len_offset);
-				json_len += delta;
-				WriteIntToBytes(quickbytes, json_len, len_offset);
-
-				Buffer.BlockCopy(quickbytes, 0, buf, 0, copy1);
-				Buffer.BlockCopy(new_value, 0, buf, copy1, copy2);
-				Buffer.BlockCopy(quickbytes, copy1 + no.Length, buf, no.Offset + new_value.Length, copy3);
-
-				// verify
-				//for (int i = 0; i < new_value.Length; ++i)
-				//{
-				//	Debug.Assert(buf[current_no.Offset + i] == new_value[i]);
-				//}
-				//for (int i = new_value.Length; i < new_value.Length + 4; ++i)
-				//{
-				//	Debug.Assert(buf[current_no.Offset + i] == quickbytes[current_no.Offset + i - delta]);
-				//}
-
-				quickbytes = buf;
+				Zip.WriteBytesToGzip(quickbytes, quicksave_path);
 			}
-
-			var dbg_now = encoding.GetString(quickbytes, no.Offset - 20, no.Length + 40);
-			Zip.WriteBytesToGzip(quickbytes, quicksave_path);
-
-			string dbg_prev_pbl = $"Adjust: idx={no.Offset,8} len={no.Length,4}";
-			string dbg_now_pbl = new string(' ', dbg_prev_pbl.Length);
-			Debug.WriteLine($"{dbg_prev_pbl}{dbg_prev}'->'");
-			Debug.WriteLine($"{dbg_now_pbl}{dbg_now}");
+			if (no != null)
+			{
+				var dbg_now = encoding.GetString(quickbytes, no.Offset - 20, no.Length + 40);
+				string dbg_prev_pbl = $"Adjust: idx={no.Offset,8} len={no.Length,4}";
+				string dbg_now_pbl = new string(' ', dbg_prev_pbl.Length);
+				Debug.WriteLine($"{dbg_prev_pbl}{dbg_prev}'->'");
+				Debug.WriteLine($"{dbg_now_pbl}{dbg_now}");
+			}
 		}
 
 		private void UpdateSelectedPlayerValue(int player, int index)
@@ -244,6 +257,26 @@ namespace HeroesOE
 
 			lblAdjust.Text = hd;
 			txtAdjustValue.Text = current_no.Value.ToString();
+
+			// load heros and cities into toolstrips
+			toolStripContainer1.RightToolStripPanel.Controls.Clear();
+			toolStripHeroes.Items.Clear();
+			foreach (var hero in current_hero_infos[current_player])
+			{
+				toolStripHeroes.Items.Add(hero.name);
+				var item = toolStripHeroes.Items[toolStripHeroes.Items.Count - 1];
+				item.TextAlign = ContentAlignment.MiddleLeft;
+				item.Tag = hero.ingame_index;
+				//item.MouseDown += new MouseEventHandler(toolStripHeroesItem_MouseDown);
+			}
+			toolStripContainer1.RightToolStripPanel.Controls.Add(toolStripHeroes);
+			toolStripCities.Items.Clear();
+			foreach (var city in current_city_names[current_player])
+			{
+				toolStripCities.Items.Add(city);
+				toolStripCities.Items[toolStripCities.Items.Count - 1].TextAlign = ContentAlignment.MiddleLeft;
+			}
+			toolStripContainer1.RightToolStripPanel.Controls.Add(toolStripCities);
 		}
 
 		private void lbSide0_SelectedIndexChanged(object sender, EventArgs e)
@@ -279,30 +312,35 @@ namespace HeroesOE
 			Process.Start("explorer.exe", Path.GetDirectoryName(display_savegame_path));
 		}
 
-		private void Refresh()
+		private bool Refresh()
 		{
+
+
 			var last_player = current_player;
-			if (!Testing.TestSaveGame()) return; // TODO: refactor from Testing. Writes updated hero_displays
+			if (!Testing.TestSaveGame(cboSaveAllTags.Checked)) return false; // TODO: refactor from Testing. Writes updated hero_displays
 			lbBinaryShtuff.Items.Clear();
 			//FindBinaryShtuff(quickbytes, matcher);
 
+			// clear listboxes
 			ListBox[] lbs = [lbSide0, lbSide1, lbSide2, lbSide3, lbBinaryShtuff];
 			foreach (var l in lbs) { l.Items.Clear(); }
 
+			// load player display lines into listboxes
 			int i = 0;
 			foreach (var side in Globals.player_display)
 			{
 				var lb = lbs[i++];
-				foreach (var hero in side) { lb.Items.Add(hero); }
+				foreach (var line in side) { lb.Items.Add(line); }
 			}
 
+			// load extra display lines into their listbox
 			foreach (var info in map_city_info)
 			{
 				lbBinaryShtuff.Items.Add(info);
 			}
 
 			current_player = last_player;
-			if (current_player < 0) return;
+			if (current_player < 0) return false;
 
 			if (lbs[current_player].Items.Count > current_index)
 				lbs[current_player].SelectedIndex = current_index;
@@ -311,13 +349,17 @@ namespace HeroesOE
 				current_player = -1;
 				current_index = -1;
 			}
-			if (current_player < 0) return;
+			if (current_player < 0) return false;
 			UpdateSelectedPlayerValue(current_player, current_index);
+
+			cboSaveAllTags.Checked = false;
+
+			return true;
 		}
 
 		private void cmdRefresh_Click(object sender, EventArgs e)
 		{
-			Refresh();
+			if (!Refresh()) timerQuicksave.Enabled = true;  // retry if failed
 		}
 
 		private void cmdShowDiff_Click(object sender, EventArgs e)
@@ -373,6 +415,158 @@ namespace HeroesOE
 		private void HeroesOEMain_Load(object sender, EventArgs e)
 		{
 
+		}
+
+		private void toolStripContainer1_ContentPanel_DragDrop(object sender, DragEventArgs e)
+		{
+			if (sender == toolStripHeroes)
+			{
+				// TODO: write new list of heroes
+				int i = 42;
+			}
+		}
+
+		private void toolStripHeroes_DragDrop(object sender, DragEventArgs e)
+		{
+			Debug.WriteLine("toolStripHeroes_DragDrop: DragDrop");
+
+			// TODO: write new list of heroes
+			ToolStripItem draggedItem = (ToolStripItem)e.Data.GetData(typeof(ToolStripItem));
+			List<int> ts_hero_idxs = new();
+			foreach (ToolStripItem item in toolStripHeroes.Items)
+			{
+				ts_hero_idxs.Add((int)item.Tag);
+			}
+
+			List<int> hero_idxs = new();
+			foreach (var info in current_hero_infos[current_player])
+			{
+				hero_idxs.Add(info.ingame_index);
+			}
+
+			bool reload = false;
+			var ts_game = ts_hero_idxs.Zip(hero_idxs, (ts, game) => (Ts: ts, Game: game));
+
+			foreach (var pair in ts_game)
+			{
+				Debug.WriteLine($"ts: {pair.Ts,-2} game: {pair.Game,-2}");
+				reload |= pair.Ts != pair.Game;
+			}
+
+			if (reload)
+			{
+				int i = 42;
+
+			}
+		}
+
+		private void toolStripHeroes_MouseDown(object sender, MouseEventArgs e)
+		{
+			if (e.Button == MouseButtons.Left)
+			{
+				Debug.WriteLine("toolStripHeroes_MouseDown: left button down");
+				ToolStripItem item = sender as ToolStripItem;
+				if (item != null)
+				{
+					// Start the drag operation
+					item.DoDragDrop(item, DragDropEffects.Move);
+					Debug.WriteLine("toolStripHeroes_MouseDown: Starting DragDrop");
+				}
+			}
+		}
+
+		private void toolStripHeroes_DragEnter(object sender, DragEventArgs e)
+		{
+			// Check if the dragged item is the correct type
+			if (e.Data.GetDataPresent(typeof(ToolStripItem)))
+			{
+				Debug.WriteLine("toolStripHeroes_DragEnter: effect move");
+				e.Effect = DragDropEffects.Move; // Must set an effect for DragDrop to fire
+			}
+			else
+			{
+				Debug.WriteLine("toolStripHeroes_DragEnter: effect none");
+				e.Effect = DragDropEffects.None;
+			}
+		}
+
+		private void toolStripHeroesItem_MouseDown(object sender, MouseEventArgs e)
+		{
+			Debug.WriteLine("toolStripHeroesItem_MouseDown: ItemMouseDown");
+			if ((Control.MouseButtons & MouseButtons.Left) != 0)
+			{
+				Debug.WriteLine("toolStripHeroesItem_MouseDown: ItemMouseDown, left button down");
+				ToolStripItem item = sender as ToolStripItem;
+				if (item != null)
+				{
+					// Start the drag operation
+					item.DoDragDrop(item, DragDropEffects.Move);
+					Debug.WriteLine("toolStripHeroesItem_MouseDown: Starting DragDrop");
+				}
+			}
+		}
+
+		private void toolStripHeroes_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+		{
+			Debug.WriteLine("toolStripHeroes_ItemClicked: ItemClicked");
+			if ((Control.MouseButtons & MouseButtons.Left) != 0)
+			{
+				Debug.WriteLine("toolStripHeroes_ItemClicked: ItemClicked, left button down");
+				ToolStripItem item = sender as ToolStripItem;
+				if (item != null)
+				{
+					// Start the drag operation
+					item.DoDragDrop(item, DragDropEffects.Move);
+					Debug.WriteLine("toolStripHeroes_ItemClicked: Starting DragDrop");
+				}
+			}
+		}
+
+		private void timerCheckHeroToolstrip_Tick(object sender, EventArgs e)
+		{
+			// TODO: write new list of heroes
+			if (current_player < 0 || toolStripHeroes.Items.Count == 0) return;
+			List<int> ts_hero_idxs = new();
+			foreach (ToolStripItem item in toolStripHeroes.Items)
+			{
+				ts_hero_idxs.Add((int)item.Tag);
+			}
+
+			List<int> hero_idxs = new();
+			List<NumericOffset> nos = new();
+			foreach (var info in current_hero_infos[current_player])
+			{
+				hero_idxs.Add(info.ingame_index);
+				nos.Add(info.no);
+			}
+
+			bool reload = false;
+			var ts_game = ts_hero_idxs.Zip(hero_idxs, (ts, game) => (Ts: ts, Game: game));
+
+			foreach (var pair in ts_game)
+			{
+				//Debug.WriteLine($"ts: {pair.Ts,-2} game: {pair.Game,-2}");
+				reload |= pair.Ts != pair.Game;
+			}
+
+			if (reload)
+			{
+				var tsg_no = ts_game.Zip(nos, (tsg, no) => (Tsg: tsg, No: no));
+				foreach (var pair in tsg_no)
+				{
+					if (pair.Tsg.Ts != pair.Tsg.Game)
+						AdjustJsonValue(pair.No, encoding.GetBytes(pair.Tsg.Ts.ToString()), false);
+				}
+
+				AdjustJsonValue(null, null);
+				//var side_heroes_meta = $""
+				//foreach (var match in matcher.matches)
+				//{
+				//	if (match.FullTag.Contains(""))
+				//}
+				Refresh();
+
+			}
 		}
 	}
 }

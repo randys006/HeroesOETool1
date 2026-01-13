@@ -47,6 +47,16 @@
 			cmdShowDiff = new Button();
 			cmdOpenSide1InNotepad = new Button();
 			cmdOpenTempDir = new Button();
+			cboSaveAllTags = new CheckBox();
+			cmdClearFog = new Button();
+			toolStripPlayerHeroes = new ToolStrip();
+			toolStripPlayerCities = new ToolStrip();
+			toolStripContainer1 = new ToolStripContainer();
+			toolStripCities = new ToolStrip();
+			toolStripHeroes = new ToolStrip();
+			timerCheckHeroToolstrip = new System.Windows.Forms.Timer(components);
+			toolStripContainer1.ContentPanel.SuspendLayout();
+			toolStripContainer1.SuspendLayout();
 			SuspendLayout();
 			// 
 			// timerScreenshot
@@ -152,7 +162,7 @@
 			// 
 			// cmdOpenSaveDir
 			// 
-			cmdOpenSaveDir.Location = new Point(20, 121);
+			cmdOpenSaveDir.Location = new Point(20, 134);
 			cmdOpenSaveDir.Name = "cmdOpenSaveDir";
 			cmdOpenSaveDir.Size = new Size(112, 34);
 			cmdOpenSaveDir.TabIndex = 6;
@@ -208,11 +218,106 @@
 			cmdOpenTempDir.UseVisualStyleBackColor = true;
 			cmdOpenTempDir.Click += cmdOpenTempDir_Click;
 			// 
+			// cboSaveAllTags
+			// 
+			cboSaveAllTags.AutoSize = true;
+			cboSaveAllTags.Location = new Point(418, 139);
+			cboSaveAllTags.Name = "cboSaveAllTags";
+			cboSaveAllTags.Size = new Size(114, 29);
+			cboSaveAllTags.TabIndex = 13;
+			cboSaveAllTags.Text = "Save tags";
+			cboSaveAllTags.UseVisualStyleBackColor = true;
+			// 
+			// cmdClearFog
+			// 
+			cmdClearFog.Location = new Point(264, 16);
+			cmdClearFog.Name = "cmdClearFog";
+			cmdClearFog.Size = new Size(112, 34);
+			cmdClearFog.TabIndex = 14;
+			cmdClearFog.Text = "Clear Fog";
+			cmdClearFog.UseVisualStyleBackColor = true;
+			// 
+			// toolStripPlayerHeroes
+			// 
+			toolStripPlayerHeroes.AllowItemReorder = true;
+			toolStripPlayerHeroes.Dock = DockStyle.None;
+			toolStripPlayerHeroes.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			toolStripPlayerHeroes.ImageScalingSize = new Size(24, 24);
+			toolStripPlayerHeroes.Location = new Point(176, 0);
+			toolStripPlayerHeroes.Name = "toolStripPlayerHeroes";
+			toolStripPlayerHeroes.Size = new Size(116, 25);
+			toolStripPlayerHeroes.TabIndex = 15;
+			toolStripPlayerHeroes.Text = "toolStripPlayer";
+			// 
+			// toolStripPlayerCities
+			// 
+			toolStripPlayerCities.Dock = DockStyle.None;
+			toolStripPlayerCities.ImageScalingSize = new Size(24, 24);
+			toolStripPlayerCities.Location = new Point(0, 0);
+			toolStripPlayerCities.Name = "toolStripPlayerCities";
+			toolStripPlayerCities.Size = new Size(116, 25);
+			toolStripPlayerCities.TabIndex = 16;
+			// 
+			// toolStripContainer1
+			// 
+			toolStripContainer1.BottomToolStripPanelVisible = false;
+			// 
+			// toolStripContainer1.ContentPanel
+			// 
+			toolStripContainer1.ContentPanel.Controls.Add(toolStripCities);
+			toolStripContainer1.ContentPanel.Controls.Add(toolStripHeroes);
+			toolStripContainer1.ContentPanel.Controls.Add(toolStripPlayerHeroes);
+			toolStripContainer1.ContentPanel.Size = new Size(225, 988);
+			toolStripContainer1.ContentPanel.DragDrop += toolStripContainer1_ContentPanel_DragDrop;
+			toolStripContainer1.Dock = DockStyle.Right;
+			toolStripContainer1.LeftToolStripPanelVisible = false;
+			toolStripContainer1.Location = new Point(1912, 0);
+			toolStripContainer1.Name = "toolStripContainer1";
+			toolStripContainer1.Size = new Size(225, 988);
+			toolStripContainer1.TabIndex = 17;
+			toolStripContainer1.TopToolStripPanelVisible = false;
+			// 
+			// toolStripCities
+			// 
+			toolStripCities.Dock = DockStyle.None;
+			toolStripCities.ImageScalingSize = new Size(24, 24);
+			toolStripCities.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
+			toolStripCities.Location = new Point(102, 315);
+			toolStripCities.Name = "toolStripCities";
+			toolStripCities.Size = new Size(27, 116);
+			toolStripCities.TabIndex = 17;
+			toolStripCities.Text = "toolStrip2";
+			// 
+			// toolStripHeroes
+			// 
+			toolStripHeroes.AllowItemReorder = true;
+			toolStripHeroes.Dock = DockStyle.None;
+			toolStripHeroes.ImageScalingSize = new Size(24, 24);
+			toolStripHeroes.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
+			toolStripHeroes.Location = new Point(138, 120);
+			toolStripHeroes.Name = "toolStripHeroes";
+			toolStripHeroes.Size = new Size(27, 116);
+			toolStripHeroes.TabIndex = 16;
+			toolStripHeroes.ItemClicked += toolStripHeroes_ItemClicked;
+			toolStripHeroes.DragDrop += toolStripHeroes_DragDrop;
+			toolStripHeroes.DragEnter += toolStripHeroes_DragEnter;
+			toolStripHeroes.MouseDown += toolStripHeroes_MouseDown;
+			// 
+			// timerCheckHeroToolstrip
+			// 
+			timerCheckHeroToolstrip.Enabled = true;
+			timerCheckHeroToolstrip.Interval = 50;
+			timerCheckHeroToolstrip.Tick += timerCheckHeroToolstrip_Tick;
+			// 
 			// HeroesOEMain
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(2137, 988);
+			Controls.Add(toolStripContainer1);
+			Controls.Add(toolStripPlayerCities);
+			Controls.Add(cmdClearFog);
+			Controls.Add(cboSaveAllTags);
 			Controls.Add(cmdOpenTempDir);
 			Controls.Add(cmdOpenSide1InNotepad);
 			Controls.Add(cmdShowDiff);
@@ -231,6 +336,10 @@
 			Name = "HeroesOEMain";
 			Text = "Heroes Olden Era Editor";
 			Load += HeroesOEMain_Load;
+			toolStripContainer1.ContentPanel.ResumeLayout(false);
+			toolStripContainer1.ContentPanel.PerformLayout();
+			toolStripContainer1.ResumeLayout(false);
+			toolStripContainer1.PerformLayout();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -256,5 +365,13 @@
 		private Button cmdOpenSide1InNotepad;
 		private Button button1;
 		private Button cmdOpenTempDir;
+		private CheckBox cboSaveAllTags;
+		private Button cmdClearFog;
+		private ToolStrip toolStripPlayerHeroes;
+		private ToolStrip toolStripPlayerCities;
+		private ToolStripContainer toolStripContainer1;
+		private ToolStrip toolStripCities;
+		private ToolStrip toolStripHeroes;
+		private System.Windows.Forms.Timer timerCheckHeroToolstrip;
 	}
 }

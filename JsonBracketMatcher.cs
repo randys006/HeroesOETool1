@@ -255,48 +255,6 @@ namespace HeroesOE
 			return offset;
 		}
 
-		public NumericOffset FindValueOffset(byte[] json, string meta_tag)
-		{
-			var full_tag = meta_tag.Substring(0, meta_tag.LastIndexOf('.'));
-			var tag = $"\"{meta_tag.Substring(meta_tag.LastIndexOf('.') + 1)}\":";
-
-			var no = NumericOffset.Invalid;
-			int offset = -1;
-
-			while (true)
-			{
-				if (offset > 0) break;
-				foreach (var match in matches)
-				{
-					if (match.FullTag == full_tag)
-					{
-						offset = match.O + 1;
-						break;
-					}
-					if (match.FullTag.Contains("sides."))
-					{
-						int i = 42;
-					}
-				}
-
-			}
-
-			if (offset <= 0) return NumericOffset.Invalid;
-
-			offset = FindStringInBytes(json, tag, offset, true);
-			if (offset == -1) return NumericOffset.Invalid;
-
-			no.Offset = offset;
-			var check = encoding.GetChars(json, offset, 400);
-			var comma = FindStringInBytes(json, ",", offset); if (comma == -1) comma = int.MaxValue;
-			var close = FindStringInBytes(json, "}", offset); if (close == -1) close = int.MaxValue;
-			no.Length = int.Min(comma, close) - offset;
-			no.Value = Double.Parse(Globals.encoding.GetString(json, offset, no.Length));
-			UpdateOffsetTag(meta_tag, no);
-
-			return no;
-		}
-
 		// an offset's tag contains info about other matches that also need to be updated
 		private void UpdateOffsetTag(string meta_tag, NumericOffset no)
 		{
@@ -387,7 +345,6 @@ namespace HeroesOE
 		public NumericOffset FindNumericOffset(byte[] json, string meta_tag)
 		{
 			var full_tag = meta_tag.Substring(0, meta_tag.LastIndexOf('.'));
-			var tag = $"\"{meta_tag.Substring(meta_tag.LastIndexOf('.') + 1)}\":";
 
 			var no = NumericOffset.Invalid;
 			int offset = -1;
@@ -403,8 +360,66 @@ namespace HeroesOE
 
 			if (offset < 0) return NumericOffset.Invalid;
 
-			offset = FindStringInBytes(json, tag, offset, true);
-			if (offset == -1) return NumericOffset.Invalid;
+			if (Char.IsDigit((char)json[offset]))
+			{   // it's a numeric array, just skip commas
+				int idx = int.Parse(meta_tag.Substring(meta_tag.LastIndexOf('.') + 1));
+				for (int i = 0; i < idx; ++i)
+				{
+					offset = json.IndexOf(","u8.ToArray(), offset) + 1;
+				}
+			}
+			else
+			{
+				var tag = $"\"{meta_tag.Substring(meta_tag.LastIndexOf('.') + 1)}\":";
+				offset = FindStringInBytes(json, tag, offset, true);
+				if (offset == -1) return NumericOffset.Invalid;
+			}
+
+			no.Offset = offset;
+			var check = encoding.GetChars(json, offset, 400);
+			
+			no.Length = json.FirstCommaOrClose(offset) - offset;
+			no.Value = Double.Parse(Globals.encoding.GetString(json, offset, no.Length));
+			UpdateOffsetTag(meta_tag, no);
+
+			return no;
+		}
+
+		public NumericOffset FindValueOffset(byte[] json, string meta_tag)
+		{
+			var full_tag = meta_tag.Substring(0, meta_tag.LastIndexOf('.'));
+			var tag = $"\"{meta_tag.Substring(meta_tag.LastIndexOf('.') + 1)}\":";
+
+			var no = NumericOffset.Invalid;
+			int offset = -1;
+
+			while (true)
+			{
+				if (offset > 0) break;
+				foreach (var match in matches)
+				{
+					if (match.FullTag == full_tag)
+					{
+						offset = match.O + 1;
+						break;
+					}
+					if (match.FullTag.Contains("sides."))
+					{
+						int i = 42;
+					}
+				}
+
+			}
+
+			if (offset <= 0) return NumericOffset.Invalid;
+
+			int found_offset = FindStringInBytes(json, tag, offset, true);
+			if (found_offset == -1)
+			{   // if failed, try again without the quotes
+				offset = FindStringInBytes(json, tag.Substring(1, tag.Length - 2), offset, true);
+				if (offset == -1) return NumericOffset.Invalid;
+			}
+			else offset = found_offset;
 
 			no.Offset = offset;
 			var check = encoding.GetChars(json, offset, 400);

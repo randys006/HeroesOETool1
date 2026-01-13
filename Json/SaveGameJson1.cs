@@ -31,6 +31,18 @@ namespace HeroesOE.Json
 			}
 
 			public Rootobject sg;
+			public (int, int) Coords(int node)
+			{
+				int x = node % sg.sizeX_;
+				int z = node / sg.sizeX_;
+				return (x, z);
+			}
+			public (int, int) Distance(int node1, int node2)
+			{
+				var c1 = Coords(node1);
+				var c2 = Coords(node2);
+				return (c2.Item1 - c1.Item1, c2.Item2 - c1.Item2);
+			}
 		}
 
 		public class Wrapper

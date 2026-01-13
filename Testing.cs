@@ -20,7 +20,7 @@ namespace HeroesOE
 		{
 			Debug.WriteLine($"[INFO]: {suite,32}:{topic,40}:{info}");
 		}
-		public static bool TestSaveGame()
+		public static bool TestSaveGame(bool save_tags = false)
 		{
 			try
 			{
@@ -34,8 +34,12 @@ namespace HeroesOE
 
 				matcher = new JsonBracketMatcher(quick);
 
-				//matcher.Print(100);   // TEMPCODE
-				List<List<int>> side_heroes = new();
+				if (save_tags)
+				{
+					matcher.Print(100);   // TEMPCODE
+				}
+
+				List<OrderedDictionary<int, JsonBracketMatcher.NumericOffset>> side_heroes = new();
 
 				if (matcher.Valid)
 				{
@@ -45,6 +49,7 @@ namespace HeroesOE
 
 					ResetHeroDisplays();
 
+					// add player basic info, resources etc.
 					foreach (var player in sg3.sg.sides.players)
 					{
 						NextPlayerDisplay();
@@ -84,37 +89,53 @@ namespace HeroesOE
 
 						// read hero indexes for this side
 						side_heroes.Add(new());
-						foreach (var hero in player.sideHeroes.heroes)
+						for (int i = 0; i < player.sideHeroes.heroes.Length; ++i)
 						{
-							side_heroes.Last().Add(hero);
+							var hero = player.sideHeroes.heroes[i];
+							side_heroes.Last()[hero] = matcher.FindNumericOffset(quick, player_meta + $"sideHeroes.heroes[].{i}");
 						}
 					}
 
 					var hero_list = sg3.sg.heroes.list;
 					RewindHeroDisplays();
 
-					foreach (var hero_idxs in side_heroes)
+					for (int s = 0; s < side_heroes.Count; ++s)
 					{
+						var hero_idxs = side_heroes[s];
 						NextPlayerDisplay();
 						AddHeroDisplayLine();
 
 						Debug.WriteLine($"Heroes owned by player :");
+						int h = 0;
 						foreach (var idx in hero_idxs)
 						{
-							var hero = hero_list[idx];
+							var hero = hero_list[idx.Key];
 							var info = hero_infos.hero_infos[hero.configSid];
+							info.ingame_index = idx.Key;
+							string hero_idx_meta = $"top_level_3.sides.array[].{s}.sideHeroes.heroes[].{h}";
+							info.no = idx.Value;
+							AddHeroInfo(info);
+
 							string hero_meta = $"top_level_3.heroes.list[].{idx}.";
 							string a_stats_meta = hero_meta + "additionalStats.";
 							string party_meta = hero_meta + "party.units[].";
-							IndentHeroDisplay();
+							IndentHeroDisplay(0);
+
 
 							HeroJson.MultiStats all_stats = new();
 							all_stats.Accumulate(info.token.stats);
 							all_stats.Accumulate(hero.statsByLevel);
 							all_stats.Accumulate(hero.additionalStats);
 
-							var name_level_line = $"{info.name,-26}: lvl {hero.currentLevel,2}";
+							var name_level_line = $"{info.name,-26}:lvl {hero.currentLevel,2}";
 							AddHeroDisplayLine(name_level_line);
+
+							IndentHeroDisplay(2);
+
+							var coords = sg1.Coords(hero.node);
+							AddHeroDisplayLine($"Coordinates: {coords.Item2},{coords.Item2}");
+							// TODO: extract file and load binary into hex editor
+							// TODO: load individual jsons from a file
 
 							// only modify additional stats, but print all three plus the total
 							var offence = matcher.FindNumericOffset(quick, a_stats_meta + "offence");
@@ -144,10 +165,11 @@ namespace HeroesOE
 							var movement = matcher.FindNumericOffset(quick, hero_meta + "worldMovePoints");
 							AddHeroDisplayLine($"movement {hero.worldMovePoints}", movement);
 
+							// display units in order of slot
 							var units = hero.party.units.ToList();
 							units.Sort((x, y) => x.slotPos.CompareTo(y.slotPos));
 
-							IndentHeroDisplay(2);
+							IndentHeroDisplay(4);
 							int i = 0;
 							foreach (var unit in units)
 							{
@@ -191,7 +213,9 @@ namespace HeroesOE
 						if (current_player == -1) current_player = unowned_player;
 
 						AddHeroDisplayLine();
+						
 						AddHeroDisplayLine($"{city_obj.cityName, -24} : {city_obj.idMapObject}"); // TODO: lookup actual city name
+						AddCityName(city_obj.cityName);
 						IndentHeroDisplay();
 
 						var bases = sg3.GetBuildingBases(i);
@@ -234,8 +258,9 @@ namespace HeroesOE
 					}
 				}
 			}
-			catch
+			catch(Exception e)
 			{
+
 				int i = 42;
 				return false;
 			}   // ignore errors
