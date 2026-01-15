@@ -18,7 +18,7 @@ namespace HeroesOE.Json
 				foreach (var token in tokens)
 				{
 					// TODO: load the city
-					//Debug.WriteLine(token.sid);
+					//VCity(token.sid);
 				}
 			}
 		}

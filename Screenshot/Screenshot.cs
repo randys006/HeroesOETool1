@@ -1,18 +1,11 @@
 ﻿using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 using Tesseract;
 using static HeroesOE.Json.HeroSkillsJson;
 using Image = SixLabors.ImageSharp.Image;
 using Rectangle = SixLabors.ImageSharp.Rectangle;
+using static HeroesOE.Globals;
 
 namespace HeroesOE.Screenshot
 {
@@ -76,7 +69,7 @@ namespace HeroesOE.Screenshot
 				{
 					if (text == hero_class)
 					{
-						Debug.WriteLine($"Hero screenshot identified: {hero_class}");
+						VDev($"Hero screenshot identified: {hero_class}");
 						return "hero";
 					}
 				}
@@ -121,7 +114,7 @@ namespace HeroesOE.Screenshot
 			var pixes = GetImagePixes(shot, new Rectangle[] {nameRegion, uniqueRegion});
 			foreach (var pix in pixes)
 			{
-				Debug.WriteLine(Tess.GetPixText(pix));
+				VDev(Tess.GetPixText(pix));
 			}
 		}
 

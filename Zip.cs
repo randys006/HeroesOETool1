@@ -5,6 +5,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static HeroesOE.Globals;
 
 namespace HeroesOE
 {
@@ -139,61 +140,9 @@ namespace HeroesOE
 					}
 				}
 
-				Debug.WriteLine($"************ Wrote {zip_path}");
+				VTrace($"************ Wrote {zip_path}");
 			}
-			catch { Debug.WriteLine($"************ Failed writing {zip_path}"); }    // if it failed it's probably because the game was writing the save file
+			catch { VTrace($"************ Failed writing {zip_path}"); }    // if it failed it's probably because the game was writing the save file
 		}
-		//public static string ExtractSpecificFileToString(string zipFilePath, string file)
-		//{
-		//	using (ZipArchive archive = ZipFile.OpenRead(zipFilePath))
-		//	{
-		//		// Find the specific file entry within the archive
-		//		ZipArchiveEntry entry = archive.GetEntry(file);
-
-		//		if (entry != null)
-		//		{
-		//			// Open the entry's stream for reading
-		//			using (Stream entryStream = entry.Open())
-		//			{
-		//				// Use a StreamReader to read the stream's content into a string
-		//				// Specify the correct encoding if necessary (UTF-8 is common)
-		//				using (StreamReader reader = new StreamReader(entryStream, Encoding.Unicode))
-		//				{
-		//					return reader.ReadToEnd();
-		//				}
-		//			}
-		//		}
-		//		else
-		//		{
-		//			throw new FileNotFoundException($"Entry '{file}' not found in the archive.");
-		//		}
-		//	}
-		//}
-
-		//public static MemoryStream ExtractSpecificFileToMemory(Stream zipStream, string fileName)
-		//{
-		//	using (var archive = new ZipArchive(zipStream, ZipArchiveMode.Read))
-		//	{
-		//		// Find the specific entry by name
-		//		ZipArchiveEntry entry = archive.GetEntry(fileName);
-
-		//		if (entry != null)
-		//		{
-		//			using (Stream entryStream = entry.Open())
-		//			{
-		//				MemoryStream outputStream = new MemoryStream();
-		//				// Copy the uncompressed data to the output stream
-		//				entryStream.CopyTo(outputStream);
-		//				outputStream.Seek(0, SeekOrigin.Begin);
-		//				return outputStream;
-		//			}
-		//		}
-		//		else
-		//		{
-		//			throw new FileNotFoundException($"Entry '{fileName}' not found in the archive.");
-		//		}
-		//	}
-		//}
-
 	}
 }

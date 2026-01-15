@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using static HeroesOE.Globals;
 
 namespace HeroesOE.Json
 {
@@ -51,7 +52,7 @@ namespace HeroesOE.Json
 					}
 				}
 
-				Debug.WriteLine($"{hero_infos.Count} heroInfos read");
+				VHeroes($"{hero_infos.Count} heroInfos read");
 			}
 		}
 

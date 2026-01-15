@@ -14,11 +14,11 @@ using static HeroesOE.JsonBracketMatcher;
 
 namespace HeroesOE
 {
-	public static class Globals
+	public static partial class Globals
 	{
 		public static Encoding encoding = Encoding.UTF8;
 		public static string temp_path = System.IO.Path.GetTempPath() + @"HOETool\";
-		
+
 		public static DiffForm? diffForm = null;
 
 		public static List<HeroJson.Token> hero_tokens = new List<HeroJson.Token>();
@@ -39,6 +39,7 @@ namespace HeroesOE
 		public static DateTime quicksave_time = DateTime.UnixEpoch;
 
 		public static byte[] quickbytes = [];
+		public static byte[] sg3bytes = [];
 		public static JsonBracketMatcher? matcher = null;
 
 		public static List<SaveGameJson1.Object> map_city_objs = new();
@@ -61,7 +62,7 @@ namespace HeroesOE
 			if (string.IsNullOrEmpty(line)) line = "-------------------------------------------";
 			else { line = $"{new string(' ', hero_display_indent)}{line}"; }
 
-			Debug.WriteLine(line);
+			VSGHeroes(line);
 			player_display[current_player].Add(line);
 
 			if (meta == null) meta = NumericOffset.Invalid;

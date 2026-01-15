@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using static HeroesOE.Globals;
 
 namespace HeroesOE.Json
 {
@@ -21,7 +22,7 @@ namespace HeroesOE.Json
 					skill_names[token.sid] = token.text;
 				}
 
-				Debug.WriteLine($"{skill_names.Count} skill names read");
+				VHeroes($"{skill_names.Count} skill names read");
 			}
 
 			public string GetSkillName(string sid, int level)

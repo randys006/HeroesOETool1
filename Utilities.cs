@@ -88,7 +88,7 @@ namespace HeroesOE
 						sb.Append('\'');
 						break;
 					default:
-						Debug.WriteLine($"---------- ToAscii found a '{c}' ({ic})");
+						Globals.VDev($"********************* ToAscii found an unknown character: '{c}' ({ic})");
 						break;
 				}
 			}
@@ -101,16 +101,16 @@ namespace HeroesOE
 			public MatchStack()
 			{
 				// add a boundary match which is always outermost indexes
-				stack.Push(new(int.MinValue, int.MaxValue));
+				list.Add(new(int.MinValue, int.MaxValue));
 			}
-			public int Count { get { return stack.Count; } }
+			public int Count { get { return list.Count; } }
 			public int Push(JsonBracketMatcher.Match match)
 			{
-				stack.Push(match);
+				list.Add(match);
 				match.Level = Level;
 
 				StringBuilder sb = new StringBuilder();
-				foreach (var m in stack.Reverse())
+				foreach (var m in list /*stack.Reverse()*/)
 				{
 					sb.Append(m.Tag);
 					sb.Append('.');
@@ -120,12 +120,27 @@ namespace HeroesOE
 				sb.Remove(sb.Length - 1, 1);    // remove the trailing .
 				match.FullTag = sb.ToString();
 
+				//stack.Push(match);
+				//match.Level = Level;
+
+				//StringBuilder sb = new StringBuilder();
+				//foreach (var m in stack.Reverse())
+				//{
+				//	sb.Append(m.Tag);
+				//	sb.Append('.');
+				//}
+
+				//sb.Remove(0, 1);    // remove the . from the boundary
+				//sb.Remove(sb.Length - 1, 1);    // remove the trailing .
+				//match.FullTag = sb.ToString();
+
 				return Level;
 			}
-			public JsonBracketMatcher.Match Peek() { return stack.Peek(); }
-			public JsonBracketMatcher.Match Pop() { return stack.Pop(); }
-			public int Level { get { return stack.Count - 2; } }
-			Stack<JsonBracketMatcher.Match> stack = new();
+			public JsonBracketMatcher.Match Peek() { return list[list.Count - 1]; }
+			public JsonBracketMatcher.Match Pop() { var item = list[list.Count - 1]; list.RemoveAt(list.Count - 1); return item; }
+			public int Level { get { return list.Count - 2; } }
+			//Stack<JsonBracketMatcher.Match> stack = new();
+			List<JsonBracketMatcher.Match> list = new();
 		}
 		public static string FindNotepadPlusPlusPath()
 		{

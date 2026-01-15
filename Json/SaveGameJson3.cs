@@ -14,7 +14,7 @@ namespace HeroesOE.Json
 		// This is the 4th json blob in the quicksave which contains the sides and lists of heroes.
 		public class SaveGame
 		{
-			public SaveGame(string json)
+			public SaveGame(string json/*, JsonBracketMatcher matcher*/)
 			{
 				sg = JsonSerializer.Deserialize<Rootobject>(json);
 			}
@@ -1173,7 +1173,7 @@ namespace HeroesOE.Json
 
 		public class Fogdata
 		{
-			public bool[] visibilityMap { get; set; }
+			//public bool[] visibilityMap { get; set; }
 			public int sizeX { get; set; }
 			public int sizeZ { get; set; }
 		}
@@ -1375,7 +1375,7 @@ namespace HeroesOE.Json
 			public Markedareaguard markedAreaGuard { get; set; }
 			public int markedCityToUnitUpgrade { get; set; }
 			public Bannedareas bannedAreas { get; set; }
-			public bool[] bannedAreasMap { get; set; }
+			//public bool[] bannedAreasMap { get; set; }
 			public string hardStrategy { get; set; }
 		}
 
@@ -1536,114 +1536,114 @@ namespace HeroesOE.Json
 			public int intelligence { get; set; }
 			public int luck { get; set; }
 			public int moral { get; set; }
-			public int statsNum { get; set; }
-			public int viewRadius { get; set; }
-			public int slowestUnitSpeed { get; set; }
-			public float offencePer { get; set; }
-			public float defencePer { get; set; }
-			public float spellPowerPer { get; set; }
-			public float spellPowerFinal { get; set; }
-			public float intelligencePer { get; set; }
+			//public int statsNum { get; set; }
+			//public int viewRadius { get; set; }
+			//public int slowestUnitSpeed { get; set; }
+			//public float offencePer { get; set; }
+			//public float defencePer { get; set; }
+			//public float spellPowerPer { get; set; }
+			//public float spellPowerFinal { get; set; }
+			//public float intelligencePer { get; set; }
 			public int movementBonus { get; set; }
-			public int movementRestoreBonus { get; set; }
-			public float movementPerBonus { get; set; }
-			public float movementAfterBattlePerBonus { get; set; }
-			public int movementAfterBattleBonus { get; set; }
-			public float roadPerBonus { get; set; }
-			public float landscapePenaltyPerBonus { get; set; }
-			public float flyMotionPerBonus { get; set; }
-			public bool flyMotion { get; set; }
-			public int moveRestoreEnergyBonus { get; set; }
-			public bool disableMagicBook { get; set; }
-			public bool enableMagicExchange { get; set; }
-			public bool enableMagicStealing { get; set; }
-			public bool enableNecromancy { get; set; }
-			public bool enableNecromancyFactionBonus { get; set; }
-			public bool enableNecromancyManaRestoreBonus { get; set; }
-			public bool enableNecromancyLevelBonus { get; set; }
-			public bool enableDiplomacy { get; set; }
-			public bool enableBattleEscapeBan { get; set; }
-			public bool enableBansEvasion { get; set; }
-			public bool enableBansEvasionBattle { get; set; }
-			public bool enableMarketsCounting { get; set; }
-			public bool enableSquadReactionType { get; set; }
-			public bool enableSquadCounts { get; set; }
-			public bool enableEnemyHeroInfo { get; set; }
-			public bool enableEnemyCityInfo { get; set; }
-			public bool enableDisguise { get; set; }
-			public bool enableBattleOnNativeBiome { get; set; }
-			public bool enableHeroNativeBiome { get; set; }
-			public bool enableTactics { get; set; }
-			public bool enableEnemyVisionInTactics { get; set; }
-			public bool banTactics { get; set; }
-			public bool enableSavePartyByEscape { get; set; }
-			public bool enableSavePartyByEscapeNeutral { get; set; }
-			public bool enableSaveHeroByKill { get; set; }
-			public bool enableImmuneDebufInMap { get; set; }
-			public bool enableSilence { get; set; }
-			public bool magicCrits { get; set; }
-			public bool immuneToDebuffs { get; set; }
-			public bool banHeroAbilities { get; set; }
-			public bool disableSameMagicCounterRefresh { get; set; }
-			public float necromancyPerBonus { get; set; }
-			public float diplomacyEfficiencyPerBonus { get; set; }
-			public float diplomacySumValuePerBonus { get; set; }
-			public float diplomacyFractionPerBonus { get; set; }
-			public float diplomacyCostPerBonus { get; set; }
-			public float diplomacyUnitsCountBonus { get; set; }
-			public float capitulationCostPerBonus { get; set; }
-			public float expPerBonus { get; set; }
-			public float sideExpPerBonus { get; set; }
-			public bool ignoreFinalDamageBonus { get; set; }
-			public bool ignoreFinalHealingBonus { get; set; }
-			public bool ignoreFinalSummonBonus { get; set; }
-			public float finalDamageBonusPercent { get; set; }
-			public float finalHealingBonusPercent { get; set; }
-			public float finalManaCostBonusPercent { get; set; }
-			public float finalSummonBonusPercent { get; set; }
-			public bool ignoreSchoolCastsLimit { get; set; }
-			public bool ignoreSpellCastsLimit { get; set; }
-			public int minAllowedMagicRank { get; set; }
-			public int maxAllowedMagicRank { get; set; }
-			public int sameMagicCastsPerRound { get; set; }
-			public int sameSchoolCastsPerRound { get; set; }
-			public int magicCastsPerRound { get; set; }
-			public int magicOverloadsPerRound { get; set; }
-			public float magicOverloadPercent { get; set; }
-			public int magicUsageLimitBonus { get; set; }
-			public float magicAttackPerBonus { get; set; }
-			public float crit { get; set; }
-			public float anticrit { get; set; }
-			public float manaBonus { get; set; }
-			public float manaBonusPercent { get; set; }
-			public int manaCostBonus { get; set; }
-			public float manaCostBonusPercent { get; set; }
-			public float manaRestoreBonus { get; set; }
-			public float manaRestoreBonusPercent { get; set; }
-			public int energyLevelsCountBonus { get; set; }
-			public int energyPerLevelDiscount { get; set; }
-			public int startEnergyBonus { get; set; }
-			public int startEnergyLevelsBonus { get; set; }
-			public int energyPerRoundBonus { get; set; }
-			public int energyLevelsPerRoundBonus { get; set; }
-			public int maxEnergyLevelsBonus { get; set; }
-			public int outComingGlobalBuffDuration { get; set; }
-			public int outComingBuffDuration { get; set; }
-			public int outComingDebuffDuration { get; set; }
-			public int obstacleHpBonus { get; set; }
-			public int karaDurationBonus { get; set; }
-			public int tacticsPlacementSize { get; set; }
-			public Spellpowerschoolset spellPowerSchoolSet { get; set; }
-			public Spellpowersidset spellPowerSidSet { get; set; }
-			public Magicschoolset1 magicSchoolSet { get; set; }
-			public Magicsidset1 magicSidSet { get; set; }
-			public Magiccostschoolset magicCostSchoolSet { get; set; }
-			public Magiccostsidset magicCostSidSet { get; set; }
-			public Energyvaluesset energyValuesSet { get; set; }
-			public Energyenablesset energyEnablesSet { get; set; }
-			public Magiccounterset magicCounterSet { get; set; }
-			public Outdmgmultipliersset outDmgMultipliersSet { get; set; }
-			public Herorespercentset heroResPercentSet { get; set; }
+			//public int movementRestoreBonus { get; set; }
+			//public float movementPerBonus { get; set; }
+			//public float movementAfterBattlePerBonus { get; set; }
+			//public int movementAfterBattleBonus { get; set; }
+			//public float roadPerBonus { get; set; }
+			//public float landscapePenaltyPerBonus { get; set; }
+			//public float flyMotionPerBonus { get; set; }
+			//public bool flyMotion { get; set; }
+			//public int moveRestoreEnergyBonus { get; set; }
+			//public bool disableMagicBook { get; set; }
+			//public bool enableMagicExchange { get; set; }
+			//public bool enableMagicStealing { get; set; }
+			//public bool enableNecromancy { get; set; }
+			//public bool enableNecromancyFactionBonus { get; set; }
+			//public bool enableNecromancyManaRestoreBonus { get; set; }
+			//public bool enableNecromancyLevelBonus { get; set; }
+			//public bool enableDiplomacy { get; set; }
+			//public bool enableBattleEscapeBan { get; set; }
+			//public bool enableBansEvasion { get; set; }
+			//public bool enableBansEvasionBattle { get; set; }
+			//public bool enableMarketsCounting { get; set; }
+			//public bool enableSquadReactionType { get; set; }
+			//public bool enableSquadCounts { get; set; }
+			//public bool enableEnemyHeroInfo { get; set; }
+			//public bool enableEnemyCityInfo { get; set; }
+			//public bool enableDisguise { get; set; }
+			//public bool enableBattleOnNativeBiome { get; set; }
+			//public bool enableHeroNativeBiome { get; set; }
+			//public bool enableTactics { get; set; }
+			//public bool enableEnemyVisionInTactics { get; set; }
+			//public bool banTactics { get; set; }
+			//public bool enableSavePartyByEscape { get; set; }
+			//public bool enableSavePartyByEscapeNeutral { get; set; }
+			//public bool enableSaveHeroByKill { get; set; }
+			//public bool enableImmuneDebufInMap { get; set; }
+			//public bool enableSilence { get; set; }
+			//public bool magicCrits { get; set; }
+			//public bool immuneToDebuffs { get; set; }
+			//public bool banHeroAbilities { get; set; }
+			//public bool disableSameMagicCounterRefresh { get; set; }
+			//public float necromancyPerBonus { get; set; }
+			//public float diplomacyEfficiencyPerBonus { get; set; }
+			//public float diplomacySumValuePerBonus { get; set; }
+			//public float diplomacyFractionPerBonus { get; set; }
+			//public float diplomacyCostPerBonus { get; set; }
+			//public float diplomacyUnitsCountBonus { get; set; }
+			//public float capitulationCostPerBonus { get; set; }
+			//public float expPerBonus { get; set; }
+			//public float sideExpPerBonus { get; set; }
+			//public bool ignoreFinalDamageBonus { get; set; }
+			//public bool ignoreFinalHealingBonus { get; set; }
+			//public bool ignoreFinalSummonBonus { get; set; }
+			//public float finalDamageBonusPercent { get; set; }
+			//public float finalHealingBonusPercent { get; set; }
+			//public float finalManaCostBonusPercent { get; set; }
+			//public float finalSummonBonusPercent { get; set; }
+			//public bool ignoreSchoolCastsLimit { get; set; }
+			//public bool ignoreSpellCastsLimit { get; set; }
+			//public int minAllowedMagicRank { get; set; }
+			//public int maxAllowedMagicRank { get; set; }
+			//public int sameMagicCastsPerRound { get; set; }
+			//public int sameSchoolCastsPerRound { get; set; }
+			//public int magicCastsPerRound { get; set; }
+			//public int magicOverloadsPerRound { get; set; }
+			//public float magicOverloadPercent { get; set; }
+			//public int magicUsageLimitBonus { get; set; }
+			//public float magicAttackPerBonus { get; set; }
+			//public float crit { get; set; }
+			//public float anticrit { get; set; }
+			//public float manaBonus { get; set; }
+			//public float manaBonusPercent { get; set; }
+			//public int manaCostBonus { get; set; }
+			//public float manaCostBonusPercent { get; set; }
+			//public float manaRestoreBonus { get; set; }
+			//public float manaRestoreBonusPercent { get; set; }
+			//public int energyLevelsCountBonus { get; set; }
+			//public int energyPerLevelDiscount { get; set; }
+			//public int startEnergyBonus { get; set; }
+			//public int startEnergyLevelsBonus { get; set; }
+			//public int energyPerRoundBonus { get; set; }
+			//public int energyLevelsPerRoundBonus { get; set; }
+			//public int maxEnergyLevelsBonus { get; set; }
+			//public int outComingGlobalBuffDuration { get; set; }
+			//public int outComingBuffDuration { get; set; }
+			//public int outComingDebuffDuration { get; set; }
+			//public int obstacleHpBonus { get; set; }
+			//public int karaDurationBonus { get; set; }
+			//public int tacticsPlacementSize { get; set; }
+			//public Spellpowerschoolset spellPowerSchoolSet { get; set; }
+			//public Spellpowersidset spellPowerSidSet { get; set; }
+			//public Magicschoolset1 magicSchoolSet { get; set; }
+			//public Magicsidset1 magicSidSet { get; set; }
+			//public Magiccostschoolset magicCostSchoolSet { get; set; }
+			//public Magiccostsidset magicCostSidSet { get; set; }
+			//public Energyvaluesset energyValuesSet { get; set; }
+			//public Energyenablesset energyEnablesSet { get; set; }
+			//public Magiccounterset magicCounterSet { get; set; }
+			//public Outdmgmultipliersset outDmgMultipliersSet { get; set; }
+			//public Herorespercentset heroResPercentSet { get; set; }
 		}
 
 		public class Spellpowerschoolset
@@ -2177,7 +2177,7 @@ namespace HeroesOE.Json
 
 		public class Areas
 		{
-			public List7[] list { get; set; }
+			//public List7[] list { get; set; }
 		}
 
 		public class List7

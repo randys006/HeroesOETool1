@@ -43,7 +43,7 @@ namespace HeroesOE
 					skills += $";{hero_skills.GetSkillName(skill.sid, skill.skillLevel),36}";
 				}
 
-				Debug.WriteLine($"{hero_info.ascii_name,32};{hero_info.sid,18};{hero_info.token.classType}{skills}");
+				VHeroes($"{hero_info.ascii_name,32};{hero_info.sid,18};{hero_info.token.classType}{skills}");
 			}
 
 			foreach (var city in city_defs)
@@ -75,20 +75,20 @@ namespace HeroesOE
 			var lb = lbBinaryShtuff.Items;
 			Offsetter offset = new Offsetter();
 
-			Debug.WriteLine("--------- Parsing binary shtuff from quicksave ---------");
+			VDev("--------- Parsing binary shtuff from quicksave ---------");
 			// first print the matcher top-level offsets
 			foreach (var match in matcher.top_level)
 			{
 				var line = $"{Hex24(match.O)}  {Hex24(match.Length)}  {Hex24(match.C)}";
 				lb.Add(line);
-				Debug.WriteLine(line);
+				VDev(line);
 			}
 			lb.Add("------------------------------");
 			{   // file starts with a byte followed by hex chars which must be a hash
 				int len = text[offset++];
 				var hash = Encoding.ASCII.GetString(text, offset.Bump(len), len);
 				lb.Add(hash);
-				Debug.WriteLine(hash);
+				VDev(hash);
 			}
 			{   // next, a byte followed by ascii chars which is the version
 				int len = text[offset++];
@@ -112,11 +112,11 @@ namespace HeroesOE
 				line = line + ": " + hex;
 
 				lb.Add(line);
-				Debug.WriteLine(line);
+				VDev(line);
 
 				offset = matcher.top_level[i].C + 1;
 			}
-			Debug.WriteLine("---------  Done (binary shtuff from quicksave)  ---------");
+			VDev("---------  Done (binary shtuff from quicksave)  ---------");
 		}
 
 		private void timerQuicksave_Tick(object sender, EventArgs e)
@@ -233,8 +233,8 @@ namespace HeroesOE
 				var dbg_now = encoding.GetString(quickbytes, no.Offset - 20, no.Length + 40);
 				string dbg_prev_pbl = $"Adjust: idx={no.Offset,8} len={no.Length,4}";
 				string dbg_now_pbl = new string(' ', dbg_prev_pbl.Length);
-				Debug.WriteLine($"{dbg_prev_pbl}{dbg_prev}'->'");
-				Debug.WriteLine($"{dbg_now_pbl}{dbg_now}");
+				VDev($"{dbg_prev_pbl}{dbg_prev}'->'");
+				VDev($"{dbg_now_pbl}{dbg_now}");
 			}
 		}
 
@@ -314,16 +314,16 @@ namespace HeroesOE
 
 		private bool Refresh()
 		{
-
-
+			var sw = Stopwatch.StartNew();
 			var last_player = current_player;
 			if (!Testing.TestSaveGame(cboSaveAllTags.Checked)) return false; // TODO: refactor from Testing. Writes updated hero_displays
 			lbBinaryShtuff.Items.Clear();
 			//FindBinaryShtuff(quickbytes, matcher);
+			VPerf($"Perf: TestSaveGame time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 
 			// clear listboxes
 			ListBox[] lbs = [lbSide0, lbSide1, lbSide2, lbSide3, lbBinaryShtuff];
-			foreach (var l in lbs) { l.Items.Clear(); }
+			foreach (var l in lbs) { l.Items.Clear(); l.BeginUpdate(); }
 
 			// load player display lines into listboxes
 			int i = 0;
@@ -338,6 +338,7 @@ namespace HeroesOE
 			{
 				lbBinaryShtuff.Items.Add(info);
 			}
+			foreach (var l in lbs) { l.EndUpdate(); }
 
 			current_player = last_player;
 			if (current_player < 0) return false;
@@ -428,7 +429,7 @@ namespace HeroesOE
 
 		private void toolStripHeroes_DragDrop(object sender, DragEventArgs e)
 		{
-			Debug.WriteLine("toolStripHeroes_DragDrop: DragDrop");
+			VGui("toolStripHeroes_DragDrop: DragDrop");
 
 			// TODO: write new list of heroes
 			ToolStripItem draggedItem = (ToolStripItem)e.Data.GetData(typeof(ToolStripItem));
@@ -456,7 +457,6 @@ namespace HeroesOE
 			if (reload)
 			{
 				int i = 42;
-
 			}
 		}
 
@@ -464,13 +464,13 @@ namespace HeroesOE
 		{
 			if (e.Button == MouseButtons.Left)
 			{
-				Debug.WriteLine("toolStripHeroes_MouseDown: left button down");
+				VGui("toolStripHeroes_MouseDown: left button down");
 				ToolStripItem item = sender as ToolStripItem;
 				if (item != null)
 				{
 					// Start the drag operation
 					item.DoDragDrop(item, DragDropEffects.Move);
-					Debug.WriteLine("toolStripHeroes_MouseDown: Starting DragDrop");
+					VGui("toolStripHeroes_MouseDown: Starting DragDrop");
 				}
 			}
 		}
@@ -480,44 +480,44 @@ namespace HeroesOE
 			// Check if the dragged item is the correct type
 			if (e.Data.GetDataPresent(typeof(ToolStripItem)))
 			{
-				Debug.WriteLine("toolStripHeroes_DragEnter: effect move");
+				VGui("toolStripHeroes_DragEnter: effect move");
 				e.Effect = DragDropEffects.Move; // Must set an effect for DragDrop to fire
 			}
 			else
 			{
-				Debug.WriteLine("toolStripHeroes_DragEnter: effect none");
+				VGui("toolStripHeroes_DragEnter: effect none");
 				e.Effect = DragDropEffects.None;
 			}
 		}
 
 		private void toolStripHeroesItem_MouseDown(object sender, MouseEventArgs e)
 		{
-			Debug.WriteLine("toolStripHeroesItem_MouseDown: ItemMouseDown");
+			VGui("toolStripHeroesItem_MouseDown: ItemMouseDown");
 			if ((Control.MouseButtons & MouseButtons.Left) != 0)
 			{
-				Debug.WriteLine("toolStripHeroesItem_MouseDown: ItemMouseDown, left button down");
+				VGui("toolStripHeroesItem_MouseDown: ItemMouseDown, left button down");
 				ToolStripItem item = sender as ToolStripItem;
 				if (item != null)
 				{
 					// Start the drag operation
 					item.DoDragDrop(item, DragDropEffects.Move);
-					Debug.WriteLine("toolStripHeroesItem_MouseDown: Starting DragDrop");
+					VGui("toolStripHeroesItem_MouseDown: Starting DragDrop");
 				}
 			}
 		}
 
 		private void toolStripHeroes_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
 		{
-			Debug.WriteLine("toolStripHeroes_ItemClicked: ItemClicked");
+			VGui("toolStripHeroes_ItemClicked: ItemClicked");
 			if ((Control.MouseButtons & MouseButtons.Left) != 0)
 			{
-				Debug.WriteLine("toolStripHeroes_ItemClicked: ItemClicked, left button down");
+				VGui("toolStripHeroes_ItemClicked: ItemClicked, left button down");
 				ToolStripItem item = sender as ToolStripItem;
 				if (item != null)
 				{
 					// Start the drag operation
 					item.DoDragDrop(item, DragDropEffects.Move);
-					Debug.WriteLine("toolStripHeroes_ItemClicked: Starting DragDrop");
+					VGui("toolStripHeroes_ItemClicked: Starting DragDrop");
 				}
 			}
 		}
@@ -545,7 +545,7 @@ namespace HeroesOE
 
 			foreach (var pair in ts_game)
 			{
-				//Debug.WriteLine($"ts: {pair.Ts,-2} game: {pair.Game,-2}");
+				VGui($"ts: {pair.Ts,-2} game: {pair.Game,-2}");
 				reload |= pair.Ts != pair.Game;
 			}
 

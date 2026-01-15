@@ -28,7 +28,7 @@ namespace HeroesOE.Json
 					units[token.sid] = token.text;
 				}
 
-				Debug.WriteLine($"{units.Count} Unit names/abilities read");
+				Globals.VUnits($"{units.Count} Unit names/abilities read");
 			}
 
 			public Dictionary<string, string> units = new Dictionary<string, string>();

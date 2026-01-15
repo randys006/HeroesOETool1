@@ -19,7 +19,7 @@ namespace HeroesOE.Json
 				foreach (var token in tokens)
 				{
 					// TODO: parse HumanCity
-					Debug.WriteLine(token.id);
+					Globals.VCity(token.id);
 				}
 
 			}

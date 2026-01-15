@@ -11,12 +11,13 @@ using System.Threading.Tasks;
 using static HeroesOE.Globals;
 using static HeroesOE.Json.UnitsLogicJson;
 using static HeroesOE.Utilities;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HeroesOE
 {
 	public class JsonBracketMatcher
 	{
-		public const int max_tag_bytes = 48;        // this is a guess; works w/demo
+		public const int max_tag_bytes = 42;        // this is a guess; works w/demo
 		public const int max_tag_length = 40;		// this is a guess; works w/demo
 		public const int max_numeric_length = 24;
 		public class Match
@@ -51,17 +52,37 @@ namespace HeroesOE
 		}
 		public List<Match> matches;
 		public List<Match> top_level;
+		public Dictionary<string, int> all_open_offsets;
 		public bool Valid { get; set; }
+		public int GetOffsetFromFullTag(string full_tag)
+		{
+			//int offset = -1;
+
+			//foreach (var match in matches)
+			//{
+			//	if (match.FullTag == full_tag)
+			//	{
+			//		offset = match.O + 1;
+			//		break;
+			//	}
+			//}
+			if (!all_open_offsets.ContainsKey(full_tag)) return -1;
+			return all_open_offsets[full_tag];
+		}
 		public JsonBracketMatcher(byte[] text)
 		{
 			// TODO: Valid is not correct
-			Valid = FindMatchingBrackets(text, out matches);
+			Stopwatch sw = Stopwatch.StartNew();
+			Valid = FindMatchingBrackets(text);
+			VPerf($"Perf: BKTM find time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 			if (Valid)
 			{
 				matches.Sort((l, r) => l.O.CompareTo(r.O));
+				VPerf($"Perf: BKTM SORT time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 			}
-			
+
 			Rank();
+			VPerf($"Perf: BKTM RANK time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 		}
 
 		public void Rank()
@@ -88,6 +109,8 @@ namespace HeroesOE
 					match.Tag = $"top_level_{top_level.Count}";
 					top_level.Add(match);
 				}
+
+				all_open_offsets[match.FullTag] = match.O;
 			}
 		}
 
@@ -127,29 +150,39 @@ namespace HeroesOE
 
 		public static string GetBracketTag(byte[] bytes, int i)
 		{
-			var len = max_tag_bytes;
-			if (len > i) len = i;
-			var input = encoding.GetString(bytes, i-len, len+1);    // TODO: GetBracketTag could have issues since it
-																	// might jump backwards inside a multibyte character
-			len = input.Length;	// adjust len to chars
-			int bkt = len - 1;
+			// New, more performant strategy. Assumes no multibyte in tags and just blindly search backwards.
+			if (bytes[--i] != (byte)':') return "";
+			if (bytes[--i] != (byte)'\"') return "";
 
-			// 'i' is the index of the bracket in input
-			// we expect a quoted string tag before most brackets with tight format, e.g.: "<tag>":{
-			const int min_tag_length = 3;	// this is a guess; works w/demo
+			int p = --i;
+			while (bytes[p-1] != (byte)'\"') p--;
+			return encoding.GetString(bytes, p, i-p+1);
 
-			if (len < bkt) return "";
-			if (bkt < min_tag_length + 3) return "";
-			if (!bracketPairs.ContainsKey(input[bkt])) return "";
-			if (input[bkt - 2] != '"' || input[bkt - 1] != ':') return "";
+			//var len = max_tag_bytes;
+			//if (len > i) len = i;
+			//var input = encoding.GetString(bytes, i-len, len+1);    // TODO: GetBracketTag could have issues since it
+			//														// might jump backwards inside a multibyte character
+			//len = input.Length;	// adjust len to chars
+			//int bkt = len - 1;
 
-			int end = bkt - 3;
-			var start = input.LastIndexOf('"', end);
+			//// 'i' is the index of the bracket in input
 
-			if (start == -1 || end - start > max_tag_length) return "";
+			//// we expect a quoted string tag before most brackets with tight format, e.g.: "<tag>":{
+			//// many of these checks never fire, so commented out
+			////const int min_tag_length = 3;	// this is a guess; works w/demo
 
-			var tag = input.Substring(start + 1, end - start);
-			return tag;
+			////if (len < bkt) return "";
+			////if (bkt < min_tag_length + 3) return "";
+			////if (!bracketPairs.ContainsKey(input[bkt])) return "";
+			//if (input[bkt - 2] != '"' || input[bkt - 1] != ':') return "";
+
+			//int end = bkt - 3;
+			//var start = input.LastIndexOf('"', end);
+
+			////if (start == -1 || end - start > max_tag_length) return "";
+
+			//var tag = input.Substring(start + 1, end - start);
+			//return tag;
 		}
 		public static Dictionary<char, char> bracketPairs = new Dictionary<char, char>
 		{
@@ -157,67 +190,140 @@ namespace HeroesOE
 			{ '[', ']' },
 			{ '{', '}' }
 		};
+		public const byte oparen = (byte)'(';
+		public const byte ocurly = (byte)'{';
+		public const byte osqr = (byte)'[';
+		public const byte cparen = (byte)')';
+		public const byte ccurly = (byte)'}';
+		public const byte csqr = (byte)']';
 
-		public static bool FindMatchingBrackets(byte[] input, out List<Match> matches)
+		public bool FindMatchingBrackets(byte[] input)
 		{
-			matches = new List<Match>();
+			matches = new();
+			all_open_offsets = new();
 			var stack = new Stack<(char Type, int Index, string Tag)>();
 			Stack<(int Parent, int Count)> ordinals = new();    // for storing array ordinals
 
-			var bytesConsumed = 1;	// encoding could have variable-length characters
-			for (int i = 0; i < input.Length; i += bytesConsumed)
+			//var bytesConsumed = 1;	// encoding could have variable-length characters
+			for (int i = 0; i < input.Length; i++)
 			{
-				bytesConsumed = encoding.GetCharCount(input, i, 1);
-				char currentChar = encoding.GetChars(input, i, 1)[0];
-
-				if (bracketPairs.ContainsKey(currentChar))
+				//var bytesConsumed = encoding.GetCharCount(input, i, 1);
+				var b = input[i];
+				if (b > 0x80)    // check UTF8 multibyte (only if in json)
 				{
-					var tag = GetBracketTag(input, i); // get the json tag
-
-					// If it's an array opening bracket, store the array open index
-					if (currentChar == '[')
+					if (stack.Count == 0) continue;
+					++i;		// >= 2 bytes
+					if (b > 0xC0)
 					{
-						ordinals.Push((i, 0));
-						tag = $"{tag}[]";
+						++i;        // >= 3 bytes
+						if (b > 0xC8)
+						{
+							++i;	// 4 bytes
+						}
 					}
-
-					if (currentChar == '{' && ordinals.Count > 0 && ordinals.Peek().Parent == stack.Peek().Index)
-					{
-						// if it's a new array item, add its index to tag and increment the array length
-						var ary = ordinals.Pop();
-
-						tag = $"{ary.Count}";	// tag should have been empty; enforce this implicitly
-
-						ary.Count++;
-						ordinals.Push(ary);
-					}
-
-					stack.Push((currentChar, i, tag));
 				}
-				else if (bracketPairs.ContainsValue(currentChar))
+				else
 				{
-					// It's a closing bracket
-					if (stack.Count == 0)
+					switch (b)
 					{
-						// Unmatched closing bracket found
-						return false;
+						case oparen:
+							stack.Push(('(', i, GetBracketTag(input, i)));
+							continue;
+						case cparen:
+							if (stack.Count == 0) return false; // check for unmatched closing bracket
+							{
+								(char openType, int openIndex, string tag) = stack.Pop();
+								if (openType != '(') return false; // check for mismatched bracket
+								matches.Add(new(openIndex, i, tag));
+							}
+							continue;
+						case ocurly:
+							if (ordinals.Count > 0 && ordinals.Peek().Parent == stack.Peek().Index)
+							{
+								// if it's a new array item, add its index to tag and increment the array length
+								var ary = ordinals.Pop();
+								var tag = $"{ary.Count}";   // tag should be empty; enforce this implicitly
+								ary.Count++;
+								ordinals.Push(ary);
+								stack.Push(('{', i, tag));
+							}
+							else
+								stack.Push(('{', i, GetBracketTag(input, i)));
+							continue;
+						case ccurly:
+							if (stack.Count == 0) return false; // check for unmatched closing bracket
+							{
+								(char openType, int openIndex, string tag) = stack.Pop();
+								if (openType != '{') return false; // check for mismatched bracket
+								matches.Add(new(openIndex, i, tag));
+							}
+							continue;
+						case osqr:
+							ordinals.Push((i, 0));
+							stack.Push(('[', i, $"{GetBracketTag(input, i)}[]"));
+							continue;
+						case csqr:
+							if (stack.Count == 0) return false; // check for unmatched closing bracket
+							ordinals.Pop();
+							{
+								(char openType, int openIndex, string tag) = stack.Pop();
+								if (openType != '[') return false; // check for mismatched bracket
+								matches.Add(new(openIndex, i, tag));
+							}
+							continue;
 					}
-
-					// it it's closing an array, all we have to do is pop it
-					if (currentChar == ']') ordinals.Pop();
-
-					(char openType, int openIndex, string tag) = stack.Pop();
-
-					// Check if the closing bracket matches the top of the stack
-					if (currentChar != bracketPairs[openType])
-					{
-						// Mismatched bracket types
-						return false;
-					}
-
-					// Match found, add the match to the list
-					matches.Add(new(openIndex, i, tag));
 				}
+				//	char currentChar = encoding.GetChars(input, i, 1)[0];
+
+				//if (bracketPairs.ContainsKey(currentChar))
+				//{
+				//	var tag = GetBracketTag(input, i); // get the json tag
+
+				//	// If it's an array opening bracket, store the array open index
+				//	if (currentChar == '[')
+				//	{
+				//		ordinals.Push((i, 0));
+				//		tag = $"{tag}[]";
+				//	}
+
+				//	if (currentChar == '{' && ordinals.Count > 0 && ordinals.Peek().Parent == stack.Peek().Index)
+				//	{
+				//		// if it's a new array item, add its index to tag and increment the array length
+				//		var ary = ordinals.Pop();
+
+				//		tag = $"{ary.Count}";	// tag should have been empty; enforce this implicitly
+
+				//		ary.Count++;
+				//		ordinals.Push(ary);
+				//	}
+
+				//	stack.Push((currentChar, i, tag));
+				//}
+				//else if (bracketPairs.ContainsValue(currentChar))
+				//{
+				//	// It's a closing bracket
+				//	if (stack.Count == 0)
+				//	{
+				//		// Unmatched closing bracket found
+				//		return false;
+				//	}
+
+				//	// it it's closing an array, all we have to do is pop it
+				//	if (currentChar == ']') ordinals.Pop();
+
+				//	(char openType, int openIndex, string tag) = stack.Pop();
+
+				//	// Check if the closing bracket matches the top of the stack
+				//	if (currentChar != bracketPairs[openType])
+				//	{
+				//		// Mismatched bracket types
+				//		return false;
+				//	}
+
+				//	// Match found, add the match to the list
+				//	matches.Add(new(openIndex, i, tag));
+				//	all_open_offsets[tag] = openIndex;
+				//}
 				// Ignore any other characters
 			}
 
@@ -302,27 +408,27 @@ namespace HeroesOE
 			var tag = $"\"{meta_tag.Substring(meta_tag.LastIndexOf('.') + 1)}\":";
 
 			var tfo = TrueFalseOffset.Invalid;
-			int offset = -1;
 			if (full_tag.Contains("hires[].5"))
 			{
 				int i = 42;
 			}
 
-			foreach (var match in matches)
-			{
-				if (match.FullTag.EndsWith("hires[].5") && full_tag.EndsWith("hires[].5"))
-				{
-					int i = 42;
-				}
-				if (match.FullTag == full_tag)
-				{
-					offset = match.O + 1;
-					break;
-				}
-			}
+			int offset = GetOffsetFromFullTag(full_tag) + 1;
 
-			//if (offset == -1) throw new Exception($"meta_tag {meta_tag} not found in matches");
-			if (offset < 0) return TrueFalseOffset.Invalid;
+			//foreach (var match in matches)
+			//{
+			//	if (match.FullTag.EndsWith("hires[].5") && full_tag.EndsWith("hires[].5"))
+			//	{
+			//		int i = 42;
+			//	}
+			//	if (match.FullTag == full_tag)
+			//	{
+			//		offset = match.O + 1;
+			//		break;
+			//	}
+			//}
+
+			if (offset <= 0) return TrueFalseOffset.Invalid;
 
 			offset = FindStringInBytes(json, tag, offset, true);
 			if (offset == -1) return TrueFalseOffset.Invalid;
@@ -347,18 +453,9 @@ namespace HeroesOE
 			var full_tag = meta_tag.Substring(0, meta_tag.LastIndexOf('.'));
 
 			var no = NumericOffset.Invalid;
-			int offset = -1;
+			int offset = GetOffsetFromFullTag(full_tag) + 1;
 
-			foreach (var match in matches)
-			{
-				if (match.FullTag == full_tag)
-				{
-					offset = match.O + 1;
-					break;
-				}
-			}
-
-			if (offset < 0) return NumericOffset.Invalid;
+			if (offset <= 0) return NumericOffset.Invalid;
 
 			if (Char.IsDigit((char)json[offset]))
 			{   // it's a numeric array, just skip commas
@@ -377,7 +474,7 @@ namespace HeroesOE
 
 			no.Offset = offset;
 			var check = encoding.GetChars(json, offset, 400);
-			
+
 			no.Length = json.FirstCommaOrClose(offset) - offset;
 			no.Value = Double.Parse(Globals.encoding.GetString(json, offset, no.Length));
 			UpdateOffsetTag(meta_tag, no);

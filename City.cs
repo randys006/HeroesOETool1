@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static HeroesOE.Globals;
 using static HeroesOE.Json.DungeonCityJson;
 using static HeroesOE.Json.HumanCityJson;
 using static HeroesOE.Json.UndeadCityJson;
@@ -102,7 +103,7 @@ namespace HeroesOE
 				{
 					// TODO: get name from UnitsAbility
 					UnitsLogic ul = new UnitsLogic(sid, hire.unitsHire);
-					Debug.WriteLine($"{ul.unit_name:40}: {ul.GetStatsCsv(ul.units_hire.units[0].weeklyIncrement)}");
+					VCity($"{ul.unit_name:40}: {ul.GetStatsCsv(ul.units_hire.units[0].weeklyIncrement)}");
 					units.Add(ul);
 				}
 			}

@@ -6,6 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using static HeroesOE.Globals;
 
 namespace HeroesOE.Json
 {
@@ -19,7 +20,7 @@ namespace HeroesOE.Json
 				foreach (var token in tokens)
 				{
 					// TODO: parse DungeonCity
-					Debug.WriteLine(token.id);
+					VCity(token.id);
 				}
 			}
 

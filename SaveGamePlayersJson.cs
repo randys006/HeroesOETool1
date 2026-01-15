@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using static HeroesOE.Json.DungeonCityJson;
+using static HeroesOE.Globals;
 
 namespace HeroesOE
 {
@@ -20,9 +21,9 @@ namespace HeroesOE
 				foreach (var token in tokens)
 				{
 					// TODO: parse DungeonCity
-					Debug.WriteLine($"Player {token.index}: {token.name}:");
+					VSGSides($"Player {token.index}: {token.name}:");
 					var res = token.res;
-					Debug.WriteLine($"     RES: {res.gold.value,7} {res.wood.value,4} {res.ore.value,4} {res.gemstones.value,4} {res.crystals.value,4} {res.mercury.value,4} {res.dust.value,4}");
+					VSGSides($"     RES: {res.gold.value,7} {res.wood.value,4} {res.ore.value,4} {res.gemstones.value,4} {res.crystals.value,4} {res.mercury.value,4} {res.dust.value,4}");
 				}
 			}
 

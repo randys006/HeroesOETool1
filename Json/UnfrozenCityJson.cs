@@ -18,7 +18,7 @@ namespace HeroesOE.Json
 				foreach (var token in tokens)
 				{
 					// TODO: parse UnfrozenCity
-					Debug.WriteLine(token.id);
+					Globals.VCity(token.id);
 				}
 			}
 
