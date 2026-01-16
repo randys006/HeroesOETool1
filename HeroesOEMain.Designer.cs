@@ -49,14 +49,16 @@
 			cmdOpenTempDir = new Button();
 			cboSaveAllTags = new CheckBox();
 			cmdClearFog = new Button();
-			toolStripPlayerHeroes = new ToolStrip();
-			toolStripPlayerCities = new ToolStrip();
 			toolStripContainer1 = new ToolStripContainer();
 			toolStripCities = new ToolStrip();
 			toolStripHeroes = new ToolStrip();
 			timerCheckHeroToolstrip = new System.Windows.Forms.Timer(components);
+			lbMapProximity = new ListBox();
+			label1 = new Label();
+			udProximity = new NumericUpDown();
 			toolStripContainer1.ContentPanel.SuspendLayout();
 			toolStripContainer1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)udProximity).BeginInit();
 			SuspendLayout();
 			// 
 			// timerScreenshot
@@ -67,9 +69,9 @@
 			// 
 			// cmdClearScreenshots
 			// 
-			cmdClearScreenshots.Location = new Point(14, 16);
+			cmdClearScreenshots.Location = new Point(970, 32);
 			cmdClearScreenshots.Name = "cmdClearScreenshots";
-			cmdClearScreenshots.Size = new Size(126, 82);
+			cmdClearScreenshots.Size = new Size(126, 60);
 			cmdClearScreenshots.TabIndex = 0;
 			cmdClearScreenshots.Text = "Clear Screenshots";
 			cmdClearScreenshots.UseVisualStyleBackColor = true;
@@ -162,7 +164,7 @@
 			// 
 			// cmdOpenSaveDir
 			// 
-			cmdOpenSaveDir.Location = new Point(20, 134);
+			cmdOpenSaveDir.Location = new Point(12, 12);
 			cmdOpenSaveDir.Name = "cmdOpenSaveDir";
 			cmdOpenSaveDir.Size = new Size(112, 34);
 			cmdOpenSaveDir.TabIndex = 6;
@@ -173,14 +175,14 @@
 			// lbBinaryShtuff
 			// 
 			lbBinaryShtuff.FormattingEnabled = true;
-			lbBinaryShtuff.Location = new Point(6, 174);
+			lbBinaryShtuff.Location = new Point(6, 749);
 			lbBinaryShtuff.Name = "lbBinaryShtuff";
-			lbBinaryShtuff.Size = new Size(522, 629);
+			lbBinaryShtuff.Size = new Size(522, 229);
 			lbBinaryShtuff.TabIndex = 7;
 			// 
 			// cmdRefresh
 			// 
-			cmdRefresh.Location = new Point(146, 59);
+			cmdRefresh.Location = new Point(721, 64);
 			cmdRefresh.Name = "cmdRefresh";
 			cmdRefresh.Size = new Size(112, 34);
 			cmdRefresh.TabIndex = 8;
@@ -190,7 +192,7 @@
 			// 
 			// cmdShowDiff
 			// 
-			cmdShowDiff.Location = new Point(146, 19);
+			cmdShowDiff.Location = new Point(130, 12);
 			cmdShowDiff.Name = "cmdShowDiff";
 			cmdShowDiff.Size = new Size(112, 34);
 			cmdShowDiff.TabIndex = 9;
@@ -210,7 +212,7 @@
 			// 
 			// cmdOpenTempDir
 			// 
-			cmdOpenTempDir.Location = new Point(138, 121);
+			cmdOpenTempDir.Location = new Point(12, 52);
 			cmdOpenTempDir.Name = "cmdOpenTempDir";
 			cmdOpenTempDir.Size = new Size(112, 34);
 			cmdOpenTempDir.TabIndex = 12;
@@ -237,27 +239,6 @@
 			cmdClearFog.Text = "Clear Fog";
 			cmdClearFog.UseVisualStyleBackColor = true;
 			// 
-			// toolStripPlayerHeroes
-			// 
-			toolStripPlayerHeroes.AllowItemReorder = true;
-			toolStripPlayerHeroes.Dock = DockStyle.None;
-			toolStripPlayerHeroes.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			toolStripPlayerHeroes.ImageScalingSize = new Size(24, 24);
-			toolStripPlayerHeroes.Location = new Point(176, 0);
-			toolStripPlayerHeroes.Name = "toolStripPlayerHeroes";
-			toolStripPlayerHeroes.Size = new Size(116, 25);
-			toolStripPlayerHeroes.TabIndex = 15;
-			toolStripPlayerHeroes.Text = "toolStripPlayer";
-			// 
-			// toolStripPlayerCities
-			// 
-			toolStripPlayerCities.Dock = DockStyle.None;
-			toolStripPlayerCities.ImageScalingSize = new Size(24, 24);
-			toolStripPlayerCities.Location = new Point(0, 0);
-			toolStripPlayerCities.Name = "toolStripPlayerCities";
-			toolStripPlayerCities.Size = new Size(116, 25);
-			toolStripPlayerCities.TabIndex = 16;
-			// 
 			// toolStripContainer1
 			// 
 			toolStripContainer1.BottomToolStripPanelVisible = false;
@@ -266,7 +247,6 @@
 			// 
 			toolStripContainer1.ContentPanel.Controls.Add(toolStripCities);
 			toolStripContainer1.ContentPanel.Controls.Add(toolStripHeroes);
-			toolStripContainer1.ContentPanel.Controls.Add(toolStripPlayerHeroes);
 			toolStripContainer1.ContentPanel.Size = new Size(225, 988);
 			toolStripContainer1.ContentPanel.DragDrop += toolStripContainer1_ContentPanel_DragDrop;
 			toolStripContainer1.Dock = DockStyle.Right;
@@ -309,19 +289,49 @@
 			timerCheckHeroToolstrip.Interval = 50;
 			timerCheckHeroToolstrip.Tick += timerCheckHeroToolstrip_Tick;
 			// 
+			// lbMapProximity
+			// 
+			lbMapProximity.FormattingEnabled = true;
+			lbMapProximity.Location = new Point(6, 174);
+			lbMapProximity.Name = "lbMapProximity";
+			lbMapProximity.Size = new Size(522, 579);
+			lbMapProximity.TabIndex = 7;
+			// 
+			// label1
+			// 
+			label1.AutoSize = true;
+			label1.Location = new Point(12, 139);
+			label1.Name = "label1";
+			label1.Size = new Size(90, 25);
+			label1.TabIndex = 18;
+			label1.Text = "Proximity:";
+			// 
+			// udProximity
+			// 
+			udProximity.Increment = new decimal(new int[] { 5, 0, 0, 0 });
+			udProximity.Location = new Point(103, 137);
+			udProximity.Maximum = new decimal(new int[] { 400, 0, 0, 0 });
+			udProximity.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
+			udProximity.Name = "udProximity";
+			udProximity.Size = new Size(66, 31);
+			udProximity.TabIndex = 19;
+			udProximity.Value = new decimal(new int[] { 25, 0, 0, 0 });
+			// 
 			// HeroesOEMain
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(2137, 988);
+			Controls.Add(udProximity);
+			Controls.Add(label1);
 			Controls.Add(toolStripContainer1);
-			Controls.Add(toolStripPlayerCities);
 			Controls.Add(cmdClearFog);
 			Controls.Add(cboSaveAllTags);
 			Controls.Add(cmdOpenTempDir);
 			Controls.Add(cmdOpenSide1InNotepad);
 			Controls.Add(cmdShowDiff);
 			Controls.Add(cmdRefresh);
+			Controls.Add(lbMapProximity);
 			Controls.Add(lbBinaryShtuff);
 			Controls.Add(cmdOpenSaveDir);
 			Controls.Add(cboAutoRefresh);
@@ -340,6 +350,7 @@
 			toolStripContainer1.ContentPanel.PerformLayout();
 			toolStripContainer1.ResumeLayout(false);
 			toolStripContainer1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)udProximity).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -367,11 +378,12 @@
 		private Button cmdOpenTempDir;
 		private CheckBox cboSaveAllTags;
 		private Button cmdClearFog;
-		private ToolStrip toolStripPlayerHeroes;
-		private ToolStrip toolStripPlayerCities;
 		private ToolStripContainer toolStripContainer1;
 		private ToolStrip toolStripCities;
 		private ToolStrip toolStripHeroes;
 		private System.Windows.Forms.Timer timerCheckHeroToolstrip;
+		private ListBox lbMapProximity;
+		private Label label1;
+		private NumericUpDown udProximity;
 	}
 }

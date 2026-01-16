@@ -9,7 +9,7 @@ namespace HeroesOE
 {
 	public partial class Globals
 	{
-		public static Verbosity verbosity = Verbosity.Perf | Verbosity.SGHeroes;
+		public static Verbosity verbosity = Verbosity.Perf | Verbosity.Heroes | Verbosity.SGHeroes | Verbosity.City;
 
 		[Flags]
 		public enum Verbosity
@@ -24,6 +24,7 @@ namespace HeroesOE
 			Units = 0x0800,
 			SGSides = 0x010000,
 			SGHeroes = 0x020000,
+			SGCity = 0x040000,
 		}
 		public static string GetTempFile() { return temp_path + Path.GetFileName(Path.GetTempFileName()) + ".log"; }
 		public static StreamWriter debug_file_writer = new StreamWriter(GetTempFile(), true);
@@ -34,17 +35,18 @@ namespace HeroesOE
 #endif
 			debug_file_writer.WriteLine(line);
 		}
-		public static void VGui(string line) { if ((verbosity & Verbosity.GUI) != Verbosity.None) Output(line); }
-		public static void VPerf(string line) { if ((verbosity & Verbosity.Perf) != Verbosity.None) Output(line); }
-		public static void VDev(string line) { if ((verbosity & Verbosity.Dev) != Verbosity.None) Output(line); }
-		public static void VTest(string line) { if (verbosity != Verbosity.None) Output(line); }
-		public static void VTrace(string line) { Output(line); }
-		public static void VHeroes(string line) { if ((verbosity & Verbosity.Heroes) != Verbosity.None) Output(line); }
-		public static void VPlayers(string line) { if ((verbosity & Verbosity.Players) != Verbosity.None) Output(line); }
-		public static void VCity(string line) { if ((verbosity & Verbosity.City) != Verbosity.None) Output(line); }
-		public static void VUnits(string line) { if ((verbosity & Verbosity.Units) != Verbosity.None) Output(line); }
-		public static void VSGSides(string line) { if ((verbosity & Verbosity.SGSides) != Verbosity.None) Output(line); }
-		public static void VSGHeroes(string line) { if ((verbosity & Verbosity.SGHeroes) != Verbosity.None) Output(line); }
+		public static void VGui(string line) { if ((verbosity & Verbosity.GUI) != Verbosity.None) Output($"{"GUI",-10}: {line}"); }
+		public static void VPerf(string line) { if ((verbosity & Verbosity.Perf) != Verbosity.None) Output($"{"Perf",-10}: {line}"); }
+		public static void VDev(string line) { if ((verbosity & Verbosity.Dev) != Verbosity.None) Output($"{"Dev",-10}: {line}"); }
+		public static void VTest(string line) { if (verbosity != Verbosity.None) Output($"{"TEST",-10}: {line}"); }
+		public static void VTrace(string line) { Output($"{"TRACE",-10}: {line}"); }
+		public static void VHeroes(string line) { if ((verbosity & Verbosity.Heroes) != Verbosity.None) Output($"{"Heroes",-10}: {line}"); }
+		public static void VPlayers(string line) { if ((verbosity & Verbosity.Players) != Verbosity.None) Output($"{"Players",-10}: {line}"); }
+		public static void VCity(string line) { if ((verbosity & Verbosity.City) != Verbosity.None) Output($"{"City",-10}: {line}"); }
+		public static void VUnits(string line) { if ((verbosity & Verbosity.Units) != Verbosity.None) Output($"{"Units",-10}: {line}"); }
+		public static void VSGSides(string line) { if ((verbosity & Verbosity.SGSides) != Verbosity.None) Output($"{"SGSides",-10}: {line}"); }
+		public static void VSGHeroes(string line) { if ((verbosity & Verbosity.SGHeroes) != Verbosity.None) Output($"{"SGHeroes",-10}: {line}"); }
+		public static void VSGCity(string line) { if ((verbosity & Verbosity.SGCity) != Verbosity.None) Output($"{"SGCity",-10}: {line}"); }
 
 	}
 }

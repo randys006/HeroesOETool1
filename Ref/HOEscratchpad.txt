@@ -1,0 +1,115 @@
+top-levels
+27 00 f1 0d
+00000050 (0x000032)  00001773 (0x0006ED)  00001822 (0x00071E)
+c9 9b 1c : 1874889 
+00001826 (0x000722)  00462281 (0x070DC9)  00464106 (0x0714EA)
+81 c0 a0 01
+00464111 (0x0714EF)  02629633 (0x282001)  03093743 (0x2F34EF)
+a1 c0 8b 01
+03093748 (0x2F34F4)  02285562 (0x22DFFA)  05379309 (0x5214ED)
+05379311 (0x5214EF)  00000047 (0x00002F)  05379357 (0x52151D)
+
+
+120,74:
+00000050 (0x000032)  00001773 (0x0006ED)  00001822 (0x00071E)
+00001826 (0x000722)  00462281 (0x070DC9)  00464106 (0x0714EA)
+00464111 (0x0714EF)  02629633 (0x282001)  03093743 (0x2F34EF)
+03093748 (0x2F34F4)  02285562 (0x22DFFA)  05379309 (0x5214ED)
+05379311 (0x5214EF)  00000047 (0x00002F)  05379357 (0x52151D)
+2826043d631e19e8d5d6525b84f39ca9
+Before json 0: 4 bytes: 1 1 1 : 2700ED0D
+Before json 1: 3 bytes: 1 1 1 : C99B1C
+Before json 2: 4 bytes: 1 1 1 : 81C0A001
+Before json 3: 4 bytes: 1 1 1 : FABF8B01
+Before json 4: 1 bytes: 1 1 1 : 2F
+
+120,64:
+a7343c65ec59e5e6fceb2e5ab06ca7c4
+Before json 0: 4 bytes: 1 1 1 : 2700ED0D
+Before json 1: 3 bytes: 1 1 1 : C99B1C
+Before json 2: 4 bytes: 1 1 1 : 81C0A001
+Before json 3: 4 bytes: 1 1 1 : FABF8B01
+Before json 4: 1 bytes: 1 1 1 : 2F
+
+120,54:
+00000050 (0x000032)  00001773 (0x0006ED)  00001822 (0x00071E)
+00001826 (0x000722)  00462281 (0x070DC9)  00464106 (0x0714EA)
+00464111 (0x0714EF)  02629633 (0x282001)  03093743 (0x2F34EF)
+03093748 (0x2F34F4)  02285562 (0x22DFFA)  05379309 (0x5214ED)
+05379311 (0x5214EF)  00000047 (0x00002F)  05379357 (0x52151D)
+a4724235083a3ff2d0a647c895e04e6e
+Before json 0: 4 bytes: 1 1 1 : 2700ED0D
+Before json 1: 3 bytes: 1 1 1 : C99B1C
+Before json 2: 4 bytes: 1 1 1 : 81C0A001
+Before json 3: 4 bytes: 1 1 1 : FABF8B01
+Before json 4: 1 bytes: 1 1 1 : 2F
+
+120,6:
+00000050 (0x000032)  00001773 (0x0006ED)  00001822 (0x00071E)
+00001826 (0x000722)  00462281 (0x070DC9)  00464106 (0x0714EA)
+00464111 (0x0714EF)  02629633 (0x282001)  03093743 (0x2F34EF)
+03093748 (0x2F34F4)  02285561 (0x22DFF9)  05379308 (0x5214EC)
+05379310 (0x5214EE)  00000047 (0x00002F)  05379356 (0x52151C)
+f7d102b83e2a229b61452d991c19f82d
+Before json 0: 4 bytes: 1 1 1 : 2700ED0D
+Before json 1: 3 bytes: 1 1 1 : C99B1C
+Before json 2: 4 bytes: 1 1 1 : 81C0A001
+Before json 3: 4 bytes: 1 1 1 : F9BF8B01
+Before json 4: 1 bytes: 1 1 1 : 2F
+
+-- diff between top-level 3 length and stored value is 0x0168E000. Don't know if it's a constant.
+
+statsByLevel
+movementBonus
+roadPerBonus
+landscapePenaltyPerBonus
+
+building main tag: "top_level_3.objects.cityObjs[].0.buildings.mains[].0"
+
+"top_level_3.objects.cityObjs[].1.buildings.manaFountains[].0"
+"top_level_3.objects.cityObjs[].0.buildings.manaFountains[].0
+
+------- Resources on map ---------
+resource_dust: sg1: ids, nodes, rotations, levels   sg3: idMapObject, sidConfig, resourcesList.name, resourcesList.value
+
+sg3:
+	"rootobject": {
+		"objects": {
+			"resObjs": [
+				{
+					"idMapObject": 132,
+					"sidConfig": "resource_crystals",
+					"resourcesList": [
+						{
+							"name": "crystals",
+							"value": 5
+						}
+					]
+		"areas": {
+			"list": [
+				{
+					"objectsByType": [
+						{
+							"type": 1,
+							"ids": [
+								132,
+
+sg1:
+		"objects": [
+			{
+				"ids": [
+					132,
+				"nodes": [
+					11149,
+				"rotations": [
+					0,
+				"levels": [
+					0,
+
+
+			"resMines": [{
+					"sidConfig": "mine_crystals",
+
+------- Mines on map ---------
+
+mine_crystals: sg1: ids, nodes, rotations, levels   sg3: idMapObject, sidConfig, ownerSide

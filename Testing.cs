@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
+using System.Reflection;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,6 +75,10 @@ namespace HeroesOE
 			var sg3 = new SaveGameJson3.SaveGame(matcher.GetTopLevelJson(quick, 3));
 			VPerf($"Perf:       SG3 time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 
+			var hero_list = sg3.sg.heroes.list;
+			var game_objs = sg3.sg.objects;
+			var map_objs = sg1.sg.objects;
+
 			ResetHeroDisplays();
 
 			// add player basic info, resources etc.
@@ -124,7 +129,6 @@ namespace HeroesOE
 			}
 			VPerf($"Perf: Load sides time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 
-			var hero_list = sg3.sg.heroes.list;
 			RewindHeroDisplays();
 
 			for (int s = 0; s < side_heroes.Count; ++s)
@@ -192,15 +196,16 @@ namespace HeroesOE
 					var movement = matcher.FindNumericOffset(quick, hero_meta + "worldMovePoints");
 					AddHeroDisplayLine($"movement {hero.worldMovePoints}", movement);
 
-					// display units in order of slot
+					// units are displayed in order of slot. We need to remember their index to find the right no.
 					var units = hero.party.units.ToList();
+					int i = 0;
+					foreach (var unit in units) unit.index = i++;
 					units.Sort((x, y) => x.slotPos.CompareTo(y.slotPos));
 
 					IndentHeroDisplay(4);
-					int i = 0;
 					foreach (var unit in units)
 					{
-						var stat = matcher.FindNumericOffset(quick, $"{party_meta}{i}.stacks");
+						var stat = matcher.FindNumericOffset(quick, $"{party_meta}{unit.index}.stacks");
 						AddHeroDisplayLine($"{unit.sid,-20} {unit.stacks}", stat);
 						++i;
 					}
@@ -208,7 +213,6 @@ namespace HeroesOE
 			}
 			VPerf($"Perf: Load heroes time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 
-			var map_objs = sg1.sg.objects;
 			map_city_objs = new();
 			map_city_info = new();
 
@@ -225,13 +229,25 @@ namespace HeroesOE
 
 					map_city_objs.Add(obj);
 				}
+				else if (obj.sid.Contains("mine_"))
+				{
+					var id_node = obj.ids.Zip(obj.nodes, (id, node) => (id, node)).ToArray();
+					var res_mines = game_objs.resMines;
+					// TODO: import mines
+				}
+				else if (obj.sid.Contains("resource_"))
+				{
+					var id_node = obj.ids.Zip(obj.nodes, (id, node) => (id, node)).ToArray();
+					var res_objs = game_objs.resObjs;
+					// TODO: import resources
+				}
 			}
 			VPerf($"Perf: Load map objs time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 
-			var game_objs = sg3.sg.objects;
 			game_city_obj = new();
 
 			RewindHeroDisplays();
+
 			for (int i = 0; i < game_objs.cityObjs.Length; ++i)
 			{
 				var city_obj = game_objs.cityObjs[i];
@@ -241,20 +257,20 @@ namespace HeroesOE
 				current_player = city_obj.ownerSide;
 				if (current_player == -1) current_player = unowned_player;
 
-				AddHeroDisplayLine();
+				AddCityDisplayLine();
 
-				AddHeroDisplayLine($"{city_obj.cityName,-24} : {city_obj.idMapObject}"); // TODO: lookup actual city name
+				AddCityDisplayLine($"{city_obj.cityName,-24} : {city_obj.idMapObject}"); // TODO: lookup actual city name
 				AddCityName(city_obj.cityName);
 				IndentHeroDisplay();
 
 				var bases = sg3.GetBuildingBases(i);
 				string cityobjs_meta = $"top_level_3.objects.cityObjs[].{i}.";
 				string bldgs_meta = $"{cityobjs_meta}buildings.";
-				AddHeroDisplayLine($"todaysConstructionsCount : {city_obj.buildings.todaysConstructionsCount}", matcher.FindNumericOffset(quick, bldgs_meta + "todaysConstructionsCount"));
+				AddCityDisplayLine($"todaysConstructionsCount : {city_obj.buildings.todaysConstructionsCount}", matcher.FindNumericOffset(quick, bldgs_meta + "todaysConstructionsCount"));
 
 				foreach (var bldg in bases)
 				{
-					AddHeroDisplayLine(bldg.sid);
+					AddCityDisplayLine(bldg.sid);
 					IndentHeroDisplay(4);
 
 					var bldg_meta = bldgs_meta + bldg.tag;
@@ -263,8 +279,8 @@ namespace HeroesOE
 					{
 						int z = 42;
 					}
-					AddHeroDisplayLine($"isConstructed: {bldg.isConstructed.ToString()}", matcher.FindTrueFalseOffset(quick, bldg_meta + "isConstructed"));
-					AddHeroDisplayLine($"level        : {bldg.level}", matcher.FindNumericOffset(quick, bldg_meta + "level"));
+					AddCityDisplayLine($"isConstructed: {bldg.isConstructed.ToString()}", matcher.FindTrueFalseOffset(quick, bldg_meta + "isConstructed"));
+					AddCityDisplayLine($"level        : {bldg.level}", matcher.FindNumericOffset(quick, bldg_meta + "level"));
 					if (bldg is SaveGameJson3.Hire)
 					{
 						SaveGameJson3.Hire? hire = null;
@@ -277,7 +293,7 @@ namespace HeroesOE
 							}
 						}
 
-						AddHeroDisplayLine($"unit level   : {hire.assortment.unitSets[0].level}", matcher.FindNumericOffset(quick, bldg_meta + JsonStrings.hire_assortmentLevel));
+						AddCityDisplayLine($"unit level   : {hire.assortment.unitSets[0].level}", matcher.FindNumericOffset(quick, bldg_meta + JsonStrings.hire_assortmentLevel));
 					}
 
 					IndentHeroDisplay(2);

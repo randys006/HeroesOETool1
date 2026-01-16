@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Tesseract;
 using static HeroesOE.Json.HeroInfoJson;
 using static HeroesOE.JsonBracketMatcher;
+using static HOETool.MapObjects;
 
 namespace HeroesOE
 {
@@ -24,6 +25,8 @@ namespace HeroesOE
 		public static List<HeroJson.Token> hero_tokens = new List<HeroJson.Token>();
 		public static HeroInfoJson.HeroInfos hero_infos = new HeroInfoJson.HeroInfos();
 		public static HeroSkillsJson.HeroSkills hero_skills = new HeroSkillsJson.HeroSkills();
+		public static UnitsLogicJson.UnitsLogic units_logics = new UnitsLogicJson.UnitsLogic();
+		public static List<List<MapProximityObject>> map_prox = new();
 
 		public static int current_player = -1;
 		public static int current_index = -1;
@@ -68,6 +71,19 @@ namespace HeroesOE
 			if (meta == null) meta = NumericOffset.Invalid;
 			player_metadata[current_player].Add(meta);
 		}
+		public static void AddCityDisplayLine(string line = null, NumericOffset meta = null)
+		{
+			if (current_player < 0 || current_player >= player_display.Count) throw new Exception("Invalid current_hero");
+			if (string.IsNullOrEmpty(line)) line = "-------------------------------------------";
+			else { line = $"{new string(' ', hero_display_indent)}{line}"; }
+
+			VSGCity(line);
+			player_display[current_player].Add(line);
+
+			if (meta == null) meta = NumericOffset.Invalid;
+			player_metadata[current_player].Add(meta);
+		}
+
 		/// <summary>
 		/// default indent adds two spaces
 		/// </summary>

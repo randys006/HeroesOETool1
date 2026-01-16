@@ -46,10 +46,16 @@ namespace HeroesOE
 				VHeroes($"{hero_info.ascii_name,32};{hero_info.sid,18};{hero_info.token.classType}{skills}");
 			}
 
+			//List<UnitsLogicJson.UnitsLogic> all_units = new();
 			foreach (var city in city_defs)
 			{
-				//city.ParseHires();
+				foreach (var unit in city.units)
+				{
+					units_logics.units_logics[unit.unit_name] = unit;
+					//all_units.Add(unit);
+				}
 			}
+			//units_logics = all_units.ToArray();
 		}
 
 		private void timerScreenshot_Tick(object sender, EventArgs e)
@@ -322,7 +328,7 @@ namespace HeroesOE
 			VPerf($"Perf: TestSaveGame time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 
 			// clear listboxes
-			ListBox[] lbs = [lbSide0, lbSide1, lbSide2, lbSide3, lbBinaryShtuff];
+			ListBox[] lbs = [lbSide0, lbSide1, lbSide2, lbSide3, lbBinaryShtuff, lbMapProximity];
 			foreach (var l in lbs) { l.Items.Clear(); l.BeginUpdate(); }
 
 			// load player display lines into listboxes

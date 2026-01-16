@@ -14,6 +14,12 @@ namespace HeroesOE.Json
 	{
 		public class UnitsLogic
 		{
+			public Dictionary<string, UnitsLogic> units_logics;
+			public UnitsLogic()
+			{
+				// TODO: refactor UnitsLogic so it can fill itself
+				units_logics = new Dictionary<string, UnitsLogic>();
+			}
 			public UnitsLogic(string sid, Unitshire? units_hire = null)
 			{
 				var unit_logic_path = GetUnitLogicPath(sid);

@@ -1478,6 +1478,7 @@ namespace HeroesOE.Json
 			public string sid { get; set; }
 			public int stacks { get; set; }
 			public int slotPos { get; set; }
+			public int index;
 		}
 
 		public class Slots

@@ -103,6 +103,7 @@ namespace HeroesOE
 				{
 					// TODO: get name from UnitsAbility
 					UnitsLogic ul = new UnitsLogic(sid, hire.unitsHire);
+					//ul.unit_name = UnitsLogic.units_ability.units[sid];
 					VCity($"{ul.unit_name:40}: {ul.GetStatsCsv(ul.units_hire.units[0].weeklyIncrement)}");
 					units.Add(ul);
 				}
