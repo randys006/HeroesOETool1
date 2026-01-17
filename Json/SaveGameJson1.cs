@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HOETool;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,9 @@ namespace HeroesOE.Json
 			public SaveGame(string json)
 			{
 				sg = JsonSerializer.Deserialize<Rootobject>(json);
+				MapObjects.sizeX = sg.sizeX_;
+				MapObjects.sizeY = 1; // can't find any definition for this yet, but it's called 'levels' in the json
+				MapObjects.sizeZ = sg.sizeZ_;
 			}
 
 			public void Write(string out_path, string save_path, DateTime dateTime)
@@ -31,18 +35,6 @@ namespace HeroesOE.Json
 			}
 
 			public Rootobject sg;
-			public (int, int) Coords(int node)
-			{
-				int x = node % sg.sizeX_;
-				int z = node / sg.sizeX_;
-				return (x, z);
-			}
-			public (int, int) Distance(int node1, int node2)
-			{
-				var c1 = Coords(node1);
-				var c2 = Coords(node2);
-				return (c2.Item1 - c1.Item1, c2.Item2 - c1.Item2);
-			}
 		}
 
 		public class Wrapper

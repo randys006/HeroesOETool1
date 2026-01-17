@@ -1,6 +1,7 @@
 ﻿#define CHECK_TESTSAVEGAME
 
 using HeroesOE.Json;
+using HOETool;
 using HOETool.Json;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ using static HeroesOE.Globals;
 using static HeroesOE.Json.SaveGameJson3;
 using static HeroesOE.SaveGamePlayersJson;
 using static HeroesOE.VGlobals;
+using static HOETool.MapObjects;
 
 namespace HeroesOE
 {
@@ -165,7 +167,7 @@ namespace HeroesOE
 
 					IndentHeroDisplay(2);
 
-					var coords = sg1.Coords(hero.node);
+					var coords = MapObjects.Coords(hero.node);
 					AddHeroDisplayLine($"Coordinates: {coords.Item2},{coords.Item2}");
 					// TODO: extract file and load binary into hex editor
 					// TODO: load individual jsons from a file
@@ -223,17 +225,17 @@ namespace HeroesOE
 				if (obj.sid.Contains("_city"))
 				{
 					map_city_info.Add($"{obj.sid}:");
-					var id_node = obj.ids.Zip(obj.nodes, (item1, item2) => (item1, item2)).ToArray();
-					foreach (var id in id_node)
+					var id_nodes = obj.ids.Zip(obj.nodes, (item1, item2) => (item1, new Node(item2))).ToArray();
+					foreach (var id_node in id_nodes)
 					{
-						map_city_info.Add($"    {id.item1,3} {id.item2,5}");
+						map_city_info.Add($"    {id_node.item1,3} {id_node.Item2.PrintCoords,-9}");
 					}
 
 					map_city_objs.Add(obj);
 				}
 				else if (obj.sid.Contains("mine_"))
 				{
-					var id_nodes = obj.ids.Zip(obj.nodes, (id, node) => (id, node)).ToArray();
+					var id_nodes = obj.ids.Zip(obj.nodes, (id, node) => (id, new Node(node))).ToArray();
 					var res_mines = game_objs.resMines;
 					// TODO: import mines
 					// TODO: don't know how to interpret 'objectsByType[].<i>.type' yet
@@ -245,9 +247,13 @@ namespace HeroesOE
 				}
 				else if (obj.sid.Contains("resource_"))
 				{
-					var id_node = obj.ids.Zip(obj.nodes, (id, node) => (id, node)).ToArray();
+					var id_nodes = obj.ids.Zip(obj.nodes, (id, node) => (id, new Node(node))).ToArray();
 					var res_objs = game_objs.resObjs;
 					// TODO: import resources
+					foreach (var id_node in id_nodes)
+					{
+
+					}
 				}
 			}
 			VPerf($"Perf: Load map objs time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();

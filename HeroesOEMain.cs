@@ -345,6 +345,7 @@ namespace HeroesOE
 			{
 				lbBinaryShtuff.Items.Add(info);
 			}
+
 			foreach (var l in lbs) { l.EndUpdate(); }
 
 			current_player = last_player;
