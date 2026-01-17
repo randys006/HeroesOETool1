@@ -219,6 +219,7 @@ namespace HeroesOE
 
 			map_city_objs = new();
 			map_city_info = new();
+			map_prox = new();
 
 			foreach (var obj in map_objs)
 			{
@@ -252,7 +253,7 @@ namespace HeroesOE
 					// TODO: import resources
 					foreach (var id_node in id_nodes)
 					{
-
+						
 					}
 				}
 			}
