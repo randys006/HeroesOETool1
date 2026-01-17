@@ -12,6 +12,7 @@ using static HeroesOE.Globals;
 using static HeroesOE.Json.UnitsLogicJson;
 using static HeroesOE.Utilities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static HeroesOE.VGlobals;
 
 namespace HeroesOE
 {
@@ -56,16 +57,6 @@ namespace HeroesOE
 		public bool Valid { get; set; }
 		public int GetOffsetFromFullTag(string full_tag)
 		{
-			//int offset = -1;
-
-			//foreach (var match in matches)
-			//{
-			//	if (match.FullTag == full_tag)
-			//	{
-			//		offset = match.O + 1;
-			//		break;
-			//	}
-			//}
 			if (!all_open_offsets.ContainsKey(full_tag)) return -1;
 			return all_open_offsets[full_tag];
 		}

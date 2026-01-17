@@ -18,10 +18,11 @@ namespace HeroesOE.Json
 				foreach (var token in tokens)
 				{
 					// TODO: parse UnfrozenCity
-					Globals.VCity(token.id);
+					VGlobals.VCity(token.id);
 				}
 			}
 
+			public Graal[] graals;
 			public UnfrozenToken[] tokens;
 		}
 

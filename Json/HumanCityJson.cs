@@ -19,11 +19,12 @@ namespace HeroesOE.Json
 				foreach (var token in tokens)
 				{
 					// TODO: parse HumanCity
-					Globals.VCity(token.id);
+					VGlobals.VCity(token.id);
 				}
 
 			}
 
+			public Graal[] graals;
 			public HumanToken[] tokens;
 		}
 	}

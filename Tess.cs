@@ -1,4 +1,5 @@
-﻿using HOETool.Properties;
+﻿using HeroesOE.Json;
+using HOETool.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace HeroesOE
 {
 	public static class Tess
 	{
-		public static string tessdata_path = Globals.temp_path + @"\tessdata";
+		public static string tessdata_path = JsonFilePaths.temp_path + @"\tessdata";
 		// there must be a 'tessdata' directory underneath tessdata_root
 		public static TesseractEngine? Init(string tessdata_root)
 		{

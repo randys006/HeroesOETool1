@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using static HeroesOE.Globals;
+using static HeroesOE.VGlobals;
 
 namespace HeroesOE.Json
 {
@@ -16,6 +16,10 @@ namespace HeroesOE.Json
 		{
 			public DungeonCity()
 			{
+				if (!File.Exists(JsonFilePaths.dungeon_city_path))
+				{
+					int i = 42;
+				}
 				tokens = JsonSerializer.Deserialize<Rootobject>(File.ReadAllText(JsonFilePaths.dungeon_city_path)).tokens;
 				foreach (var token in tokens)
 				{
@@ -24,6 +28,7 @@ namespace HeroesOE.Json
 				}
 			}
 
+			public Graal2[] graals { get; set; }
 			public DungeonToken[] tokens;
 		}
 		public class Rootobject

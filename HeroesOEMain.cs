@@ -6,11 +6,11 @@ using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Text.Json;
 using static HeroesOE.Globals;
-using static HeroesOE.Json.HeroInfoJson;
 using static HeroesOE.JsonBracketMatcher;
 using static HeroesOE.Screenshot.Screenshot;
 using static HeroesOE.Utilities;
-using static System.Net.Mime.MediaTypeNames;
+using static HeroesOE.Json.JsonFilePaths;
+using static HeroesOE.VGlobals;
 
 namespace HeroesOE
 {
@@ -23,7 +23,11 @@ namespace HeroesOE
 
 			timerQuicksave.Interval = 100;
 			cboAutoRefresh.Checked = true;
-			if (!Directory.Exists(temp_path)) Directory.CreateDirectory(temp_path);
+
+			var sw = Stopwatch.StartNew();
+
+			HeroInfoJson.HeroInfos hero_infos2 = new HeroInfoJson.HeroInfos();
+			VPerf( $"Perf: HeroInfos time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 
 			foreach (var hero_info_pair in hero_infos.hero_infos)
 			{

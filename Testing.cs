@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using static HeroesOE.Globals;
 using static HeroesOE.Json.SaveGameJson3;
 using static HeroesOE.SaveGamePlayersJson;
+using static HeroesOE.VGlobals;
 
 namespace HeroesOE
 {

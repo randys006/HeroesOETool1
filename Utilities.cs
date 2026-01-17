@@ -88,7 +88,7 @@ namespace HeroesOE
 						sb.Append('\'');
 						break;
 					default:
-						Globals.VDev($"********************* ToAscii found an unknown character: '{c}' ({ic})");
+						VGlobals.VDev($"********************* ToAscii found an unknown character: '{c}' ({ic})");
 						break;
 				}
 			}

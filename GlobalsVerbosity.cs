@@ -4,12 +4,15 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static HeroesOE.Json.JsonFilePaths;
 
 namespace HeroesOE
 {
-	public partial class Globals
+	public class VGlobals
 	{
-		public static Verbosity verbosity = Verbosity.Perf | Verbosity.Heroes | Verbosity.SGHeroes | Verbosity.City;
+		public static Verbosity verbosity { get { return Verbosity.Perf;
+				//Verbosity.Perf | Verbosity.Heroes | Verbosity.SGHeroes | Verbosity.City;
+			} }
 
 		[Flags]
 		public enum Verbosity

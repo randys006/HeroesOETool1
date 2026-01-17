@@ -5,7 +5,7 @@ using Tesseract;
 using static HeroesOE.Json.HeroSkillsJson;
 using Image = SixLabors.ImageSharp.Image;
 using Rectangle = SixLabors.ImageSharp.Rectangle;
-using static HeroesOE.Globals;
+using static HeroesOE.VGlobals;
 
 namespace HeroesOE.Screenshot
 {

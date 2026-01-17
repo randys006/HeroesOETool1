@@ -1,3 +1,5 @@
+using HeroesOE.Json;
+
 namespace HeroesOE
 {
     public static class Program
@@ -8,9 +10,11 @@ namespace HeroesOE
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+			// To customize application configuration such as set high DPI settings or default font,
+			// see https://aka.ms/applicationconfiguration.
+			JsonFilePaths.CheckResources();
+
+			ApplicationConfiguration.Initialize();
 			Application.Run(new HeroesOEMain());
         }
 	}

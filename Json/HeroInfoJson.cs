@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using static HeroesOE.Globals;
+using static HeroesOE.VGlobals;
 
 namespace HeroesOE.Json
 {
 	public class HeroInfoJson
 	{
-		private const string heroInfo_path = @"C:\Program Files (x86)\Steam\steamapps\common\Heroes of Might & Magic Olden Era Demo\HeroesOE_Data\StreamingAssets\Lang\english\texts\heroInfo.json";
-
 		public class HeroInfos
 		{
 			// maps an sid such as 'necro_hero_4' to their name 'Kel'Ghul'+data, stats etc.
@@ -21,13 +20,21 @@ namespace HeroesOE.Json
 
 			public HeroInfos()
 			{
-				var tokens = JsonSerializer.Deserialize<Rootobject>(File.ReadAllText(heroInfo_path)).tokens;
+				if (!File.Exists(JsonFilePaths.heroInfo_path) || hero_infos.Count >= 111)
+				{
+					int i = 42;
+				}
+				var tokens = JsonSerializer.Deserialize<Rootobject>(File.ReadAllText(JsonFilePaths.heroInfo_path)).tokens;
 
 				HeroInfo hero_info = new HeroInfo(tokens[0]);
 
 				// this relies on order: 'spec_description' must be last
 				foreach (var token in tokens)
 				{
+					if (!File.Exists(JsonFilePaths.heroInfo_path) || hero_infos.Count >= 111)
+					{
+						int i = 42;
+					}
 					var tag = token.GetTag();
 					if (string.IsNullOrEmpty(tag))
 					{
@@ -100,21 +107,16 @@ namespace HeroesOE.Json
 
 			public string GetTag()
 			{
-				var tag_index = 0;
+				var _1 = sid.IndexOf('_');
+				var nofac = sid.Substring(_1 + 1);
 
-				try
-				{
-					tag_index = sid
-						.Select((c, i) => new { Character = c, Index = i }) // Project characters with their indices
-						.Where(x => x.Character == '_')             // Filter for the target character
-						.ElementAtOrDefault(2).Index;             // Get the Nth (occurrence - 1 due to 0-based indexing) match
-				}
-				catch
-				{
-					return "";
-				}
+				var _2 = nofac.IndexOf('_');
+				var nohero = nofac.Substring(_2 + 1);
 
-				return sid.Substring(tag_index + 1);
+				var _3 = nohero.IndexOf('_');
+				if (_3 == -1) return "";
+
+				return nohero.Substring(_3 + 1);
 			}
 
 			public string sid { get; set; }

@@ -12,13 +12,13 @@ using Tesseract;
 using static HeroesOE.Json.HeroInfoJson;
 using static HeroesOE.JsonBracketMatcher;
 using static HOETool.MapObjects;
+using static HeroesOE.VGlobals;
 
 namespace HeroesOE
 {
-	public static partial class Globals
+	public static class Globals
 	{
 		public static Encoding encoding = Encoding.UTF8;
-		public static string temp_path = System.IO.Path.GetTempPath() + @"HOETool\";
 
 		public static DiffForm? diffForm = null;
 

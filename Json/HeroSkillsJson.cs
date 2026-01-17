@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using static HeroesOE.Globals;
+using static HeroesOE.VGlobals;
 
 namespace HeroesOE.Json
 {

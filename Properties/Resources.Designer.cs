@@ -63,6 +63,16 @@ namespace HOETool.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Core {
+            get {
+                object obj = ResourceManager.GetObject("Core", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] tessdata {
             get {
                 object obj = ResourceManager.GetObject("tessdata", resourceCulture);

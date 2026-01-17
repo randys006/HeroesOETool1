@@ -19,10 +19,12 @@ namespace HeroesOE.Json
 				foreach (var token in tokens)
 				{
 					// TODO: parse undead city
-					Globals.VCity(token.id);
+					VGlobals.VCity(token.id);
 				}
 
 			}
+
+			public Graal[] graals;
 			public UndeadToken[] tokens;
 		}
 		public class Rootobject

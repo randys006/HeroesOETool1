@@ -8,8 +8,6 @@ namespace HeroesOE.Json
 {
 	public class HeroJson
 	{
-		private const string heroes_path = @"C:\Users\randy\source\HeroesOE\Core\DB\heroes\";
-
 		public static string[] class_types = ["might", "magic"];
 
 		// Factions:
@@ -45,7 +43,7 @@ namespace HeroesOE.Json
 				var folder = heroSid_to_folder[_id.Substring(0, 3)];
 				if (string.IsNullOrEmpty(folder)) return "";
 
-				string path = heroes_path + folder + _id + ".json";
+				string path = JsonFilePaths.heroes_path + folder + _id + ".json";
 				return path;
 			}
 

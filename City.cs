@@ -5,12 +5,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static HeroesOE.Globals;
 using static HeroesOE.Json.DungeonCityJson;
 using static HeroesOE.Json.HumanCityJson;
 using static HeroesOE.Json.UndeadCityJson;
 using static HeroesOE.Json.UnfrozenCityJson;
 using static HeroesOE.Json.UnitsLogicJson;
+using static HeroesOE.VGlobals;
 
 namespace HeroesOE
 {
@@ -34,7 +34,6 @@ namespace HeroesOE
 		public Magicguild[] magicGuilds { get; set; }
 		public Bank[] banks { get; set; }
 		public Wall[] walls { get; set; }
-		public Graal[] graals { get; set; }
 		public Buildorder[] buildOrders { get; set; }
 		// dungeon, unfrozen
 		public Herobonusbank[] heroBonusBanks { get; }
@@ -197,6 +196,13 @@ namespace HeroesOE
 		public string type { get; set; }
 		public string[] parameters { get; set; }
 	}
+	public class Citybonus2
+	{
+		// TODO: fix cityBonuses cannot convert Number to string line 1436 col 26
+		//[System.Text.Json.Serialization.JsonPropertyName("type")]
+		public string type { get; set; }
+		public int[] parameters { get; set; }
+	}
 	public class Conversionpair
 	{
 		public int tier { get; set; }
@@ -225,6 +231,21 @@ namespace HeroesOE
 		public string graalType { get; set; }
 		public object[] sideBonuses { get; set; }
 		public Citybonus[] cityBonuses { get; set; }
+	}
+	public class Graal2 : Building
+	{
+		public string sid { get; set; }
+		public bool isConstructedOnStart { get; set; }
+		public int levelOnStart { get; set; }
+		public string sceneSlot { get; set; }
+		public string[] icons { get; set; }
+		public string[] names { get; set; }
+		public string[] descriptions { get; set; }
+		public string[] narrativeDescriptions { get; set; }
+		public string[] backgroundImages { get; set; }
+		public string graalType { get; set; }
+		public object[] sideBonuses { get; set; }
+		public Citybonus2[] cityBonuses { get; set; }
 	}
 	public class Hire : Building
 	{
