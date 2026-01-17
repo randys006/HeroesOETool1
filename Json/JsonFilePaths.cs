@@ -112,6 +112,7 @@ namespace HeroesOE.Json
 		private static string coredb_path = temp_path + @"Core\DB\";
 		private const string assets_path = @"C:\Program Files (x86)\Steam\steamapps\common\Heroes of Might & Magic Olden Era Demo\HeroesOE_Data\StreamingAssets\";
 		private const string install_path = assets_path + @"Lang\english\";
+		public static string ref_path = temp_path + @"Ref\";
 
 		private static string cities_folder = @"objects_logic\cities\";
 		private static string cities_path = coredb_path + cities_folder;

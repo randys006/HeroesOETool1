@@ -1,4 +1,4 @@
-﻿//#define CHECK_TESTSAVEGAME
+﻿#define CHECK_TESTSAVEGAME
 
 using HeroesOE.Json;
 using HOETool.Json;
@@ -30,7 +30,7 @@ namespace HeroesOE
 			try
 			{
 #endif
-			Stopwatch sw = Stopwatch.StartNew();
+				Stopwatch sw = Stopwatch.StartNew();
 				var save_game = SaveGame.GetCurrentSaveGameName();
 				InfoTest("TestSaveGame", @"GetCurrentSaveGameName", save_game);
 				InfoTest("TestSaveGame", @"GetCurrentGameName", SaveGame.GetCurrentGameName(save_game));
@@ -40,21 +40,22 @@ namespace HeroesOE
 				VPerf($"Perf: Load quicksave time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 				if (quick == null || quick.Length == 0) { return false; }
 
-			matcher = new JsonBracketMatcher(quick);
+				matcher = new JsonBracketMatcher(quick);
 				VPerf($"Perf: Bktmatcher time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 
 				if (save_tags)
 				{
-					matcher.Print(100);   // TEMPCODE
+					matcher.Print(100);
 				}
 
 				List<OrderedDictionary<int, JsonBracketMatcher.NumericOffset>> side_heroes = new();
 
 				if (matcher.Valid)
 				{
+					quickbytes = quick;
 					ParseQuickSave(quick, side_heroes);
 					VPerf($"ParseQuickSave time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
-				} // if (matcher.Valid)
+				}
 #if CHECK_TESTSAVEGAME
 			}
 			catch (Exception e)
@@ -69,8 +70,8 @@ namespace HeroesOE
 
 		private static void ParseQuickSave(byte[] quick, List<OrderedDictionary<int, JsonBracketMatcher.NumericOffset>> side_heroes)
 		{
-			quickbytes = quick;
 			Stopwatch sw = Stopwatch.StartNew();
+
 			var sg1 = new SaveGameJson1.SaveGame(matcher.GetTopLevelJson(quick, 1));
 			VPerf($"Perf:       SG1 time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 			var sg3 = new SaveGameJson3.SaveGame(matcher.GetTopLevelJson(quick, 3));
@@ -232,9 +233,15 @@ namespace HeroesOE
 				}
 				else if (obj.sid.Contains("mine_"))
 				{
-					var id_node = obj.ids.Zip(obj.nodes, (id, node) => (id, node)).ToArray();
+					var id_nodes = obj.ids.Zip(obj.nodes, (id, node) => (id, node)).ToArray();
 					var res_mines = game_objs.resMines;
 					// TODO: import mines
+					// TODO: don't know how to interpret 'objectsByType[].<i>.type' yet
+					foreach (var id_node in id_nodes)
+					{
+
+					}
+
 				}
 				else if (obj.sid.Contains("resource_"))
 				{

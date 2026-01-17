@@ -13,6 +13,7 @@ using static HeroesOE.Json.UnitsLogicJson;
 using static HeroesOE.Utilities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static HeroesOE.VGlobals;
+using HeroesOE.Json;
 
 namespace HeroesOE
 {
@@ -113,7 +114,8 @@ namespace HeroesOE
 		{
 			if (!Valid) return;
 
-			using (StreamWriter tag_file = new StreamWriter(@"C:\Users\randy\source\HeroesOE\Ref\all_savegame_tags.txt"))
+			if (!Directory.Exists(JsonFilePaths.ref_path)) Directory.CreateDirectory(JsonFilePaths.ref_path);
+			using (StreamWriter tag_file = new StreamWriter(JsonFilePaths.ref_path + @"all_savegame_tags.txt"))
 			{
 				MatchStack stack = new();
 

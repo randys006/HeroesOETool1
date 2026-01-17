@@ -24,11 +24,6 @@ namespace HeroesOE
 			timerQuicksave.Interval = 100;
 			cboAutoRefresh.Checked = true;
 
-			var sw = Stopwatch.StartNew();
-
-			HeroInfoJson.HeroInfos hero_infos2 = new HeroInfoJson.HeroInfos();
-			VPerf( $"Perf: HeroInfos time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
-
 			foreach (var hero_info_pair in hero_infos.hero_infos)
 			{
 				var hero_info = hero_info_pair.Value;
@@ -325,8 +320,10 @@ namespace HeroesOE
 		private bool Refresh()
 		{
 			var sw = Stopwatch.StartNew();
+
 			var last_player = current_player;
 			if (!Testing.TestSaveGame(cboSaveAllTags.Checked)) return false; // TODO: refactor from Testing. Writes updated hero_displays
+
 			lbBinaryShtuff.Items.Clear();
 			//FindBinaryShtuff(quickbytes, matcher);
 			VPerf($"Perf: TestSaveGame time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
