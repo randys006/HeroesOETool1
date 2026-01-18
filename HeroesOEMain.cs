@@ -11,6 +11,7 @@ using static HeroesOE.Screenshot.Screenshot;
 using static HeroesOE.Utilities;
 using static HeroesOE.Json.JsonFilePaths;
 using static HeroesOE.VGlobals;
+using static HOETool.MapObjects;
 
 namespace HeroesOE
 {
@@ -143,7 +144,7 @@ namespace HeroesOE
 			var quick_save_time = File.GetLastWriteTimeUtc(SaveGame.CurrentQuickSave);
 			if (quick_save_time > Globals.quicksave_time)
 			{
-				if (adjust_pending)	return;
+				if (adjust_pending) return;
 				if (!Refresh()) timerQuicksave.Enabled = true;  // retry indefinitely if Refresh failed
 			}
 		}
@@ -277,6 +278,15 @@ namespace HeroesOE
 			lblAdjust.Text = hd;
 			txtAdjustValue.Text = current_no.Value.ToString();
 
+			// extra handling for nodes
+			if (hd.Contains("Node"))
+			{
+				var node = new Node((int)current_no.Value);
+				udX.Value = node.X;
+				udZ.Value = node.Z;
+				lblNode.Text = current_no.Value.ToString();
+			}
+
 			// load heros and cities into toolstrips
 			toolStripContainer1.RightToolStripPanel.Controls.Clear();
 			toolStripHeroes.Items.Clear();
@@ -318,7 +328,7 @@ namespace HeroesOE
 			bool enabled = true;
 
 			cmdAdjust.Enabled = enabled;
-			SetAdjustPending(true);	// TODO: track old value for pending adjust
+			SetAdjustPending(true); // TODO: track old value for pending adjust
 		}
 
 		private void cboAutoRefresh_CheckedChanged(object sender, EventArgs e)
@@ -590,6 +600,26 @@ namespace HeroesOE
 				Refresh();
 
 			}
+		}
+
+		private void udX_ValueChanged(object sender, EventArgs e)
+		{
+			UpdateNode();
+		}
+
+		private void UpdateNode()
+		{
+			try
+			{
+				var node = new Node((int)udX.Value, (int)udZ.Value);
+				lblNode.Text = node.node.ToString();
+			}
+			catch { lblNode.Text = "N/A"; }
+		}
+
+		private void udZ_ValueChanged(object sender, EventArgs e)
+		{
+			UpdateNode();
 		}
 	}
 }

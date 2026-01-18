@@ -58,7 +58,7 @@
 			udProximity = new NumericUpDown();
 			udX = new NumericUpDown();
 			udZ = new NumericUpDown();
-			label2 = new Label();
+			lblNode = new Label();
 			toolStripContainer1.ContentPanel.SuspendLayout();
 			toolStripContainer1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)udProximity).BeginInit();
@@ -332,6 +332,7 @@
 			udX.Size = new Size(66, 31);
 			udX.TabIndex = 20;
 			udX.Value = new decimal(new int[] { 25, 0, 0, 0 });
+			udX.ValueChanged += udX_ValueChanged;
 			// 
 			// udZ
 			// 
@@ -343,20 +344,21 @@
 			udZ.Size = new Size(66, 31);
 			udZ.TabIndex = 21;
 			udZ.Value = new decimal(new int[] { 25, 0, 0, 0 });
+			udZ.ValueChanged += udZ_ValueChanged;
 			// 
-			// label2
+			// lblNode
 			// 
-			label2.Location = new Point(865, 36);
-			label2.Name = "label2";
-			label2.Size = new Size(88, 27);
-			label2.TabIndex = 22;
+			lblNode.Location = new Point(865, 36);
+			lblNode.Name = "lblNode";
+			lblNode.Size = new Size(88, 27);
+			lblNode.TabIndex = 22;
 			// 
 			// HeroesOEMain
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(2137, 988);
-			Controls.Add(label2);
+			Controls.Add(lblNode);
 			Controls.Add(udZ);
 			Controls.Add(udX);
 			Controls.Add(udProximity);
@@ -426,6 +428,6 @@
 		private NumericUpDown udProximity;
 		private NumericUpDown udX;
 		private NumericUpDown udZ;
-		private Label label2;
+		private Label lblNode;
 	}
 }

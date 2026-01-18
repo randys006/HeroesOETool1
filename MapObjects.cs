@@ -15,6 +15,7 @@ namespace HOETool
 		public class Node
 		{
 			public Node(int node_) { Value = node_; }
+			public Node(int X, int Z) { Value = X + Z * sizeX; }
 			public int node;
 			public int x = -1;
 			public int z = -1;
