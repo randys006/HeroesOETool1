@@ -82,6 +82,7 @@ namespace HeroesOE
 			var hero_list = sg3.sg.heroes.list;
 			var game_objs = sg3.sg.objects;
 			var map_objs = sg1.sg.objects;
+			var squads = sg3.sg.squads;
 
 			ResetHeroDisplays();
 
@@ -220,6 +221,18 @@ namespace HeroesOE
 			map_city_objs = new();
 			map_city_info = new();
 			map_prox = new();
+
+			if (Squads)
+			Dictionary<int, Node> squad_nodes = new();
+			foreach (var squad in squads.list)
+			{
+
+				var node = new Node(squad.node);
+				if (node.DistanceTo())
+				squad_nodes[squad.id] = ;
+				// TODO: import resources
+
+			}
 
 			foreach (var obj in map_objs)
 			{

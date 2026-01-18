@@ -123,7 +123,19 @@ namespace HeroesOE
 			}
 			VDev("---------  Done (binary shtuff from quicksave)  ---------");
 		}
-
+		private void SetAdjustPending(bool adjust)
+		{
+			// TODO: slick way to notify user of pending changes
+			adjust_pending = adjust;
+			if (adjust_pending)
+			{
+				cmdRefresh.Text = "Refresh*";
+			}
+			else
+			{
+				cmdRefresh.Text = "Refresh";
+			}
+		}
 		private void timerQuicksave_Tick(object sender, EventArgs e)
 		{
 			timerQuicksave.Enabled = cboAutoRefresh.Checked;
@@ -131,12 +143,14 @@ namespace HeroesOE
 			var quick_save_time = File.GetLastWriteTimeUtc(SaveGame.CurrentQuickSave);
 			if (quick_save_time > Globals.quicksave_time)
 			{
+				if (adjust_pending)	return;
 				if (!Refresh()) timerQuicksave.Enabled = true;  // retry indefinitely if Refresh failed
 			}
 		}
 
 		private void cmdAdjust_Click(object sender, EventArgs e)
 		{
+			// TODO: queue up multiple adjustments instead of refreshing immediately
 			var new_value = encoding.GetBytes(txtAdjustValue.Text.Trim());
 			if (new_value.Length <= 0) return;
 			AdjustJsonValue(current_no, new_value);
@@ -304,7 +318,7 @@ namespace HeroesOE
 			bool enabled = true;
 
 			cmdAdjust.Enabled = enabled;
-			cboAutoRefresh.Checked = false;
+			SetAdjustPending(true);	// TODO: track old value for pending adjust
 		}
 
 		private void cboAutoRefresh_CheckedChanged(object sender, EventArgs e)
@@ -362,6 +376,7 @@ namespace HeroesOE
 			UpdateSelectedPlayerValue(current_player, current_index);
 
 			cboSaveAllTags.Checked = false;
+			SetAdjustPending(false);
 
 			return true;
 		}

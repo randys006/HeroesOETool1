@@ -113,3 +113,9 @@ sg1:
 ------- Mines on map ---------
 
 mine_crystals: sg1: ids, nodes, rotations, levels   sg3: idMapObject, sidConfig, ownerSide
+
+------- Squads on map ---------
+Needed to modify: list[] index, units[] index
+Display sid, amount.
+Can Modify amount.
+Can Modify node.

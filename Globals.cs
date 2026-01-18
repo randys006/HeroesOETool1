@@ -19,6 +19,8 @@ namespace HeroesOE
 	public static class Globals
 	{
 		public static Encoding encoding = Encoding.UTF8;
+		public static string temp_path = System.IO.Path.GetTempPath() + @"HOETool\";
+		public static bool adjust_pending = false;
 
 		public static DiffForm? diffForm = null;
 
