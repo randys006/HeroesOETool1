@@ -168,8 +168,9 @@ namespace HeroesOE
 
 					IndentHeroDisplay(2);
 
+					var hero_node = matcher.FindNumericOffset(quick, hero_meta + @"node");
 					var coords = MapObjects.Coords(hero.node);
-					AddHeroDisplayLine($"Coordinates: {coords.Item2},{coords.Item2}");
+					AddHeroDisplayLine($"Node: {hero.node} ({coords.Item1},{coords.Item2})");
 					// TODO: extract file and load binary into hex editor
 					// TODO: load individual jsons from a file
 
@@ -222,14 +223,14 @@ namespace HeroesOE
 			map_city_info = new();
 			map_prox = new();
 
-			if (Squads)
+			//if (Squads) // TODO: how to interact w/map prox form?
 			Dictionary<int, Node> squad_nodes = new();
 			foreach (var squad in squads.list)
 			{
 
 				var node = new Node(squad.node);
-				if (node.DistanceTo())
-				squad_nodes[squad.id] = ;
+//				if (node.DistanceTo(//TODO: current hero node))
+				//squad_nodes[squad.id] = ;
 				// TODO: import resources
 
 			}

@@ -56,9 +56,14 @@
 			lbMapProximity = new ListBox();
 			label1 = new Label();
 			udProximity = new NumericUpDown();
+			udX = new NumericUpDown();
+			udZ = new NumericUpDown();
+			label2 = new Label();
 			toolStripContainer1.ContentPanel.SuspendLayout();
 			toolStripContainer1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)udProximity).BeginInit();
+			((System.ComponentModel.ISupportInitialize)udX).BeginInit();
+			((System.ComponentModel.ISupportInitialize)udZ).BeginInit();
 			SuspendLayout();
 			// 
 			// timerScreenshot
@@ -317,11 +322,43 @@
 			udProximity.TabIndex = 19;
 			udProximity.Value = new decimal(new int[] { 25, 0, 0, 0 });
 			// 
+			// udX
+			// 
+			udX.Increment = new decimal(new int[] { 5, 0, 0, 0 });
+			udX.Location = new Point(721, 31);
+			udX.Maximum = new decimal(new int[] { 400, 0, 0, 0 });
+			udX.Minimum = new decimal(new int[] { 1, 0, 0, int.MinValue });
+			udX.Name = "udX";
+			udX.Size = new Size(66, 31);
+			udX.TabIndex = 20;
+			udX.Value = new decimal(new int[] { 25, 0, 0, 0 });
+			// 
+			// udZ
+			// 
+			udZ.Increment = new decimal(new int[] { 5, 0, 0, 0 });
+			udZ.Location = new Point(793, 32);
+			udZ.Maximum = new decimal(new int[] { 400, 0, 0, 0 });
+			udZ.Minimum = new decimal(new int[] { 1, 0, 0, int.MinValue });
+			udZ.Name = "udZ";
+			udZ.Size = new Size(66, 31);
+			udZ.TabIndex = 21;
+			udZ.Value = new decimal(new int[] { 25, 0, 0, 0 });
+			// 
+			// label2
+			// 
+			label2.Location = new Point(865, 36);
+			label2.Name = "label2";
+			label2.Size = new Size(88, 27);
+			label2.TabIndex = 22;
+			// 
 			// HeroesOEMain
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(2137, 988);
+			Controls.Add(label2);
+			Controls.Add(udZ);
+			Controls.Add(udX);
 			Controls.Add(udProximity);
 			Controls.Add(label1);
 			Controls.Add(toolStripContainer1);
@@ -351,6 +388,8 @@
 			toolStripContainer1.ResumeLayout(false);
 			toolStripContainer1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)udProximity).EndInit();
+			((System.ComponentModel.ISupportInitialize)udX).EndInit();
+			((System.ComponentModel.ISupportInitialize)udZ).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -385,5 +424,8 @@
 		private ListBox lbMapProximity;
 		private Label label1;
 		private NumericUpDown udProximity;
+		private NumericUpDown udX;
+		private NumericUpDown udZ;
+		private Label label2;
 	}
 }
