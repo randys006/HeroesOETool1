@@ -213,7 +213,7 @@ namespace HeroesOE.Json
 			public bool released { get; set; }
 			public int ownerSide { get; set; }
 			public bool isNeutralObj { get; set; }
-			public Property1[] properties { get; set; }
+			public IdActive[] properties { get; set; }
 			public int aiValue { get; set; }
 			public Garnisonparty1 garnisonParty { get; set; }
 			public Rewardset1 rewardSet { get; set; }
@@ -266,13 +266,6 @@ namespace HeroesOE.Json
 			public int currentAmount { get; set; }
 		}
 
-		public class Property1
-		{
-			public int id { get; set; }
-			public bool active { get; set; }
-			public int dataId { get; set; }
-		}
-
 		public class Initguardunit
 		{
 			public string sid { get; set; }
@@ -287,7 +280,7 @@ namespace HeroesOE.Json
 			public bool released { get; set; }
 			public int ownerSide { get; set; }
 			public bool isNeutralObj { get; set; }
-			public Property2[] properties { get; set; }
+			public IdActive[] properties { get; set; }
 			public int aiValue { get; set; }
 			public Garnisonparty2 garnisonParty { get; set; }
 			public Rewardset2 rewardSet { get; set; }
@@ -315,13 +308,6 @@ namespace HeroesOE.Json
 			public string selectionWindowType { get; set; }
 		}
 
-		public class Property2
-		{
-			public int id { get; set; }
-			public bool active { get; set; }
-			public int dataId { get; set; }
-		}
-
 		public class Eventbankobj
 		{
 			public int idMapObject { get; set; }
@@ -329,7 +315,7 @@ namespace HeroesOE.Json
 			public bool released { get; set; }
 			public int ownerSide { get; set; }
 			public bool isNeutralObj { get; set; }
-			public Property3[] properties { get; set; }
+			public IdActive[] properties { get; set; }
 			public int aiValue { get; set; }
 			public Garnisonparty3 garnisonParty { get; set; }
 			public Rewardset3 rewardSet { get; set; }
@@ -384,13 +370,6 @@ namespace HeroesOE.Json
 			public string[] parameters { get; set; }
 		}
 
-		public class Property3
-		{
-			public int id { get; set; }
-			public bool active { get; set; }
-			public int dataId { get; set; }
-		}
-
 		public class Resmine
 		{
 			public int idMapObject { get; set; }
@@ -433,7 +412,7 @@ namespace HeroesOE.Json
 			public bool released { get; set; }
 			public int ownerSide { get; set; }
 			public bool isNeutralObj { get; set; }
-			public Property4[] properties { get; set; }
+			public IdActive[] properties { get; set; }
 			public int aiValue { get; set; }
 			public Garnisonparty5 garnisonParty { get; set; }
 			public Rewardset5 rewardSet { get; set; }
@@ -713,13 +692,6 @@ namespace HeroesOE.Json
 		}
 		//////////////////////////////////////////// End of buildings /////////////////////////////////////////////////////
 
-		public class Property4
-		{
-			public int id { get; set; }
-			public bool active { get; set; }
-			public int dataId { get; set; }
-		}
-
 		public class Marketobj
 		{
 			public int idMapObject { get; set; }
@@ -804,7 +776,7 @@ namespace HeroesOE.Json
 			public bool released { get; set; }
 			public int ownerSide { get; set; }
 			public bool isNeutralObj { get; set; }
-			public Property5[] properties { get; set; }
+			public IdActive[] properties { get; set; }
 			public int aiValue { get; set; }
 			public Garnisonparty8 garnisonParty { get; set; }
 			public Rewardset8 rewardSet { get; set; }
@@ -843,13 +815,6 @@ namespace HeroesOE.Json
 			public string rewardDesc { get; set; }
 			public string rewardNotificationDesc { get; set; }
 			public string[] parameters { get; set; }
-		}
-
-		public class Property5
-		{
-			public int id { get; set; }
-			public bool active { get; set; }
-			public int dataId { get; set; }
 		}
 
 		public class Restradelab
@@ -2112,10 +2077,10 @@ namespace HeroesOE.Json
 
 		public class Subclasses
 		{
-			public List5[] list { get; set; }
+			public SubclassActive[] list { get; set; }
 		}
 
-		public class List5
+		public class SubclassActive
 		{
 			public string sid { get; set; }
 			public bool active { get; set; }
@@ -2134,17 +2099,17 @@ namespace HeroesOE.Json
 
 		public class Squads
 		{
-			public List6[] list { get; set; }
+			public SquadInfo[] list { get; set; }
 			public int freeId { get; set; }
 		}
 
-		public class List6
+		public class SquadInfo
 		{
 			public string configSid { get; set; }
 			public int id { get; set; }
 			public int node { get; set; }
-			public Unit4[] units { get; set; }
-			public Property6[] properties { get; set; }
+			public Amount[] units { get; set; }
+			public IdActive[] properties { get; set; }
 			public bool mainSquad { get; set; }
 			public int reactionType { get; set; }
 			public float weeklyIncrementBonus { get; set; }
@@ -2163,13 +2128,13 @@ namespace HeroesOE.Json
 			public string customTopUnit { get; set; }
 		}
 
-		public class Unit4
+		public class Amount
 		{
 			public string sid { get; set; }
 			public int amount { get; set; }
 		}
 
-		public class Property6
+		public class IdActive
 		{
 			public int id { get; set; }
 			public bool active { get; set; }
