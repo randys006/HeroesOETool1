@@ -34,6 +34,7 @@
 			label2 = new Label();
 			lbResMines = new ListBox();
 			label3 = new Label();
+			cmdRefresh = new Button();
 			SuspendLayout();
 			// 
 			// lbSquads
@@ -88,11 +89,22 @@
 			label3.TabIndex = 1;
 			label3.Text = "Resource Mines";
 			// 
+			// button1
+			// 
+			cmdRefresh.Location = new Point(11, 16);
+			cmdRefresh.Name = "cmdRefresh";
+			cmdRefresh.Size = new Size(112, 34);
+			cmdRefresh.TabIndex = 2;
+			cmdRefresh.Text = "Refresh";
+			cmdRefresh.UseVisualStyleBackColor = true;
+			cmdRefresh.Click += cmdRefresh_Click;
+			// 
 			// MapProximityForm
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(1134, 745);
+			Controls.Add(cmdRefresh);
 			Controls.Add(label3);
 			Controls.Add(label2);
 			Controls.Add(label1);
@@ -113,5 +125,6 @@
 		private Label label2;
 		private ListBox lbResMines;
 		private Label label3;
+		private Button cmdRefresh;
 	}
 }

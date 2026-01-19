@@ -12,6 +12,7 @@ using static HeroesOE.Utilities;
 using static HeroesOE.Json.JsonFilePaths;
 using static HeroesOE.VGlobals;
 using static HOETool.MapObjects;
+using System.Diagnostics.CodeAnalysis;
 
 namespace HeroesOE
 {
@@ -260,25 +261,28 @@ namespace HeroesOE
 
 		private void UpdateSelectedPlayerValue(int player, int index)
 		{
-			if (player < 0 || player >= player_display.Count || index < 0 || index >= player_display[player].Count)
+			if (player < 0 || player >= side_display.Count || index < 0 || index >= side_display[player].Count)
 			{
 				lblAdjust.Text = "";
 				txtAdjustValue.Text = "";
 				current_no = null;
-				current_player = -1;
+				current_side = -1;
 				current_index = -1;
 				return;
 			}
 
-			var hd = player_display[player][index];
-			current_no = player_metadata[player][index];
-			current_player = player;
+			var sd = side_display[player];
+			var hd = sd[index];
+			current_no = side_metadata[player][index];
+			current_side = player;
 			current_index = index;
 
 			lblAdjust.Text = hd;
 			txtAdjustValue.Text = current_no.Value.ToString();
 
-			// extra handling for nodes
+			// special handling for values that require it
+			// TODO: it's prob easier to switch to different ListBoxes for each category.
+			int source_index = -1;
 			if (hd.Contains("Node"))
 			{
 				var node = new Node((int)current_no.Value);
@@ -286,11 +290,22 @@ namespace HeroesOE
 				udZ.Value = node.Z;
 				lblNode.Text = current_no.Value.ToString();
 			}
+			else if ((source_index = GetHeroId(sd, index)) >= 0)
+			{
+				// file map_prox with proximities to hero
+				var hero_node = hero_list[current_hero_infos[current_side][source_index].ingame_index].node;
+				FillProximities(new Node(hero_node), 100);
+			}
+			else if (GetCityId(sd, index) >= 0)
+			{
+				// file map_prox with proximities to city
+
+			}
 
 			// load heros and cities into toolstrips
 			toolStripContainer1.RightToolStripPanel.Controls.Clear();
 			toolStripHeroes.Items.Clear();
-			foreach (var hero in current_hero_infos[current_player])
+			foreach (var hero in current_hero_infos[current_side])
 			{
 				toolStripHeroes.Items.Add(hero.name);
 				var item = toolStripHeroes.Items[toolStripHeroes.Items.Count - 1];
@@ -300,12 +315,70 @@ namespace HeroesOE
 			}
 			toolStripContainer1.RightToolStripPanel.Controls.Add(toolStripHeroes);
 			toolStripCities.Items.Clear();
-			foreach (var city in current_city_names[current_player])
+			foreach (var city in current_city_names[current_side])
 			{
 				toolStripCities.Items.Add(city);
 				toolStripCities.Items[toolStripCities.Items.Count - 1].TextAlign = ContentAlignment.MiddleLeft;
 			}
 			toolStripContainer1.RightToolStripPanel.Controls.Add(toolStripCities);
+		}
+
+		private void FillProximities(Node home_node, int proximity = int.MaxValue)
+		{
+			squad_prox = new();
+
+			// squads
+			foreach(var squad_info in squad_infos)
+			{
+				var info = squad_info.Value;
+				var pmo = new MapProximityObject(info.configSid, home_node, info.node, info.no);
+				if (pmo.Proximity < proximity)
+				{
+					squad_prox.Add(pmo); // TODO: think it thru, then create MapProximityObject or similar
+					foreach (var unit in info.units)
+					{
+						squad_prox.Add(pmo.Spawn($"  {unit.amount} {unit.sid}", unit.no));
+					}
+				}
+ 			}
+		}
+
+		private int GetHeroId(List<string> sd, int index)
+		{
+			int id = -1;
+
+			for (int i = 0; i < index; ++i)
+			{
+				var hd = sd[i];
+				if (hd.Contains(":lvl"))
+				{	// increment each hero line we find
+					id++;
+				}
+				else if (hd.Contains(": id "))
+				{	// if we get to a city, it's not a hero line
+					id = -1;
+					break;
+				}
+			}
+
+			return id;
+		}
+
+		private int GetCityId(List<string> sd, int index)
+		{
+			int id = -1;
+
+			for (int i = 0; i < index; ++i)
+			{
+				var hd = sd[i];
+				if (hd.Contains(": id "))
+				{   // increment each city we find
+					id++;
+				}
+			}
+			// nothing after the cities (yet)
+
+			return id;
 		}
 
 		private void lbSide0_SelectedIndexChanged(object sender, EventArgs e)
@@ -345,20 +418,24 @@ namespace HeroesOE
 		{
 			var sw = Stopwatch.StartNew();
 
-			var last_player = current_player;
+			var last_player = current_side;
 			if (!Testing.TestSaveGame(cboSaveAllTags.Checked)) return false; // TODO: refactor from Testing. Writes updated hero_displays
-
-			lbBinaryShtuff.Items.Clear();
-			//FindBinaryShtuff(quickbytes, matcher);
 			VPerf($"Perf: TestSaveGame time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 
 			// clear listboxes
 			ListBox[] lbs = [lbSide0, lbSide1, lbSide2, lbSide3, lbBinaryShtuff, lbMapProximity];
 			foreach (var l in lbs) { l.Items.Clear(); l.BeginUpdate(); }
 
+			udX.Minimum = 0;
+			udX.Maximum = sizeX - 1;
+			udZ.Minimum = 0;
+			udZ.Maximum = sizeZ - 1;
+
+			//FindBinaryShtuff(quickbytes, matcher);
+
 			// load player display lines into listboxes
 			int i = 0;
-			foreach (var side in Globals.player_display)
+			foreach (var side in Globals.side_display)
 			{
 				var lb = lbs[i++];
 				foreach (var line in side) { lb.Items.Add(line); }
@@ -372,18 +449,18 @@ namespace HeroesOE
 
 			foreach (var l in lbs) { l.EndUpdate(); }
 
-			current_player = last_player;
-			if (current_player < 0) return false;
+			current_side = last_player;
+			if (current_side < 0) return false;
 
-			if (lbs[current_player].Items.Count > current_index)
-				lbs[current_player].SelectedIndex = current_index;
+			if (lbs[current_side].Items.Count > current_index)
+				lbs[current_side].SelectedIndex = current_index;
 			else
 			{
-				current_player = -1;
+				current_side = -1;
 				current_index = -1;
 			}
-			if (current_player < 0) return false;
-			UpdateSelectedPlayerValue(current_player, current_index);
+			if (current_side < 0) return false;
+			UpdateSelectedPlayerValue(current_side, current_index);
 
 			cboSaveAllTags.Checked = false;
 			SetAdjustPending(false);
@@ -473,7 +550,7 @@ namespace HeroesOE
 			}
 
 			List<int> hero_idxs = new();
-			foreach (var info in current_hero_infos[current_player])
+			foreach (var info in current_hero_infos[current_side])
 			{
 				hero_idxs.Add(info.ingame_index);
 			}
@@ -558,7 +635,7 @@ namespace HeroesOE
 		private void timerCheckHeroToolstrip_Tick(object sender, EventArgs e)
 		{
 			// TODO: write new list of heroes
-			if (current_player < 0 || toolStripHeroes.Items.Count == 0) return;
+			if (current_side < 0 || toolStripHeroes.Items.Count == 0) return;
 			List<int> ts_hero_idxs = new();
 			foreach (ToolStripItem item in toolStripHeroes.Items)
 			{
@@ -567,7 +644,7 @@ namespace HeroesOE
 
 			List<int> hero_idxs = new();
 			List<NumericOffset> nos = new();
-			foreach (var info in current_hero_infos[current_player])
+			foreach (var info in current_hero_infos[current_side])
 			{
 				hero_idxs.Add(info.ingame_index);
 				nos.Add(info.no);
@@ -620,6 +697,12 @@ namespace HeroesOE
 		private void udZ_ValueChanged(object sender, EventArgs e)
 		{
 			UpdateNode();
+		}
+
+		private void cmdShowMapProximity_Click(object sender, EventArgs e)
+		{
+			if (mapProxForm == null) mapProxForm = new();
+			mapProxForm.Show();
 		}
 	}
 }

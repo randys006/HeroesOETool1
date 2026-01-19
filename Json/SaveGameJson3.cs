@@ -6,6 +6,8 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using static HeroesOE.JsonBracketMatcher;
+using static HOETool.MapObjects;
 
 namespace HeroesOE.Json
 {
@@ -1390,7 +1392,7 @@ namespace HeroesOE.Json
 		public class Heroes
 		{
 			public int freeId { get; set; }
-			public List1[] list { get; set; }
+			public HeroJsonEntry[] list { get; set; }
 			public Pool pool { get; set; }
 		}
 
@@ -1399,7 +1401,7 @@ namespace HeroesOE.Json
 			public int[] list { get; set; }
 		}
 
-		public class List1
+		public class HeroJsonEntry
 		{
 			public int id { get; set; }
 			public int sideId { get; set; }
@@ -2099,17 +2101,36 @@ namespace HeroesOE.Json
 
 		public class Squads
 		{
-			public SquadInfo[] list { get; set; }
+			public SquadJson[] list { get; set; }
 			public int freeId { get; set; }
 		}
-
 		public class SquadInfo
+		{
+			// a subset of SquadJson
+			public SquadInfo(SquadJson json)
+			{
+				configSid = json.configSid;
+				id = json.id;
+				node = new Node(json.node);
+				// TODO: is deep-copy necessary?
+				units = json.units;
+				idActive = json.idActive;
+			}
+			public string configSid { get; set; }
+			public int id { get; set; }
+			public Node node;
+			public NumericOffset no;
+			public Amount[] units { get; set; }
+			public IdActive[] idActive { get; set; }
+		}
+		public class SquadJson
 		{
 			public string configSid { get; set; }
 			public int id { get; set; }
 			public int node { get; set; }
 			public Amount[] units { get; set; }
-			public IdActive[] properties { get; set; }
+			[System.Text.Json.Serialization.JsonPropertyName("properties")]
+			public IdActive[] idActive { get; set; }
 			public bool mainSquad { get; set; }
 			public int reactionType { get; set; }
 			public float weeklyIncrementBonus { get; set; }
@@ -2132,6 +2153,7 @@ namespace HeroesOE.Json
 		{
 			public string sid { get; set; }
 			public int amount { get; set; }
+			public NumericOffset? no = null;
 		}
 
 		public class IdActive

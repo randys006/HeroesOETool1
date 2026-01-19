@@ -22,7 +22,7 @@ namespace HOETool
 			public int Value { get { return node; }
 				set
 				{
-					int _z =  node / sizeX;
+					int _z =  value / sizeX;
 					if (_z >= sizeZ) throw new Exception("Node Value out of range.");
 
 					node = value;
@@ -40,7 +40,7 @@ namespace HOETool
 			{
 				return (node2.x - x, node2.z - z);
 			}
-			public int Proximity(Node node2)
+			public int ProximityTo(Node node2)
 			{
 				var distance = DistanceTo(node2);
 				return distance.dX * distance.dX + distance.dZ * distance.dZ;
@@ -65,12 +65,46 @@ namespace HOETool
 		}
 		public class MapProximityObject
 		{
-			string Text;
-			int deltaX; // left/right
-			int deltaY;	// surface/underground
-			int deltaZ; // down/up
-			int proximity; // square of distance
-			NumericOffset no;
+			public MapProximityObject(string obj_text, NumericOffset no)
+			{
+				Text = obj_text;
+				if (no == null) this.no = NumericOffset.Invalid;
+				else this.no = no;
+			}
+			public MapProximityObject(string obj_text, Node home, Node obj, NumericOffset no = null)
+			{
+				(DeltaX, DeltaZ) = home.DistanceTo(obj);
+				Text = $"{obj_text} @ ({DeltaX},{DeltaZ}) : ";
+				Proximity = DeltaX * DeltaX + DeltaZ * DeltaZ;
+				if (no == null) this.no = NumericOffset.Invalid;
+				else this.no = no;
+			}
+			public string Text { get; set; }
+			public int DeltaX { get; set; } // left/right
+			public int DeltaY { get; set; }  // surface/underground
+			public int DeltaZ { get; set; } // down/up
+			public int Proximity { get; set; } // square of distance
+			NumericOffset? no;
+			// TODO: finish direction octants. They're intended to be mutually-exclusive with non-cardinals slightly larger than cardinals.
+			public bool N { get { return DeltaZ >= 0 && Math.Abs(DeltaX / DeltaZ) <= 0.5; } }
+			public bool S { get { return DeltaZ <= 0 && Math.Abs(DeltaX / DeltaZ) <= 0.5; } }
+			public bool E { get { return DeltaX >= 0 && Math.Abs(DeltaZ / DeltaX) <= 0.5; } }
+			public bool W { get { return DeltaX >= 0 && Math.Abs(DeltaZ / DeltaX) <= 0.5; } }
+			public bool NE { get { return DeltaX > 0 && DeltaZ > 0 && !N && !E; } }
+			public bool SW { get { return DeltaX < 0 && DeltaZ < 0 && Math.Abs(DeltaX / DeltaZ) <= 2; } }
+			public bool SE { get { return DeltaX > 0 && Math.Abs(DeltaZ / DeltaX) <= 2; } }
+			public bool NW { get { return DeltaX > 0 && Math.Abs(DeltaZ / DeltaX) <= 2; } }
+
+			internal MapProximityObject Spawn(string text, NumericOffset? no)
+			{
+				var mpo = new MapProximityObject(text, no);
+				mpo.DeltaX = DeltaX;
+				mpo.DeltaY = DeltaY;
+				mpo.DeltaZ = DeltaZ;
+				mpo.Proximity = Proximity;
+
+				return mpo;
+			}
 		}
 	}
 }

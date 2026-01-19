@@ -13,6 +13,7 @@ using static HeroesOE.Json.HeroInfoJson;
 using static HeroesOE.JsonBracketMatcher;
 using static HOETool.MapObjects;
 using static HeroesOE.VGlobals;
+using static HeroesOE.Json.SaveGameJson3;
 
 namespace HeroesOE
 {
@@ -22,18 +23,23 @@ namespace HeroesOE
 		public static bool adjust_pending = false;
 
 		public static DiffForm? diffForm = null;
+		public static MapProximityForm? mapProxForm = null;
 
-		public static List<HeroJson.Token> hero_tokens = new List<HeroJson.Token>();
+		public static List<Json.HeroJson.Token> hero_tokens = new List<Json.HeroJson.Token>();
 		public static HeroInfoJson.HeroInfos hero_infos = new HeroInfoJson.HeroInfos();
 		public static HeroSkillsJson.HeroSkills hero_skills = new HeroSkillsJson.HeroSkills();
 		public static UnitsLogicJson.UnitsLogic units_logics = new UnitsLogicJson.UnitsLogic();
-		public static List<List<MapProximityObject>> map_prox = new();
 
-		public static int current_player = -1;
+		public static int current_side = -1;
 		public static int current_index = -1;
 		public static int unowned_player = 4;
-		public static List<List<string>> player_display = new();
-		public static List<List<NumericOffset>> player_metadata = new();
+		public static int current_hero = -1;
+		public static HeroJsonEntry[] hero_list = null;
+		public static List<List<string>> side_display = new();
+		public static List<List<NumericOffset>> side_metadata = new();
+		public static Dictionary<int, SquadInfo> squad_infos = new();
+
+		public static List<MapProximityObject> squad_prox = new();
 
 		public static List<List<HeroInfo>> current_hero_infos = new();
 		public static List<List<string>> current_city_names = new();
@@ -50,39 +56,39 @@ namespace HeroesOE
 		public static List<string> map_city_info = new();
 		public static List<SaveGameJson3.Cityobj> game_city_obj = new();
 
-		public static void AddHeroInfo(HeroInfo hero) { current_hero_infos[current_player].Add(hero); }
-		public static void AddCityName(string city) { current_city_names[current_player].Add(city); }
-		internal static void NextPlayerDisplay() { if (player_display.Count <= ++current_player) AddPlayerDisplay(); hero_display_indent = 0; }
-		public static int SelectLastPlayer() { current_player = player_display.Count - 1; hero_display_indent = 0; return current_player; }
+		public static void AddHeroInfo(HeroInfo hero) { current_hero_infos[current_side].Add(hero); }
+		public static void AddCityName(string city) { current_city_names[current_side].Add(city); }
+		internal static void NextPlayerDisplay() { if (side_display.Count <= ++current_side) AddPlayerDisplay(); hero_display_indent = 0; }
+		public static int SelectLastPlayer() { current_side = side_display.Count - 1; hero_display_indent = 0; return current_side; }
 
-		internal static void RewindHeroDisplays() { current_player = -1; hero_display_indent = 0; }
+		internal static void RewindHeroDisplays() { current_side = -1; hero_display_indent = 0; }
 		// By default, we create 5 players. 4 is max for the demo, plus 1 to store unowned cities etc.
-		public static void ResetHeroDisplays() { player_display.Clear(); player_metadata.Clear(); current_hero_infos.Clear(); current_city_names.Clear(); SelectLastPlayer(); for (int i = 0; i < 5; ++i) AddPlayerDisplay(); current_player = -1; }
-		public static void AddPlayerDisplay() { player_display.Add(new()); player_metadata.Add(new()); current_hero_infos.Add(new()); current_city_names.Add(new()); SelectLastPlayer(); }
+		public static void ResetHeroDisplays() { side_display.Clear(); side_metadata.Clear(); current_hero_infos.Clear(); current_city_names.Clear(); SelectLastPlayer(); for (int i = 0; i < 5; ++i) AddPlayerDisplay(); current_side = -1; }
+		public static void AddPlayerDisplay() { side_display.Add(new()); side_metadata.Add(new()); current_hero_infos.Add(new()); current_city_names.Add(new()); SelectLastPlayer(); }
 		public static int hero_display_indent = 0;
 		public static void AddHeroDisplayLine(string line = null, NumericOffset meta = null)
 		{
-			if (current_player < 0 || current_player >= player_display.Count) throw new Exception("Invalid current_hero");
+			if (current_side < 0 || current_side >= side_display.Count) throw new Exception("Invalid current_hero");
 			if (string.IsNullOrEmpty(line)) line = "-------------------------------------------";
 			else { line = $"{new string(' ', hero_display_indent)}{line}"; }
 
 			VSGHeroes(line);
-			player_display[current_player].Add(line);
+			side_display[current_side].Add(line);
 
 			if (meta == null) meta = NumericOffset.Invalid;
-			player_metadata[current_player].Add(meta);
+			side_metadata[current_side].Add(meta);
 		}
 		public static void AddCityDisplayLine(string line = null, NumericOffset meta = null)
 		{
-			if (current_player < 0 || current_player >= player_display.Count) throw new Exception("Invalid current_hero");
+			if (current_side < 0 || current_side >= side_display.Count) throw new Exception("Invalid current_hero");
 			if (string.IsNullOrEmpty(line)) line = "-------------------------------------------";
 			else { line = $"{new string(' ', hero_display_indent)}{line}"; }
 
 			VSGCity(line);
-			player_display[current_player].Add(line);
+			side_display[current_side].Add(line);
 
 			if (meta == null) meta = NumericOffset.Invalid;
-			player_metadata[current_player].Add(meta);
+			side_metadata[current_side].Add(meta);
 		}
 
 		/// <summary>

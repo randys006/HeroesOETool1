@@ -59,6 +59,7 @@
 			udX = new NumericUpDown();
 			udZ = new NumericUpDown();
 			lblNode = new Label();
+			cmdShowMapProximity = new Button();
 			toolStripContainer1.ContentPanel.SuspendLayout();
 			toolStripContainer1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)udProximity).BeginInit();
@@ -237,7 +238,7 @@
 			// 
 			// cmdClearFog
 			// 
-			cmdClearFog.Location = new Point(264, 16);
+			cmdClearFog.Location = new Point(248, 12);
 			cmdClearFog.Name = "cmdClearFog";
 			cmdClearFog.Size = new Size(112, 34);
 			cmdClearFog.TabIndex = 14;
@@ -353,11 +354,22 @@
 			lblNode.Size = new Size(88, 27);
 			lblNode.TabIndex = 22;
 			// 
+			// cmdShowMapProximity
+			// 
+			cmdShowMapProximity.Location = new Point(130, 52);
+			cmdShowMapProximity.Name = "cmdShowMapProximity";
+			cmdShowMapProximity.Size = new Size(112, 34);
+			cmdShowMapProximity.TabIndex = 23;
+			cmdShowMapProximity.Text = "Proximity...";
+			cmdShowMapProximity.UseVisualStyleBackColor = true;
+			cmdShowMapProximity.Click += cmdShowMapProximity_Click;
+			// 
 			// HeroesOEMain
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(2137, 988);
+			Controls.Add(cmdShowMapProximity);
 			Controls.Add(lblNode);
 			Controls.Add(udZ);
 			Controls.Add(udX);
@@ -415,7 +427,7 @@
 		private Button cmdRefresh;
 		private Button cmdShowDiff;
 		private Button cmdOpenSide1InNotepad;
-		private Button button1;
+		private Button cmdShowMapProximity;
 		private Button cmdOpenTempDir;
 		private CheckBox cboSaveAllTags;
 		private Button cmdClearFog;

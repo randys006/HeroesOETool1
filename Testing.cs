@@ -79,7 +79,7 @@ namespace HeroesOE
 			var sg3 = new SaveGameJson3.SaveGame(matcher.GetTopLevelJson(quick, 3));
 			VPerf($"Perf:       SG3 time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 
-			var hero_list = sg3.sg.heroes.list;
+			hero_list = sg3.sg.heroes.list;
 			var game_objs = sg3.sg.objects;
 			var map_objs = sg1.sg.objects;
 			var squads = sg3.sg.squads;
@@ -158,7 +158,7 @@ namespace HeroesOE
 					string party_meta = hero_meta + "party.units[].";
 					IndentHeroDisplay(0);
 
-					HeroJson.MultiStats all_stats = new();
+					Json.HeroJson.MultiStats all_stats = new();
 					all_stats.Accumulate(info.token.stats);
 					all_stats.Accumulate(hero.statsByLevel);
 					all_stats.Accumulate(hero.additionalStats);
@@ -170,7 +170,7 @@ namespace HeroesOE
 
 					var hero_node = matcher.FindNumericOffset(quick, hero_meta + @"node");
 					var coords = MapObjects.Coords(hero.node);
-					AddHeroDisplayLine($"Node: {hero.node} ({coords.Item1},{coords.Item2})");
+					AddHeroDisplayLine($"Node: {hero.node} ({coords.Item1},{coords.Item2})", hero_node);
 					// TODO: extract file and load binary into hex editor
 					// TODO: load individual jsons from a file
 
@@ -221,19 +221,27 @@ namespace HeroesOE
 
 			map_city_objs = new();
 			map_city_info = new();
-			map_prox = new();
+			squad_prox = new();
 
-			//if (Squads) // TODO: how to interact w/map prox form?
-			Dictionary<int, Node> squad_nodes = new();
-			foreach (var squad in squads.list)
+			// load active squads
+			squad_infos = new();
+			for (int i = 0; i < squads.list.Length; ++i)
 			{
+				var squad = squads.list[i];
+				if (squad.idActive[0].active)
+				{
+					string squad_meta = $"top_level_3.squads.list[].{i}.";
+					var info = new SquadInfo(squad);
+					squad_infos[squad.id] = info;
+					info.no = matcher.FindNumericOffset(quick, $"{squad_meta}node");
 
-				var node = new Node(squad.node);
-//				if (node.DistanceTo(//TODO: current hero node))
-				//squad_nodes[squad.id] = ;
-				// TODO: import resources
-
+					for (int u = 0; u < squad.units.Length; ++u)
+					{
+						squad_infos[squad.id].units[u].no = matcher.FindNumericOffset(quick, $"{squad_meta}units[].{u}.amount");
+					}
+				}
 			}
+			VPerf($"Perf: Load active squads time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 
 			foreach (var obj in map_objs)
 			{
@@ -283,12 +291,12 @@ namespace HeroesOE
 				game_city_obj.Add(city_obj);
 				var buildings_obj = city_obj.buildings;
 
-				current_player = city_obj.ownerSide;
-				if (current_player == -1) current_player = unowned_player;
+				current_side = city_obj.ownerSide;
+				if (current_side == -1) current_side = unowned_player;
 
 				AddCityDisplayLine();
 
-				AddCityDisplayLine($"{city_obj.cityName,-24} : {city_obj.idMapObject}"); // TODO: lookup actual city name
+				AddCityDisplayLine($"{city_obj.cityName,-24} : id {city_obj.idMapObject}"); // TODO: lookup actual city name
 				AddCityName(city_obj.cityName);
 				IndentHeroDisplay();
 
@@ -299,16 +307,10 @@ namespace HeroesOE
 
 				foreach (var bldg in bases)
 				{
-					AddCityDisplayLine(bldg.sid);
+					var bldg_meta = bldgs_meta + bldg.tag;
+					AddCityDisplayLine($"{bldg.sid,-16} built: {bldg.isConstructed.ToString()}", matcher.FindTrueFalseOffset(quick, bldg_meta + "isConstructed"));
 					IndentHeroDisplay(4);
 
-					var bldg_meta = bldgs_meta + bldg.tag;
-
-					if (bldg.sid.Contains("Tier_6") && city_obj.cityName.Contains("_17"))
-					{
-						int z = 42;
-					}
-					AddCityDisplayLine($"isConstructed: {bldg.isConstructed.ToString()}", matcher.FindTrueFalseOffset(quick, bldg_meta + "isConstructed"));
 					AddCityDisplayLine($"level        : {bldg.level}", matcher.FindNumericOffset(quick, bldg_meta + "level"));
 					if (bldg is SaveGameJson3.Hire)
 					{
