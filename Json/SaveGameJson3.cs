@@ -2109,7 +2109,12 @@ namespace HeroesOE.Json
 			// a subset of SquadJson
 			public SquadInfo(SquadJson json)
 			{
-				configSid = json.configSid;
+				configSid = json.configSid
+					.Replace("squad_", "")
+					.Replace("human", "hum")
+					.Replace("demon", "dem")
+					.Replace("undead", "und")
+					.Replace("unfrozen", "unf");
 				id = json.id;
 				node = new Node(json.node);
 				// TODO: is deep-copy necessary?

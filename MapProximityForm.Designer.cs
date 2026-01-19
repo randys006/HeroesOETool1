@@ -42,7 +42,7 @@
 			lbSquads.FormattingEnabled = true;
 			lbSquads.Location = new Point(12, 87);
 			lbSquads.Name = "lbSquads";
-			lbSquads.Size = new Size(263, 654);
+			lbSquads.Size = new Size(349, 654);
 			lbSquads.TabIndex = 0;
 			lbSquads.SelectedIndexChanged += lbSquads_SelectedIndexChanged;
 			// 
@@ -58,7 +58,7 @@
 			// lbResources
 			// 
 			lbResources.FormattingEnabled = true;
-			lbResources.Location = new Point(281, 87);
+			lbResources.Location = new Point(549, 87);
 			lbResources.Name = "lbResources";
 			lbResources.Size = new Size(184, 654);
 			lbResources.TabIndex = 0;
@@ -66,7 +66,7 @@
 			// label2
 			// 
 			label2.AutoSize = true;
-			label2.Location = new Point(281, 52);
+			label2.Location = new Point(549, 52);
 			label2.Name = "label2";
 			label2.Size = new Size(91, 25);
 			label2.TabIndex = 1;
@@ -75,7 +75,7 @@
 			// lbResMines
 			// 
 			lbResMines.FormattingEnabled = true;
-			lbResMines.Location = new Point(471, 87);
+			lbResMines.Location = new Point(739, 87);
 			lbResMines.Name = "lbResMines";
 			lbResMines.Size = new Size(184, 654);
 			lbResMines.TabIndex = 0;
@@ -83,13 +83,13 @@
 			// label3
 			// 
 			label3.AutoSize = true;
-			label3.Location = new Point(471, 52);
+			label3.Location = new Point(739, 52);
 			label3.Name = "label3";
 			label3.Size = new Size(135, 25);
 			label3.TabIndex = 1;
 			label3.Text = "Resource Mines";
 			// 
-			// button1
+			// cmdRefresh
 			// 
 			cmdRefresh.Location = new Point(11, 16);
 			cmdRefresh.Name = "cmdRefresh";

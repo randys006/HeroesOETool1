@@ -334,13 +334,15 @@ namespace HeroesOE
 				var pmo = new MapProximityObject(info.configSid, home_node, info.node, info.no);
 				if (pmo.Proximity < proximity)
 				{
-					squad_prox.Add(pmo); // TODO: think it thru, then create MapProximityObject or similar
+					squad_prox.Add(pmo);
 					foreach (var unit in info.units)
 					{
-						squad_prox.Add(pmo.Spawn($"  {unit.amount} {unit.sid}", unit.no));
+						pmo.Spawn($"  {unit.amount} {unit.sid}", unit.no);
 					}
 				}
- 			}
+				// TODO: clever way to manage spawns. Current strategy is sort now, then flatten in MapProximityForm
+				squad_prox.Sort((l, r) => l.Proximity.CompareTo(r.Proximity));
+			}
 		}
 
 		private int GetHeroId(List<string> sd, int index)
@@ -701,7 +703,12 @@ namespace HeroesOE
 
 		private void cmdShowMapProximity_Click(object sender, EventArgs e)
 		{
-			if (mapProxForm == null) mapProxForm = new();
+			if (mapProxForm == null)
+			{
+				mapProxForm = new();
+				mapProxForm.main = this;
+			}
+
 			mapProxForm.Show();
 		}
 	}

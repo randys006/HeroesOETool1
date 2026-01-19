@@ -73,6 +73,8 @@ namespace HOETool
 			}
 			public MapProximityObject(string obj_text, Node home, Node obj, NumericOffset no = null)
 			{
+				node = obj;
+				home_node = home;
 				(DeltaX, DeltaZ) = home.DistanceTo(obj);
 				Text = $"{obj_text} @ ({DeltaX},{DeltaZ}) : ";
 				Proximity = DeltaX * DeltaX + DeltaZ * DeltaZ;
@@ -80,11 +82,14 @@ namespace HOETool
 				else this.no = no;
 			}
 			public string Text { get; set; }
-			public int DeltaX { get; set; } // left/right
+			public Node? node { get; internal set; }
+			public Node? home_node { get; internal set; }
+			public int DeltaX { get { return node.X - home_node.X; } set { node.node = home_node.node + value; } } // left/right
 			public int DeltaY { get; set; }  // surface/underground
-			public int DeltaZ { get; set; } // down/up
-			public int Proximity { get; set; } // square of distance
-			NumericOffset? no;
+			public int DeltaZ { get { return node.Z - home_node.Z; } set { node.node = home_node.node + value * sizeX; } } // left/right
+			public int Proximity { get; internal set; } // square of distance
+			public NumericOffset? no;
+			public List<MapProximityObject>? spawns = null;
 			// TODO: finish direction octants. They're intended to be mutually-exclusive with non-cardinals slightly larger than cardinals.
 			public bool N { get { return DeltaZ >= 0 && Math.Abs(DeltaX / DeltaZ) <= 0.5; } }
 			public bool S { get { return DeltaZ <= 0 && Math.Abs(DeltaX / DeltaZ) <= 0.5; } }
@@ -98,10 +103,13 @@ namespace HOETool
 			internal MapProximityObject Spawn(string text, NumericOffset? no)
 			{
 				var mpo = new MapProximityObject(text, no);
-				mpo.DeltaX = DeltaX;
-				mpo.DeltaY = DeltaY;
-				mpo.DeltaZ = DeltaZ;
+				mpo.node = node;
+				//mpo.DeltaX = DeltaX;
+				//mpo.DeltaY = DeltaY;
+				//mpo.DeltaZ = DeltaZ;
 				mpo.Proximity = Proximity;
+				if (spawns == null) spawns = new();
+				spawns.Add(mpo);
 
 				return mpo;
 			}

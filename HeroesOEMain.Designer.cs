@@ -417,10 +417,7 @@
 		private ListBox lbSide1;
 		private ListBox lbSide2;
 		private ListBox lbSide3;
-		private Label lblAdjust;
 		private System.Windows.Forms.Timer timer1;
-		private TextBox txtAdjustValue;
-		private Button cmdAdjust;
 		private CheckBox cboAutoRefresh;
 		private Button cmdOpenSaveDir;
 		private ListBox lbBinaryShtuff;
@@ -438,8 +435,11 @@
 		private ListBox lbMapProximity;
 		private Label label1;
 		private NumericUpDown udProximity;
-		private NumericUpDown udX;
-		private NumericUpDown udZ;
-		private Label lblNode;
+		public TextBox txtAdjustValue;
+		public Label lblAdjust;
+		public Button cmdAdjust;
+		public NumericUpDown udX;
+		public NumericUpDown udZ;
+		public Label lblNode;
 	}
 }
