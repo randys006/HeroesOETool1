@@ -1,18 +1,19 @@
 using HeroesOE.Json;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Text.Json;
+using System.Windows.Forms;
 using static HeroesOE.Globals;
+using static HeroesOE.Json.JsonFilePaths;
 using static HeroesOE.JsonBracketMatcher;
 using static HeroesOE.Screenshot.Screenshot;
 using static HeroesOE.Utilities;
-using static HeroesOE.Json.JsonFilePaths;
 using static HeroesOE.VGlobals;
 using static HOETool.MapObjects;
-using System.Diagnostics.CodeAnalysis;
 
 namespace HeroesOE
 {
@@ -26,6 +27,7 @@ namespace HeroesOE
 			timerQuicksave.Interval = 100;
 			cboAutoRefresh.Checked = true;
 
+			// List all heroes and their skills
 			foreach (var hero_info_pair in hero_infos.hero_infos)
 			{
 				var hero_info = hero_info_pair.Value;
@@ -482,6 +484,13 @@ namespace HeroesOE
 				diffForm = new HOETool.DiffForm(quicksave_path);
 			}
 			diffForm.Show();
+		}
+
+		private void cmdScreen_Click(object sender, EventArgs e)
+		{
+			if (screenForm == null) screenForm = new();
+			screenForm.timerCapture.Start();
+			screenForm.Show();
 		}
 
 		private void cmdOpenSide1InNotepad_Click(object sender, EventArgs e)

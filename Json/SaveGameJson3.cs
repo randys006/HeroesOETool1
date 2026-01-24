@@ -372,6 +372,20 @@ namespace HeroesOE.Json
 			public string[] parameters { get; set; }
 		}
 
+		public class ResMineInfo
+		{
+			public ResMineInfo(Resmine resmine, SaveGameJson1.Object obj)
+			{
+				idMapObject = resmine.idMapObject;
+				sidConfig = resmine.sidConfig;
+				ownerSide = resmine.ownerSide;
+				node = new Node(obj.nodes[0]);
+			}
+			public int idMapObject { get; set; }
+			public string sidConfig { get; set; }
+			public int ownerSide { get; set; }
+			public Node node { get; set; }
+		}
 		public class Resmine
 		{
 			public int idMapObject { get; set; }

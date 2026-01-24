@@ -10,8 +10,11 @@ namespace HeroesOE
 {
 	public class VGlobals
 	{
-		public static Verbosity verbosity { get { return Verbosity.Perf;
-				//Verbosity.Perf | Verbosity.Heroes | Verbosity.SGHeroes | Verbosity.City;
+		public static Verbosity verbosity { get { return Verbosity.Perf
+				//| Verbosity.Heroes
+				| Verbosity.SGHeroes
+				| Verbosity.City
+				;
 			} }
 
 		[Flags]

@@ -24,6 +24,7 @@ namespace HeroesOE
 
 		public static DiffForm? diffForm = null;
 		public static MapProximityForm? mapProxForm = null;
+		public static GameScreenForm? screenForm = null;
 
 		public static List<Json.HeroJson.Token> hero_tokens = new List<Json.HeroJson.Token>();
 		public static HeroInfoJson.HeroInfos hero_infos = new HeroInfoJson.HeroInfos();
@@ -38,8 +39,11 @@ namespace HeroesOE
 		public static List<List<string>> side_display = new();
 		public static List<List<NumericOffset>> side_metadata = new();
 		public static Dictionary<int, SquadInfo> squad_infos = new();
+		public static Dictionary<int, ResMineInfo> res_mine_infos = new();
 
 		public static List<MapProximityObject> squad_prox = new();
+		public static List<MapProximityObject> mine_prox = new();
+		public static List<MapProximityObject> res_prox = new();
 
 		public static List<List<HeroInfo>> current_hero_infos = new();
 		public static List<List<string>> current_city_names = new();
@@ -56,8 +60,8 @@ namespace HeroesOE
 		public static List<string> map_city_info = new();
 		public static List<SaveGameJson3.Cityobj> game_city_obj = new();
 
-		public static void AddHeroInfo(HeroInfo hero) { current_hero_infos[current_side].Add(hero); }
-		public static void AddCityName(string city) { current_city_names[current_side].Add(city); }
+		public static void AddHeroInfoToSide(HeroInfo hero) { current_hero_infos[current_side].Add(hero); }
+		public static void AddCityNameToSide(string city) { current_city_names[current_side].Add(city); }
 		internal static void NextPlayerDisplay() { if (side_display.Count <= ++current_side) AddPlayerDisplay(); hero_display_indent = 0; }
 		public static int SelectLastPlayer() { current_side = side_display.Count - 1; hero_display_indent = 0; return current_side; }
 

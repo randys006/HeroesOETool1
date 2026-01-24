@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static HeroesOE.Globals;
 using static HeroesOE.Json.SaveGameJson3;
+using static HeroesOE.JsonBracketMatcher;
 using static HeroesOE.SaveGamePlayersJson;
 using static HeroesOE.VGlobals;
 using static HOETool.MapObjects;
@@ -86,7 +87,7 @@ namespace HeroesOE
 
 			ResetHeroDisplays();
 
-			// add player basic info, resources etc.
+			// Add player basic info, resources etc.
 			foreach (var player in sg3.sg.sides.players)
 			{
 				NextPlayerDisplay();
@@ -136,6 +137,7 @@ namespace HeroesOE
 
 			RewindHeroDisplays();
 
+			// Add each side's heroes
 			for (int s = 0; s < side_heroes.Count; ++s)
 			{
 				var hero_idxs = side_heroes[s];
@@ -151,7 +153,7 @@ namespace HeroesOE
 					info.ingame_index = idx.Key;
 					string hero_idx_meta = $"top_level_3.sides.array[].{s}.sideHeroes.heroes[].{h}";
 					info.no = idx.Value;
-					AddHeroInfo(info);
+					AddHeroInfoToSide(info);
 
 					string hero_meta = $"top_level_3.heroes.list[].{idx.Value.Value}.";
 					string a_stats_meta = hero_meta + "additionalStats.";
@@ -219,6 +221,22 @@ namespace HeroesOE
 			}
 			VPerf($"Perf: Load heroes time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
 
+			// Add each side's heroes
+			for (int s = 0; s < side_heroes.Count; ++s)
+			{
+				var hero_idxs = side_heroes[s];
+				NextPlayerDisplay();
+				AddHeroDisplayLine();
+
+				VSGSides($"Heroes owned by player :");
+				//int h = 0;
+				foreach (var idx in hero_idxs)
+				{
+					ListHero(quick/*, s, h*/, idx.Key, idx.Value, true);
+				}
+			}
+			VPerf($"Perf: Load heroes time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
+
 			map_city_objs = new();
 			map_city_info = new();
 			squad_prox = new();
@@ -259,13 +277,16 @@ namespace HeroesOE
 				else if (obj.sid.Contains("mine_"))
 				{
 					var id_nodes = obj.ids.Zip(obj.nodes, (id, node) => (id, new Node(node))).ToArray();
-					var res_mines = game_objs.resMines;
-					// TODO: import mines
-					// TODO: don't know how to interpret 'objectsByType[].<i>.type' yet
 					foreach (var id_node in id_nodes)
 					{
-
+						// ownerSide
+						//res_mine_infos[id] = new ResMineInfo(...);
+						// TODO: data to change mine type
 					}
+
+					var res_mines = game_objs.resMines;
+					// TODO: add resMines
+					// TODO: don't know how to interpret 'objectsByType[].<i>.type' yet
 
 				}
 				else if (obj.sid.Contains("resource_"))
@@ -297,7 +318,7 @@ namespace HeroesOE
 				AddCityDisplayLine();
 
 				AddCityDisplayLine($"{city_obj.cityName,-24} : id {city_obj.idMapObject}"); // TODO: lookup actual city name
-				AddCityName(city_obj.cityName);
+				AddCityNameToSide(city_obj.cityName);
 				IndentHeroDisplay();
 
 				var bases = sg3.GetBuildingBases(i);
@@ -333,6 +354,79 @@ namespace HeroesOE
 				IndentHeroDisplay(0);
 			}
 			VPerf($"Perf: Load city objs time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
+		}
+
+		private static void ListHero(byte[] quick/*, int s, int h*/, int hero_index, NumericOffset no, bool owned)
+		{
+			var hero = hero_list[hero_index];
+			var info = hero_infos.hero_infos[hero.configSid];
+			info.ingame_index = hero_index;
+			//string hero_idx_meta = $"top_level_3.sides.array[].{s}.sideHeroes.heroes[].{h}";
+			info.no = no;
+			AddHeroInfoToSide(info);
+
+			string hero_meta = $"top_level_3.heroes.list[].{no.Value}.";
+			string a_stats_meta = hero_meta + "additionalStats.";
+			string party_meta = hero_meta + "party.units[].";
+			IndentHeroDisplay(0);
+
+			Json.HeroJson.MultiStats all_stats = new();
+			all_stats.Accumulate(info.token.stats);
+			all_stats.Accumulate(hero.statsByLevel);
+			all_stats.Accumulate(hero.additionalStats);
+
+			var name_level_line = $"{info.name,-26}:lvl {hero.currentLevel,2}";
+			AddHeroDisplayLine(name_level_line);
+
+			IndentHeroDisplay(2);
+
+			var hero_node = matcher.FindNumericOffset(quick, hero_meta + @"node");
+			var coords = MapObjects.Coords(hero.node);
+			AddHeroDisplayLine($"Node: {hero.node} ({coords.Item1},{coords.Item2})", hero_node);
+			// TODO: extract file and load binary into hex editor
+			// TODO: load individual jsons from a file
+
+			// only modify additional stats, but print all three plus the total
+			var offence = matcher.FindNumericOffset(quick, a_stats_meta + "offence");
+			AddHeroDisplayLine($"offence {all_stats.all_offences}", offence);
+
+			var defence = matcher.FindNumericOffset(quick, a_stats_meta + "defence");
+			AddHeroDisplayLine($"defence {all_stats.all_defences}", defence);
+
+			var spellPower = matcher.FindNumericOffset(quick, a_stats_meta + "spellPower");
+			AddHeroDisplayLine($"spellPower {all_stats.all_spellPowers}", spellPower);
+
+			var intelligence = matcher.FindNumericOffset(quick, a_stats_meta + "intelligence");
+			AddHeroDisplayLine($"intelligence {all_stats.all_intelligences}", intelligence);
+
+			var luck = matcher.FindNumericOffset(quick, a_stats_meta + "luck");
+			AddHeroDisplayLine($"luck {all_stats.all_lucks}", luck);
+
+			var moral = matcher.FindNumericOffset(quick, a_stats_meta + "moral");
+			AddHeroDisplayLine($"moral {all_stats.all_morals}", moral);
+
+			var movementBonus = matcher.FindNumericOffset(quick, a_stats_meta + "movementBonus");
+			AddHeroDisplayLine($"movementBonus {hero.additionalStats.movementBonus}", movementBonus);
+
+			var spell_points = matcher.FindNumericOffset(quick, hero_meta + "mana");
+			AddHeroDisplayLine($"mana {hero.mana}", spell_points);
+
+			var movement = matcher.FindNumericOffset(quick, hero_meta + "worldMovePoints");
+			AddHeroDisplayLine($"movement {hero.worldMovePoints}", movement);
+
+			// units are displayed in order of slot. We need to remember their index to find the right no.
+			var units = hero.party.units.ToList();
+			int i = 0;
+			foreach (var unit in units) unit.index = i++;
+			units.Sort((x, y) => x.slotPos.CompareTo(y.slotPos));
+
+			IndentHeroDisplay(4);
+			foreach (var unit in units)
+			{
+				var stat = matcher.FindNumericOffset(quick, $"{party_meta}{unit.index}.stacks");
+				AddHeroDisplayLine($"{unit.sid,-20} {unit.stacks}", stat);
+				++i;
+			}
 		}
 	}
 }
