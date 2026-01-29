@@ -27,7 +27,7 @@ namespace HeroesOE
 		public static GameScreenForm? screenForm = null;
 
 		public static List<Json.HeroJson.Token> hero_tokens = new List<Json.HeroJson.Token>();
-		public static HeroInfoJson.HeroInfos hero_infos = new HeroInfoJson.HeroInfos();
+		public static HeroInfos hero_infos = new HeroInfos();
 		public static HeroSkillsJson.HeroSkills hero_skills = new HeroSkillsJson.HeroSkills();
 		public static UnitsLogicJson.UnitsLogic units_logics = new UnitsLogicJson.UnitsLogic();
 
@@ -54,6 +54,7 @@ namespace HeroesOE
 
 		public static byte[] quickbytes = [];
 		public static byte[] sg3bytes = [];
+		public static SaveGameJson3.SaveGame? sg3_json = null;
 		public static JsonBracketMatcher? matcher = null;
 
 		public static List<SaveGameJson1.Object> map_city_objs = new();

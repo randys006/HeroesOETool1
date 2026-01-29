@@ -34,7 +34,7 @@ namespace HeroesOE
 			{
 #endif
 				Stopwatch sw = Stopwatch.StartNew();
-				var save_game = SaveGame.GetCurrentSaveGameName();
+				var save_game = SaveGame.GetMostRecentSaveGameName();
 				InfoTest("TestSaveGame", @"GetCurrentSaveGameName", save_game);
 				InfoTest("TestSaveGame", @"GetCurrentGameName", SaveGame.GetCurrentGameName(save_game));
 
@@ -86,6 +86,7 @@ namespace HeroesOE
 			var squads = sg3.sg.squads;
 
 			ResetHeroDisplays();
+			sg3_json = null;
 
 			// Add player basic info, resources etc.
 			foreach (var player in sg3.sg.sides.players)
@@ -354,6 +355,8 @@ namespace HeroesOE
 				IndentHeroDisplay(0);
 			}
 			VPerf($"Perf: Load city objs time: {sw.Elapsed.TotalNanoseconds * 1E-6}"); sw.Restart();
+
+			sg3_json = sg3;
 		}
 
 		private static void ListHero(byte[] quick/*, int s, int h*/, int hero_index, NumericOffset no, bool owned)

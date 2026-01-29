@@ -1,8 +1,11 @@
 using HeroesOE.Json;
+using HOETool;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Media;
 using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Text.Json;
@@ -22,6 +25,8 @@ namespace HeroesOE
 
 		public HeroesOEMain()
 		{
+			// TODO: add option to autoload daily saves
+			// TODO: calculate power
 			InitializeComponent();
 
 			timerQuicksave.Interval = 100;
@@ -140,17 +145,6 @@ namespace HeroesOE
 				cmdRefresh.Text = "Refresh";
 			}
 		}
-		private void timerQuicksave_Tick(object sender, EventArgs e)
-		{
-			timerQuicksave.Enabled = cboAutoRefresh.Checked;
-
-			var quick_save_time = File.GetLastWriteTimeUtc(SaveGame.CurrentQuickSave);
-			if (quick_save_time > Globals.quicksave_time)
-			{
-				if (adjust_pending) return;
-				if (!Refresh()) timerQuicksave.Enabled = true;  // retry indefinitely if Refresh failed
-			}
-		}
 
 		private void cmdAdjust_Click(object sender, EventArgs e)
 		{
@@ -224,7 +218,7 @@ namespace HeroesOE
 
 					// Adjust the stored length. The stored value seems to have a constant value added to the
 					// length (0x0168E000), but don't have much data. We'll try just shifting the stored value.
-					// TODO: json '1' only has a 3-byte length param. We don't use it yet so just hardcode a 4.
+					// TODO: json '1' only has a 3-byte length param. We don't manipulate it yet so just hardcode a 4.
 					int len_offset = matcher.FindTopLevelOpen(no.Offset) - 4;
 					int json_len = BitConverter.ToInt32(quickbytes, len_offset);
 					json_len += delta;
@@ -259,6 +253,80 @@ namespace HeroesOE
 				VDev($"{dbg_prev_pbl}{dbg_prev}'->'");
 				VDev($"{dbg_now_pbl}{dbg_now}");
 			}
+		}
+
+		private void AdjustJsonObject(NumericOffset? no, byte[]? new_value, bool write = true)
+		{
+			string dbg_prev = "";
+			int dbg_bytes = 40;
+
+			//if (no != null)
+			//{
+			//	no.Value = int.Parse(new_value);
+			//	if (no is JsonBracketMatcher.TrueFalseOffset)
+			//	{
+			//		new_value = encoding.GetBytes(((TrueFalseOffset)no).StringValue);
+			//	}
+
+			int delta = new_value.Length - no.Length;
+
+			//dbg_prev1 = encoding.GetString(quickbytes, no.Offset - dbg_bytes, dbg_bytes);
+			//dbg_prev2 = encoding.GetString(quickbytes, no.Offset + no.Length - dbg_bytes, dbg_bytes);
+			Debug.WriteLine($"{encoding.GetString(quickbytes, no.Offset - dbg_bytes, dbg_bytes)}  {encoding.GetString(quickbytes, no.Offset, 1)}  {encoding.GetString(quickbytes, no.Offset + 1, dbg_bytes)}");
+			Debug.WriteLine($"{encoding.GetString(quickbytes, no.End - dbg_bytes, dbg_bytes)}  {encoding.GetString(quickbytes, no.End, 1)}  {encoding.GetString(quickbytes, no.End + 1, dbg_bytes)}");
+
+			if (delta == 0)
+				Array.Copy(new_value, 0, quickbytes, no.Offset, no.Length);
+			else
+			{
+				byte[] buf = new byte[quickbytes.Length + delta];
+				int copy1 = no.Offset;
+				int copy2 = new_value.Length;
+				int copy3 = quickbytes.Length - no.Offset - no.Length;
+				int total_bytes_to_copy = copy1 + copy2 + copy3;
+				Debug.Assert(buf.Length == total_bytes_to_copy);
+
+				// Adjust the stored length. The stored value seems to have a constant value added to the
+				// length (0x0168E000), but don't have much data. We'll try just shifting the stored value.
+				// TODO: json '1' only has a 3-byte length param. We don't manipulate it yet so just hardcode a 4.
+				int len_offset = matcher.FindTopLevelOpen(no.Offset) - 4;
+				int json_len1 = BitConverter.ToInt32(quickbytes, len_offset);
+				int json_len = json_len1 + delta;
+				WriteIntToBytes(quickbytes, json_len, len_offset);
+
+				Buffer.BlockCopy(quickbytes, 0, buf, 0, copy1);
+				Buffer.BlockCopy(new_value, 0, buf, copy1, copy2);
+				Buffer.BlockCopy(quickbytes, copy1 + no.Length, buf, copy1 + copy2, copy3);
+
+				no.Length = new_value.Length;
+				Debug.WriteLine($"{encoding.GetString(buf, no.Offset - dbg_bytes, dbg_bytes)}  {encoding.GetString(buf, no.Offset, 1)}  {encoding.GetString(buf, no.Offset + 1, dbg_bytes)}");
+				Debug.WriteLine($"{encoding.GetString(buf, no.End - dbg_bytes, dbg_bytes)}  {encoding.GetString(buf, no.End, 1)}  {encoding.GetString(buf, no.End + 1, dbg_bytes)}");
+
+				// verify
+				//for (int i = 0; i < new_value.Length; ++i)
+				//{
+				//	Debug.Assert(buf[current_no.Offset + i] == new_value[i]);
+				//}
+				//for (int i = new_value.Length; i < new_value.Length + 4; ++i)
+				//{
+				//	Debug.Assert(buf[current_no.Offset + i] == quickbytes[current_no.Offset + i - delta]);
+				//}
+
+				quickbytes = buf;
+			}
+			//}
+			if (write)
+			{
+				Zip.WriteBytesToGzip(quickbytes, quicksave_path);
+			}
+			//if (no != null)
+			//{
+			//	var dbg_now = encoding.GetString(quickbytes, no.Offset - 20, no.Length + 40);
+			//	string dbg_prev_pbl = $"Adjust: idx={no.Offset,8} len={no.Length,4}";
+			//	string dbg_now_pbl = new string(' ', dbg_prev_pbl.Length);
+			//	VDev($"{dbg_prev_pbl}{dbg_prev}'->'");
+			//	VDev($"{dbg_now_pbl}{dbg_now}");
+			//}
 		}
 
 		private void UpdateSelectedPlayerValue(int player, int index)
@@ -330,7 +398,7 @@ namespace HeroesOE
 			squad_prox = new();
 
 			// squads
-			foreach(var squad_info in squad_infos)
+			foreach (var squad_info in squad_infos)
 			{
 				var info = squad_info.Value;
 				var pmo = new MapProximityObject(info.configSid, home_node, info.node, info.no);
@@ -355,11 +423,11 @@ namespace HeroesOE
 			{
 				var hd = sd[i];
 				if (hd.Contains(":lvl"))
-				{	// increment each hero line we find
+				{   // increment each hero line we find
 					id++;
 				}
 				else if (hd.Contains(": id "))
-				{	// if we get to a city, it's not a hero line
+				{   // if we get to a city, it's not a hero line
 					id = -1;
 					break;
 				}
@@ -411,6 +479,25 @@ namespace HeroesOE
 		private void cboAutoRefresh_CheckedChanged(object sender, EventArgs e)
 		{
 			timerQuicksave.Enabled = cboAutoRefresh.Checked;
+		}
+
+		private void cboAllSaveGames_CheckedChanged(object sender, EventArgs e)
+		{
+			if (!cboAllSaveGames.Checked)
+			{
+				cboAutoRefresh.Checked = true;
+			}
+		}
+		private void timerQuicksave_Tick(object sender, EventArgs e)
+		{
+			timerQuicksave.Enabled = cboAutoRefresh.Checked;
+
+			var quick_save_time = File.GetLastWriteTimeUtc(SaveGame.CurrentQuickSave);
+			if (quick_save_time > Globals.quicksave_time)
+			{
+				if (adjust_pending) return;
+				if (!Refresh()) timerQuicksave.Enabled = true;  // retry indefinitely if Refresh failed
+			}
 		}
 
 		private void cmdOpenSaveDir_Click(object sender, EventArgs e)
@@ -491,6 +578,123 @@ namespace HeroesOE
 			if (screenForm == null) screenForm = new();
 			screenForm.timerCapture.Start();
 			screenForm.Show();
+		}
+
+		private void cmdTestStuff_Click(object sender, EventArgs e)
+		{
+			// So far, nothing has worked for manipulating troops. I think the classes are correct,
+			// but there are minor differences in json output such as writing '0' instead of '0.0'.
+
+			// Next, try just changing one of the units:
+
+			string rufus_u3_meta = $"top_level_3.heroes.list[].64.party.units[].3";
+			var rufus_u3_node = matcher.FindObjectOffset(quickbytes, rufus_u3_meta, "sid");
+			if (rufus_u3_node == NumericOffset.Invalid) { SystemSounds.Asterisk.Play(); return; }
+
+			AdjustJsonObject(rufus_u3_node, "eldritch_flyer"u8.ToArray());
+
+			return;
+
+			// switch the player's first tavern hero to be Eye Collective
+			//var eye = hero_infos.hero_infos["unfrozen_hero_13"];
+			// Strategy:
+			// x0. reload the JSON with the arrays we skip (actually just try loading it all first)
+			// 1. manipulate the JSON instance
+			//    a. Add troops
+			// 2. adjust the entire hero in the json
+			// 3. adjust the index in heroesHirePool
+			// 4. remove from heroes.pool
+			// 3. write the quicksave
+			if (sg3_json == null) { SystemSounds.Asterisk.Play(); return; }
+
+			string eye_meta = $"top_level_3.heroes.list[].79";
+			var eye_node = matcher.FindObjectOffset(quickbytes, eye_meta);
+			if (eye_node == NumericOffset.Invalid) { SystemSounds.Asterisk.Play(); return; }
+
+			string rufus_meta = $"top_level_3.heroes.list[].64";
+			var rufus_node = matcher.FindObjectOffset(quickbytes, rufus_meta);
+			if (rufus_node == NumericOffset.Invalid) { SystemSounds.Asterisk.Play(); return; }
+
+			string pool_meta = "top_level_3.sides.array[].0.heroesHirePool";
+			var pool_node = matcher.FindObjectOffset(quickbytes, pool_meta);
+			if (pool_node == NumericOffset.Invalid) { SystemSounds.Asterisk.Play(); return; }
+
+			string hire_pool_meta = "top_level_3.sides.array[].0.heroesHirePool.heroes[].0";
+			var hire_pool_node = matcher.FindNumericOffset(quickbytes, hire_pool_meta);
+			if (hire_pool_node == NumericOffset.Invalid) { SystemSounds.Asterisk.Play(); return; }
+			int old_hire_pool = sg3_json.sg.heroes.pool.list[0];
+
+			// 1. update hero json
+			// 79=eye collective
+			// 64=lord rufus
+			byte[] rufus0 = new byte[rufus_node.Length];
+			Buffer.BlockCopy(quickbytes, rufus_node.Offset, rufus0, 0, rufus_node.Length);
+			File.WriteAllBytes(temp_path + "rufus0.json", rufus0);
+
+			var rufus = sg3_json.sg.heroes.list[64];
+			{
+				var options = new JsonSerializerOptions { WriteIndented = true, IndentCharacter = '\t', IndentSize = 1 };
+				byte[] rufus_bytes1 = JsonSerializer.SerializeToUtf8Bytes(rufus, options);
+				File.WriteAllBytes(temp_path + "rufus1.json", rufus_bytes1);
+			}
+
+			List<SaveGameJson3.PartyUnit> units = rufus.party.units.ToList();
+			units.Add(new SaveGameJson3.PartyUnit() { sid = "eldritch_flyer", stacks = 8, slotPos = 6 });
+			rufus.party.units = units.ToArray();
+			byte[] rufus_bytes2 = JsonSerializer.SerializeToUtf8Bytes(rufus);
+
+			Debug.WriteLine($"rufus node: @{rufus_node.Offset}:{rufus_node.Length}. New: {rufus_bytes2.Length}");
+			File.WriteAllBytes(temp_path + "rufus2.json", rufus_bytes2);
+
+			// 2. write
+			AdjustJsonObject(rufus_node, rufus_bytes2);
+
+			//var eye = sg3_json.sg.heroes.list[79];
+			//List<SaveGameJson3.PartyUnit> units = new();
+			//units.Add(new SaveGameJson3.PartyUnit() { sid = "lesser_eldritch", stacks = 20, slotPos = 0 });
+			//units.Add(new SaveGameJson3.PartyUnit() { sid = "eldritch_flyer", stacks = 4, slotPos = 1 });
+			//units.Add(new SaveGameJson3.PartyUnit() { sid = "eldritch_flyer", stacks = 4, slotPos = 2 });
+			//eye.party.units = units.ToArray();
+			//byte[] eye_bytes = JsonSerializer.SerializeToUtf8Bytes(eye);
+
+			//Debug.WriteLine($"Eye node: @{eye_node.Offset}:{eye_node.Length}. New: {eye_bytes.Length}");
+			//File.WriteAllBytes(temp_path + "eye.json", eye_bytes);
+
+			//// 2. write
+			//AdjustJsonObject(eye_node, eye_bytes);
+#if PUT_EYE_IN_TAVERN
+			// 3. replace in heroesHirePool
+			AdjustJsonValue(hire_pool_node, encoding.GetBytes("79"));
+
+			// 4. remove from heroes.pool if it is there
+
+			var pool = sg3_json.sg.heroes.pool;
+			var pool_list = sg3_json.sg.heroes.pool.list.ToList();
+			var pool_count = pool_list.Count;
+			for (int i = 0; i < pool_list.Count; ++i)
+			{
+				if (pool_list[i] == 79)
+				{
+					pool_list.RemoveAt(i);
+				}
+			}
+			if (pool_list.Count != pool_count)
+			{	// successfully removed
+				for (int i = 0; i < pool_list.Count; ++i)
+				{
+					if ( pool_list[i] > old_hire_pool) { pool_list.Insert(i, old_hire_pool); break; }
+				}
+				if (pool_list.Count != pool_count) pool_list.Add(old_hire_pool);
+
+				pool.list = pool_list.ToArray();
+				byte[] pool_bytes = JsonSerializer.SerializeToUtf8Bytes(pool);
+				AdjustJsonObject(pool_node, pool_bytes);
+			}
+			else
+			{
+				int i = 42; // Hero was not in the pool. This is probably bad.
+			}
+#endif
 		}
 
 		private void cmdOpenSide1InNotepad_Click(object sender, EventArgs e)

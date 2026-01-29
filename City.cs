@@ -418,7 +418,7 @@ namespace HeroesOE
 		public int[] values { get; set; }
 		public Cost[] costs { get; set; }
 	}
-	public class Unit
+	public class HireUnit
 	{
 		public string[] sids { get; set; }
 		public int weeklyIncrement { get; set; }
@@ -439,7 +439,7 @@ namespace HeroesOE
 	}
 	public class Unitshire
 	{
-		public Unit[] units { get; set; }
+		public HireUnit[] units { get; set; }
 	}
 	public class Wall : Building
 	{

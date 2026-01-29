@@ -11,7 +11,7 @@ namespace HeroesOE
 	{
 		public const string saves_path = @"C:\Users\randy\AppData\LocalLow\Unfrozen\HeroesOE\saves\Singleplayer";
 
-		public static string GetCurrentSaveGameName()
+		public static string GetMostRecentSaveGameName(bool quick = false)
 		{
 			// list all folders
 			// parse each folder, compare the timestamp of most recent changed file
@@ -34,6 +34,7 @@ namespace HeroesOE
 				}
 			}
 
+			most_recent_save_game = save_game;
 			return save_game;
 		}
 
@@ -41,7 +42,7 @@ namespace HeroesOE
 		{
 			// TODO: GetCurrentGameName algorithm
 			if (string.IsNullOrEmpty(save_game))
-				save_game = GetCurrentSaveGameName();
+				save_game = GetMostRecentSaveGameName();
 
 			return Path.GetDirectoryName(save_game);
 		}
@@ -65,6 +66,9 @@ namespace HeroesOE
 
 		public static string? save_game;
 		public static string? last_autosave_day;
+		private static string? most_recent_save_game;
+
 		public static string CurrentQuickSave { get { return GetCurrentGameName() + @"\quicksave.saveskirmish"; } }
+
 	}
 }

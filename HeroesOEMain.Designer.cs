@@ -1,4 +1,5 @@
 ﻿
+
 namespace HeroesOE
 {
     partial class HeroesOEMain
@@ -47,6 +48,7 @@ namespace HeroesOE
 			cmdRefresh = new Button();
 			cmdShowDiff = new Button();
 			cmdOpenSide1InNotepad = new Button();
+			cmdTestStuff = new Button();
 			cmdOpenTempDir = new Button();
 			cboSaveAllTags = new CheckBox();
 			cmdClearFog = new Button();
@@ -62,6 +64,7 @@ namespace HeroesOE
 			lblNode = new Label();
 			cmdShowMapProximity = new Button();
 			cmdScreen = new Button();
+			cboAllSaveGames = new CheckBox();
 			toolStripContainer1.ContentPanel.SuspendLayout();
 			toolStripContainer1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)udProximity).BeginInit();
@@ -169,11 +172,10 @@ namespace HeroesOE
 			// 
 			// cboAutoRefresh
 			// 
-			cboAutoRefresh.AutoSize = true;
-			cboAutoRefresh.Location = new Point(293, 66);
+			cboAutoRefresh.Location = new Point(293, 38);
 			cboAutoRefresh.Margin = new Padding(2);
 			cboAutoRefresh.Name = "cboAutoRefresh";
-			cboAutoRefresh.Size = new Size(52, 19);
+			cboAutoRefresh.Size = new Size(52, 22);
 			cboAutoRefresh.TabIndex = 5;
 			cboAutoRefresh.Text = "Auto";
 			cboAutoRefresh.UseVisualStyleBackColor = true;
@@ -223,14 +225,25 @@ namespace HeroesOE
 			// 
 			// cmdOpenSide1InNotepad
 			// 
-			cmdOpenSide1InNotepad.Location = new Point(293, 40);
+			cmdOpenSide1InNotepad.Location = new Point(214, 66);
 			cmdOpenSide1InNotepad.Margin = new Padding(2);
 			cmdOpenSide1InNotepad.Name = "cmdOpenSide1InNotepad";
-			cmdOpenSide1InNotepad.Size = new Size(52, 20);
+			cmdOpenSide1InNotepad.Size = new Size(60, 32);
 			cmdOpenSide1InNotepad.TabIndex = 10;
 			cmdOpenSide1InNotepad.Text = "Jsons...";
 			cmdOpenSide1InNotepad.UseVisualStyleBackColor = true;
 			cmdOpenSide1InNotepad.Click += cmdOpenSide1InNotepad_Click;
+			// 
+			// cmdTestStuff
+			// 
+			cmdTestStuff.Location = new Point(214, 31);
+			cmdTestStuff.Margin = new Padding(2);
+			cmdTestStuff.Name = "cmdTestStuff";
+			cmdTestStuff.Size = new Size(60, 32);
+			cmdTestStuff.TabIndex = 25;
+			cmdTestStuff.Text = "Testing!";
+			cmdTestStuff.UseVisualStyleBackColor = true;
+			cmdTestStuff.Click += cmdTestStuff_Click;
 			// 
 			// cmdOpenTempDir
 			// 
@@ -245,11 +258,10 @@ namespace HeroesOE
 			// 
 			// cboSaveAllTags
 			// 
-			cboSaveAllTags.AutoSize = true;
-			cboSaveAllTags.Location = new Point(293, 83);
+			cboSaveAllTags.Location = new Point(293, 80);
 			cboSaveAllTags.Margin = new Padding(2);
 			cboSaveAllTags.Name = "cboSaveAllTags";
-			cboSaveAllTags.Size = new Size(75, 19);
+			cboSaveAllTags.Size = new Size(75, 22);
 			cboSaveAllTags.TabIndex = 13;
 			cboSaveAllTags.Text = "Save tags";
 			cboSaveAllTags.UseVisualStyleBackColor = true;
@@ -403,6 +415,17 @@ namespace HeroesOE
 			cmdScreen.UseVisualStyleBackColor = true;
 			cmdScreen.Click += cmdScreen_Click;
 			// 
+			// cboAllSaveGames
+			// 
+			cboAllSaveGames.Location = new Point(293, 58);
+			cboAllSaveGames.Margin = new Padding(2);
+			cboAllSaveGames.Name = "cboAllSaveGames";
+			cboAllSaveGames.Size = new Size(52, 22);
+			cboAllSaveGames.TabIndex = 5;
+			cboAllSaveGames.Text = "All";
+			cboAllSaveGames.UseVisualStyleBackColor = true;
+			cboAllSaveGames.CheckedChanged += cboAllSaveGames_CheckedChanged;
+			// 
 			// HeroesOEMain
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -420,11 +443,13 @@ namespace HeroesOE
 			Controls.Add(cboSaveAllTags);
 			Controls.Add(cmdOpenTempDir);
 			Controls.Add(cmdOpenSide1InNotepad);
+			Controls.Add(cmdTestStuff);
 			Controls.Add(cmdShowDiff);
 			Controls.Add(cmdRefresh);
 			Controls.Add(lbMapProximity);
 			Controls.Add(lbBinaryShtuff);
 			Controls.Add(cmdOpenSaveDir);
+			Controls.Add(cboAllSaveGames);
 			Controls.Add(cboAutoRefresh);
 			Controls.Add(cmdAdjust);
 			Controls.Add(txtAdjustValue);
@@ -465,6 +490,7 @@ namespace HeroesOE
 		private Button cmdRefresh;
 		private Button cmdShowDiff;
 		private Button cmdOpenSide1InNotepad;
+		private Button cmdTestStuff;
 		private Button cmdShowMapProximity;
 		private Button cmdOpenTempDir;
 		private CheckBox cboSaveAllTags;
@@ -483,5 +509,6 @@ namespace HeroesOE
 		public NumericUpDown udZ;
 		public Label lblNode;
 		private Button cmdScreen;
+		private CheckBox cboAllSaveGames;
 	}
 }

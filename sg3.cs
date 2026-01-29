@@ -1,82 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using static HeroesOE.JsonBracketMatcher;
-using static HOETool.MapObjects;
 
-namespace HeroesOE.Json
+namespace HOETool
 {
-	public class SaveGameJson3
+	internal class sg3
 	{
-		// This is the 4th json blob in the quicksave which contains the sides and lists of heroes.
-		public class SaveGame
-		{
-			public SaveGame(string json/*, JsonBracketMatcher matcher*/)
-			{
-				sg = JsonSerializer.Deserialize<Rootobject>(json);
-			}
-
-			public void Write(string out_path, string save_path, DateTime dateTime)
-			{
-				Wrapper wrapper = new Wrapper();
-				wrapper.Description = "This is the 3rd json blob from the following savegame file.";
-				wrapper.Path = save_path;
-				wrapper.WrittenDateTimeUtc = dateTime.ToUniversalTime().ToString();
-				wrapper.rootobject = sg;
-
-				var options = new JsonSerializerOptions { WriteIndented = true, IndentCharacter = '\t', IndentSize = 1 };
-				var json = JsonSerializer.Serialize<Wrapper>(wrapper, options);
-				File.WriteAllText(out_path, json);
-			}
-			public List<BuildingBase> GetBuildingBases(int city_index)
-			{
-				var list = new List<BuildingBase>();
-				var bldgs = sg.objects.cityObjs[city_index].buildings;
-				list.AddRange(bldgs.mains);
-				list.AddRange(bldgs.taverns);
-				list.AddRange(bldgs.markets);
-				list.AddRange(bldgs.hires);
-				list.AddRange(bldgs.magicGuilds);
-				list.AddRange(bldgs.banks);
-				list.AddRange(bldgs.manaFountains);
-				list.AddRange(bldgs.intelligences);
-				list.AddRange(bldgs.bonusBanks);
-				list.AddRange(bldgs.unitsConverters);
-				list.AddRange(bldgs.trainingRanges);
-				list.AddRange(bldgs.rebirthShrines);
-				list.AddRange(bldgs.heroBonusBanks);
-				list.AddRange(bldgs.cityBonusBanks);
-				list.AddRange(bldgs.myceliumRoots);
-				list.AddRange(bldgs.portalSummonings);
-				list.AddRange(bldgs.artifactChangers);
-				list.AddRange(bldgs.artifactMarkets);
-				list.AddRange(bldgs.walls);
-
-				return list;
-			}
-
-			public Rootobject sg;
-		}
-
-		public bool AdjustJsonValue(string new_value)
-		{
-			return false;
-		}
-
-		public class Wrapper
+		public class Rootobject
 		{
 			public string Description { get; set; }
 			public string Path { get; set; }
 			public string WrittenDateTimeUtc { get; set; }
-			public Rootobject rootobject { get; set; }
+			public Rootobject1 rootobject { get; set; }
 		}
-		
-		public class Rootobject
+
+		public class Rootobject1
 		{
 			public Objects objects { get; set; }
 			public Markers markers { get; set; }
@@ -120,31 +60,30 @@ namespace HeroesOE.Json
 			public Resmine[] resMines { get; set; }
 			public Cityobj[] cityObjs { get; set; }
 			public Marketobj[] marketObjs { get; set; }
-			public object[] tavernObjs { get; set; }
-			public Portalobj[] portalObjs { get; set; }
+			public Tavernobj[] tavernObjs { get; set; }
+			public object[] portalObjs { get; set; }
 			public object[] blockObjs { get; set; }
 			public Chestobj[] chestObjs { get; set; }
-			public object[] prisonObjs { get; set; }
+			public Prisonobj[] prisonObjs { get; set; }
 			public Restradelab[] resTradeLabs { get; set; }
 			public object[] outposts { get; set; }
-			public object[] garrisons { get; set; }
+			public Garrison[] garrisons { get; set; }
 			public Itemmarket[] itemMarkets { get; set; }
 			public Randomhire[] randomHires { get; set; }
 			public Unitupgrade[] unitUpgrades { get; set; }
 			public object[] eternalDragons { get; set; }
 			public object[] insarasEyes { get; set; }
-			public object[] chimerologists { get; set; }
-			public object[] sacrificialShrines { get; set; }
-			public Gladiatorarena[] gladiatorArenas { get; set; }
-			public object[] mirages { get; set; }
+			public Chimerologist[] chimerologists { get; set; }
+			public Sacrificialshrine[] sacrificialShrines { get; set; }
+			public object[] gladiatorArenas { get; set; }
+			public Mirage[] mirages { get; set; }
 			public object[] fickleShrines { get; set; }
-			public object[] magicMines { get; set; }
+			public Magicmine[] magicMines { get; set; }
 			public object[] townGates { get; set; }
 			public object[] unitResTradeLabs { get; set; }
 			public Citiesnamespool citiesNamesPool { get; set; }
 		}
 
-		// these are the internal names ('human_city_1' etc)
 		public class Citiesnamespool
 		{
 			public Citiesnamesperfractiondict citiesNamesPerFractionDict { get; set; }
@@ -177,14 +116,14 @@ namespace HeroesOE.Json
 			public int aiValue { get; set; }
 			public Garnisonparty garnisonParty { get; set; }
 			public Rewardset rewardSet { get; set; }
-			public int?[] sideScoutings { get; set; }
+			public object[] sideScoutings { get; set; }
 			public int lastInteractedSide { get; set; }
 			public Resourceslist[] resourcesList { get; set; }
 		}
 
 		public class Garnisonparty
 		{
-			public PartyUnit[] units { get; set; }
+			public object[] units { get; set; }
 		}
 
 		public class Rewardset
@@ -215,16 +154,28 @@ namespace HeroesOE.Json
 			public bool released { get; set; }
 			public int ownerSide { get; set; }
 			public bool isNeutralObj { get; set; }
-			public IdActive[] properties { get; set; }
+			public Property1[] properties { get; set; }
 			public int aiValue { get; set; }
-			public Garnisonparty garnisonParty { get; set; }
+			public Garnisonparty1 garnisonParty { get; set; }
 			public Rewardset1 rewardSet { get; set; }
-			public int?[] sideScoutings { get; set; }
+			public object[] sideScoutings { get; set; }
 			public int lastInteractedSide { get; set; }
 			public Initguardunit[] initGuardUnits { get; set; }
 			public Assortmentdata assortmentData { get; set; }
 			public bool isConstantGrowth { get; set; }
 			public int countGrowth { get; set; }
+		}
+
+		public class Garnisonparty1
+		{
+			public Unit[] units { get; set; }
+		}
+
+		public class Unit
+		{
+			public string sid { get; set; }
+			public int stacks { get; set; }
+			public int slotPos { get; set; }
 		}
 
 		public class Rewardset1
@@ -245,7 +196,7 @@ namespace HeroesOE.Json
 		public class Assortmentdata
 		{
 			public Unitset[] unitSets { get; set; }
-			public float extraCharge { get; set; }
+			public int extraCharge { get; set; }
 		}
 
 		public class Unitset
@@ -254,6 +205,13 @@ namespace HeroesOE.Json
 			public int level { get; set; }
 			public int weeklyIncrement { get; set; }
 			public int currentAmount { get; set; }
+		}
+
+		public class Property1
+		{
+			public int id { get; set; }
+			public bool active { get; set; }
+			public int dataId { get; set; }
 		}
 
 		public class Initguardunit
@@ -270,12 +228,17 @@ namespace HeroesOE.Json
 			public bool released { get; set; }
 			public int ownerSide { get; set; }
 			public bool isNeutralObj { get; set; }
-			public IdActive[] properties { get; set; }
+			public Property2[] properties { get; set; }
 			public int aiValue { get; set; }
-			public Garnisonparty garnisonParty { get; set; }
+			public Garnisonparty2 garnisonParty { get; set; }
 			public Rewardset2 rewardSet { get; set; }
 			public object[] sideScoutings { get; set; }
 			public int lastInteractedSide { get; set; }
+		}
+
+		public class Garnisonparty2
+		{
+			public object[] units { get; set; }
 		}
 
 		public class Rewardset2
@@ -293,6 +256,13 @@ namespace HeroesOE.Json
 			public string selectionWindowType { get; set; }
 		}
 
+		public class Property2
+		{
+			public int id { get; set; }
+			public bool active { get; set; }
+			public int dataId { get; set; }
+		}
+
 		public class Eventbankobj
 		{
 			public int idMapObject { get; set; }
@@ -300,13 +270,25 @@ namespace HeroesOE.Json
 			public bool released { get; set; }
 			public int ownerSide { get; set; }
 			public bool isNeutralObj { get; set; }
-			public IdActive[] properties { get; set; }
+			public Property3[] properties { get; set; }
 			public int aiValue { get; set; }
-			public Garnisonparty garnisonParty { get; set; }
+			public Garnisonparty3 garnisonParty { get; set; }
 			public Rewardset3 rewardSet { get; set; }
-			public int?[] sideScoutings { get; set; }
+			public object[] sideScoutings { get; set; }
 			public int lastInteractedSide { get; set; }
-			public int?[] visitorsList { get; set; }
+			public object[] visitorsList { get; set; }
+		}
+
+		public class Garnisonparty3
+		{
+			public Unit1[] units { get; set; }
+		}
+
+		public class Unit1
+		{
+			public string sid { get; set; }
+			public int stacks { get; set; }
+			public int slotPos { get; set; }
 		}
 
 		public class Rewardset3
@@ -343,20 +325,13 @@ namespace HeroesOE.Json
 			public string[] parameters { get; set; }
 		}
 
-		public class ResMineInfo
+		public class Property3
 		{
-			public ResMineInfo(Resmine resmine, SaveGameJson1.Object obj)
-			{
-				idMapObject = resmine.idMapObject;
-				sidConfig = resmine.sidConfig;
-				ownerSide = resmine.ownerSide;
-				node = new Node(obj.nodes[0]);
-			}
-			public int idMapObject { get; set; }
-			public string sidConfig { get; set; }
-			public int ownerSide { get; set; }
-			public Node node { get; set; }
+			public int id { get; set; }
+			public bool active { get; set; }
+			public int dataId { get; set; }
 		}
+
 		public class Resmine
 		{
 			public int idMapObject { get; set; }
@@ -366,10 +341,15 @@ namespace HeroesOE.Json
 			public bool isNeutralObj { get; set; }
 			public object[] properties { get; set; }
 			public int aiValue { get; set; }
-			public Garnisonparty garnisonParty { get; set; }
+			public Garnisonparty4 garnisonParty { get; set; }
 			public Rewardset4 rewardSet { get; set; }
-			public int?[] sideScoutings { get; set; }
+			public object[] sideScoutings { get; set; }
 			public int lastInteractedSide { get; set; }
+		}
+
+		public class Garnisonparty4
+		{
+			public object[] units { get; set; }
 		}
 
 		public class Rewardset4
@@ -394,11 +374,11 @@ namespace HeroesOE.Json
 			public bool released { get; set; }
 			public int ownerSide { get; set; }
 			public bool isNeutralObj { get; set; }
-			public IdActive[] properties { get; set; }
+			public Property4[] properties { get; set; }
 			public int aiValue { get; set; }
-			public Garnisonparty garnisonParty { get; set; }
+			public Garnisonparty5 garnisonParty { get; set; }
 			public Rewardset5 rewardSet { get; set; }
-			public int?[] sideScoutings { get; set; }
+			public object[] sideScoutings { get; set; }
 			public int lastInteractedSide { get; set; }
 			public int garnisonHeroId { get; set; }
 			public int visitorHeroId { get; set; }
@@ -410,6 +390,11 @@ namespace HeroesOE.Json
 			public int aiBuildOrder { get; set; }
 			public bool isConstantGrowth { get; set; }
 			public int countGrowth { get; set; }
+		}
+
+		public class Garnisonparty5
+		{
+			public Unit2[] units { get; set; }
 		}
 
 		public class Unit2
@@ -441,29 +426,6 @@ namespace HeroesOE.Json
 
 		public class Buildings
 		{
-			[JsonConstructor]
-			public Buildings()
-			{
-				Main.id = 0;
-				Tavern.id = 0;
-				Market.id = 0;
-				Hire.id = 0;
-				Magicguild.id = 0;
-				Bank.id = 0;
-				Manafountain.id = 0;
-				Intelligence.id = 0;
-				Bonusbank.id = 0;
-				Unitsconverter.id = 0;
-				TrainingRange.id = 0;
-				RebirthShrine.id = 0;
-				Herobonusbank.id = 0;
-				CityBonusBank.id = 0;
-				MyceliumRoot.id = 0;
-				PortalSummoning.id = 0;
-				Artifactchanger.id = 0;
-				Artifactmarket.id = 0;
-				Wall.id = 0;
-			}
 			public Main[] mains { get; set; }
 			public Tavern[] taverns { get; set; }
 			public Market[] markets { get; set; }
@@ -474,20 +436,21 @@ namespace HeroesOE.Json
 			public Intelligence[] intelligences { get; set; }
 			public Bonusbank[] bonusBanks { get; set; }
 			public Unitsconverter[] unitsConverters { get; set; }
-			public TrainingRange[] trainingRanges { get; set; }
-			public RebirthShrine[] rebirthShrines { get; set; }
+			public Trainingrange[] trainingRanges { get; set; }
+			public object[] rebirthShrines { get; set; }
 			public Herobonusbank[] heroBonusBanks { get; set; }
-			public CityBonusBank[] cityBonusBanks { get; set; }
-			public MyceliumRoot[] myceliumRoots { get; set; }
-			public PortalSummoning[] portalSummonings { get; set; }
+			public object[] cityBonusBanks { get; set; }
+			public object[] myceliumRoots { get; set; }
+			public Portalsummoning[] portalSummonings { get; set; }
 			public Artifactchanger[] artifactChangers { get; set; }
 			public Artifactmarket[] artifactMarkets { get; set; }
 			public Wall[] walls { get; set; }
 			public int todaysConstructionsCount { get; set; }
 		}
-		public class BuildingBase
+
+		public class Main
 		{
-			public string tag;	// for meta
+			public bool wasApplied { get; set; }
 			public string sid { get; set; }
 			public int level { get; set; }
 			public bool isConstructed { get; set; }
@@ -495,37 +458,43 @@ namespace HeroesOE.Json
 			public bool[] bansPerLevel { get; set; }
 			public int levelOnStart { get; set; }
 		}
-		public class Main : BuildingBase
+
+		public class Tavern
 		{
-			[JsonConstructor] Main() : base() { tag = $"mains[].{id++}."; }
-			public static int id = 0;
-			public bool wasApplied { get; set; }
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
 
-		public class Tavern : BuildingBase
+		public class Market
 		{
-			[JsonConstructor] Tavern() { tag = $"taverns[].{id++}."; }
-			public static int id = 0;
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
 
-		public class Market : BuildingBase
+		public class Hire
 		{
-			[JsonConstructor] Market() { tag = $"markets[].{id++}."; }
-			public static int id = 0;
-		}
-
-		public class Hire : BuildingBase
-		{
-			[JsonConstructor] Hire() { tag = $"hires[].{id++}."; }
-			public static int id = 0;
 			public Assortment assortment { get; set; }
 			public bool isUsePropGrowth { get; set; }
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
 
 		public class Assortment
 		{
 			public Unitset1[] unitSets { get; set; }
-			public float extraCharge { get; set; }
+			public int extraCharge { get; set; }
 		}
 
 		public class Unitset1
@@ -536,11 +505,15 @@ namespace HeroesOE.Json
 			public int currentAmount { get; set; }
 		}
 
-		public class Magicguild : BuildingBase
+		public class Magicguild
 		{
-			[JsonConstructor] Magicguild() { tag = $"magicGuilds[].{id++}."; }
-			public static int id = 0;
 			public Magicguildsinfo[] magicGuildsInfo { get; set; }
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
 
 		public class Magicguildsinfo
@@ -562,88 +535,110 @@ namespace HeroesOE.Json
 		public class Val1
 		{
 			public string magicSid { get; set; }
-			public int?[] ownersIndex { get; set; }
+			public object[] ownersIndex { get; set; }
 		}
 
-		public class Bank : BuildingBase
+		public class Bank
 		{
-			[JsonConstructor] Bank() { tag = $"banks[].{id++}."; }
-			public static int id = 0;
 			public bool wasApplied { get; set; }
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
 
-		public class Manafountain : BuildingBase
+		public class Manafountain
 		{
-			[JsonConstructor] Manafountain() { tag = $"manaFountains[].{id++}."; }
-			public static int id = 0;
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
 
-		public class Intelligence : BuildingBase
+		public class Intelligence
 		{
-			[JsonConstructor] Intelligence() { tag = $"intelligences[].{id++}."; }
-			public static int id = 0;
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
 
-		public class Bonusbank : BuildingBase
+		public class Bonusbank
 		{
-			[JsonConstructor] Bonusbank() { tag = $"bonusBanks[].{id++}."; }
-			public static int id = 0;
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
 
-		public class Unitsconverter : BuildingBase
+		public class Unitsconverter
 		{
-			[JsonConstructor] Unitsconverter() { tag = $"unitsConverters[].{id++}."; }
-			public static int id = 0;
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
 
-		public class TrainingRange : BuildingBase
+		public class Trainingrange
 		{
-			[JsonConstructor] TrainingRange() { tag = $"trainingRanges[].{id++}."; }
-			public static int id = 0;
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
 
-		public class RebirthShrine : BuildingBase
+		public class Herobonusbank
 		{
-			[JsonConstructor] RebirthShrine() { tag = $"rebirthShrines[].{id++}."; }
-			public static int id = 0;
-		}
-
-		public class Herobonusbank : BuildingBase
-		{
-			[JsonConstructor] Herobonusbank() { tag = $"heroBonusBanks[].{id++}."; }
-			public static int id = 0;
 			public object[] listIndexVisitorHeroes { get; set; }
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
 
-		public class CityBonusBank : BuildingBase
+		public class Portalsummoning
 		{
-			[JsonConstructor] CityBonusBank() { tag = $"cityBonusBanks[].{id++}."; }
-			public static int id = 0;
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
 
-		public class MyceliumRoot : BuildingBase
+		public class Artifactchanger
 		{
-			[JsonConstructor] MyceliumRoot() { tag = $"myceliumRoots[].{id++}."; }
-			public static int id = 0;
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
 
-		public class PortalSummoning : BuildingBase
+		public class Artifactmarket
 		{
-			[JsonConstructor] PortalSummoning() { tag = $"portalSummonings[].{id++}."; }
-			public static int id = 0;
-		}
-
-		public class Artifactchanger : BuildingBase
-		{
-			[JsonConstructor] Artifactchanger() { tag = $"artifactChangers[].{id++}."; }
-			public static int id = 0;
-		}
-
-		public class Artifactmarket : BuildingBase
-		{
-			[JsonConstructor] Artifactmarket() { tag = $"artifactMarkets[].{id++}."; }
-			public static int id = 0;
 			public Itemmarketpool itemMarketPool { get; set; }
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
 
 		public class Itemmarketpool
@@ -659,15 +654,25 @@ namespace HeroesOE.Json
 			public int level { get; set; }
 		}
 
-		public class Wall : BuildingBase
+		public class Wall
 		{
-			[JsonConstructor] Wall() { tag = $"walls[].{id++}."; }
-			public static int id = 0;
 			public string[] selectedEffectsList { get; set; }
 			public int[] selectedEffectsPerLevel { get; set; }
 			public bool wasApplied { get; set; }
+			public string sid { get; set; }
+			public int level { get; set; }
+			public bool isConstructed { get; set; }
+			public string citySid { get; set; }
+			public bool[] bansPerLevel { get; set; }
+			public int levelOnStart { get; set; }
 		}
-		//////////////////////////////////////////// End of buildings /////////////////////////////////////////////////////
+
+		public class Property4
+		{
+			public int id { get; set; }
+			public bool active { get; set; }
+			public int dataId { get; set; }
+		}
 
 		public class Marketobj
 		{
@@ -678,10 +683,15 @@ namespace HeroesOE.Json
 			public bool isNeutralObj { get; set; }
 			public object[] properties { get; set; }
 			public int aiValue { get; set; }
-			public Garnisonparty garnisonParty { get; set; }
+			public Garnisonparty6 garnisonParty { get; set; }
 			public Rewardset6 rewardSet { get; set; }
 			public object[] sideScoutings { get; set; }
 			public int lastInteractedSide { get; set; }
+		}
+
+		public class Garnisonparty6
+		{
+			public object[] units { get; set; }
 		}
 
 		public class Rewardset6
@@ -699,7 +709,7 @@ namespace HeroesOE.Json
 			public string selectionWindowType { get; set; }
 		}
 
-		public class Portalobj
+		public class Tavernobj
 		{
 			public int idMapObject { get; set; }
 			public string sidConfig { get; set; }
@@ -708,17 +718,15 @@ namespace HeroesOE.Json
 			public bool isNeutralObj { get; set; }
 			public object[] properties { get; set; }
 			public int aiValue { get; set; }
-			public Garnisonparty garnisonParty { get; set; }
+			public Garnisonparty7 garnisonParty { get; set; }
 			public Rewardset7 rewardSet { get; set; }
-			public int[] sideScoutings { get; set; }
+			public object[] sideScoutings { get; set; }
 			public int lastInteractedSide { get; set; }
-			public int outPortalId { get; set; }
-			public int garrisonStartValue { get; set; }
-			public float garrisonWeeklyIncrementBonus { get; set; }
-			public int daysLeftToDestroy { get; set; }
-			public bool isActive { get; set; }
-			public bool canShowTooltip { get; set; }
-			public bool overridenByPairedPortal { get; set; }
+		}
+
+		public class Garnisonparty7
+		{
+			public object[] units { get; set; }
 		}
 
 		public class Rewardset7
@@ -743,12 +751,17 @@ namespace HeroesOE.Json
 			public bool released { get; set; }
 			public int ownerSide { get; set; }
 			public bool isNeutralObj { get; set; }
-			public IdActive[] properties { get; set; }
+			public Property5[] properties { get; set; }
 			public int aiValue { get; set; }
-			public Garnisonparty garnisonParty { get; set; }
+			public Garnisonparty8 garnisonParty { get; set; }
 			public Rewardset8 rewardSet { get; set; }
-			public int?[] sideScoutings { get; set; }
+			public object[] sideScoutings { get; set; }
 			public int lastInteractedSide { get; set; }
+		}
+
+		public class Garnisonparty8
+		{
+			public object[] units { get; set; }
 		}
 
 		public class Rewardset8
@@ -779,6 +792,69 @@ namespace HeroesOE.Json
 			public string[] parameters { get; set; }
 		}
 
+		public class Property5
+		{
+			public int id { get; set; }
+			public bool active { get; set; }
+			public int dataId { get; set; }
+		}
+
+		public class Prisonobj
+		{
+			public int idMapObject { get; set; }
+			public string sidConfig { get; set; }
+			public bool released { get; set; }
+			public int ownerSide { get; set; }
+			public bool isNeutralObj { get; set; }
+			public Property6[] properties { get; set; }
+			public int aiValue { get; set; }
+			public Garnisonparty9 garnisonParty { get; set; }
+			public Rewardset9 rewardSet { get; set; }
+			public object[] sideScoutings { get; set; }
+			public int lastInteractedSide { get; set; }
+			public string heroSid { get; set; }
+		}
+
+		public class Garnisonparty9
+		{
+			public object[] units { get; set; }
+		}
+
+		public class Rewardset9
+		{
+			public int showType { get; set; }
+			public int applyType { get; set; }
+			public int cancelType { get; set; }
+			public object[] cost { get; set; }
+			public bool cantCompleteApplying { get; set; }
+			public Reward2[] rewards { get; set; }
+			public int id { get; set; }
+			public int heroId { get; set; }
+			public int objectId { get; set; }
+			public string label { get; set; }
+			public string selectionWindowType { get; set; }
+		}
+
+		public class Reward2
+		{
+			public string stringRewardType { get; set; }
+			public int rewardType { get; set; }
+			public int rewardShowType { get; set; }
+			public bool applyRewardFloating { get; set; }
+			public string rewardIcon { get; set; }
+			public string rewardName { get; set; }
+			public string rewardDesc { get; set; }
+			public string rewardNotificationDesc { get; set; }
+			public string[] parameters { get; set; }
+		}
+
+		public class Property6
+		{
+			public int id { get; set; }
+			public bool active { get; set; }
+			public int dataId { get; set; }
+		}
+
 		public class Restradelab
 		{
 			public int idMapObject { get; set; }
@@ -788,13 +864,53 @@ namespace HeroesOE.Json
 			public bool isNeutralObj { get; set; }
 			public object[] properties { get; set; }
 			public int aiValue { get; set; }
-			public Garnisonparty garnisonParty { get; set; }
-			public Rewardset9 rewardSet { get; set; }
+			public Garnisonparty10 garnisonParty { get; set; }
+			public Rewardset10 rewardSet { get; set; }
 			public object[] sideScoutings { get; set; }
 			public int lastInteractedSide { get; set; }
 		}
 
-		public class Rewardset9
+		public class Garnisonparty10
+		{
+			public object[] units { get; set; }
+		}
+
+		public class Rewardset10
+		{
+			public int showType { get; set; }
+			public int applyType { get; set; }
+			public int cancelType { get; set; }
+			public object[] cost { get; set; }
+			public bool cantCompleteApplying { get; set; }
+			public object[] rewards { get; set; }
+			public int id { get; set; }
+			public int heroId { get; set; }
+			public int objectId { get; set; }
+			public string label { get; set; }
+			public string selectionWindowType { get; set; }
+		}
+
+		public class Garrison
+		{
+			public int idMapObject { get; set; }
+			public string sidConfig { get; set; }
+			public bool released { get; set; }
+			public int ownerSide { get; set; }
+			public bool isNeutralObj { get; set; }
+			public object[] properties { get; set; }
+			public int aiValue { get; set; }
+			public Garnisonparty11 garnisonParty { get; set; }
+			public Rewardset11 rewardSet { get; set; }
+			public object[] sideScoutings { get; set; }
+			public int lastInteractedSide { get; set; }
+		}
+
+		public class Garnisonparty11
+		{
+			public object[] units { get; set; }
+		}
+
+		public class Rewardset11
 		{
 			public int showType { get; set; }
 			public int applyType { get; set; }
@@ -818,14 +934,19 @@ namespace HeroesOE.Json
 			public bool isNeutralObj { get; set; }
 			public object[] properties { get; set; }
 			public int aiValue { get; set; }
-			public Garnisonparty garnisonParty { get; set; }
-			public Rewardset10 rewardSet { get; set; }
+			public Garnisonparty12 garnisonParty { get; set; }
+			public Rewardset12 rewardSet { get; set; }
 			public object[] sideScoutings { get; set; }
 			public int lastInteractedSide { get; set; }
 			public Itemmarketpool1 itemMarketPool { get; set; }
 		}
 
-		public class Rewardset10
+		public class Garnisonparty12
+		{
+			public object[] units { get; set; }
+		}
+
+		public class Rewardset12
 		{
 			public int showType { get; set; }
 			public int applyType { get; set; }
@@ -862,15 +983,20 @@ namespace HeroesOE.Json
 			public bool isNeutralObj { get; set; }
 			public object[] properties { get; set; }
 			public int aiValue { get; set; }
-			public Garnisonparty garnisonParty { get; set; }
-			public Rewardset11 rewardSet { get; set; }
+			public Garnisonparty13 garnisonParty { get; set; }
+			public Rewardset13 rewardSet { get; set; }
 			public object[] sideScoutings { get; set; }
 			public int lastInteractedSide { get; set; }
 			public Assortmentdata1 assortmentData { get; set; }
 			public bool needRefresh { get; set; }
 		}
 
-		public class Rewardset11
+		public class Garnisonparty13
+		{
+			public object[] units { get; set; }
+		}
+
+		public class Rewardset13
 		{
 			public int showType { get; set; }
 			public int applyType { get; set; }
@@ -888,7 +1014,7 @@ namespace HeroesOE.Json
 		public class Assortmentdata1
 		{
 			public Unitset2[] unitSets { get; set; }
-			public float extraCharge { get; set; }
+			public int extraCharge { get; set; }
 		}
 
 		public class Unitset2
@@ -908,13 +1034,18 @@ namespace HeroesOE.Json
 			public bool isNeutralObj { get; set; }
 			public object[] properties { get; set; }
 			public int aiValue { get; set; }
-			public Garnisonparty garnisonParty { get; set; }
-			public Rewardset12 rewardSet { get; set; }
+			public Garnisonparty14 garnisonParty { get; set; }
+			public Rewardset14 rewardSet { get; set; }
 			public object[] sideScoutings { get; set; }
 			public int lastInteractedSide { get; set; }
 		}
 
-		public class Rewardset12
+		public class Garnisonparty14
+		{
+			public object[] units { get; set; }
+		}
+
+		public class Rewardset14
 		{
 			public int showType { get; set; }
 			public int applyType { get; set; }
@@ -929,7 +1060,7 @@ namespace HeroesOE.Json
 			public string selectionWindowType { get; set; }
 		}
 
-		public class Gladiatorarena
+		public class Chimerologist
 		{
 			public int idMapObject { get; set; }
 			public string sidConfig { get; set; }
@@ -938,13 +1069,187 @@ namespace HeroesOE.Json
 			public bool isNeutralObj { get; set; }
 			public object[] properties { get; set; }
 			public int aiValue { get; set; }
-			public Garnisonparty garnisonParty { get; set; }
-			public Rewardset13 rewardSet { get; set; }
+			public Garnisonparty15 garnisonParty { get; set; }
+			public Rewardset15 rewardSet { get; set; }
+			public object[] sideScoutings { get; set; }
+			public int lastInteractedSide { get; set; }
+			public Dataparty dataParty { get; set; }
+		}
+
+		public class Garnisonparty15
+		{
+			public object[] units { get; set; }
+		}
+
+		public class Rewardset15
+		{
+			public int showType { get; set; }
+			public int applyType { get; set; }
+			public int cancelType { get; set; }
+			public object[] cost { get; set; }
+			public bool cantCompleteApplying { get; set; }
+			public object[] rewards { get; set; }
+			public int id { get; set; }
+			public int heroId { get; set; }
+			public int objectId { get; set; }
+			public string label { get; set; }
+			public string selectionWindowType { get; set; }
+		}
+
+		public class Dataparty
+		{
+			public object[] units { get; set; }
+		}
+
+		public class Sacrificialshrine
+		{
+			public int idMapObject { get; set; }
+			public string sidConfig { get; set; }
+			public bool released { get; set; }
+			public int ownerSide { get; set; }
+			public bool isNeutralObj { get; set; }
+			public object[] properties { get; set; }
+			public int aiValue { get; set; }
+			public Garnisonparty16 garnisonParty { get; set; }
+			public Rewardset16 rewardSet { get; set; }
+			public object[] sideScoutings { get; set; }
+			public int lastInteractedSide { get; set; }
+			public Dataparty1 dataParty { get; set; }
+			public Datainventory dataInventory { get; set; }
+		}
+
+		public class Garnisonparty16
+		{
+			public object[] units { get; set; }
+		}
+
+		public class Rewardset16
+		{
+			public int showType { get; set; }
+			public int applyType { get; set; }
+			public int cancelType { get; set; }
+			public object[] cost { get; set; }
+			public bool cantCompleteApplying { get; set; }
+			public object[] rewards { get; set; }
+			public int id { get; set; }
+			public int heroId { get; set; }
+			public int objectId { get; set; }
+			public string label { get; set; }
+			public string selectionWindowType { get; set; }
+		}
+
+		public class Dataparty1
+		{
+			public object[] units { get; set; }
+		}
+
+		public class Datainventory
+		{
+			public string sid { get; set; }
+			public int containerType { get; set; }
+			public Itemslot[] itemSlots { get; set; }
+			public Lockslot[] lockSlots { get; set; }
+		}
+
+		public class Itemslot
+		{
+			public int type { get; set; }
+			public int maxCount { get; set; }
+			public bool isInfinite { get; set; }
+			public object[] items { get; set; }
+		}
+
+		public class Lockslot
+		{
+			public int type { get; set; }
+			public int maxCount { get; set; }
+			public bool isInfinite { get; set; }
+			public object[] items { get; set; }
+		}
+
+		public class Mirage
+		{
+			public int idMapObject { get; set; }
+			public string sidConfig { get; set; }
+			public bool released { get; set; }
+			public int ownerSide { get; set; }
+			public bool isNeutralObj { get; set; }
+			public Property7[] properties { get; set; }
+			public int aiValue { get; set; }
+			public Garnisonparty17 garnisonParty { get; set; }
+			public Rewardset17 rewardSet { get; set; }
+			public object[] sideScoutings { get; set; }
+			public int lastInteractedSide { get; set; }
+			public Dataparty2 dataParty { get; set; }
+			public bool isVisit { get; set; }
+		}
+
+		public class Garnisonparty17
+		{
+			public object[] units { get; set; }
+		}
+
+		public class Rewardset17
+		{
+			public int showType { get; set; }
+			public int applyType { get; set; }
+			public int cancelType { get; set; }
+			public object[] cost { get; set; }
+			public bool cantCompleteApplying { get; set; }
+			public Reward3[] rewards { get; set; }
+			public int id { get; set; }
+			public int heroId { get; set; }
+			public int objectId { get; set; }
+			public string label { get; set; }
+			public string selectionWindowType { get; set; }
+		}
+
+		public class Reward3
+		{
+			public string stringRewardType { get; set; }
+			public int rewardType { get; set; }
+			public int rewardShowType { get; set; }
+			public bool applyRewardFloating { get; set; }
+			public string rewardIcon { get; set; }
+			public string rewardName { get; set; }
+			public string rewardDesc { get; set; }
+			public string rewardNotificationDesc { get; set; }
+			public string[] parameters { get; set; }
+		}
+
+		public class Dataparty2
+		{
+			public object[] units { get; set; }
+		}
+
+		public class Property7
+		{
+			public int id { get; set; }
+			public bool active { get; set; }
+			public int dataId { get; set; }
+		}
+
+		public class Magicmine
+		{
+			public int idMapObject { get; set; }
+			public string sidConfig { get; set; }
+			public bool released { get; set; }
+			public int ownerSide { get; set; }
+			public bool isNeutralObj { get; set; }
+			public object[] properties { get; set; }
+			public int aiValue { get; set; }
+			public Garnisonparty18 garnisonParty { get; set; }
+			public Rewardset18 rewardSet { get; set; }
 			public object[] sideScoutings { get; set; }
 			public int lastInteractedSide { get; set; }
 		}
 
-		public class Rewardset13
+		public class Garnisonparty18
+		{
+			public object[] units { get; set; }
+		}
+
+		public class Rewardset18
 		{
 			public int showType { get; set; }
 			public int applyType { get; set; }
@@ -968,11 +1273,10 @@ namespace HeroesOE.Json
 		{
 			public int myIndex { get; set; }
 			public int[] hotseatSides { get; set; }
-			[System.Text.Json.Serialization.JsonPropertyName("array")]
-			public Player[] players { get; set; }
+			public Array[] array { get; set; }
 		}
 
-		public class Player
+		public class Array
 		{
 			public bool turnEnded_ { get; set; }
 			public string name { get; set; }
@@ -1075,7 +1379,6 @@ namespace HeroesOE.Json
 
 		public class Fogdata
 		{
-			public bool[] visibilityMap { get; set; }
 			public int sizeX { get; set; }
 			public int sizeZ { get; set; }
 		}
@@ -1119,7 +1422,7 @@ namespace HeroesOE.Json
 			public int[] learningsCountByRanks { get; set; }
 			public Magic[] magics { get; set; }
 			public Uniquemagic[] uniqueMagics { get; set; }
-			public float[] uniqueMagicCostModifiers { get; set; }
+			public int[] uniqueMagicCostModifiers { get; set; }
 			public int gameMode { get; set; }
 		}
 
@@ -1169,11 +1472,11 @@ namespace HeroesOE.Json
 		{
 			public string sid { get; set; }
 			public int containerType { get; set; }
-			public Itemslot[] itemSlots { get; set; }
-			public Lockslot[] lockSlots { get; set; }
+			public Itemslot1[] itemSlots { get; set; }
+			public Lockslot1[] lockSlots { get; set; }
 		}
 
-		public class Itemslot
+		public class Itemslot1
 		{
 			public int type { get; set; }
 			public int maxCount { get; set; }
@@ -1181,7 +1484,7 @@ namespace HeroesOE.Json
 			public object[] items { get; set; }
 		}
 
-		public class Lockslot
+		public class Lockslot1
 		{
 			public int type { get; set; }
 			public int maxCount { get; set; }
@@ -1191,22 +1494,22 @@ namespace HeroesOE.Json
 
 		public class Datatimerside
 		{
-			public float startTime { get; set; }
+			public int startTime { get; set; }
 			public int extraTimeDay { get; set; }
 			public int incTimeDay { get; set; }
 			public int extraTimeWeek { get; set; }
 			public int incTimeWeek { get; set; }
 			public int maxAccumulationTimes { get; set; }
-			public float currentTimeFight { get; set; }
+			public int currentTimeFight { get; set; }
 			public int extraTimeFight { get; set; }
 			public int minTimeAfterFight { get; set; }
 			public int extraTimeAfterFight { get; set; }
 			public int minExtraTimeInFight { get; set; }
-			public float startTimePVP { get; set; }
+			public int startTimePVP { get; set; }
 			public int extraTimePVP { get; set; }
-			public float viewTimePVP { get; set; }
-			public float viewExtraTimePVP { get; set; }
-			public float arenaPreparationTime { get; set; }
+			public int viewTimePVP { get; set; }
+			public int viewExtraTimePVP { get; set; }
+			public int arenaPreparationTime { get; set; }
 			public bool isFightSetup { get; set; }
 			public string nameTypeTimer { get; set; }
 			public bool isTimerWork { get; set; }
@@ -1223,16 +1526,16 @@ namespace HeroesOE.Json
 		{
 			public Magicsidset magicSidSet { get; set; }
 			public Magicschoolset magicSchoolSet { get; set; }
-			public float magicLearnCostPerBonus { get; set; }
-			public float magicUpgradeCostPerBonus { get; set; }
-			public float itemUpgradeCostPerBonus { get; set; }
-			public float heroCostPerBonus { get; set; }
-			public float unitsFromBarracksIncrementPerBonus { get; set; }
-			public float cityExpCoef { get; set; }
+			public int magicLearnCostPerBonus { get; set; }
+			public int magicUpgradeCostPerBonus { get; set; }
+			public int itemUpgradeCostPerBonus { get; set; }
+			public int heroCostPerBonus { get; set; }
+			public int unitsFromBarracksIncrementPerBonus { get; set; }
+			public int cityExpCoef { get; set; }
 			public bool disableMarketsExtraCharge { get; set; }
 			public int tempMagicLevelBonus { get; set; }
 			public int decreaseLawPointsOpenLine { get; set; }
-			public float percentDustForDestroyItem { get; set; }
+			public int percentDustForDestroyItem { get; set; }
 		}
 
 		public class Magicsidset
@@ -1277,7 +1580,6 @@ namespace HeroesOE.Json
 			public Markedareaguard markedAreaGuard { get; set; }
 			public int markedCityToUnitUpgrade { get; set; }
 			public Bannedareas bannedAreas { get; set; }
-			public bool[] bannedAreasMap { get; set; }
 			public string hardStrategy { get; set; }
 		}
 
@@ -1303,13 +1605,7 @@ namespace HeroesOE.Json
 
 		public class Unitsupgrade
 		{
-			public Datum3[] data { get; set; }
-		}
-
-		public class Datum3
-		{
-			public string key { get; set; }
-			public string val { get; set; }
+			public object[] data { get; set; }
 		}
 
 		public class Markedareaguard
@@ -1327,7 +1623,7 @@ namespace HeroesOE.Json
 		public class Heroes
 		{
 			public int freeId { get; set; }
-			public HeroJsonEntry[] list { get; set; }
+			public List1[] list { get; set; }
 			public Pool pool { get; set; }
 		}
 
@@ -1336,12 +1632,12 @@ namespace HeroesOE.Json
 			public int[] list { get; set; }
 		}
 
-		public class HeroJsonEntry
+		public class List1
 		{
 			public int id { get; set; }
 			public int sideId { get; set; }
 			public int node { get; set; }
-			public float rotationAngle { get; set; }
+			public int rotationAngle { get; set; }
 			public bool inBattle_ { get; set; }
 			public int status { get; set; }
 			public string configSid { get; set; }
@@ -1372,42 +1668,17 @@ namespace HeroesOE.Json
 
 		public class Party
 		{
-			public PartyUnit[] units { get; set; }
+			public Unit3[] units { get; set; }
 		}
 
-		public class PartyUnit
+		public class Unit3
 		{
 			public string sid { get; set; }
 			public int stacks { get; set; }
 			public int slotPos { get; set; }
-			public int index;
 		}
 
 		public class Slots
-		{
-			public string sid { get; set; }
-			public int containerType { get; set; }
-			public Itemslot1[] itemSlots { get; set; }
-			public Lockslot1[] lockSlots { get; set; }
-		}
-
-		public class Itemslot1
-		{
-			public int type { get; set; }
-			public int maxCount { get; set; }
-			public bool isInfinite { get; set; }
-			public int[] items { get; set; }
-		}
-
-		public class Lockslot1
-		{
-			public int type { get; set; }
-			public int maxCount { get; set; }
-			public bool isInfinite { get; set; }
-			public int[] items { get; set; }
-		}
-
-		public class Inventory
 		{
 			public string sid { get; set; }
 			public int containerType { get; set; }
@@ -1420,10 +1691,34 @@ namespace HeroesOE.Json
 			public int type { get; set; }
 			public int maxCount { get; set; }
 			public bool isInfinite { get; set; }
-			public object[] items { get; set; }
+			public int[] items { get; set; }
 		}
 
 		public class Lockslot2
+		{
+			public int type { get; set; }
+			public int maxCount { get; set; }
+			public bool isInfinite { get; set; }
+			public int[] items { get; set; }
+		}
+
+		public class Inventory
+		{
+			public string sid { get; set; }
+			public int containerType { get; set; }
+			public Itemslot3[] itemSlots { get; set; }
+			public Lockslot3[] lockSlots { get; set; }
+		}
+
+		public class Itemslot3
+		{
+			public int type { get; set; }
+			public int maxCount { get; set; }
+			public bool isInfinite { get; set; }
+			public object[] items { get; set; }
+		}
+
+		public class Lockslot3
 		{
 			public int type { get; set; }
 			public int maxCount { get; set; }
@@ -1439,22 +1734,33 @@ namespace HeroesOE.Json
 			public int intelligence { get; set; }
 			public int luck { get; set; }
 			public int moral { get; set; }
+			public int movementBonus { get; set; }
+		}
+
+		public class Additionalstats1
+		{
+			public int offence { get; set; }
+			public int defence { get; set; }
+			public int spellPower { get; set; }
+			public int intelligence { get; set; }
+			public int luck { get; set; }
+			public int moral { get; set; }
 			public int statsNum { get; set; }
 			public int viewRadius { get; set; }
 			public int slowestUnitSpeed { get; set; }
-			public float offencePer { get; set; }
-			public float defencePer { get; set; }
-			public float spellPowerPer { get; set; }
-			public float spellPowerFinal { get; set; }
-			public float intelligencePer { get; set; }
+			public int offencePer { get; set; }
+			public int defencePer { get; set; }
+			public int spellPowerPer { get; set; }
+			public int spellPowerFinal { get; set; }
+			public int intelligencePer { get; set; }
 			public int movementBonus { get; set; }
 			public int movementRestoreBonus { get; set; }
-			public float movementPerBonus { get; set; }
-			public float movementAfterBattlePerBonus { get; set; }
+			public int movementPerBonus { get; set; }
+			public int movementAfterBattlePerBonus { get; set; }
 			public int movementAfterBattleBonus { get; set; }
-			public float roadPerBonus { get; set; }
-			public float landscapePenaltyPerBonus { get; set; }
-			public float flyMotionPerBonus { get; set; }
+			public int roadPerBonus { get; set; }
+			public int landscapePenaltyPerBonus { get; set; }
+			public int flyMotionPerBonus { get; set; }
 			public bool flyMotion { get; set; }
 			public int moveRestoreEnergyBonus { get; set; }
 			public bool disableMagicBook { get; set; }
@@ -1488,22 +1794,22 @@ namespace HeroesOE.Json
 			public bool immuneToDebuffs { get; set; }
 			public bool banHeroAbilities { get; set; }
 			public bool disableSameMagicCounterRefresh { get; set; }
-			public float necromancyPerBonus { get; set; }
-			public float diplomacyEfficiencyPerBonus { get; set; }
-			public float diplomacySumValuePerBonus { get; set; }
-			public float diplomacyFractionPerBonus { get; set; }
-			public float diplomacyCostPerBonus { get; set; }
-			public float diplomacyUnitsCountBonus { get; set; }
-			public float capitulationCostPerBonus { get; set; }
-			public float expPerBonus { get; set; }
-			public float sideExpPerBonus { get; set; }
+			public int necromancyPerBonus { get; set; }
+			public int diplomacyEfficiencyPerBonus { get; set; }
+			public int diplomacySumValuePerBonus { get; set; }
+			public int diplomacyFractionPerBonus { get; set; }
+			public int diplomacyCostPerBonus { get; set; }
+			public int diplomacyUnitsCountBonus { get; set; }
+			public int capitulationCostPerBonus { get; set; }
+			public int expPerBonus { get; set; }
+			public int sideExpPerBonus { get; set; }
 			public bool ignoreFinalDamageBonus { get; set; }
 			public bool ignoreFinalHealingBonus { get; set; }
 			public bool ignoreFinalSummonBonus { get; set; }
-			public float finalDamageBonusPercent { get; set; }
-			public float finalHealingBonusPercent { get; set; }
-			public float finalManaCostBonusPercent { get; set; }
-			public float finalSummonBonusPercent { get; set; }
+			public int finalDamageBonusPercent { get; set; }
+			public int finalHealingBonusPercent { get; set; }
+			public int finalManaCostBonusPercent { get; set; }
+			public int finalSummonBonusPercent { get; set; }
 			public bool ignoreSchoolCastsLimit { get; set; }
 			public bool ignoreSpellCastsLimit { get; set; }
 			public int minAllowedMagicRank { get; set; }
@@ -1512,17 +1818,17 @@ namespace HeroesOE.Json
 			public int sameSchoolCastsPerRound { get; set; }
 			public int magicCastsPerRound { get; set; }
 			public int magicOverloadsPerRound { get; set; }
-			public float magicOverloadPercent { get; set; }
+			public int magicOverloadPercent { get; set; }
 			public int magicUsageLimitBonus { get; set; }
-			public float magicAttackPerBonus { get; set; }
-			public float crit { get; set; }
-			public float anticrit { get; set; }
-			public float manaBonus { get; set; }
-			public float manaBonusPercent { get; set; }
+			public int magicAttackPerBonus { get; set; }
+			public int crit { get; set; }
+			public int anticrit { get; set; }
+			public int manaBonus { get; set; }
+			public int manaBonusPercent { get; set; }
 			public int manaCostBonus { get; set; }
-			public float manaCostBonusPercent { get; set; }
-			public float manaRestoreBonus { get; set; }
-			public float manaRestoreBonusPercent { get; set; }
+			public int manaCostBonusPercent { get; set; }
+			public int manaRestoreBonus { get; set; }
+			public int manaRestoreBonusPercent { get; set; }
 			public int energyLevelsCountBonus { get; set; }
 			public int energyPerLevelDiscount { get; set; }
 			public int startEnergyBonus { get; set; }
@@ -1556,10 +1862,10 @@ namespace HeroesOE.Json
 
 		public class Statsbyschool1
 		{
-			public Datum4[] data { get; set; }
+			public Datum3[] data { get; set; }
 		}
 
-		public class Datum4
+		public class Datum3
 		{
 			public int key { get; set; }
 			public Val2 val { get; set; }
@@ -1607,7 +1913,7 @@ namespace HeroesOE.Json
 		{
 			public int school { get; set; }
 			public int costBonus { get; set; }
-			public float costPerBonus { get; set; }
+			public int costPerBonus { get; set; }
 		}
 
 		public class Magiccostsidset
@@ -1628,7 +1934,7 @@ namespace HeroesOE.Json
 		public class Statslist
 		{
 			public int typeEnergy { get; set; }
-			public float powerRecovery { get; set; }
+			public int powerRecovery { get; set; }
 			public int maxValue { get; set; }
 		}
 
@@ -1658,237 +1964,6 @@ namespace HeroesOE.Json
 		}
 
 		public class Statsdict
-		{
-			public object[] data { get; set; }
-		}
-
-		public class Additionalstats1
-		{
-			public int offence { get; set; }
-			public int defence { get; set; }
-			public int spellPower { get; set; }
-			public int intelligence { get; set; }
-			public int luck { get; set; }
-			public int moral { get; set; }
-			public int statsNum { get; set; }
-			public int viewRadius { get; set; }
-			public int slowestUnitSpeed { get; set; }
-			public float offencePer { get; set; }
-			public float defencePer { get; set; }
-			public float spellPowerPer { get; set; }
-			public float spellPowerFinal { get; set; }
-			public float intelligencePer { get; set; }
-			public int movementBonus { get; set; }
-			public int movementRestoreBonus { get; set; }
-			public float movementPerBonus { get; set; }
-			public float movementAfterBattlePerBonus { get; set; }
-			public int movementAfterBattleBonus { get; set; }
-			public float roadPerBonus { get; set; }
-			public float landscapePenaltyPerBonus { get; set; }
-			public float flyMotionPerBonus { get; set; }
-			public bool flyMotion { get; set; }
-			public int moveRestoreEnergyBonus { get; set; }
-			public bool disableMagicBook { get; set; }
-			public bool enableMagicExchange { get; set; }
-			public bool enableMagicStealing { get; set; }
-			public bool enableNecromancy { get; set; }
-			public bool enableNecromancyFactionBonus { get; set; }
-			public bool enableNecromancyManaRestoreBonus { get; set; }
-			public bool enableNecromancyLevelBonus { get; set; }
-			public bool enableDiplomacy { get; set; }
-			public bool enableBattleEscapeBan { get; set; }
-			public bool enableBansEvasion { get; set; }
-			public bool enableBansEvasionBattle { get; set; }
-			public bool enableMarketsCounting { get; set; }
-			public bool enableSquadReactionType { get; set; }
-			public bool enableSquadCounts { get; set; }
-			public bool enableEnemyHeroInfo { get; set; }
-			public bool enableEnemyCityInfo { get; set; }
-			public bool enableDisguise { get; set; }
-			public bool enableBattleOnNativeBiome { get; set; }
-			public bool enableHeroNativeBiome { get; set; }
-			public bool enableTactics { get; set; }
-			public bool enableEnemyVisionInTactics { get; set; }
-			public bool banTactics { get; set; }
-			public bool enableSavePartyByEscape { get; set; }
-			public bool enableSavePartyByEscapeNeutral { get; set; }
-			public bool enableSaveHeroByKill { get; set; }
-			public bool enableImmuneDebufInMap { get; set; }
-			public bool enableSilence { get; set; }
-			public bool magicCrits { get; set; }
-			public bool immuneToDebuffs { get; set; }
-			public bool banHeroAbilities { get; set; }
-			public bool disableSameMagicCounterRefresh { get; set; }
-			public float necromancyPerBonus { get; set; }
-			public float diplomacyEfficiencyPerBonus { get; set; }
-			public float diplomacySumValuePerBonus { get; set; }
-			public float diplomacyFractionPerBonus { get; set; }
-			public float diplomacyCostPerBonus { get; set; }
-			public float diplomacyUnitsCountBonus { get; set; }
-			public float capitulationCostPerBonus { get; set; }
-			public float expPerBonus { get; set; }
-			public float sideExpPerBonus { get; set; }
-			public bool ignoreFinalDamageBonus { get; set; }
-			public bool ignoreFinalHealingBonus { get; set; }
-			public bool ignoreFinalSummonBonus { get; set; }
-			public float finalDamageBonusPercent { get; set; }
-			public float finalHealingBonusPercent { get; set; }
-			public float finalManaCostBonusPercent { get; set; }
-			public float finalSummonBonusPercent { get; set; }
-			public bool ignoreSchoolCastsLimit { get; set; }
-			public bool ignoreSpellCastsLimit { get; set; }
-			public int minAllowedMagicRank { get; set; }
-			public int maxAllowedMagicRank { get; set; }
-			public int sameMagicCastsPerRound { get; set; }
-			public int sameSchoolCastsPerRound { get; set; }
-			public int magicCastsPerRound { get; set; }
-			public int magicOverloadsPerRound { get; set; }
-			public float magicOverloadPercent { get; set; }
-			public int magicUsageLimitBonus { get; set; }
-			public float magicAttackPerBonus { get; set; }
-			public float crit { get; set; }
-			public float anticrit { get; set; }
-			public float manaBonus { get; set; }
-			public float manaBonusPercent { get; set; }
-			public int manaCostBonus { get; set; }
-			public float manaCostBonusPercent { get; set; }
-			public float manaRestoreBonus { get; set; }
-			public float manaRestoreBonusPercent { get; set; }
-			public int energyLevelsCountBonus { get; set; }
-			public int energyPerLevelDiscount { get; set; }
-			public int startEnergyBonus { get; set; }
-			public int startEnergyLevelsBonus { get; set; }
-			public int energyPerRoundBonus { get; set; }
-			public int energyLevelsPerRoundBonus { get; set; }
-			public int maxEnergyLevelsBonus { get; set; }
-			public int outComingGlobalBuffDuration { get; set; }
-			public int outComingBuffDuration { get; set; }
-			public int outComingDebuffDuration { get; set; }
-			public int obstacleHpBonus { get; set; }
-			public int karaDurationBonus { get; set; }
-			public int tacticsPlacementSize { get; set; }
-			public Spellpowerschoolset1 spellPowerSchoolSet { get; set; }
-			public Spellpowersidset1 spellPowerSidSet { get; set; }
-			public Magicschoolset2 magicSchoolSet { get; set; }
-			public Magicsidset2 magicSidSet { get; set; }
-			public Magiccostschoolset1 magicCostSchoolSet { get; set; }
-			public Magiccostsidset1 magicCostSidSet { get; set; }
-			public Energyvaluesset1 energyValuesSet { get; set; }
-			public Energyenablesset1 energyEnablesSet { get; set; }
-			public Magiccounterset1 magicCounterSet { get; set; }
-			public Outdmgmultipliersset1 outDmgMultipliersSet { get; set; }
-			public Herorespercentset1 heroResPercentSet { get; set; }
-		}
-
-		public class Spellpowerschoolset1
-		{
-			public Statsbyschool4 statsBySchool { get; set; }
-		}
-
-		public class Statsbyschool4
-		{
-			public Datum5[] data { get; set; }
-		}
-
-		public class Datum5
-		{
-			public int key { get; set; }
-			public Val3 val { get; set; }
-		}
-
-		public class Val3
-		{
-			public int school { get; set; }
-			public int bonus { get; set; }
-		}
-
-		public class Spellpowersidset1
-		{
-			public Statsbysid2 statsBySid { get; set; }
-		}
-
-		public class Statsbysid2
-		{
-			public object[] data { get; set; }
-		}
-
-		public class Magicschoolset2
-		{
-			public Statsbyschool5[] statsBySchool { get; set; }
-		}
-
-		public class Statsbyschool5
-		{
-			public int school { get; set; }
-			public int maxAvailableRank { get; set; }
-			public int levelBonus { get; set; }
-		}
-
-		public class Magicsidset2
-		{
-			public object[] statsList { get; set; }
-		}
-
-		public class Magiccostschoolset1
-		{
-			public Statsbyschool6[] statsBySchool { get; set; }
-		}
-
-		public class Statsbyschool6
-		{
-			public int school { get; set; }
-			public int costBonus { get; set; }
-			public float costPerBonus { get; set; }
-		}
-
-		public class Magiccostsidset1
-		{
-			public Statsbysid3 statsBySid { get; set; }
-		}
-
-		public class Statsbysid3
-		{
-			public object[] data { get; set; }
-		}
-
-		public class Energyvaluesset1
-		{
-			public Statslist2[] statsList { get; set; }
-		}
-
-		public class Statslist2
-		{
-			public int typeEnergy { get; set; }
-			public float powerRecovery { get; set; }
-			public int maxValue { get; set; }
-		}
-
-		public class Energyenablesset1
-		{
-			public Statslist3[] statsList { get; set; }
-		}
-
-		public class Statslist3
-		{
-			public int typeEnergy { get; set; }
-			public bool isEnable { get; set; }
-		}
-
-		public class Magiccounterset1
-		{
-		}
-
-		public class Outdmgmultipliersset1
-		{
-			public object[] list { get; set; }
-		}
-
-		public class Herorespercentset1
-		{
-			public Statsdict1 statsDict { get; set; }
-		}
-
-		public class Statsdict1
 		{
 			public object[] data { get; set; }
 		}
@@ -2014,10 +2089,10 @@ namespace HeroesOE.Json
 
 		public class Subclasses
 		{
-			public SubclassActive[] list { get; set; }
+			public List5[] list { get; set; }
 		}
 
-		public class SubclassActive
+		public class List5
 		{
 			public string sid { get; set; }
 			public bool active { get; set; }
@@ -2036,41 +2111,17 @@ namespace HeroesOE.Json
 
 		public class Squads
 		{
-			public SquadJson[] list { get; set; }
+			public List6[] list { get; set; }
 			public int freeId { get; set; }
 		}
-		public class SquadInfo
-		{
-			// a subset of SquadJson
-			public SquadInfo(SquadJson json)
-			{
-				configSid = json.configSid
-					.Replace("squad_", "")
-					.Replace("human", "hum")
-					.Replace("demon", "dem")
-					.Replace("undead", "und")
-					.Replace("unfrozen", "unf");
-				id = json.id;
-				node = new Node(json.node);
-				// TODO: is deep-copy necessary?
-				units = json.units;
-				idActive = json.idActive;
-			}
-			public string configSid { get; set; }
-			public int id { get; set; }
-			public Node node;
-			public NumericOffset no;
-			public Amount[] units { get; set; }
-			public IdActive[] idActive { get; set; }
-		}
-		public class SquadJson
+
+		public class List6
 		{
 			public string configSid { get; set; }
 			public int id { get; set; }
 			public int node { get; set; }
-			public Amount[] units { get; set; }
-			[System.Text.Json.Serialization.JsonPropertyName("properties")]
-			public IdActive[] idActive { get; set; }
+			public Unit4[] units { get; set; }
+			public Property8[] properties { get; set; }
 			public bool mainSquad { get; set; }
 			public int reactionType { get; set; }
 			public float weeklyIncrementBonus { get; set; }
@@ -2089,14 +2140,13 @@ namespace HeroesOE.Json
 			public string customTopUnit { get; set; }
 		}
 
-		public class Amount
+		public class Unit4
 		{
 			public string sid { get; set; }
 			public int amount { get; set; }
-			public NumericOffset? no = null;
 		}
 
-		public class IdActive
+		public class Property8
 		{
 			public int id { get; set; }
 			public bool active { get; set; }
@@ -2105,66 +2155,24 @@ namespace HeroesOE.Json
 
 		public class Areas
 		{
-			public List7[] list { get; set; }
-		}
-
-		public class List7
-		{
-			public int id { get; set; }
-			public int keyObjectId { get; set; }
-			public int rootNode { get; set; }
-			public int[] nodes { get; set; }
-			public string biome { get; set; }
-			public int[] neighbors { get; set; }
-			public Objectsbytype[] objectsByType { get; set; }
-			public int pickableObjectsValuesOnStart { get; set; }
-			public int pickableObjectsValuesLeft { get; set; }
-		}
-
-		public class Objectsbytype
-		{
-			public int type { get; set; }
-			public int[] ids { get; set; }
 		}
 
 		public class Items
 		{
-			public List8[] list { get; set; }
+			public object[] list { get; set; }
 			public int freeId { get; set; }
-		}
-
-		public class List8
-		{
-			public int id { get; set; }
-			public int slotId { get; set; }
-			public int level { get; set; }
-			public string configSid { get; set; }
 		}
 
 		public class Buffs2
 		{
-			public List9[] list { get; set; }
-		}
-
-		public class List9
-		{
-			public string sid { get; set; }
-			public Duration[] durations { get; set; }
-			public bool wasApplied { get; set; }
-			public int effectsCount { get; set; }
-		}
-
-		public class Duration
-		{
-			public int type { get; set; }
-			public int leftValue { get; set; }
+			public object[] list { get; set; }
 		}
 
 		public class Weeks
 		{
 			public Allweek[] allWeeks { get; set; }
 			public Allmonth[] allMonths { get; set; }
-			public string[] waitingToReturnWeeks { get; set; }
+			public object[] waitingToReturnWeeks { get; set; }
 			public object[] waitingToReturnMonths { get; set; }
 			public string currentWeekSid { get; set; }
 			public bool isMonthWeek { get; set; }
@@ -2203,8 +2211,7 @@ namespace HeroesOE.Json
 
 		public class Winconditionsdata
 		{
-			[System.Text.Json.Serialization.JsonPropertyName("array")]
-			public Array1[] cond { get; set; }
+			public Array1[] array { get; set; }
 		}
 
 		public class Array1
@@ -2215,9 +2222,9 @@ namespace HeroesOE.Json
 			public object[] countDayLostStartCity { get; set; }
 			public int countDayGladiatorArena { get; set; }
 			public int countDayDelayStart { get; set; }
-			public int?[] idHeroesGladiatorArena { get; set; }
+			public object[] idHeroesGladiatorArena { get; set; }
 			public int nodeGladiatorArena { get; set; }
-			public bool?[] isNotification { get; set; }
+			public bool[] isNotification { get; set; }
 			public bool?[] isWasNotificationDesertionOrHeroLight { get; set; }
 			public object[] idCitiesHold { get; set; }
 			public object[] daysCitiesHold { get; set; }
@@ -2230,7 +2237,7 @@ namespace HeroesOE.Json
 		public class Mapwincondition
 		{
 			public int typeWinCondition { get; set; }
-			public float valueDesertion { get; set; }
+			public int valueDesertion { get; set; }
 			public int dayAdditionWinCondition { get; set; }
 			public object[] heroSids { get; set; }
 			public int indexSideCampaign { get; set; }
@@ -2250,16 +2257,7 @@ namespace HeroesOE.Json
 
 		public class Mapbonuses
 		{
-			public List10[] list { get; set; }
-		}
-
-		public class List10
-		{
-			public string sid { get; set; }
-			public int receiverSide { get; set; }
-			public string receiverFilter { get; set; }
-			public string[] parameters { get; set; }
-			public int[] receiversList { get; set; }
+			public object[] list { get; set; }
 		}
 
 		public class Randomitemspool
@@ -2496,9 +2494,9 @@ namespace HeroesOE.Json
 			public string nameSid { get; set; }
 			public string descriptionSid { get; set; }
 			public Economic economic { get; set; }
-			public float neutralPowerMultiplier { get; set; }
-			public float neutralExpMultiplier { get; set; }
-			public float guardPowerMultiplier { get; set; }
+			public int neutralPowerMultiplier { get; set; }
+			public int neutralExpMultiplier { get; set; }
+			public int guardPowerMultiplier { get; set; }
 			public object[] heroesArmies { get; set; }
 			public Ai ai { get; set; }
 		}
@@ -2508,8 +2506,8 @@ namespace HeroesOE.Json
 			public string name { get; set; }
 			public Playerstartresources playerStartResources { get; set; }
 			public Aistartresources aiStartResources { get; set; }
-			public float coefFractionLawPlayer { get; set; }
-			public float coefFractionLawAI { get; set; }
+			public int coefFractionLawPlayer { get; set; }
+			public int coefFractionLawAI { get; set; }
 		}
 
 		public class Playerstartresources
@@ -2539,15 +2537,15 @@ namespace HeroesOE.Json
 			public string name { get; set; }
 			public string script { get; set; }
 			public string battleScript { get; set; }
-			public float resourceAddPercent { get; set; }
-			public float tempStacksMultiplier { get; set; }
+			public int resourceAddPercent { get; set; }
+			public int tempStacksMultiplier { get; set; }
 			public int heroCountMax { get; set; }
 			public int heroCountIncrement { get; set; }
 			public int heroMaxHirePerDay { get; set; }
 			public int heroMaxHirePerDayIncrement { get; set; }
 			public int heroCountMaxHard { get; set; }
-			public float valuesVsMobsMultiplier { get; set; }
-			public float blockAreaByEnemyMultiplier { get; set; }
+			public int valuesVsMobsMultiplier { get; set; }
+			public int blockAreaByEnemyMultiplier { get; set; }
 			public string buildTag { get; set; }
 			public int manaPerDay { get; set; }
 		}
@@ -2790,9 +2788,9 @@ namespace HeroesOE.Json
 			public string nameSid { get; set; }
 			public string descriptionSid { get; set; }
 			public Economic1 economic { get; set; }
-			public float neutralPowerMultiplier { get; set; }
-			public float neutralExpMultiplier { get; set; }
-			public float guardPowerMultiplier { get; set; }
+			public int neutralPowerMultiplier { get; set; }
+			public int neutralExpMultiplier { get; set; }
+			public int guardPowerMultiplier { get; set; }
 			public object[] heroesArmies { get; set; }
 			public Ai1 ai { get; set; }
 		}
@@ -2802,8 +2800,8 @@ namespace HeroesOE.Json
 			public string name { get; set; }
 			public Playerstartresources1 playerStartResources { get; set; }
 			public Aistartresources1 aiStartResources { get; set; }
-			public float coefFractionLawPlayer { get; set; }
-			public float coefFractionLawAI { get; set; }
+			public int coefFractionLawPlayer { get; set; }
+			public int coefFractionLawAI { get; set; }
 		}
 
 		public class Playerstartresources1
@@ -2833,15 +2831,15 @@ namespace HeroesOE.Json
 			public string name { get; set; }
 			public string script { get; set; }
 			public string battleScript { get; set; }
-			public float resourceAddPercent { get; set; }
-			public float tempStacksMultiplier { get; set; }
+			public int resourceAddPercent { get; set; }
+			public int tempStacksMultiplier { get; set; }
 			public int heroCountMax { get; set; }
 			public int heroCountIncrement { get; set; }
 			public int heroMaxHirePerDay { get; set; }
 			public int heroMaxHirePerDayIncrement { get; set; }
 			public int heroCountMaxHard { get; set; }
-			public float valuesVsMobsMultiplier { get; set; }
-			public float blockAreaByEnemyMultiplier { get; set; }
+			public int valuesVsMobsMultiplier { get; set; }
+			public int blockAreaByEnemyMultiplier { get; set; }
 			public string buildTag { get; set; }
 			public int manaPerDay { get; set; }
 		}
@@ -2871,5 +2869,6 @@ namespace HeroesOE.Json
 			public int m_FileID { get; set; }
 			public int m_PathID { get; set; }
 		}
+
 	}
 }
